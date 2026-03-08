@@ -1,0 +1,212 @@
+/* BIA Calculadoras - Estilos */
+
+.calc-form {
+  background: var(--md-code-bg-color);
+  padding: 1.2rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.calc-form label {
+  display: block;
+  margin-top: 0.6rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.calc-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  box-sizing: border-box;
+}
+
+.calc-form input:focus {
+  outline: 2px solid var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+}
+
+.calc-form .calc-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+@media (max-width: 600px) {
+  .calc-form .calc-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calc-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.5rem;
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color) !important;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.calc-btn:hover {
+  opacity: 0.9;
+}
+
+.calc-btn-exemplo {
+  display: inline-block;
+  margin: 0.3rem 0.3rem 0.3rem 0;
+  padding: 0.3rem 0.8rem;
+  background: var(--md-accent-fg-color);
+  color: var(--md-accent-bg-color) !important;
+  border: none;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.calc-btn-exemplo:hover {
+  opacity: 0.85;
+}
+
+.calc-resultado {
+  background: var(--md-code-bg-color);
+  padding: 1.2rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+.calc-resultado h4 {
+  margin-top: 0;
+}
+
+.calc-tabela {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5rem 0;
+}
+
+.calc-tabela td,
+.calc-tabela th {
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  text-align: left;
+}
+
+.calc-tabela tr:last-child td {
+  border-bottom: none;
+}
+
+.calc-destaque td {
+  background: var(--md-accent-fg-color--transparent);
+  font-weight: bold;
+}
+
+.calc-sucesso {
+  background: #2e7d3220;
+  border-left: 4px solid #2e7d32;
+  padding: 0.8rem 1rem;
+  margin: 0.8rem 0;
+  border-radius: 0 4px 4px 0;
+  font-weight: 600;
+}
+
+.calc-erro {
+  background: #c6282820;
+  border-left: 4px solid #c62828;
+  padding: 0.8rem 1rem;
+  margin: 0.8rem 0;
+  border-radius: 0 4px 4px 0;
+  font-weight: 600;
+}
+
+.calc-aviso {
+  background: #f9a82520;
+  border-left: 4px solid #f9a825;
+  padding: 0.8rem 1rem;
+  margin: 0.8rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.sla-ok {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.sla-falha {
+  color: #c62828;
+  font-weight: bold;
+}
+
+/* Diagrama de barras */
+.calc-diagrama {
+  margin-top: 1rem;
+}
+
+.barra-container {
+  display: flex;
+  height: 32px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.barra-rto {
+  background: #1565c0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  min-width: 30px;
+}
+
+.barra-wrt {
+  background: #f9a825;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  min-width: 30px;
+}
+
+.barra-mtd {
+  height: 8px;
+  background: #c62828;
+  border-radius: 4px;
+  position: relative;
+}
+
+.barra-mtd::after {
+  content: 'MTD';
+  position: absolute;
+  right: 0;
+  top: -18px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #c62828;
+}
+
+/* Secoes das calculadoras */
+.calc-section {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.calc-section h3 {
+  margin-top: 0;
+}
