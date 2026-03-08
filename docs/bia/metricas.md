@@ -226,9 +226,9 @@ Disponibilidade = 2190 / (2190 + 2) = 99.91%
 
 **Validacao:** `RTO (1h) + WRT (2h) = 3h <= MTD (4h)` ✓
 
-**Explicacao para aula:**
+**Como interpretar:**
 
-*"A loja pode aceitar perder 15 minutos de dados, mas nao pode ficar parada mais de 4 horas no total. O sistema deve voltar em 1 hora, e depois ainda ha 2 horas de normalizacao. Como 1 + 2 = 3, ainda estamos dentro do MTD de 4 horas."*
+*A loja pode aceitar perder 15 minutos de dados, mas nao pode ficar parada mais de 4 horas no total. O sistema deve voltar em 1 hora, e depois ainda ha 2 horas de normalizacao. Como 1 + 2 = 3, ainda estamos dentro do MTD de 4 horas.*
 
 ---
 
@@ -251,9 +251,7 @@ Disponibilidade = 2190 / (2190 + 2) = 99.91%
 
 **Validacao:** `RTO (15min) + WRT (30min) = 45min <= MTD (1h)` ✓
 
-**O que este exemplo mostra:**
-
-Ha servicos em que:
+**Conclusao:** Ha servicos em que:
 - A perda de dados e **quase inaceitavel**
 - O tempo de recuperacao tem de ser **muito curto**
 - O **modo degradado** (MOR) tem de estar preparado a partida
@@ -329,7 +327,7 @@ Ha servicos em que:
 | **MTBF** | De quanto em quanto tempo falha? | Historico |
 | **MTTR** | Quanto tempo demora a reparar? | Historico |
 
-### Frases para usar em aula
+### Frases-chave para recordar
 
 - *"RPO mede perda aceitavel de dados; RTO mede tempo-alvo de recuperacao."*
 - *"O sistema voltar nao significa que o trabalho esteja recuperado; por isso existe o WRT."*
@@ -337,7 +335,7 @@ Ha servicos em que:
 - *"O MOR define o minimo com que ainda conseguimos funcionar."*
 - *"RTO + WRT tem de caber dentro do MTD, senao o plano tem um problema."*
 
-### Esquema para o quadro
+### Diagrama de sintese
 
 ```
 Falha ──► RTO ──► sistema restaurado ──► WRT ──► operacao normal

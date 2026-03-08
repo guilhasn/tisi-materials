@@ -1,6 +1,6 @@
 # Casos Praticos Adicionais - Business Impact Analysis
 
-Casos praticos para estudo e discussao em aula, organizados por setor e nivel de criticidade.
+Casos praticos para estudo e aprofundamento, organizados por setor e nivel de criticidade.
 
 ---
 
@@ -24,7 +24,7 @@ Casos praticos para estudo e discussao em aula, organizados por setor e nivel de
 
 **Validacao:** `RTO (30min) + WRT (1h) = 1h30 <= MTD (2h)` ✓
 
-**Discussao em aula:**
+**Para refletir:**
 - Porque e que o RPO tem de ser zero num banco?
 - Que tipo de infraestrutura justifica um RPO de zero? (replicacao sincrona, clusters ativos-ativos)
 - Que regulacoes se aplicam? (PSD2, regulacao do Banco de Portugal)
@@ -52,7 +52,7 @@ Casos praticos para estudo e discussao em aula, organizados por setor e nivel de
 
 **Validacao:** `RTO (45min) + WRT (2h) = 2h45 <= MTD (4h)` ✓
 
-**Discussao em aula:**
+**Para refletir:**
 - Neste caso, a falha nao e so de TI - envolve **seguranca fisica** (equipamentos, pessoas).
 - O WRT inclui **recalibracao fisica** de equipamentos, nao so verificacao de dados.
 - Diferenca entre IT (Information Technology) e OT (Operational Technology).
@@ -79,7 +79,7 @@ Casos praticos para estudo e discussao em aula, organizados por setor e nivel de
 
 **Validacao:** `RTO (4h) + WRT (3h) = 7h <= MTD (8h)` ✓
 
-**Discussao em aula:**
+**Para refletir:**
 - Nem todos os sistemas precisam de RPO agressivo.
 - A existencia de **copias locais** permite RPO mais relaxado.
 - O verdadeiro risco nao e tecnico: e **legal** (prazos judiciais).
@@ -107,7 +107,7 @@ Casos praticos para estudo e discussao em aula, organizados por setor e nivel de
 
 **Validacao:** `RTO (20min) + WRT (40min) = 1h <= MTD (1h30)` ✓
 
-**Discussao em aula:**
+**Para refletir:**
 - O MOR aqui e particularmente interessante: **modo degradado** com funcionalidades reduzidas.
 - Como e que o SLA contratual (99.9% = ~8.7h de downtime/ano) influencia as metricas?
 - Qual e a diferenca entre SLA (compromisso contratual) e RTO (objetivo interno)?
@@ -134,7 +134,7 @@ Casos praticos para estudo e discussao em aula, organizados por setor e nivel de
 
 **Validacao:** `RTO (8h) + WRT (4h) = 12h <= MTD (24h)` ✓
 
-**Discussao em aula:**
+**Para refletir:**
 - Caso com **baixa criticidade tecnica** mas **alta criticidade social**.
 - A existencia de **canais alternativos** (balcao fisico) permite metricas mais relaxadas.
 - Diferenca entre servicos publicos e privados na definicao de criticidade.
@@ -162,7 +162,7 @@ Casos praticos para estudo e discussao em aula, organizados por setor e nivel de
 
 **Validacao:** `RTO (1h) + WRT (1h) = 2h <= MTD (3h)` ✓
 
-**Discussao em aula:**
+**Para refletir:**
 - O MOR mostra como processos **pre-tecnologicos** podem servir de fallback.
 - A epoca do ano (Natal) muda a criticidade - fora da epoca, o MTD poderia ser 8h.
 - Diferenca entre dados em tempo real (posicoes GPS) e dados historicos.
@@ -189,7 +189,7 @@ Casos praticos para estudo e discussao em aula, organizados por setor e nivel de
 
 **Validacao:** `RTO (4h) + WRT (2h) = 6h <= MTD (24h)` ✓
 
-**Discussao em aula:**
+**Para refletir:**
 - Grande margem entre RTO+WRT (6h) e MTD (24h) - isto e bom ou mau?
 - Resposta: pode significar que o investimento em recuperacao rapida nao se justifica.
 - A existencia de **modo presencial** como fallback muda completamente a analise.
