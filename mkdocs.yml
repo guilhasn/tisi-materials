@@ -37,7 +37,8 @@ nav:
     - Casos Praticos: bia/casos-praticos.md
     - Exercicios: bia/exercicios.md
     - Calculadora Interativa: bia/calculadora.md
-  - Incident Response Plan: irp/index.md
+  - Incident Response Plan:
+    - Fundamentos: irp/index.md
   - Disaster Recovery Plan: drp/index.md
   - Business Continuity Plan: bcp/index.md
 

@@ -29,9 +29,22 @@ Casos praticos e exercicios sobre metricas de impacto:
 
 ---
 
-### :material-alert-circle: Incident Response Plan (IRP)
+### :material-alert-circle: [Incident Response Plan (IRP)](irp/index.md)
 
-*Brevemente*
+Como identificar, classificar e responder a incidentes de seguranca da informacao:
+
+| Conceito | Descricao |
+|----------|-----------|
+| **Identificacao** | Detetar que um incidente esta a ocorrer |
+| **Classificacao** | Avaliar a gravidade e o impacto (CIA) |
+| **Contencao** | Limitar o impacto e evitar propagacao |
+| **Erradicacao** | Remover a causa raiz do incidente |
+| **Recuperacao** | Restaurar operacoes normais |
+| **Licoes Aprendidas** | Melhorar processos para o futuro |
+
+**Conteudos:**
+
+- [Fundamentos do IRP](irp/index.md) - Conceitos, exemplos praticos e exercicios com solucoes
 
 ### :material-backup-restore: Disaster Recovery Plan (DRP)
 
