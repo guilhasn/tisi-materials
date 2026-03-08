@@ -26,6 +26,7 @@ Casos praticos e exercicios sobre metricas de impacto:
 - [Casos Praticos](bia/casos-praticos.md) - 10 cenarios de diferentes setores
 - [Exercicios](bia/exercicios.md) - 4 niveis de dificuldade com solucoes
 - [Calculadora Interativa](bia/calculadora.md) - Ferramentas de calculo no browser
+- :material-file-download: [Modelos BIA](https://github.com/guilhasn/tisi-materials/tree/main/BIA/Modelos){:target="_blank"} - Templates e exemplos para download
 
 ---
 

@@ -348,4 +348,6 @@ Falha ──► RTO ──► sistema restaurado ──► WRT ──► operaca
 
 ---
 
+:material-file-download: **Modelos BIA:** [Templates e exemplos para download](https://github.com/guilhasn/tisi-materials/tree/main/BIA/Modelos){:target="_blank"}
+
 *Proximo capitulo: [Casos praticos adicionais](casos-praticos.md)*
