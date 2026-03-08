@@ -4,6 +4,7 @@ site_author: IPLeiria - MCIF
 
 theme:
   name: material
+  custom_dir: overrides
   language: pt
   palette:
     - scheme: default
