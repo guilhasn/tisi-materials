@@ -765,4 +765,4 @@ A transicao da BIA para o IRP e conceptualmente clara:
 
 ---
 
-*Proximo capitulo: [Disaster Recovery Plan (DRP)](../drp/index.md)*
+*Proximo capitulo: [Planeamento do IRP](planeamento.md)*
