@@ -50,6 +50,7 @@ Como identificar, classificar e responder a incidentes de seguranca da informaca
 - [Detecao](irp/detecao.md) - Fontes de detecao, indicadores e fronteira incidente/desastre
 - [Reacao](irp/reacao.md) - Notificacao, documentacao e estrategias de contencao
 - [Recuperacao](irp/recuperacao.md) - Avaliacao de danos, pericia forense e recuperacao madura
+- [Casos Praticos](irp/casos-praticos.md) - 5 cenarios completos ponta-a-ponta
 
 ### :material-backup-restore: Disaster Recovery Plan (DRP)
 

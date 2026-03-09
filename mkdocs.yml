@@ -43,6 +43,7 @@ nav:
     - Detecao: irp/detecao.md
     - Reacao: irp/reacao.md
     - Recuperacao: irp/recuperacao.md
+    - Casos Praticos: irp/casos-praticos.md
   - Disaster Recovery Plan: drp/index.md
   - Business Continuity Plan: bcp/index.md
 
