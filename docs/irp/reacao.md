@@ -802,7 +802,7 @@ A lista de alerta deve ser revista e testada regularmente (pelo menos trimestral
 
 "Achamos que o atacante provavelmente estava a tentar roubar dados" nao e documentacao factual. "As 09:35, os logs do GitLab mostram operacoes git clone de 3 repositorios a partir do IP 203.x.x.x" e documentacao factual.
 
-### Armadilha 7: Reagir destrói evidencias
+### Armadilha 7: Reagir destroi evidencias
 
 > Acoes precipitadas de contencao podem destruir evidencias essenciais para a investigacao e para a recuperacao.
 

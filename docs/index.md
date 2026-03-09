@@ -52,11 +52,11 @@ Como identificar, classificar e responder a incidentes de seguranca da informaca
 - [Recuperacao](irp/recuperacao.md) - Avaliacao de danos, pericia forense e recuperacao madura
 - [Casos Praticos](irp/casos-praticos.md) - 5 cenarios completos ponta-a-ponta
 
-### :material-backup-restore: Disaster Recovery Plan (DRP)
+### :material-backup-restore: [Disaster Recovery Plan (DRP)](drp/index.md)
 
 *Brevemente*
 
-### :material-shield-check: Business Continuity Plan (BCP)
+### :material-shield-check: [Business Continuity Plan (BCP)](bcp/index.md)
 
 *Brevemente*
 
@@ -65,8 +65,10 @@ Como identificar, classificar e responder a incidentes de seguranca da informaca
 ## Como usar
 
 1. Consulta os materiais em cada modulo para estudo teorico-pratico
-2. Usa a [calculadora interativa](bia/calculadora.md) para experimentar com diferentes cenarios
-3. Resolve os [exercicios](bia/exercicios.md) antes de consultar as solucoes
+2. Segue a ordem recomendada: **BIA → IRP → DRP → BCP**
+3. Em cada modulo, le a teoria e depois resolve os exercicios antes de consultar as solucoes
+4. Usa os [casos praticos do BIA](bia/casos-praticos.md) e os [casos praticos do IRP](irp/casos-praticos.md) para consolidar conhecimentos
+5. Experimenta a [calculadora interativa](bia/calculadora.md) para simular diferentes cenarios
 
 ---
 

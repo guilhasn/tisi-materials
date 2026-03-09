@@ -414,10 +414,10 @@ O gateway bancario (externo) tem um SLA de 99.9% (disponibilidade).
 **Tarefas:**
 
 1. Se a Base de Dados de Apolices falhar, que sistemas sao afetados?
-2. Se o Motor de Calculo falhar, os clientes podem ver as suas apolices existentes? Porquem?
+2. Se o Motor de Calculo falhar, os clientes podem ver as suas apolices existentes? Porque?
 3. Define metricas BIA para cada componente interno (6 componentes).
 4. O MTD de cada componente deve considerar as dependencias? Como?
-5. Qual e o componente mais critico? Porquem?
+5. Qual e o componente mais critico? Porque?
 
 ??? tip "Orientacoes para solucao 4.2"
 
@@ -461,3 +461,5 @@ Estes exercicios cobrem desde a compreensao basica ate a analise avancada da BIA
 ---
 
 *Material de apoio: [Metricas BIA](metricas.md) | [Casos praticos](casos-praticos.md) | [Calculadora interativa](calculadora.md)*
+
+*Proximo capitulo: [Calculadora Interativa](calculadora.md)*

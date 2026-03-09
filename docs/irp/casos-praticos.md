@@ -438,7 +438,7 @@ A equipa inicialmente assume que e apenas sobrecarga pela campanha.
 
 ### Contexto
 
-Uma fabrica de componentes automoveis com 300 trabalhadores utiliza sistemas SCADA para controlar linhas de producao automatizadas (fornos, prensas, robos de montagem). Numa quinta-feira as 14h00, um operador nota que os valores de temperatura de um forno industrial exibidos no HMI (Human-Machine Interface) estao errados: o ecrã mostra 0°C quando o forno deveria estar a 850°C.
+Uma fabrica de componentes automoveis com 300 trabalhadores utiliza sistemas SCADA para controlar linhas de producao automatizadas (fornos, prensas, robos de montagem). Numa quinta-feira as 14h00, um operador nota que os valores de temperatura de um forno industrial exibidos no HMI (Human-Machine Interface) estao errados: o ecra mostra 0°C quando o forno deveria estar a 850°C.
 
 O operador, experiente, sabe que isto e fisicamente impossivel — o forno esta visivelmente quente. Reporta imediatamente ao supervisor.
 
@@ -592,10 +592,12 @@ O phishing revela falta de MFA. O ransomware revela RDP exposto. A fraude revela
 
 ---
 
-!!! info "Proximo modulo"
-    Estes casos praticos cobrem o ciclo completo de resposta a incidentes. Para exercicios focados em competencias especificas, consulte as seccoes de exercicios de cada modulo:
+!!! info "Exercicios por modulo"
+    Para exercicios focados em competencias especificas, consulte as seccoes de exercicios de cada modulo:
 
     - [Planeamento — Exercicios](planeamento.md#6-exercicios)
     - [Detecao — Exercicios](detecao.md#5-exercicios)
     - [Reacao — Exercicios](reacao.md#exercicios)
     - [Recuperacao — Exercicios](recuperacao.md#6-exercicios)
+
+*Proximo modulo: [Disaster Recovery Plan (DRP)](../drp/index.md)*

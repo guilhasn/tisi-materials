@@ -61,12 +61,12 @@ Um ataque e classificado como **incidente** quando:
 
 Isto e importante porque evita banalizar tudo. Existe uma ideia de **triagem e qualificacao**.
 
-| Situacao | E incidente? | Porquê |
+| Situacao | E incidente? | Porque |
 |----------|:------------:|--------|
 | Milhares de scans aleatorios na internet | Nao | Ruido normal, sem alvo especifico |
 | Scan direcionado a portas criticas do servidor | Possivelmente | Pode indicar reconhecimento ativo |
 | Email de phishing recebido por 50 colaboradores | Sim | Ameaca direta a confidencialidade das credenciais |
-| Falso positivo de antivirus num ficheiro legítimo | Nao | Evento benigno, sem impacto real |
+| Falso positivo de antivirus num ficheiro legitimo | Nao | Evento benigno, sem impacto real |
 | Acesso nao autorizado a base de dados de clientes | Sim | Comprometimento direto da confidencialidade |
 
 ---

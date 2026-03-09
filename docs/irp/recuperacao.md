@@ -62,7 +62,7 @@ O dano pode manifestar-se de muitas formas que nao sao imediatamente obvias:
 - **Contas comprometidas** que podem ser usadas futuramente
 - **Configuracoes adulteradas** que enfraquecem a seguranca
 - **Logs apagados** que dificultam a investigacao
-- **Servicos degradados** (nao totalmente em baixo, mas lentos ou instáveis)
+- **Servicos degradados** (nao totalmente em baixo, mas lentos ou instaveis)
 - **Impacto em terceiros** (parceiros, clientes, fornecedores)
 - **Perda de confianca** de stakeholders
 
@@ -923,4 +923,4 @@ O atacante pode ter deixado mecanismos de persistencia. A causa raiz pode nao te
 
 ---
 
-*Proximo capitulo: [Disaster Recovery Plan (DRP)](../drp/index.md)*
+*Proximo capitulo: [Casos Praticos do IRP](casos-praticos.md)*

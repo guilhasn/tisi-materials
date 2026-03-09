@@ -158,3 +158,5 @@ Verifica se a frequencia de backups e adequada ao RPO definido.
 ---
 
 *Material de apoio: [Metricas BIA](metricas.md) | [Casos praticos](casos-praticos.md) | [Exercicios](exercicios.md)*
+
+*Proximo modulo: [Incident Response Plan (IRP)](../irp/index.md)*
