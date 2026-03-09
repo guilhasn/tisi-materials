@@ -60,7 +60,7 @@ Calcula métricas de fiabilidade a partir de dados de falhas e compara com SLAs.
 <input type="number" id="fiab-horas" placeholder="Ex: 8760 (1 ano, 24/7)" min="1">
 </div>
 <div>
-<label for="fiab-falhas">Duracao de cada reparação (horas, separadas por virgula):</label>
+<label for="fiab-falhas">Duração de cada reparação (horas, separadas por virgula):</label>
 <input type="text" id="fiab-falhas" placeholder="Ex: 1.5, 0.75, 3.25, 2, 1, 4.5">
 </div>
 </div>
@@ -73,12 +73,12 @@ Calcula métricas de fiabilidade a partir de dados de falhas e compara com SLAs.
 
 ## 3. Calculadora de Custo de Downtime
 
-Estima as perdas financeiras por incidente é por ano. Opcionalmente, analisa o retorno de um investimento em infraestrutura.
+Estima as perdas financeiras por incidente e por ano. Opcionalmente, analisa o retorno de um investimento em infraestrutura.
 
 <div class="calc-form">
 <div class="calc-row">
 <div>
-<label for="custo-faturação">Faturacao por hora (EUR):</label>
+<label for="custo-faturação">Faturação por hora (EUR):</label>
 <input type="number" id="custo-faturação" placeholder="Ex: 50000" min="0">
 </div>
 <div>
@@ -131,7 +131,7 @@ Verifica se a frequência de backups e adequada ao RPO definido.
 </div>
 <div>
 <label for="backup-freq">Frequência de backup (a cada X minutos):</label>
-<input type="number" id="backup-freq" placeholder="Ex: 1440 (diario)" min="1">
+<input type="number" id="backup-freq" placeholder="Ex: 1440 (diário)" min="1">
 </div>
 </div>
 <button class="calc-btn" onclick="verificarBackup()">Verificar</button>

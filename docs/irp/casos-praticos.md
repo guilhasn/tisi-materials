@@ -1,8 +1,8 @@
 # Casos Práticos - Incident Response Plan
 
-Casos práticos completos que percorrem **todo o ciclo de resposta a incidentes**: deteção, classificação, reação, contenção, recuperação é lições aprendidas.
+Casos práticos completos que percorrem **todo o ciclo de resposta a incidentes**: deteção, classificação, reação, contenção, recuperação e lições aprendidas.
 
-Cada caso é independente e pode ser usado para estudo ou discussao em aula. Os cenários são ficticios mas baseados em situações reais.
+Cada caso e independente e pode ser usado para estudo ou discussão em aula. Os cenários são fictícios mas baseados em situações reais.
 
 !!! tip "Como usar estes casos"
     Cada caso segue a mesma estrutura do ciclo IRP. Tente primeiro **identificar o que faria em cada fase** antes de ler a resposta. Os casos estão ordenados por complexidade crescente.
@@ -13,9 +13,9 @@ Cada caso é independente e pode ser usado para estudo ou discussao em aula. Os 
 
 ### Contexto
 
-Uma universidade pública com 12.000 alunos e 800 funcionarios recebe, numa terca-feira de manha, múltiplas chamadas no helpdesk. Vários docentes reportam ter recebido um email aparentemente enviado pelo reitor, pedindo que "confirmem as credenciais" num formulario online por causa de uma "migracao do email institucional".
+Uma universidade pública com 12.000 alunos e 800 funcionários recebe, numa terça-feira de manhã, múltiplas chamadas no helpdesk. Vários docentes reportam ter recebido um email aparentemente enviado pelo reitor, pedindo que "confirmem as credenciais" num formulário online por causa de uma "migração do email institucional".
 
-O helpdesk recebe 15 chamadas em 90 minutos. Alguns docentes admitem ter preenchido o formulario.
+O helpdesk recebe 15 chamadas em 90 minutos. Alguns docentes admitem ter preenchido o formulário.
 
 ### Fase 1 - Deteção
 
@@ -24,7 +24,7 @@ O helpdesk recebe 15 chamadas em 90 minutos. Alguns docentes admitem ter preench
 | **Fonte de deteção** | Humana (utilizadores reportam ao helpdesk) |
 | **Primeiro indicador** | Possível — vários emails semelhantes reportados (pode ser spam comum) |
 | **Escalamento** | Helpdesk encaminha ao coordenador de segurança após 5.ª chamada em 30 minutos |
-| **Confirmacao** | Provável → Definitivo: URL do formulario e externo, domínio registado há 2 dias, certificado SSL gratuito |
+| **Confirmação** | Provável → Definitivo: URL do formulário e externo, domínio registado há 2 dias, certificado SSL gratuito |
 
 **Sinais críticos:**
 
@@ -40,7 +40,7 @@ O helpdesk recebe 15 chamadas em 90 minutos. Alguns docentes admitem ter preench
 | **Tipo de incidente** | Comprometimento de credenciais via phishing |
 | **Impacto CIA** | **Confidencialidade** — credenciais expostas; acesso potencial a email, plataformas académicas, dados de alunos |
 | **Severidade** | Alta — 8+ contas comprometidas com acesso a sistemas críticos |
-| **Perímetro estimado** | 800 destinatarios, 8 contas confirmadas comprometidas, potencialmente mais |
+| **Perímetro estimado** | 800 destinatários, 8 contas confirmadas comprometidas, potencialmente mais |
 
 **Decisão:** Ativar equipa de resposta a incidentes. Não é desastre (sistemas continuam operacionais), mas requer resposta coordenada urgente.
 
@@ -49,7 +49,7 @@ O helpdesk recebe 15 chamadas em 90 minutos. Alguns docentes admitem ter preench
 **Ações imediatas (primeiros 30 minutos):**
 
 1. Reset de password de todas as 8 contas confirmadas
-2. Invalidacao de todas as sessões ativas dessas contas
+2. Invalidação de todas as sessões ativas dessas contas
 3. Bloquear o domínio malicioso no proxy e no filtro de email
 4. Colocar em quarentena todos os emails do mesmo remetente
 
@@ -59,8 +59,8 @@ O helpdesk recebe 15 chamadas em 90 minutos. Alguns docentes admitem ter preench
 |------|--------|--------|
 | CISO | Imediatamente | Coordenação da resposta |
 | Diretor de TI | Imediatamente | Recursos e decisões técnicas |
-| Reitoria | Dentro de 1 hora | Implicacao institucional (nome do reitor usado) |
-| DPO | Dentro de 2 horas | Possível violacao de dados pessoais (RGPD) |
+| Reitoria | Dentro de 1 hora | Implicação institucional (nome do reitor usado) |
+| DPO | Dentro de 2 horas | Possível violação de dados pessoais (RGPD) |
 
 **Documentação iniciada:** Registo cronológico desde a primeira chamada ao helpdesk.
 
@@ -72,11 +72,11 @@ O helpdesk recebe 15 chamadas em 90 minutos. Alguns docentes admitem ter preench
 |------|-------------|
 | Bloquear domínio malicioso (proxy + DNS + email) | Impedir novos cliques |
 | Reset forcado das 8 contas | Revogar acesso ao atacante |
-| Ativar MFA temporário nas contas afetadas | Prevenir reutilizacao mesmo que password seja conhecida |
+| Ativar MFA temporário nas contas afetadas | Prevenir reutilização mesmo que password seja conhecida |
 | Analisar logs de acesso das contas comprometidas | Determinar se o atacante já usou as credenciais |
 | Enviar comunicação a toda a universidade | Alertar para não clicar e reportar se já clicaram |
 
-**Descoberta durante contenção:** A análise de logs revela que 3 das 8 contas foram acedidas a partir de um IP na Holanda, 20 minutos após o preenchimento do formulario. O atacante descarregou emails e acedeu a plataforma de notas.
+**Descoberta durante contenção:** A análise de logs revela que 3 das 8 contas foram acedidas a partir de um IP na Holanda, 20 minutos após o preenchimento do formulário. O atacante descarregou emails e acedeu a plataforma de notas.
 
 ### Fase 5 - Recuperação
 
@@ -92,8 +92,8 @@ O helpdesk recebe 15 chamadas em 90 minutos. Alguns docentes admitem ter preench
 
 1. **Corrigir vulnerabilidades:** Implementar MFA obrigatório para todos os docentes (não apenas os afetados)
 2. **Restaurar confiança:** Comunicação transparente aos docentes afetados sobre o que foi acedido
-3. **Melhorar deteção:** Configurar alerta automático para logins de geolocalizacoes anómalas
-4. **Formação:** Sessao de sensibilização anti-phishing para toda a comunidade académica
+3. **Melhorar deteção:** Configurar alerta automático para logins de geolocalizações anómalas
+4. **Formação:** Sessão de sensibilização anti-phishing para toda a comunidade académica
 5. **Notificação CNPD:** Avaliação com DPO — se dados pessoais de alunos foram acedidos, notificação obrigatória em 72 horas
 
 ### Lições aprendidas
@@ -111,9 +111,9 @@ O helpdesk recebe 15 chamadas em 90 minutos. Alguns docentes admitem ter preench
 
 ### Contexto
 
-Um hospital distrital com 400 camas e 1.200 funcionarios deteta, as 06h30 de um sabado, que o sistema PACS (Picture Archiving and Communication System) — que armazena e distribui exames de imagiologia (raio-X, TAC, ressonancia) — está inacessível. Os técnicos de radiologia não conseguem consultar nem armazenar exames.
+Um hospital distrital com 400 camas e 1.200 funcionários deteta, as 06h30 de um sábado, que o sistema PACS (Picture Archiving and Communication System) — que armazena e distribui exames de imagiologia (raio-X, TAC, ressonancia) — está inacessível. Os técnicos de radiologia não conseguem consultar nem armazenar exames.
 
-O técnico de serviço tenta reiniciar o servidor é depara-se com uma mensagem de ransomware exigindo pagamento em criptomoeda.
+O técnico de serviço tenta reiniciar o servidor e depara-se com uma mensagem de ransomware exigindo pagamento em criptomoeda.
 
 ### Fase 1 - Deteção
 
@@ -124,7 +124,7 @@ O técnico de serviço tenta reiniciar o servidor é depara-se com uma mensagem 
 | **Hora crítica** | Sabado as 06h30 — equipa de TI reduzida, urgencias em funcionamento |
 | **Escalamento** | Técnico → Responsável de turno TI → CISO (contacto de emergência) |
 
-**Agravante:** E sabado de manha. A equipa de TI habitual não está disponível. As urgencias estão a funcionar com doentes que podem precisar de exames de imagiologia.
+**Agravante:** E sábado de manhã. A equipa de TI habitual não está disponível. As urgencias estão a funcionar com doentes que podem precisar de exames de imagiologia.
 
 ### Fase 2 - Classificação
 
@@ -141,27 +141,27 @@ O técnico de serviço tenta reiniciar o servidor é depara-se com uma mensagem 
 
 **Ações imediatas (primeiros 15 minutos):**
 
-1. **NAO desligar o servidor** — preservar evidências em memoria
-2. Isolar o servidor PACS da rede (desligar cabo de rede, não a maquina)
+1. **NAO desligar o servidor** — preservar evidências em memória
+2. Isolar o servidor PACS da rede (desligar cabo de rede, não a máquina)
 3. Verificar se outros servidores clínicos estão operacionais
-4. Ativar procedimento alternativo para exames (impressao física, CD)
+4. Ativar procedimento alternativo para exames (impressão física, CD)
 
 **Notificação:**
 
 | Quem | Quando | Porque |
 |------|--------|--------|
-| CISO | Imediatamente | Coordenação da resposta é decisão sobre pagamento |
-| Direcao clínica | Imediatamente | Impacto no atendimento a doentes |
-| Administracao hospitalar | Dentro de 30 min | Decisão estratégica (pagar resgate? comunicação pública?) |
-| DPO | Dentro de 1 hora | Dados de saúde regulados (RGPD — dados sensiveis) |
-| Autoridade de saúde | Conforme regulação | Obrigacao legal de reporte |
-| Policia Judiciaria | Dentro de 24h | Crime informatico |
+| CISO | Imediatamente | Coordenação da resposta e decisão sobre pagamento |
+| Direção clínica | Imediatamente | Impacto no atendimento a doentes |
+| Administração hospitalar | Dentro de 30 min | Decisão estratégica (pagar resgate? comunicação pública?) |
+| DPO | Dentro de 1 hora | Dados de saúde regulados (RGPD — dados sensíveis) |
+| Autoridade de saúde | Conforme regulação | Obrigação legal de reporte |
+| Polícia Judiciária | Dentro de 24h | Crime informático |
 
-**Decisão crítica:** O hospital decide **NAO pagar o resgate**, seguindo recomendações do Centro Nacional de Ciberseguranca (CNCS).
+**Decisão crítica:** O hospital decide **NAO pagar o resgate**, seguindo recomendações do Centro Nacional de Cibersegurança (CNCS).
 
 ### Fase 4 - Contenção
 
-**Estratégia:** Contenção agressiva — prioridade é proteger outros sistemas clínicos e a segurança dos doentes.
+**Estratégia:** Contenção agressiva — prioridade e proteger outros sistemas clínicos e a segurança dos doentes.
 
 | Ação | Justificação |
 |------|-------------|
@@ -169,11 +169,11 @@ O técnico de serviço tenta reiniciar o servidor é depara-se com uma mensagem 
 | Verificar todos os servidores clínicos | Determinar perímetro real da infeção |
 | Bloquear comunicação com servidores C2 conhecidos | Cortar ligação com o atacante |
 | Mudar credenciais de todas as contas de serviço | O atacante pode ter credenciais adicionais |
-| Ativar plano de contingencia clínico | Garantir continuidade de cuidados |
+| Ativar plano de contingência clínico | Garantir continuidade de cuidados |
 
 **Resultado da verificação:** O ransomware está confinado ao servidor PACS. Não se propagou a outros sistemas — a segmentação de rede funcionou.
 
-**Plano de contingencia clínico ativado:**
+**Plano de contingência clínico ativado:**
 
 - Exames de urgência: impressos em pelicula, entregues em mão
 - Exames eletivos: adiados para segunda-feira
@@ -185,7 +185,7 @@ O técnico de serviço tenta reiniciar o servidor é depara-se com uma mensagem 
 
 - Servidor PACS cifrado — dados inacessiveis
 - Backup mais recente: sexta-feira as 23h00 (7,5 horas antes)
-- Exames realizados entre 23h00 de sexta e 06h30 de sabado: 12 exames de urgência
+- Exames realizados entre 23h00 de sexta e 06h30 de sábado: 12 exames de urgência
 - Sem evidência de exfiltração de dados (mas não se pode excluir)
 
 **Ações de recuperação:**
@@ -194,8 +194,8 @@ O técnico de serviço tenta reiniciar o servidor é depara-se com uma mensagem 
 2. **Restaurar de backup:** Reinstalar servidor limpo e restaurar dados do backup de sexta-feira
 3. **Recuperar exames perdidos:** 8 dos 12 exames de urgência podem ser repetidos; 4 foram impressos e podem ser digitalizados
 4. **Corrigir vetor de entrada:** Investigação revela que o ransomware entrou via RDP exposto — fechar RDP, implementar VPN
-5. **Hardening:** Atualizar antivirus, aplicar patches pendentes, rever permissoes
-6. **Monitorização reforcada:** 14 dias com vigilância intensiva de todos os sistemas clínicos
+5. **Hardening:** Atualizar antivirus, aplicar patches pendentes, rever permissões
+6. **Monitorização reforçada:** 14 dias com vigilância intensiva de todos os sistemas clínicos
 
 **Timeline de restauro:**
 
@@ -216,11 +216,11 @@ O técnico de serviço tenta reiniciar o servidor é depara-se com uma mensagem 
 
 ---
 
-## Caso 3 - Banco: Intrusão no sistema de transferencias interbancarias
+## Caso 3 - Banco: Intrusão no sistema de transferências interbancárias
 
 ### Contexto
 
-Um banco de média dimensão deteta, durante uma auditoria de rotina numa quarta-feira, transações invulgares no sistema de transferencias interbancarias (SWIFT). Existem 47 transferencias de pequeno valor (entre 500€ e 2.000€) para contas em 3 países diferentes, realizadas nas últimas 72 horas, fora do padrão habitual.
+Um banco de média dimensão deteta, durante uma auditoria de rotina numa quarta-feira, transações invulgares no sistema de transferências interbancárias (SWIFT). Existem 47 transferências de pequeno valor (entre 500€ e 2.000€) para contas em 3 países diferentes, realizadas nas últimas 72 horas, fora do padrão habitual.
 
 A equipa de auditoria interna escala imediatamente para a área de segurança.
 
@@ -230,10 +230,10 @@ A equipa de auditoria interna escala imediatamente para a área de segurança.
 |----------|---------|
 | **Fonte de deteção** | Humana (auditoria interna) + Tecnológica (anomalia em registos transacionais) |
 | **Primeiro indicador** | Provável — transações atipicas em volume e destino |
-| **Confirmacao** | Definitivo: contas de destino são novas, criadas recentemente, em países sem relação comercial habitual |
+| **Confirmação** | Definitivo: contas de destino são novas, criadas recentemente, em países sem relação comercial habitual |
 | **Atraso na deteção** | 72 horas — transações já tinham sido executadas |
 
-**Fator crítico:** O atacante usou transferencias de **pequeno valor** para evitar os limiares de alerta automático (que disparam acima de 10.000€). Técnica conhecida como "salami slicing".
+**Fator crítico:** O atacante usou transferências de **pequeno valor** para evitar os limiares de alerta automático (que disparam acima de 10.000€). Técnica conhecida como "salami slicing".
 
 ### Fase 2 - Classificação
 
@@ -242,7 +242,7 @@ A equipa de auditoria interna escala imediatamente para a área de segurança.
 | **Tipo de incidente** | Fraude financeira via comprometimento de sistema crítico |
 | **Impacto CIA** | **Integridade** (transações fraudulentas) + **Confidencialidade** (acesso não autorizado ao sistema SWIFT) |
 | **Severidade** | Crítica — impacto financeiro direto, regulatório e reputacional |
-| **Valor total** | ~52.000€ em transferencias fraudulentas |
+| **Valor total** | ~52.000€ em transferências fraudulentas |
 
 **Decisão:** Ativar IRP com equipa alargada incluindo compliance, jurídico e comunicação com regulador.
 
@@ -250,7 +250,7 @@ A equipa de auditoria interna escala imediatamente para a área de segurança.
 
 **Ações imediatas (primeiros 15 minutos):**
 
-1. Suspender todas as transferencias pendentes para as contas de destino identificadas
+1. Suspender todas as transferências pendentes para as contas de destino identificadas
 2. Bloquear as credenciais usadas nas transações suspeitas
 3. Contactar bancos correspondentes para tentar reverter/congelar fundos
 4. Preservar todos os logs do sistema SWIFT dos últimos 7 dias
@@ -260,23 +260,23 @@ A equipa de auditoria interna escala imediatamente para a área de segurança.
 | Quem | Quando | Porque |
 |------|--------|--------|
 | CISO e Diretor de TI | Imediatamente | Coordenação técnica |
-| Administracao do banco | Imediatamente | Impacto financeiro e decisões estratégicas |
+| Administração do banco | Imediatamente | Impacto financeiro e decisões estratégicas |
 | Compliance Officer | Dentro de 30 min | Obrigacoes regulatorias |
 | Banco de Portugal | Conforme regulação | Reporte obrigatório de incidente significativo |
 | SWIFT (rede) | Dentro de 2h | Protocolo de segurança da rede SWIFT |
-| Policia Judiciaria | Dentro de 24h | Crime financeiro |
+| Polícia Judiciária | Dentro de 24h | Crime financeiro |
 
-**Decisão crítica:** Manter o sistema SWIFT operacional com monitorização reforcada, ou desliga-lo? Decisão: manter ativo com aprovacao manual de todas as transferencias internacionais.
+**Decisão crítica:** Manter o sistema SWIFT operacional com monitorização reforçada, ou desliga-lo? Decisão: manter ativo com aprovação manual de todas as transferências internacionais.
 
 ### Fase 4 - Contenção
 
-**Estratégia:** Contenção cirurgica — não interromper operações bancarias mas eliminar o acesso do atacante.
+**Estratégia:** Contenção cirúrgica — não interromper operações bancárias mas eliminar o acesso do atacante.
 
 | Ação | Justificação |
 |------|-------------|
 | Revogar todas as credenciais de acesso ao SWIFT | Eliminar acessos comprometidos |
-| Implementar aprovacao dual (4 olhos) para todas as transferencias | Prevenir novas transações fraudulentas |
-| Isolar e analisar a estacao de trabalho usada | Determinar vetor de entrada |
+| Implementar aprovação dual (4 olhos) para todas as transferências | Prevenir novas transações fraudulentas |
+| Isolar e analisar a estação de trabalho usada | Determinar vetor de entrada |
 | Rever todos os acessos privilegiados dos últimos 30 dias | Procurar outros comprometimentos |
 | Contactar bancos de destino para congelamento de fundos | Tentar recuperar o dinheiro |
 
@@ -286,19 +286,19 @@ A equipa de auditoria interna escala imediatamente para a área de segurança.
 
 **Avaliação de danos:**
 
-- 47 transferencias fraudulentas: 52.300€
-- 18 transferencias possivelmente reverssiveis (23.100€) — fundos ainda nas contas de destino
-- 29 transferencias irrecuperaveis (29.200€) — fundos já movidos
-- 1 estacao de trabalho comprometida (keylogger ativo há 2 semanas)
+- 47 transferências fraudulentas: 52.300€
+- 18 transferências possivelmente reverssiveis (23.100€) — fundos ainda nas contas de destino
+- 29 transferências irrecuperáveis (29.200€) — fundos já movidos
+- 1 estação de trabalho comprometida (keylogger ativo há 2 semanas)
 - Sem evidência de acesso a dados de clientes para além das transações
 
 **Ações de recuperação:**
 
-1. **Perícia forense:** Análise completa da estacao comprometida — determinar exatamente o que o atacante acedeu
-2. **Recuperar fundos:** Trabalhar com bancos correspondentes e autoridades para congelar e reverter transferencias
-3. **Reconstruir estacao:** Reinstalar de raiz a estacao comprometida
+1. **Perícia forense:** Análise completa da estação comprometida — determinar exatamente o que o atacante acedeu
+2. **Recuperar fundos:** Trabalhar com bancos correspondentes e autoridades para congelar e reverter transferências
+3. **Reconstruir estação:** Reinstalar de raiz a estação comprometida
 4. **Reforcar autenticação:** Implementar tokens físicos (hardware) para acesso ao SWIFT
-5. **Melhorar deteção:** Baixar limiares de alerta; implementar deteção de padrões (múltiplas transferencias pequenas)
+5. **Melhorar deteção:** Baixar limiares de alerta; implementar deteção de padrões (múltiplas transferências pequenas)
 6. **Rever política de email:** Sandboxing de anexos, bloqueio de macros Word por defeito
 7. **Reporte regulatório:** Reporte detalhado ao Banco de Portugal conforme prazos regulatorios
 
@@ -331,9 +331,9 @@ A equipa inicialmente assume que é apenas sobrecarga pela campanha.
 | **Fonte de deteção** | Tecnológica (APM — Application Performance Monitoring) + Humana (clientes via chat) |
 | **Primeiro indicador** | Possível — pode ser sobrecarga legítima (Black Friday) |
 | **Escalamento T+15min** | Provável — padrões de tráfego inconsistentes com utilizadores reais (80% de requests de IPs do mesmo bloco) |
-| **Confirmacao T+30min** | Definitivo: dois ataques simultâneos — DDoS volumetrico + tentativas de SQL injection no checkout |
+| **Confirmação T+30min** | Definitivo: dois ataques simultâneos — DDoS volumétrico + tentativas de SQL injection no checkout |
 
-**Complexidade:** O atacante usou o DDoS como **diversao** para mascarar o verdadeiro ataque (SQL injection no formulario de checkout). A equipa quase se focou exclusivamente no DDoS.
+**Complexidade:** O atacante usou o DDoS como **diversão** para mascarar o verdadeiro ataque (SQL injection no formulário de checkout). A equipa quase se focou exclusivamente no DDoS.
 
 ### Fase 2 - Classificação
 
@@ -364,7 +364,7 @@ A equipa inicialmente assume que é apenas sobrecarga pela campanha.
 
 | Quem | Quando | Porque |
 |------|--------|--------|
-| CTO | Imediatamente | Coordenação técnica é decisão sobre manter site ativo |
+| CTO | Imediatamente | Coordenação técnica e decisão sobre manter site ativo |
 | CEO | Dentro de 30 min | Impacto financeiro direto (Black Friday) |
 | DPO | Dentro de 1h | Potencial fuga de dados de clientes |
 | Equipa de comunicação | Dentro de 1h | Clientes estão a reclamar nas redes sociais |
@@ -401,16 +401,16 @@ A equipa inicialmente assume que é apenas sobrecarga pela campanha.
 - DDoS: 2 horas de degradação severa, 45 minutos de checkout indisponível
 - SQL injection: dados de 2.300 clientes expostos (sem dados financeiros)
 - Impacto financeiro: ~12.000€ em vendas perdidas + custos de resposta
-- Impacto reputacional: reclamações nas redes sociais, cobertura mediatica
+- Impacto reputacional: reclamações nas redes sociais, cobertura mediática
 
 **Ações de recuperação:**
 
-1. **Corrigir vulnerabilidade:** Patch do formulario de checkout (prepared statements em vez de concatenacao SQL)
-2. **Auditoria de código:** Revisao de todos os formularios para vulnerabilidades similares
-3. **Restaurar checkout:** Reativar com WAF permanente e monitorização reforcada
+1. **Corrigir vulnerabilidade:** Patch do formulário de checkout (prepared statements em vez de concatenação SQL)
+2. **Auditoria de código:** Revisão de todos os formulários para vulnerabilidades similares
+3. **Restaurar checkout:** Reativar com WAF permanente e monitorização reforçada
 4. **Notificar clientes afetados:** Email personalizado aos 2.300 clientes com explicação transparente
 5. **Notificação CNPD:** Obrigatória em 72 horas (dados pessoais de 2.300 pessoas)
-6. **Compensacao:** Voucher de desconto aos clientes afetados como gesto de boa-fe
+6. **Compensação:** Voucher de desconto aos clientes afetados como gesto de boa-fe
 7. **Melhorar infraestrutura:** CDN anti-DDoS permanente (não apenas reativo); WAF always-on
 
 **Timeline:**
@@ -429,16 +429,16 @@ A equipa inicialmente assume que é apenas sobrecarga pela campanha.
 |---------|-----------|
 | O que funcionou? | CDN anti-DDoS eficaz; dados de pagamento protegidos (gateway externo) |
 | O que falhou? | Vulnerabilidade SQL injection básica no checkout; DDoS quase mascarou o ataque real |
-| O que mudar? | Code review obrigatório pré-deploy; WAF permanente; plano de Black Friday com equipa reforcada |
+| O que mudar? | Code review obrigatório pré-deploy; WAF permanente; plano de Black Friday com equipa reforçada |
 | Tempo de resposta | Deteção: 30 min, Contenção DDoS: 35 min, Contenção SQL injection: 2h15, Normal: 3h |
 
 ---
 
-## Caso 5 - Industria: Comprometimento de rede OT com risco de segurança física
+## Caso 5 - Indústria: Comprometimento de rede OT com risco de segurança física
 
 ### Contexto
 
-Uma fabrica de componentes automóveis com 300 trabalhadores utiliza sistemas SCADA para controlar linhas de produção automatizadas (fornos, prensas, robos de montagem). Numa quinta-feira as 14h00, um operador nota que os valores de temperatura de um forno industrial exibidos no HMI (Human-Machine Interface) estão errados: o ecrã mostra 0°C quando o forno deveria estar a 850°C.
+Uma fábrica de componentes automóveis com 300 trabalhadores utiliza sistemas SCADA para controlar linhas de produção automatizadas (fornos, prensas, robôs de montagem). Numa quinta-feira as 14h00, um operador nota que os valores de temperatura de um forno industrial exibidos no HMI (Human-Machine Interface) estão errados: o ecrã mostra 0°C quando o forno deveria estar a 850°C.
 
 O operador, experiente, sabe que isto é fisicamente impossível — o forno está visivelmente quente. Reporta imediatamente ao supervisor.
 
@@ -447,9 +447,9 @@ O operador, experiente, sabe que isto é fisicamente impossível — o forno est
 | Elemento | Detalhe |
 |----------|---------|
 | **Fonte de deteção** | Humana (operador com conhecimento do processo físico) |
-| **Primeiro indicador** | Definitivo — valores fisicamente impossiveis num sistema de controlo crítico |
+| **Primeiro indicador** | Definitivo — valores fisicamente impossíveis num sistema de controlo crítico |
 | **Fator humano** | A experiência do operador foi decisiva. Um sistema automático poderia ter interpretado "0°C" como "forno desligado" |
-| **Risco imediato** | Se os controladores automáticos "acreditarem" que o forno está a 0°C, podem **aumentar a temperatura** sem limite — risco de explosao/incêndio |
+| **Risco imediato** | Se os controladores automáticos "acreditarem" que o forno está a 0°C, podem **aumentar a temperatura** sem limite — risco de explosão/incêndio |
 
 **Urgência extrema:** Este não é apenas um incidente de TI. Ha risco de **segurança física** para pessoas e equipamentos.
 
@@ -469,7 +469,7 @@ O operador, experiente, sabe que isto é fisicamente impossível — o forno est
 **Ações imediatas (primeiros 5 minutos):**
 
 1. **Paragem de emergência** do forno afetado (botão físico de emergência)
-2. **Evacuacao da zona** do forno por precaucao
+2. **Evacuação da zona** do forno por precaução
 3. **Verificação manual** de todos os outros fornos e equipamentos críticos
 4. **Passagem a controlo manual** de todos os equipamentos SCADA
 
@@ -480,7 +480,7 @@ O operador, experiente, sabe que isto é fisicamente impossível — o forno est
 | Diretor de produção | Imediatamente | Segurança física dos trabalhadores |
 | Responsável de segurança física | Imediatamente | Risco de acidente industrial |
 | CISO / TI | Imediatamente | Investigação do comprometimento |
-| Administracao | Dentro de 30 min | Paragem de produção, impacto financeiro |
+| Administração | Dentro de 30 min | Paragem de produção, impacto financeiro |
 | Autoridades (se necessário) | Conforme gravidade | Potencial sabotagem industrial |
 
 **Decisão crítica:** Parar **toda** a produção ou apenas o forno afetado?
@@ -497,22 +497,22 @@ O operador, experiente, sabe que isto é fisicamente impossível — o forno est
 | Manter equipamentos em modo manual | Garantir segurança física enquanto se investiga |
 | Capturar tráfego de rede OT | Preservar evidências de comunicações anómalas |
 | Verificar integridade de firmware dos PLCs | Determinar se o código dos controladores foi alterado |
-| Analisar estacoes de engenharia | Procurar malware que possa ter modificado lógica de controlo |
+| Analisar estações de engenharia | Procurar malware que possa ter modificado lógica de controlo |
 
 **Descobertas durante contenção:**
 
-- Encontrado malware numa estacao de engenharia que faz ponte entre rede corporativa e rede OT
+- Encontrado malware numa estação de engenharia que faz ponte entre rede corporativa e rede OT
 - O malware entrou via pen USB de um fornecedor externo que fez manutenção 5 dias antes
 - O malware manipulava os valores enviados dos sensores para os HMIs (ataque man-in-the-middle entre sensores e operadores)
 - **Apenas os valores apresentados foram alterados** — a lógica dos PLCs não foi modificada (os controladores continuavam a ver os valores reais)
 
-**Implicacao:** O risco de segurança física era real mas mitigado pelo facto de os PLCs terem os valores corretos. O perigo maior seria se um operador, vendo valores errados, tomasse uma decisão manual incorreta.
+**Implicação:** O risco de segurança física era real mas mitigado pelo facto de os PLCs terem os valores corretos. O perigo maior seria se um operador, vendo valores errados, tomasse uma decisão manual incorreta.
 
 ### Fase 5 - Recuperação
 
 **Avaliação de danos:**
 
-- 1 estacao de engenharia comprometida
+- 1 estação de engenharia comprometida
 - Malware ativo há 5 dias (desde a visita do fornecedor)
 - Sem alteração de lógica de PLCs (confirmado por verificação de checksum)
 - Sem danos físicos a equipamentos ou pessoas
@@ -521,12 +521,12 @@ O operador, experiente, sabe que isto é fisicamente impossível — o forno est
 
 **Ações de recuperação:**
 
-1. **Perícia forense:** Análise completa da estacao de engenharia e do malware
-2. **Limpar malware:** Reinstalar estacao de engenharia a partir de golden image verificada
+1. **Perícia forense:** Análise completa da estação de engenharia e do malware
+2. **Limpar malware:** Reinstalar estação de engenharia a partir de golden image verificada
 3. **Verificar todos os PLCs:** Comparar firmware atual com versão conhecida como segura (checksum)
-4. **Reativar produção:** Gradualmente, comecando por equipamentos verificados
+4. **Reativar produção:** Gradualmente, começando por equipamentos verificados
 5. **Segmentação permanente:** Implementar firewall industrial entre rede corporativa e OT
-6. **Controlo de acessos físicos:** Proibir pens USB não autorizadas; criar estacao de verificação para fornecedores
+6. **Controlo de acessos físicos:** Proibir pens USB não autorizadas; criar estação de verificação para fornecedores
 7. **Monitorização OT:** Implementar IDS específico para protocolos industriais (Modbus, OPC-UA)
 
 **Timeline:**
@@ -535,7 +535,7 @@ O operador, experiente, sabe que isto é fisicamente impossível — o forno est
 |-------|-------|
 | Forno em paragem segura | T+5 min |
 | Malware identificado | T+3h |
-| Verificação de PLCs concluida | T+5h |
+| Verificação de PLCs concluída | T+5h |
 | Linha afetada reativada | T+8h |
 | Todas as linhas normais | T+10h |
 | Segmentação permanente implementada | T+7 dias |
@@ -555,7 +555,7 @@ O operador, experiente, sabe que isto é fisicamente impossível — o forno est
 
 | | Caso 1 | Caso 2 | Caso 3 | Caso 4 | Caso 5 |
 |--|--------|--------|--------|--------|--------|
-| **Setor** | Universidade | Hospital | Banco | E-commerce | Industria |
+| **Setor** | Universidade | Hospital | Banco | E-commerce | Indústria |
 | **Tipo** | Phishing | Ransomware | Fraude financeira | DDoS + SQL injection | Comprometimento OT |
 | **CIA** | Confidencialidade | Disp. + Conf. + Integ. | Integridade + Conf. | Disp. + Conf. | Integridade + Disp. |
 | **Deteção** | Humana (utilizadores) | Humana (técnico) | Humana (auditoria) | Tecnológica + Humana | Humana (operador) |
@@ -576,11 +576,11 @@ Em 4 dos 5 casos, a deteção inicial foi humana. Sistemas automáticos detetam 
 
 **2. O primeiro diagnóstico pode estar errado**
 
-No Caso 4, a equipa quase se focou exclusivamente no DDoS sem perceber que era uma diversao para o ataque real (SQL injection). No Caso 5, um sistema automático poderia ter interpretado "0°C" como forno desligado, em vez de ataque. **Manter a mente aberta e reavaliar continuamente** e uma competencia crítica da equipa de resposta.
+No Caso 4, a equipa quase se focou exclusivamente no DDoS sem perceber que era uma diversão para o ataque real (SQL injection). No Caso 5, um sistema automático poderia ter interpretado "0°C" como forno desligado, em vez de ataque. **Manter a mente aberta e reavaliar continuamente** e uma competência crítica da equipa de resposta.
 
 **3. Contenção vs continuidade — o dilema permanente**
 
-Todos os casos envolvem uma tensao entre "isolar tudo para conter" e "manter serviços para o negocio". Não há resposta universal — depende do contexto (dados de saúde vs vendas vs segurança física). O plano de resposta deve prever estes dilemas e definir **quem decide e com que critérios**.
+Todos os casos envolvem uma tensão entre "isolar tudo para conter" e "manter serviços para o negócio". Não há resposta universal — depende do contexto (dados de saúde vs vendas vs segurança física). O plano de resposta deve prever estes dilemas e definir **quem decide e com que critérios**.
 
 **4. A recuperação vai muito além do técnico**
 

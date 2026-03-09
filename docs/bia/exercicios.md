@@ -8,13 +8,13 @@
 
 ---
 
-## Nível 1 - Compreensao das métricas
+## Nível 1 - Compreensão das métricas
 
 ### Exercício 1.1 - Identificar a métrica
 
-Para cada descricao, identifica a métrica BIA correspondente (RPO, RTO, WRT, MTD, MOR, MTBF, MTTR):
+Para cada descrição, identifica a métrica BIA correspondente (RPO, RTO, WRT, MTD, MOR, MTBF, MTTR):
 
-| # | Descricao | Métrica? |
+| # | Descrição | Métrica? |
 |---|-----------|----------|
 | a) | "O servidor web falha em média uma vez a cada 60 dias" | |
 | b) | "Depois de restaurar o sistema, precisamos de 3 horas para verificar todos os dados" | |
@@ -26,7 +26,7 @@ Para cada descricao, identifica a métrica BIA correspondente (RPO, RTO, WRT, MT
 
 ??? success "Solução 1.1"
 
-    | # | Descricao | Métrica |
+    | # | Descrição | Métrica |
     |---|-----------|---------|
     | a) | Servidor falha a cada 60 dias | **MTBF** (Mean Time Between Failures) |
     | b) | 3 horas para verificar dados após restauro | **WRT** (Work Recovery Time) |
@@ -40,21 +40,21 @@ Para cada descricao, identifica a métrica BIA correspondente (RPO, RTO, WRT, MT
 
 ### Exercício 1.2 - Verdadeiro ou Falso
 
-Indica se cada afirmacao e verdadeira (V) ou falsa (F) e justifica as falsas:
+Indica se cada afirmação e verdadeira (V) ou falsa (F) e justifica as falsas:
 
 1. O RPO mede o tempo que demoras a recuperar o sistema.
 2. O RTO deve ser sempre inferior ao MTD.
 3. Quando o sistema volta a funcionar, o trabalho está automaticamente recuperado.
 4. O MOR define o nível normal de operação durante um incidente.
-5. MTBF alto significa que o sistema é mais fiável.
+5. MTBF alto significa que o sistema e mais fiável.
 6. RTO + WRT deve ser menor ou igual ao MTD.
 7. Um RPO de zero significa que não são necessários backups.
 
 ??? success "Solução 1.2"
 
     1. **FALSO** - O RPO mede a quantidade máxima de dados que se aceita perder, não o tempo de recuperação. Isso e o RTO.
-    2. **VERDADEIRO** - O RTO e o objetivo de recuperação é deve estar contido dentro do MTD (limite máximo).
-    3. **FALSO** - O sistema pode estar operacional, mas os dados podem precisar de verificação é sincronizacao. Para isso existe o WRT.
+    2. **VERDADEIRO** - O RTO e o objetivo de recuperação e deve estar contido dentro do MTD (limite máximo).
+    3. **FALSO** - O sistema pode estar operacional, mas os dados podem precisar de verificação e sincronização. Para isso existe o WRT.
     4. **FALSO** - O MOR define o **mínimo aceitável**, não o nível normal. E o "modo de sobrevivencia".
     5. **VERDADEIRO** - MTBF alto indica mais tempo entre falhas, logo maior fiabilidade.
     6. **VERDADEIRO** - Esta e a regra fundamental: RTO + WRT <= MTD.
@@ -86,42 +86,42 @@ Uma empresa de contabilidade definiu as seguintes métricas para o seu sistema d
     **Possiveis soluções:**
 
     1. Reduzir o RTO (ex.: investir em infraestrutura para recuperação mais rápida)
-    2. Reduzir o WRT (ex.: automatizar verificacoes pós-restauro)
+    2. Reduzir o WRT (ex.: automatizar verificações pós-restauro)
     3. Aumentar o MTD (ex.: reavaliar se a tolerância real e maior)
-    4. Combinacao das três opcoes
+    4. Combinacao das três opções
 
-    A solução correta depende de uma **análise custo-benefício**: quanto custa reduzir o RTO vs. o custo do impacto no negocio.
+    A solução correta depende de uma **análise custo-benefício**: quanto custa reduzir o RTO vs. o custo do impacto no negócio.
 
 ---
 
 ### Exercício 2.2 - Definir métricas para um cenário
 
-**Cenário:** Es o responsável de TI de uma clínica veterinaria com 3 médicos e 2 assistentes. A clínica usa um sistema informatico para:
+**Cenário:** Es o responsável de TI de uma clínica veterinaria com 3 médicos e 2 assistentes. A clínica usa um sistema informático para:
 
 - Registos clínicos dos animais
 - Agendamento de consultas
-- Faturacao e recibos
+- Faturação e recibos
 - Stock de medicamentos
 
 O sistema corre num servidor local. Os backups são feitos todas as noites as 23h00.
 
 **Tarefas:**
 
-1. Define valores razoaveis para RPO, RTO, WRT e MTD.
+1. Define valores razoáveis para RPO, RTO, WRT e MTD.
 2. Define o MOR da clínica.
-3. O backup atual (diario as 23h) e adequado ao teu RPO? Justifica.
+3. O backup atual (diário as 23h) e adequado ao teu RPO? Justifica.
 4. Calcula: se o servidor falha em média 3 vezes por ano e cada reparação demora em média 2 horas, quais são o MTBF e o MTTR?
 
 ??? success "Solução 2.2"
 
-    **1. Métricas (valores razoaveis - podem variar):**
+    **1. Métricas (valores razoáveis - podem variar):**
 
     | Métrica | Valor | Justificação |
     |---------|-------|-------------|
     | RPO | 4 horas | Registos clínicos podem ser reconstruidos a partir de notas manuais |
     | RTO | 3 horas | A clínica pode operar em papel durante esse período |
     | WRT | 2 horas | Reintroduzir consultas do dia, verificar faturação |
-    | MTD | 8 horas | Além de um dia de trabalho, o impacto é significativo |
+    | MTD | 8 horas | Além de um dia de trabalho, o impacto e significativo |
 
     **Validação:** `RTO (3h) + WRT (2h) = 5h <= MTD (8h)` ✓
 
@@ -129,13 +129,13 @@ O sistema corre num servidor local. Os backups são feitos todas as noites as 23
 
     - Acesso manual as fichas dos pacientes (ficheiro em papel ou PDF local)
     - Agenda impressa do dia
-    - Faturacao manual (recibos em papel)
+    - Faturação manual (recibos em papel)
     - Telefone funcional para contacto com clientes
     - Pelo menos 1 médico e 1 assistente
 
-    **3. Adequacao do backup:**
+    **3. Adequação do backup:**
 
-    O backup diario as 23h significa que, na pior das hipóteses (falha as 22h59), podes perder quase 24 horas de dados. Com um RPO de 4 horas, o backup atual **não é adequado**.
+    O backup diário as 23h significa que, na pior das hipóteses (falha as 22h59), podes perder quase 24 horas de dados. Com um RPO de 4 horas, o backup atual **não é adequado**.
 
     **Solução:** Implementar backups a cada 4 horas (ou mais frequentes), ou usar replicação incremental ao longo do dia.
 
@@ -163,7 +163,7 @@ Ordena os seguintes serviços do mais crítico (menor MTD) ao menos crítico (ma
     **Do mais crítico ao menos crítico:**
 
     1. **Sistema de monitorização de pacientes em cuidados intensivos** (MTD: ~15 min) - Vidas humanas em risco direto. Qualquer paragem pode ser fatal.
-    2. **Plataforma de trading de um banco de investimento** (MTD: ~30 min) - Perdas financeiras massivas por segundo de indisponibilidade. Regulacao exige alta disponibilidade.
+    2. **Plataforma de trading de um banco de investimento** (MTD: ~30 min) - Perdas financeiras massivas por segundo de indisponibilidade. Regulação exige alta disponibilidade.
     3. **Sistema de email de uma consultora** (MTD: ~4-8h) - Comunicação com clientes e crítica, mas existem alternativas (telefone, WhatsApp).
     4. **Sistema de reservas de um restaurante** (MTD: ~12-24h) - Reservas podem ser feitas por telefone. Impacto limitado num dia.
     5. **Website institucional de uma autarquia** (MTD: ~48-72h) - Carater informativo, não transacional. Os serviços críticos são prestados presencialmente.
@@ -178,7 +178,7 @@ Ordena os seguintes serviços do mais crítico (menor MTD) ao menos crítico (ma
 
 Uma empresa de hosting tem os seguintes dados dos últimos 12 meses para o seu cluster de servidores:
 
-| Falha | Data | Duracao da reparação |
+| Falha | Data | Duração da reparação |
 |-------|------|---------------------|
 | 1 | 15 Jan | 1h 30min |
 | 2 | 03 Mar | 45min |
@@ -259,7 +259,7 @@ Uma proposta de investimento permite reduzir o RTO para 1 hora, com um custo de 
 
     - Downtime por incidente: RTO + WRT = 4 + 2 = 6 horas
     - Perda por incidente: 6 x 50.000 = 300.000 EUR
-    - Nota: Nem todo o WRT e perda total, mas por simplificacao assumimos perda parcial. Assumindo 50% de produtividade durante WRT: perda = (4 x 50.000) + (2 x 25.000) = 250.000 EUR
+    - Nota: Nem todo o WRT e perda total, mas por simplificação assumimos perda parcial. Assumindo 50% de produtividade durante WRT: perda = (4 x 50.000) + (2 x 25.000) = 250.000 EUR
     - Perda anual (simplificado): 3 x 300.000 = **900.000 EUR**
     - Perda anual (realista): 3 x 250.000 = **750.000 EUR**
 
@@ -273,17 +273,17 @@ Uma proposta de investimento permite reduzir o RTO para 1 hora, com um custo de 
 
     **3. Justificação do investimento:**
 
-    - Poupanca anual (simplificado): 900.000 - 450.000 = 450.000 EUR
-    - Poupanca anual (realista): 750.000 - 300.000 = 450.000 EUR
+    - Poupança anual (simplificado): 900.000 - 450.000 = 450.000 EUR
+    - Poupança anual (realista): 750.000 - 300.000 = 450.000 EUR
     - Custo do investimento: 120.000 EUR/ano
     - **ROI: 450.000 - 120.000 = 330.000 EUR de benefício liquido por ano**
     - **Sim, o investimento justifica-se claramente.**
 
-    **4. Faturacao mínima para justificar:**
+    **4. Faturação mínima para justificar:**
 
-    - Precisa-se que a poupanca >= custo do investimento
-    - Poupanca por incidente = 3h x faturacao_hora (diferença no RTO)
-    - Poupanca anual = 3 incidentes x 3h x faturacao_hora = 9 x faturacao_hora
+    - Precisa-se que a poupança >= custo do investimento
+    - Poupança por incidente = 3h x faturacao_hora (diferença no RTO)
+    - Poupança anual = 3 incidentes x 3h x faturacao_hora = 9 x faturacao_hora
     - 9 x faturacao_hora >= 120.000
     - **faturacao_hora >= 13.333 EUR/hora**
     - A partir de ~13.333 EUR/hora de faturação, o investimento compensa.
@@ -292,10 +292,10 @@ Uma proposta de investimento permite reduzir o RTO para 1 hora, com um custo de 
 
 ### Exercício 3.3 - Definir BIA completa
 
-**Cenário:** Es contratado como consultor de ciberseguranca por uma PME portuguesa de comércio alimentar que tem:
+**Cenário:** Es contratado como consultor de cibersegurança por uma PME portuguesa de comércio alimentar que tem:
 
 - 5 lojas físicas
-- 1 armazem central
+- 1 armazém central
 - 1 loja online (10% da faturação)
 - 50 colaboradores
 - Sistema ERP centralizado (gestão de stock, faturação, RH)
@@ -313,7 +313,7 @@ A empresa fatura 2 milhoes EUR por ano.
 
 ??? tip "Orientações para solução 3.3"
 
-    **Nota:** Este exercício não tem uma única solução correta. O objetivo é que os alunos justifiquem as suas escolhas. Abaixo estão orientações.
+    **Nota:** Este exercício não tem uma única solução correta. O objetivo e que os alunos justifiquem as suas escolhas. Abaixo estão orientações.
 
     **1. Sistemas críticos (sugestao):**
 
@@ -337,15 +337,15 @@ A empresa fatura 2 milhoes EUR por ano.
 
     - POS depende do ERP para stock e preços
     - Loja online depende do ERP para stock disponível
-    - Faturacao depende do POS para dados de venda
+    - Faturação depende do POS para dados de venda
     - Stock depende dos registos de ambos os canais
 
     **5. Frequência de backups:**
 
     - POS: a cada 15 minutos (replicação)
     - ERP faturação: a cada 30 minutos
-    - ERP stock: horario
-    - Loja online: horario
+    - ERP stock: horário
+    - Loja online: horário
 
 ---
 
@@ -357,7 +357,7 @@ Uma startup quer RPO de zero para todos os seus sistemas, mas tem um orcamento d
 
 **Tarefas:**
 
-1. Explica porque e que este objetivo é irrealista.
+1. Explica porque e que este objetivo e irrealista.
 2. Que infraestrutura seria necessária para RPO de zero?
 3. Propoe métricas realistas para uma startup com este orcamento.
 4. Como comunicarias está limitação ao CEO da startup?
@@ -383,7 +383,7 @@ Uma startup quer RPO de zero para todos os seus sistemas, mas tem um orcamento d
 
     - RPO: 1-4 horas (backups frequentes para cloud)
     - RTO: 4-8 horas (restauro a partir de backup)
-    - Serviços cloud como AWS/Azure/GCP oferecem opcoes neste range de preço
+    - Serviços cloud como AWS/Azure/GCP oferecem opções neste range de preço
 
     **4. Comunicação ao CEO:**
 
@@ -403,13 +403,13 @@ Portal Web do Cliente
 API de Cotacoes ──────► Base de Dados de Apolices
         |                        |
         ▼                        ▼
-Motor de Calculo ◄────── Servico de Dados Atuariais
+Motor de Cálculo ◄────── Serviço de Dados Atuariais
         |
         ▼
 Sistema de Pagamentos ──► Gateway Bancario (externo)
 ```
 
-O gateway bancario (externo) tem um SLA de 99.9% (disponibilidade).
+O gateway bancário (externo) tem um SLA de 99.9% (disponibilidade).
 
 **Tarefas:**
 
@@ -424,7 +424,7 @@ O gateway bancario (externo) tem um SLA de 99.9% (disponibilidade).
     **1. Impacto da falha da BD de Apolices:**
 
     - API de Cotacoes: afetada (não consegue consultar dados de clientes)
-    - Portal Web: afetado (não mostra apólices nem cotacoes)
+    - Portal Web: afetado (não mostra apólices nem cotações)
     - Motor de Cálculo: possivelmente afetado (pode precisar de dados das apólices)
     - Sistema de Pagamentos: parcialmente afetado (não valida apólices para pagamento)
     - Serviço de Dados Atuariais: pode funcionar independentemente
@@ -433,7 +433,7 @@ O gateway bancario (externo) tem um SLA de 99.9% (disponibilidade).
 
     - Sim, os clientes podem ver apólices existentes se a BD de Apolices estiver funcional.
     - O Portal Web pode aceder a BD para mostrar dados já calculados.
-    - Não podem pedir novas cotacoes (depende do Motor).
+    - Não podem pedir novas cotações (depende do Motor).
 
     **3 e 4. Métricas - regra de ouro:**
 
@@ -450,9 +450,9 @@ O gateway bancario (externo) tem um SLA de 99.9% (disponibilidade).
 
 ## Nota final
 
-Estes exercícios cobrem desde a compreensao básica até a análise avancada da BIA. A chave e sempre:
+Estes exercícios cobrem desde a compreensão básica até a análise avancada da BIA. A chave e sempre:
 
-1. **Entender o negocio** antes de definir métricas
+1. **Entender o negócio** antes de definir métricas
 2. **Validar** que RTO + WRT <= MTD
 3. **Considerar dependências** entre sistemas
 4. **Justificar** cada métrica com base no impacto real
@@ -462,4 +462,4 @@ Estes exercícios cobrem desde a compreensao básica até a análise avancada da
 
 *Material de apoio: [Métricas BIA](metricas.md) | [Casos práticos](casos-praticos.md) | [Calculadora interativa](calculadora.md)*
 
-*Próximo capitulo: [Calculadora Interativa](calculadora.md)*
+*Próximo capítulo: [Calculadora Interativa](calculadora.md)*

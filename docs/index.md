@@ -1,6 +1,6 @@
-# TISI - Tratamento de Incidentes de Segurança Informatica
+# TISI - Tratamento de Incidentes de Segurança Informática
 
-Materiais práticos de apoio a Unidade Curricular de **Tratamento de Incidentes de Segurança Informatica** (TISI) do Mestrado em Ciberseguranca e Informatica Forense (MCIF) - IPLeiria.
+Materiais práticos de apoio a Unidade Curricular de **Tratamento de Incidentes de Segurança Informática** (TISI) do Mestrado em Cibersegurança e Informática Forense (MCIF) - IPLeiria.
 
 ---
 
@@ -10,7 +10,7 @@ Materiais práticos de apoio a Unidade Curricular de **Tratamento de Incidentes 
 
 Casos práticos e exercícios sobre métricas de impacto:
 
-| Métrica | Descricao |
+| Métrica | Descrição |
 |---------|-----------|
 | **RPO** | Recovery Point Objective - Quanto dado posso perder? |
 | **RTO** | Recovery Time Objective - Em quanto tempo recupero? |
@@ -22,11 +22,11 @@ Casos práticos e exercícios sobre métricas de impacto:
 
 **Conteúdos:**
 
-- [Métricas BIA](bia/metricas.md) - Definicoes, diagramas e 3 exemplos práticos
+- [Métricas BIA](bia/metricas.md) - Definições, diagramas e 3 exemplos práticos
 - [Casos Práticos](bia/casos-praticos.md) - 10 cenários de diferentes setores
 - [Exercícios](bia/exercicios.md) - 4 níveis de dificuldade com soluções
 - [Calculadora Interativa](bia/calculadora.md) - Ferramentas de cálculo no browser
-- :material-file-download: [Modelos BIA](https://github.com/guilhasn/tisi-materials/tree/main/BIA/Modelos){:target="_blank"}mplos para download
+- :material-file-download: [Modelos BIA](https://github.com/guilhasn/tisi-materials/tree/main/BIA/Modelos){:target="_blank"} - Templates e exemplos para download
 
 ---
 
@@ -34,11 +34,11 @@ Casos práticos e exercícios sobre métricas de impacto:
 
 Como identificar, classificar e responder a incidentes de segurança da informação:
 
-| Conceito | Descricao |
+| Conceito | Descrição |
 |----------|-----------|
 | **Identificação** | Detetar que um incidente está a ocorrer |
-| **Classificação** | Avaliar a gravidade é o impacto (CIA) |
-| **Contenção** | Limitar o impacto é evitar propagação |
+| **Classificação** | Avaliar a gravidade e o impacto (CIA) |
+| **Contenção** | Limitar o impacto e evitar propagação |
 | **Erradicação** | Remover a causa raiz do incidente |
 | **Recuperação** | Restaurar operações normais |
 | **Lições Aprendidas** | Melhorar processos para o futuro |
@@ -48,7 +48,7 @@ Como identificar, classificar e responder a incidentes de segurança da informa�
 - [Fundamentos do IRP](irp/index.md) - Conceitos, CIA, exemplos práticos e exercícios
 - [Planeamento](irp/planeamento.md) - Validar, decidir, coordenar, formato e testes do plano
 - [Deteção](irp/detecao.md) - Fontes de deteção, indicadores e fronteira incidente/desastre
-- [Reação](irp/reacao.md) - Notificação, documentação é estratégias de contenção
+- [Reação](irp/reacao.md) - Notificação, documentação e estratégias de contenção
 - [Recuperação](irp/recuperacao.md) - Avaliação de danos, perícia forense e recuperação madura
 - [Casos Práticos](irp/casos-praticos.md) - 5 cenários completos ponta-a-ponta
 

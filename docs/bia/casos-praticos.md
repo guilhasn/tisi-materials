@@ -6,21 +6,21 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 
 ## Caso 4 - Banco (Sistema de homebanking)
 
-**Cenário:** O sistema de homebanking de um banco fica indisponível as 09h00 de uma segunda-feira. Os clientes não conseguem fazer transferencias, consultar saldos ou pagar serviços.
+**Cenário:** O sistema de homebanking de um banco fica indisponível as 09h00 de uma segunda-feira. Os clientes não conseguem fazer transferências, consultar saldos ou pagar serviços.
 
 | Métrica | Valor | Justificação |
 |---------|-------|-------------|
 | **RPO** | Zero (0) | Nenhuma transação financeira pode ser perdida - implicações legais e regulatorias |
-| **RTO** | 30 minutos | Regulacao e expectativa dos clientes exigem recuperação rápida |
-| **WRT** | 1 hora | Reconciliacao de transações, verificação de saldos, testes de integridade |
-| **MTD** | 2 horas | Danos reputacionais graves, possiveis sancoes do regulador (Banco de Portugal) |
+| **RTO** | 30 minutos | Regulação e expectativa dos clientes exigem recuperação rápida |
+| **WRT** | 1 hora | Reconciliação de transações, verificação de saldos, testes de integridade |
+| **MTD** | 2 horas | Danos reputacionais graves, possíveis sanções do regulador (Banco de Portugal) |
 
 **MOR:**
 - Consulta de saldos (read-only)
-- Transferencias urgentes via canal alternativo (balcao, telefone)
-- Equipa de operações bancarias de emergência
+- Transferencias urgentes via canal alternativo (balcão, telefone)
+- Equipa de operações bancárias de emergência
 - Comunicação proativa aos clientes (SMS/push notification)
-- Linha de apoio reforcada
+- Linha de apoio reforçada
 
 **Validação:** `RTO (30min) + WRT (1h) = 1h30 <= MTD (2h)` ✓
 
@@ -32,22 +32,22 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 
 ---
 
-## Caso 5 - Fabrica (Sistema SCADA/ICS de controlo industrial)
+## Caso 5 - Fábrica (Sistema SCADA/ICS de controlo industrial)
 
-**Cenário:** O sistema SCADA que controla uma linha de produção de uma fabrica de componentes automóveis falha as 06h00, durante o turno da manha.
+**Cenário:** O sistema SCADA que controla uma linha de produção de uma fábrica de componentes automóveis falha as 06h00, durante o turno da manhã.
 
 | Métrica | Valor | Justificação |
 |---------|-------|-------------|
 | **RPO** | 30 minutos | Dados de produção das últimas meias horas podem ser reconstruidos a partir de registos físicos |
 | **RTO** | 45 minutos | Além disso, há risco de danos em equipamentos e perda de materia-prima |
-| **WRT** | 2 horas | Recalibracao de sensores, verificação de qualidade, reinicio controlado da linha |
+| **WRT** | 2 horas | Recalibração de sensores, verificação de qualidade, reinicio controlado da linha |
 | **MTD** | 4 horas | Atrasos na entrega a clientes (just-in-time), penalizações contratuais |
 
 **MOR:**
 - Monitorização manual dos processos críticos
 - Paragem segura da linha (não abrupta)
 - Equipa de manutenção industrial on-site
-- Comunicação com clientes sobre possiveis atrasos
+- Comunicação com clientes sobre possíveis atrasos
 - Registo manual de produção
 
 **Validação:** `RTO (45min) + WRT (2h) = 2h45 <= MTD (4h)` ✓
@@ -56,19 +56,19 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 - Neste caso, a falha não é só de TI - envolve **segurança física** (equipamentos, pessoas).
 - O WRT inclui **recalibração física** de equipamentos, não só verificação de dados.
 - Diferença entre IT (Information Technology) e OT (Operational Technology).
-- Implicações de ciberseguranca em sistemas industriais (referência: IEC 62443).
+- Implicações de cibersegurança em sistemas industriais (referência: IEC 62443).
 
 ---
 
 ## Caso 6 - Escritório de advogados (Sistema de gestão documental)
 
-**Cenário:** O sistema de gestão documental de um escritório de advogados fica indisponível numa manha em que há prazos judiciais a cumprir.
+**Cenário:** O sistema de gestão documental de um escritório de advogados fica indisponível numa manhã em que há prazos judiciais a cumprir.
 
 | Métrica | Valor | Justificação |
 |---------|-------|-------------|
 | **RPO** | 4 horas | Documentos são guardados localmente e podem ser reenviados para o sistema |
 | **RTO** | 4 horas | A equipa pode trabalhar offline temporariamente |
-| **WRT** | 3 horas | Re-upload de documentos, verificação de versões, sincronizacao |
+| **WRT** | 3 horas | Re-upload de documentos, verificação de versões, sincronização |
 | **MTD** | 8 horas | Ultrapassando 8 horas, há risco de incumprimento de prazos judiciais |
 
 **MOR:**
@@ -81,15 +81,15 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 
 **Para refletir:**
 - Nem todos os sistemas precisam de RPO agressivo.
-- A existencia de **copias locais** permite RPO mais relaxado.
+- A existência de **copias locais** permite RPO mais relaxado.
 - O verdadeiro risco não é técnico: e **legal** (prazos judiciais).
 - Como e que a classificação do ativo (documentos judiciais vs. templates internos) afeta as métricas?
 
 ---
 
-## Caso 7 - Startup SaaS (Plataforma de videoconferencia)
+## Caso 7 - Startup SaaS (Plataforma de videoconferência)
 
-**Cenário:** Uma startup que fornece serviços de videoconferencia B2B sofre uma falha na plataforma as 10h00, durante o horario de pico de reuniões dos seus clientes empresariais.
+**Cenário:** Uma startup que fornece serviços de videoconferência B2B sofre uma falha na plataforma as 10h00, durante o horário de pico de reuniões dos seus clientes empresariais.
 
 | Métrica | Valor | Justificação |
 |---------|-------|-------------|
@@ -109,9 +109,9 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 
 **Para refletir:**
 - O MOR aqui e particularmente interessante: **modo degradado** com funcionalidades reduzidas.
-- Como e que o SLA contratual (99.9% = ~8.7h de downtime/ano) influencia as métricas?
+- Como e que o SLA contratual (99.9% = ~8.7h de downtime/ano) influência as métricas?
 - Qual e a diferença entre SLA (compromisso contratual) e RTO (objetivo interno)?
-- Reputacao em startups: o MTD pode ser mais curto do que o esperado.
+- Reputação em startups: o MTD pode ser mais curto do que o esperado.
 
 ---
 
@@ -121,13 +121,13 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 
 | Métrica | Valor | Justificação |
 |---------|-------|-------------|
-| **RPO** | 24 horas | Os dados podem ser reconstruidos a partir de registos em papel do balcao |
+| **RPO** | 24 horas | Os dados podem ser reconstruidos a partir de registos em papel do balcão |
 | **RTO** | 8 horas | Existe atendimento presencial como alternativa |
-| **WRT** | 4 horas | Verificação de submissoes, sincronizacao com sistemas internos |
+| **WRT** | 4 horas | Verificação de submissões, sincronização com sistemas internos |
 | **MTD** | 24 horas | Além de 24 horas, afeta serviços essenciais ao cidadão |
 
 **MOR:**
-- Atendimento presencial nos balcoes (com formularios em papel)
+- Atendimento presencial nos balcões (com formulários em papel)
 - Telefone de apoio ao cidadão funcional
 - Email institucional operacional
 - Pelo menos um técnico de TI disponível
@@ -136,9 +136,9 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 
 **Para refletir:**
 - Caso com **baixa criticidade técnica** mas **alta criticidade social**.
-- A existencia de **canais alternativos** (balcao físico) permite métricas mais relaxadas.
-- Diferença entre serviços publicos e privados na definicao de criticidade.
-- Período crítico vs. período normal: durante eleicoes, estas métricas mudariam drasticamente.
+- A existência de **canais alternativos** (balcão físico) permite métricas mais relaxadas.
+- Diferença entre serviços publicos e privados na definição de criticidade.
+- Período crítico vs. período normal: durante eleições, estas métricas mudariam drasticamente.
 
 ---
 
@@ -149,14 +149,14 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 | Métrica | Valor | Justificação |
 |---------|-------|-------------|
 | **RPO** | 15 minutos | Posicoes GPS recentes são críticas para rotas e entregas |
-| **RTO** | 1 hora | Os motoristas podem continuar a conduzir mas sem otimizacao de rotas |
-| **WRT** | 1 hora | Ressincronizacao de posicoes, atualização de ETAs para clientes |
-| **MTD** | 3 horas | Atrasos generalizados nas entregas, insatisfacao dos clientes |
+| **RTO** | 1 hora | Os motoristas podem continuar a conduzir mas sem otimização de rotas |
+| **WRT** | 1 hora | Ressincronização de posições, atualização de ETAs para clientes |
+| **MTD** | 3 horas | Atrasos generalizados nas entregas, insatisfação dos clientes |
 
 **MOR:**
 - Comunicação por telefone com motoristas
 - Rotas pré-definidas impressas
-- Atualizacao manual de status no site
+- Atualização manual de status no site
 - Equipa de dispatching a operar por telefone
 - Prioridade nas entregas urgentes/pereciveis
 
@@ -165,7 +165,7 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 **Para refletir:**
 - O MOR mostra como processos **pré-tecnológicos** podem servir de fallback.
 - A epoca do ano (Natal) muda a criticidade - fora da epoca, o MTD poderia ser 8h.
-- Diferença entre dados em tempo real (posicoes GPS) e dados históricos.
+- Diferença entre dados em tempo real (posições GPS) e dados históricos.
 - Impacto em cascata: uma falha na logística afeta múltiplos clientes.
 
 ---
@@ -177,9 +177,9 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 | Métrica | Valor | Justificação |
 |---------|-------|-------------|
 | **RPO** | 8 horas | Conteúdos podem ser reenviados; trabalhos submetidos tem copias locais nos alunos |
-| **RTO** | 4 horas | As aulas da manha podem ser reorganizadas para a tarde |
-| **WRT** | 2 horas | Verificação de submissoes, notificação de alunos e professores |
-| **MTD** | 24 horas | Além de 24 horas, compromete o calendario escolar |
+| **RTO** | 4 horas | As aulas da manhã podem ser reorganizadas para a tarde |
+| **WRT** | 2 horas | Verificação de submissões, notificação de alunos e professores |
+| **MTD** | 24 horas | Além de 24 horas, compromete o calendário escolar |
 
 **MOR:**
 - Email funcional para comunicação com alunos
@@ -192,7 +192,7 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 **Para refletir:**
 - Grande margem entre RTO+WRT (6h) e MTD (24h) - isto é bom ou mau?
 - Resposta: pode significar que o investimento em recuperação rápida não se justifica.
-- A existencia de **modo presencial** como fallback muda completamente a análise.
+- A existência de **modo presencial** como fallback muda completamente a análise.
 - Comparar com o caso da universidade (Caso 3): porque e que as métricas são diferentes?
 
 ---
@@ -205,7 +205,7 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 | 2 | Hospital | ~0 | 15 min | 30 min | 1h | Crítica |
 | 3 | Universidade | 1h | 2h | 4h | 8h | Media-Alta |
 | 4 | Banco | 0 | 30 min | 1h | 2h | Crítica |
-| 5 | Fabrica | 30 min | 45 min | 2h | 4h | Alta |
+| 5 | Fábrica | 30 min | 45 min | 2h | 4h | Alta |
 | 6 | Advogados | 4h | 4h | 3h | 8h | Media |
 | 7 | Startup SaaS | 1h | 20 min | 40 min | 1h30 | Alta |
 | 8 | Autarquia | 24h | 8h | 4h | 24h | Baixa-Media |
@@ -217,7 +217,7 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 ## Padrões a observar
 
 1. **Quanto mais crítico o serviço, menores são RPO e RTO.**
-2. **A existencia de canais alternativos (presencial, telefone) permite métricas mais relaxadas.**
+2. **A existência de canais alternativos (presencial, telefone) permite métricas mais relaxadas.**
 3. **O contexto temporal muda tudo**: a mesma plataforma tem métricas diferentes em epocas críticas vs. normais.
 4. **Setores regulados** (saúde, financeiro) tendem a ter métricas mais agressivas por obrigação legal.
 5. **O MOR e o plano B**: deve estar documentado e **testado** antes de ser preciso.

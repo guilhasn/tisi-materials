@@ -9,7 +9,7 @@
 5. [Exemplos práticos](#exemplos-praticos)
 6. [Exercícios](#exercicios)
 7. [Armadilhas e confusões a evitar](#armadilhas-e-confusoes-a-evitar)
-8. [Ligacao com a BIA](#ligacao-com-a-bia)
+8. [Ligação com a BIA](#ligacao-com-a-bia)
 9. [Resumo rápido](#resumo-rapido)
 
 ---
@@ -30,7 +30,7 @@ Enquanto a BIA se foca em perceber **o que é crítico** e **qual o impacto** de
 
 ## Conceitos fundamentais
 
-### O IRP cobre identificação, classificação é resposta
+### O IRP cobre identificação, classificação e resposta
 
 O planeamento de resposta a incidentes define como a organização:
 
@@ -41,7 +41,7 @@ O planeamento de resposta a incidentes define como a organização:
 O IRP **não começa na contenção**. Começa antes, com a capacidade de perceber que algo está a acontecer.
 
 ```
-  Detecao ──► Classificacao ──► Contencao ──► Resposta
+  Deteção ──► Classificação ──► Contenção ──► Resposta
      |              |                |             |
      ▼              ▼                ▼             ▼
   Perceber       Avaliar          Limitar        Agir e
@@ -51,15 +51,15 @@ O IRP **não começa na contenção**. Começa antes, com a capacidade de perceb
 
 ---
 
-### Nem todo o ataque é automaticamente um incidente relevante
+### Nem todo o ataque e automaticamente um incidente relevante
 
-Um ataque é classificado como **incidente** quando:
+Um ataque e classificado como **incidente** quando:
 
 - E **dirigido contra ativos de informação** da organização
 - Tem uma **hipótese realista de sucesso**
 - **Ameaça a confidencialidade, integridade ou disponibilidade**
 
-Isto e importante porque evita banalizar tudo. Existe uma ideia de **triagem e qualificacao**.
+Isto e importante porque evita banalizar tudo. Existe uma ideia de **triagem e qualificação**.
 
 | Situação | E incidente? | Porque |
 |----------|:------------:|--------|
@@ -73,7 +73,7 @@ Isto e importante porque evita banalizar tudo. Existe uma ideia de **triagem e q
 
 ### O foco do IRP e a triade CIA
 
-O incidente é relevante porque ameaça uma ou mais dimensoes da segurança da informação:
+O incidente e relevante porque ameaça uma ou mais dimensoes da segurança da informação:
 
 ```
                     ┌─────────────────────┐
@@ -84,9 +84,9 @@ O incidente é relevante porque ameaça uma ou mais dimensoes da segurança da i
               ┌────────────────┼────────────────┐
               │                │                │
               ▼                ▼                ▼
-     Acesso nao         Fuga de          Exposicao de
-     autorizado         dados            informacao
-                                         sensivel
+     Acesso não         Fuga de          Exposição de
+     autorizado         dados            informação
+                                         sensível
               │                │                │
               └────────┬───────┘────────┬───────┘
                        │                │
@@ -96,8 +96,8 @@ O incidente é relevante porque ameaça uma ou mais dimensoes da segurança da i
 ┌────────┐      ┌────────────┐   ┌──────────────┐  ┌──────────┐
 │Integri-│      │Disponibili-│   │  O incidente │  │ O IRP    │
 │ dade   │      │   dade     │   │  importa se  │  │ responde │
-│(Integri│      │(Availabili-│   │  ameaca CIA   │  │ a estas  │
-│  ty)   │      │    ty)     │   │              │  │ ameacas  │
+│(Integri│      │(Availabili-│   │  ameaça CIA   │  │ a estas  │
+│  ty)   │      │    ty)     │   │              │  │ ameaças  │
 └────────┘      └────────────┘   └──────────────┘  └──────────┘
 ```
 
@@ -105,7 +105,7 @@ O incidente é relevante porque ameaça uma ou mais dimensoes da segurança da i
 |----------|--------------|---------------------|
 | **Confidencialidade** | Informação só acessível a quem tem autorização | Fuga de dados de clientes, phishing com roubo de credenciais |
 | **Integridade** | Informação não é alterada de forma não autorizada | Ransomware que cifra ficheiros, alteração de registos clínicos |
-| **Disponibilidade** | Sistemas e dados acessiveis quando necessário | Ataque DDoS que derruba o site, falha de servidor |
+| **Disponibilidade** | Sistemas e dados acessíveis quando necessário | Ataque DDoS que derruba o site, falha de servidor |
 
 ---
 
@@ -113,27 +113,27 @@ O incidente é relevante porque ameaça uma ou mais dimensoes da segurança da i
 
 O IRP atua sobretudo **quando o incidente já está em curso ou foi detetado**. E, por natureza, mais **reativo**.
 
-Isto não significa que não há preparação. Antes do incidente é necessário ter:
+Isto não significa que não há preparação. Antes do incidente e necessário ter:
 
 - **Equipas** definidas e treinadas
 - **Playbooks** (procedimentos escritos para cenários conhecidos)
 - **Contactos** de escalonamento
-- **Ferramentas** de deteção é análise
+- **Ferramentas** de deteção e análise
 - **Treino** e simulações regulares
 
-Mas a essencia do IR e: **quando acontece, como respondemos?**
+Mas a essência do IR e: **quando acontece, como respondemos?**
 
 ```
   ═══════════════════════╦══════════════════════════════
        ANTES             ║         DEPOIS
-   (Preparacao)          ║     (Resposta - reativa)
+   (Preparação)          ║     (Resposta - reativa)
   ═══════════════════════╬══════════════════════════════
                          ║
   • Equipas definidas    ║  • Detetar o incidente
   • Playbooks escritos   ║  • Classificar a gravidade
   • Ferramentas prontas  ║  • Conter o impacto
   • Treino realizado     ║  • Erradicar a causa
-  • Contactos atuais     ║  • Recuperar servicos
+  • Contactos atuais     ║  • Recuperar serviços
                          ║  • Documentar e aprender
   ═══════════════════════╩══════════════════════════════
         Proativo                    Reativo
@@ -143,7 +143,7 @@ Mas a essencia do IR e: **quando acontece, como respondemos?**
 
 ## Pre-requisitos para o IRP funcionar
 
-A resposta a incidentes **não pode ser inventada no momento**. Tem de haver respostas pré-definidas, capacidade de deteção é uma equipa preparada. Improvisar durante uma crise custa caro: gera confusão, atrasos, decisões contraditorias e perda de tempo.
+A resposta a incidentes **não pode ser inventada no momento**. Tem de haver respostas pré-definidas, capacidade de deteção e uma equipa preparada. Improvisar durante uma crise custa caro: gera confusão, atrasos, decisões contraditorias e perda de tempo.
 
 > Respostas pré-definidas não eliminam a necessidade de pensar; eliminam a necessidade de começar do zero.
 
@@ -165,19 +165,19 @@ Na prática, isto traduz-se em:
 | **Playbook** | Procedimento detalhado para um tipo de incidente | Guiar a resposta passo a passo (ex: playbook de ransomware, playbook de phishing) |
 | **Runbook** | Procedimento técnico específico | Executar ações técnicas concretas (ex: como isolar um servidor, como revogar acessos) |
 | **Matriz de escalonamento** | Tabela de contactos e níveis | Saber quem contactar, quando e por que canal |
-| **Plano de comunicação** | Regras de comunicação interna e externa | Evitar fugas de informação é garantir coordenação |
+| **Plano de comunicação** | Regras de comunicação interna e externa | Evitar fugas de informação e garantir coordenação |
 
 #### Com vs sem respostas pré-definidas
 
 ```
   ╔═══════════════════════════════╦═══════════════════════════════════╗
-  ║   SEM respostas pre-definidas ║   COM respostas pre-definidas     ║
+  ║   SEM respostas pré-definidas ║   COM respostas pré-definidas     ║
   ╠═══════════════════════════════╬═══════════════════════════════════╣
   ║ Ninguem sabe quem avisa       ║ O alerta e escalado              ║
-  ║ A equipa tecnica hesita       ║ A equipa de IR entra em acao     ║
-  ║ Perde-se tempo                ║ Ha contencao rapida              ║
-  ║ O impacto aumenta             ║ Decide-se comunicacao e mitigacao║
-  ║ Decisoes contraditorias       ║ Coordenacao clara                ║
+  ║ A equipa técnica hesita       ║ A equipa de IR entra em ação     ║
+  ║ Perde-se tempo                ║ Ha contenção rápida              ║
+  ║ O impacto aumenta             ║ Decide-se comunicação e mitigação║
+  ║ Decisoes contraditorias       ║ Coordenação clara                ║
   ╚═══════════════════════════════╩═══════════════════════════════════╝
 ```
 
@@ -193,10 +193,10 @@ Em organizações pequenas ou médias, pode ser uma **equipa funcional**, compos
 |-------|-----------------|-----------------|
 | **Coordenador de incidente** | Lidera a resposta, toma decisões, comunica com a gestão | Responsável de segurança ou TI |
 | **Analista técnico** | Investiga o incidente, recolhe evidências, analisa logs | Técnico de segurança ou administrador de sistemas |
-| **Operacoes** | Executa ações de contenção é recuperação nos sistemas | Administrador de sistemas, redes |
+| **Operacoes** | Executa ações de contenção e recuperação nos sistemas | Administrador de sistemas, redes |
 | **Apoio jurídico** | Avalia implicações legais (RGPD, notificações obrigatórias) | Jurista interno ou externo |
 | **Comunicação** | Gere a comunicação interna e externa | Responsável de comunicação |
-| **Gestão** | Aprova decisões críticas, aloca recursos | Direcao |
+| **Gestão** | Aprova decisões críticas, aloca recursos | Direção |
 
 ---
 
@@ -214,17 +214,17 @@ A deteção **não é só tecnologia**. Pode vir de múltiplas fontes:
 | **EDR** | Tecnológica | Alerta de comportamento suspeito num endpoint |
 | **Utilizadores** | Humana | Colaborador reporta email suspeito ou comportamento estranho |
 | **Helpdesk** | Humana | Chamadas frequentes sobre o mesmo problema |
-| **Logs de acesso** | Tecnológica | Acessos fora de horario ou de localizacoes anómalas |
+| **Logs de acesso** | Tecnológica | Acessos fora de horário ou de localizações anómalas |
 | **Fornecedores** | Externa | ISP ou parceiro alerta para tráfego anómalo |
 | **Auditoria** | Humana/Técnica | Auditoria identifica acessos indevidos |
 
-A capacidade de deteção é, portanto, **técnica é humana**.
+A capacidade de deteção e, portanto, **técnica e humana**.
 
 ---
 
 ### A equipa atua durante o incidente
 
-Um ponto essencial: a equipa de resposta a incidentes atua **enquanto o incidente está a decorrer**, não apenas depois. O IR não é análise historica nem auditoria a posteriori. E **intervencao em tempo real**:
+Um ponto essencial: a equipa de resposta a incidentes atua **enquanto o incidente está a decorrer**, não apenas depois. O IR não é análise histórica nem auditoria a posteriori. E **intervenção em tempo real**:
 
 - Conter o impacto
 - Limitar a propagação
@@ -233,11 +233,11 @@ Um ponto essencial: a equipa de resposta a incidentes atua **enquanto o incident
 - Ganhar tempo
 
 ```
-  Preparacao                 Incidente                    Pos-incidente
+  Preparação                 Incidente                    Pos-incidente
   (antes)                   (durante)                    (depois)
   ══════════════════════╦════════════════════════╦════════════════════
-  Equipas definidas     ║ Equipa atua em         ║ Documentacao
-  Playbooks escritos    ║ tempo real:            ║ Licoes aprendidas
+  Equipas definidas     ║ Equipa atua em         ║ Documentação
+  Playbooks escritos    ║ tempo real:            ║ Lições aprendidas
   Ferramentas prontas   ║ • conter              ║ Melhoria de
   Treino realizado      ║ • limitar             ║ processos
   Contactos atuais      ║ • decidir             ║
@@ -249,25 +249,25 @@ Um ponto essencial: a equipa de resposta a incidentes atua **enquanto o incident
 
 ## Processo de resposta a incidentes
 
-O processo tipico de resposta a incidentes segue um fluxo estruturado:
+O processo típico de resposta a incidentes segue um fluxo estruturado:
 
 ```
   ┌────────────┐    ┌────────────────┐    ┌────────────┐    ┌────────────┐
-  │  Detecao   │───►│ Classificacao  │───►│ Contencao  │───►│ Erradicacao│
+  │  Deteção   │───►│ Classificação  │───►│ Contenção  │───►│ Erradicação│
   │  e Alerta  │    │  e Triagem     │    │            │    │            │
   └────────────┘    └────────────────┘    └────────────┘    └─────┬──────┘
                                                                   │
                     ┌────────────────┐    ┌────────────┐          │
-                    │    Licoes      │◄───│ Recuperacao│◄─────────┘
+                    │    Lições      │◄───│ Recuperação│◄─────────┘
                     │  Aprendidas    │    │            │
                     └────────────────┘    └────────────┘
 ```
 
-| Fase | Objetivo | Ações tipicas |
+| Fase | Objetivo | Ações típicas |
 |------|----------|--------------|
-| **Deteção é Alerta** | Perceber que algo está a acontecer | Monitorizar logs, analisar alertas SIEM, receber relatos de utilizadores |
-| **Classificação é Triagem** | Avaliar se e um incidente é qual a gravidade | Verificar se e falso positivo, classificar severidade, identificar ativos afetados |
-| **Contenção** | Limitar o impacto é evitar propagação | Isolar sistemas, bloquear acessos, preservar evidências |
+| **Deteção e Alerta** | Perceber que algo está a acontecer | Monitorizar logs, analisar alertas SIEM, receber relatos de utilizadores |
+| **Classificação e Triagem** | Avaliar se e um incidente e qual a gravidade | Verificar se e falso positivo, classificar severidade, identificar ativos afetados |
+| **Contenção** | Limitar o impacto e evitar propagação | Isolar sistemas, bloquear acessos, preservar evidências |
 | **Erradicação** | Remover a causa raiz | Eliminar malware, corrigir vulnerabilidades, fechar acessos comprometidos |
 | **Recuperação** | Restaurar operações normais | Restaurar backups, validar integridade, monitorizar de perto |
 | **Lições Aprendidas** | Melhorar para o futuro | Documentar o incidente, identificar falhas no processo, atualizar playbooks |
@@ -284,8 +284,8 @@ O processo tipico de resposta a incidentes segue um fluxo estruturado:
 |------|------|---------|
 | **Identificação** | Alerta ou relato do utilizador | O utilizador percebe que algo está errado, ou o sistema de email deteta o phishing |
 | **Classificação** | Incidente de comprometimento de credenciais | Ameaça direta a **confidencialidade** - credenciais foram expostas |
-| **Contenção** | Bloqueio imediato | Reset da password, invalidacao de sessões ativas |
-| **Resposta** | Análise é comunicação | Análise de acessos realizados com as credenciais comprometidas, comunicação ao utilizador |
+| **Contenção** | Bloqueio imediato | Reset da password, invalidação de sessões ativas |
+| **Resposta** | Análise e comunicação | Análise de acessos realizados com as credenciais comprometidas, comunicação ao utilizador |
 
 **Como interpretar:**
 
@@ -299,26 +299,26 @@ O processo tipico de resposta a incidentes segue um fluxo estruturado:
 
 ---
 
-### Exemplo 2 - Hospital (Acessos anómalos fora de horario)
+### Exemplo 2 - Hospital (Acessos anómalos fora de horário)
 
-**Cenário:** Num hospital, são detetados acessos anómalos a um sistema clínico fora do horario normal de trabalho.
+**Cenário:** Num hospital, são detetados acessos anómalos a um sistema clínico fora do horário normal de trabalho.
 
 | Fase | Ação | Detalhe |
 |------|------|---------|
-| **Identificação** | Logs e alertas automáticos | O SIEM deteta acessos ao sistema clínico as 3h da manha |
-| **Classificação** | Potencial acesso não autorizado | Ameaça a **confidencialidade** de dados clínicos sensiveis |
+| **Identificação** | Logs e alertas automáticos | O SIEM deteta acessos ao sistema clínico as 3h da manhã |
+| **Classificação** | Potencial acesso não autorizado | Ameaça a **confidencialidade** de dados clínicos sensíveis |
 | **Contenção** | Isolamento de conta | Suspender a conta utilizada, manter logs para análise |
 | **Resposta** | Validação e comunicação | Verificar se o acesso era legítimo (médico de urgência?) ou malicioso; comunicação interna |
 
 **Como interpretar:**
 
-*Em ambientes de saúde, os dados clínicos são altamente sensiveis. Um acesso anómalo pode ser um profissional a trabalhar fora de horas ou pode ser um acesso não autorizado. A classificação correta e crítica: reagir em excesso pode prejudicar o atendimento; reagir pouco pode expor dados de pacientes.*
+*Em ambientes de saúde, os dados clínicos são altamente sensíveis. Um acesso anómalo pode ser um profissional a trabalhar fora de horas ou pode ser um acesso não autorizado. A classificação correta e crítica: reagir em excesso pode prejudicar o atendimento; reagir pouco pode expor dados de pacientes.*
 
 **Para refletir:**
 
 - Como distinguir um acesso legítimo fora de horas de um acesso malicioso?
 - Que informação dos logs e mais relevante para está classificação?
-- Que regulamentação (ex: RGPD) se aplica a exposicao de dados clínicos?
+- Que regulamentação (ex: RGPD) se aplica a exposição de dados clínicos?
 
 ---
 
@@ -328,9 +328,9 @@ O processo tipico de resposta a incidentes segue um fluxo estruturado:
 
 | Fase | Ação | Detalhe |
 |------|------|---------|
-| **Identificação** | Monitorização e degradação do serviço | Alertas de latencia elevada, timeouts, relatos de clientes |
+| **Identificação** | Monitorização e degradação do serviço | Alertas de latência elevada, timeouts, relatos de clientes |
 | **Classificação** | Possível DDoS / incidente de disponibilidade | Ameaça direta a **disponibilidade** - o serviço está comprometido |
-| **Contenção** | Mitigação de tráfego | Ativacao de proteção anti-DDoS, filtragem de tráfego malicioso |
+| **Contenção** | Mitigação de tráfego | Ativação de proteção anti-DDoS, filtragem de tráfego malicioso |
 | **Resposta** | Escalonamento e proteção | Escalonamento para equipa técnica, proteção da infraestrutura, comunicação a clientes |
 
 **Como interpretar:**
@@ -358,11 +358,11 @@ O processo tipico de resposta a incidentes segue um fluxo estruturado:
 
 **Como interpretar:**
 
-*Em ambientes industriais, o malware pode ter consequências graves: desde roubo de propriedade intelectual até perturbacao de processos de produção. A contenção rápida (isolar da rede) e crítica para evitar propagação. Nota importante: não se deve desligar o computador imediatamente, pois pode destruir evidências na memoria.*
+*Em ambientes industriais, o malware pode ter consequências graves: desde roubo de propriedade intelectual até perturbação de processos de produção. A contenção rápida (isolar da rede) e crítica para evitar propagação. Nota importante: não se deve desligar o computador imediatamente, pois pode destruir evidências na memória.*
 
 **Para refletir:**
 
-- Porque e que isolar o posto da rede é prioritário em relação a desliga-lo?
+- Porque e que isolar o posto da rede e prioritário em relação a desliga-lo?
 - Que tipo de informação forense se pode perder se o equipamento for desligado?
 - Se o malware se propagasse para sistemas SCADA, que impacto adicional haveria?
 
@@ -370,17 +370,17 @@ O processo tipico de resposta a incidentes segue um fluxo estruturado:
 
 ## Exercícios
 
-### Nível 1 - Compreensao dos conceitos
+### Nível 1 - Compreensão dos conceitos
 
 #### Exercício 1.1 - Verdadeiro ou Falso
 
-Classifica as seguintes afirmacoes como Verdadeiras (V) ou Falsas (F):
+Classifica as seguintes afirmações como Verdadeiras (V) ou Falsas (F):
 
-| # | Afirmacao |
+| # | Afirmação |
 |---|-----------|
 | a) | O IRP serve para evitar que incidentes acontecam. |
 | b) | A classificação de um incidente deve considerar se há ameaça a confidencialidade, integridade ou disponibilidade. |
-| c) | Todo o alerta de segurança é automaticamente um incidente relevante. |
+| c) | Todo o alerta de segurança e automaticamente um incidente relevante. |
 | d) | O IRP e, por natureza, mais reativo do que proativo. |
 | e) | O IRP começa na fase de contenção. |
 | f) | A preparação (equipas, playbooks, treino) faz parte do planeamento de resposta a incidentes. |
@@ -391,8 +391,8 @@ Classifica as seguintes afirmacoes como Verdadeiras (V) ou Falsas (F):
     |---|:--------:|-------------|
     | a) | **F** | O IRP não serve para evitar incidentes (isso é prevenção). O IRP serve para **responder** quando eles ocorrem. |
     | b) | **V** | A triade CIA (Confidencialidade, Integridade, Disponibilidade) e o critério central para classificar a relevância de um incidente. |
-    | c) | **F** | Nem todo o alerta é um incidente relevante. Pode ser ruido, falso positivo ou evento sem impacto. E por isso que existe a fase de **triagem e classificação**. |
-    | d) | **V** | O IR atua sobretudo quando o incidente já está em curso ou foi detetado. A preparação e proativa, mas a essencia da resposta é reativa. |
+    | c) | **F** | Nem todo o alerta e um incidente relevante. Pode ser ruido, falso positivo ou evento sem impacto. E por isso que existe a fase de **triagem e classificação**. |
+    | d) | **V** | O IR atua sobretudo quando o incidente já está em curso ou foi detetado. A preparação e proativa, mas a essência da resposta e reativa. |
     | e) | **F** | O IRP começa **antes** da contenção, com a capacidade de **detetar** e **classificar** o incidente. |
     | f) | **V** | A preparação previa (equipas, playbooks, ferramentas, treino) e essencial para que a resposta seja rápida e coordenada quando o incidente ocorre. |
 
@@ -419,10 +419,10 @@ Associa cada ação a fase correta do processo de resposta a incidentes.
 
     | # | Ação | Fase |
     |---|------|------|
-    | a) | Isolar um servidor comprometido da rede | **Contenção** - limitar o impacto é evitar propagação |
+    | a) | Isolar um servidor comprometido da rede | **Contenção** - limitar o impacto e evitar propagação |
     | b) | Analisar um alerta do SIEM | **Deteção** - perceber que algo está a acontecer |
     | c) | Restaurar um sistema a partir de backup | **Recuperação** - restaurar operações normais |
-    | d) | Determinar que o incidente afeta a confidencialidade | **Classificação** - avaliar a gravidade é dimensão afetada |
+    | d) | Determinar que o incidente afeta a confidencialidade | **Classificação** - avaliar a gravidade e dimensão afetada |
     | e) | Remover o malware do sistema infetado | **Erradicação** - eliminar a causa raiz |
     | f) | Documentar o que correu bem e mal | **Lições Aprendidas** - melhorar para o futuro |
     | g) | Bloquear o IP do atacante na firewall | **Contenção** - limitar o impacto (pode também ser erradicação, dependendo do contexto) |
@@ -430,7 +430,7 @@ Associa cada ação a fase correta do processo de resposta a incidentes.
 
 ---
 
-#### Exercício 1.3 - Preparacao e pré-requisitos
+#### Exercício 1.3 - Preparação e pré-requisitos
 
 Indica, para cada elemento, se se trata de um **instrumento de preparação** (playbook, runbook, matriz, plano) ou de uma **fonte de deteção** (tecnológica, humana, externa).
 
@@ -470,7 +470,7 @@ Para cada cenário, indica se se trata de um **incidente relevante** ou não, e 
 |---|---------|
 | a) | Um colaborador recebe um email de spam comercial na caixa de correio corporativa. |
 | b) | O firewall regista 2000 tentativas de ligação a porta 22 (SSH) vindas de IPs desconhecidos durante a noite. |
-| c) | Um administrador de sistemas descobre que a base de dados de RH foi acedida por uma conta que não devia ter permissoes. |
+| c) | Um administrador de sistemas descobre que a base de dados de RH foi acedida por uma conta que não devia ter permissões. |
 | d) | O antivirus deteta e bloqueia automaticamente um ficheiro malicioso num anexo de email. |
 | e) | Um colaborador reporta que o seu portatil foi roubado; o portatil tem acesso VPN e documentos confidenciais. |
 
@@ -478,9 +478,9 @@ Para cada cenário, indica se se trata de um **incidente relevante** ou não, e 
 
     | # | Incidente? | Justificação |
     |---|:----------:|-------------|
-    | a) | **Não** | Spam comercial e ruido normal. Não é dirigido contra ativos de informação é não ameaça diretamente CIA. |
+    | a) | **Não** | Spam comercial e ruido normal. Não é dirigido contra ativos de informação e não ameaça diretamente CIA. |
     | b) | **Possivelmente** | Tentativas massivas de força bruta contra SSH podem indicar um ataque dirigido. Depende de se os acessos foram bem-sucedidos. Deve ser investigado (triagem). |
-    | c) | **Sim** | Acesso não autorizado a dados de RH e um incidente de **confidencialidade**. E dirigido contra ativos de informação é teve sucesso. |
+    | c) | **Sim** | Acesso não autorizado a dados de RH e um incidente de **confidencialidade**. E dirigido contra ativos de informação e teve sucesso. |
     | d) | **Não (mas registar)** | O antivirus conteve a ameaça automaticamente. Não houve impacto real. Deve ser registado para análise de tendencias, mas não requer resposta a incidente completa. |
     | e) | **Sim** | Roubo de portatil com acesso VPN e documentos confidenciais e um incidente de **confidencialidade** e potencialmente de **integridade**. Tem impacto real e requer resposta imediata (revogar VPN, localizar dispositivo, avaliar dados expostos). |
 
@@ -508,7 +508,7 @@ Preenche a tabela:
     | Fase | Resposta |
     |------|---------|
     | **Deteção** | O incidente foi detetado quando os colaboradores tentaram aceder aos ficheiros e encontraram a nota de resgate, ou quando o antivirus/EDR gerou alertas de comportamento anómalo (cifragem massiva de ficheiros). |
-    | **Classificação** | Incidente de **integridade** e **disponibilidade** - os dados foram cifrados (alterados) e estão indisponiveis. Gravidade **alta** pela natureza sensivel dos dados de clientes. |
+    | **Classificação** | Incidente de **integridade** e **disponibilidade** - os dados foram cifrados (alterados) e estão indisponíveis. Gravidade **alta** pela natureza sensível dos dados de clientes. |
     | **Contenção** | Isolar imediatamente o(s) computador(es) afetado(s) da rede para evitar propagação. Desativar acessos a pastas partilhadas. Preservar evidências (não formatar). Verificar se outros sistemas foram afetados. |
     | **Erradicação** | Identificar a variante de ransomware. Remover o malware dos sistemas afetados. Fechar o vetor de entrada (bloquear o tipo de anexo, atualizar filtros de email). Verificar se o atacante deixou backdoors. |
     | **Recuperação** | Restaurar os ficheiros a partir de backups (se existirem e não estiverem comprometidos). Validar a integridade dos dados restaurados. Monitorizar de perto os sistemas nas horas seguintes. |
@@ -537,14 +537,14 @@ Preenche a tabela comparativa:
     | Aspeto | Sem planeamento | Com planeamento |
     |--------|----------------|----------------|
     | **Quem e alertado primeiro?** | O engenheiro avisa quem está mais perto; a informação pode não chegar a pessoa certa. | O EDR gera alerta automático para a equipa de IR; o engenheiro sabe a quem ligar (matriz de escalonamento). |
-    | **Quem decide isolar o posto?** | Ninguem quer tomar a decisão por receio de parar a produção. Discussao entre TI e produção. | O playbook define: se há malware confirmado em rede de produção, isola-se imediatamente. O coordenador de incidente tem autoridade para decidir. |
-    | **O que acontece a produção?** | Pode haver receio de desligar sistemas; o malware propaga-se; a produção acaba por parar de qualquer forma, mas sem controlo. | A produção e informada; o posto e isolado da rede mas a produção contínua com plano de contingencia definido. |
+    | **Quem decide isolar o posto?** | Ninguem quer tomar a decisão por receio de parar a produção. Discussão entre TI e produção. | O playbook define: se há malware confirmado em rede de produção, isola-se imediatamente. O coordenador de incidente tem autoridade para decidir. |
+    | **O que acontece a produção?** | Pode haver receio de desligar sistemas; o malware propaga-se; a produção acaba por parar de qualquer forma, mas sem controlo. | A produção e informada; o posto e isolado da rede mas a produção contínua com plano de contingência definido. |
     | **Como se preservam evidências?** | Alguem pode desligar o computador ou reinstalar o sistema, destruindo evidências. | O runbook indica: isolar da rede mas manter ligado; não reinstalar; aguardar análise forense. |
-    | **Quanto tempo até a contenção?** | Horas - entre discussoes, hesitacoes e decisões ad hoc. | Minutos a dezenas de minutos - procedimentos claros, decisão rápida, ações coordenadas. |
+    | **Quanto tempo até a contenção?** | Horas - entre discussoes, hesitações e decisões ad hoc. | Minutos a dezenas de minutos - procedimentos claros, decisão rápida, ações coordenadas. |
 
     **Conclusão:**
 
-    *A diferença fundamental e que, sem planeamento, a organização fica paralisada pela indecisao. Com planeamento, há uma base comum para agir rápido, mesmo que o cenário exato não esteja previsto. Respostas pré-definidas não significam rigidez cega; significam que ninguem precisa de começar do zero.*
+    *A diferença fundamental e que, sem planeamento, a organização fica paralisada pela indecisão. Com planeamento, há uma base comum para agir rápido, mesmo que o cenário exato não esteja previsto. Respostas pré-definidas não significam rigidez cega; significam que ninguém precisa de começar do zero.*
 
 ---
 
@@ -552,12 +552,12 @@ Preenche a tabela comparativa:
 
 #### Exercício 3.1 - Cenário multi-fase com decisões
 
-**Cenário:** Es o responsável de segurança de um municipio. As 8h30 de segunda-feira recebes os seguintes alertas em sequencia:
+**Cenário:** Es o responsável de segurança de um municipio. As 8h30 de segunda-feira recebes os seguintes alertas em sequência:
 
 1. **8h30** - O SIEM regista tentativas de login falhadas massivas na VPN da Camara Municipal
-2. **8h45** - Um funcionario reporta que recebeu um email suspeito pedindo para "atualizar a password da VPN" com um link
-3. **9h00** - Descobres que 3 contas de funcionarios acederam a VPN com sucesso durante o fim de semana
-4. **9h15** - O sistema de ficheiros partilhado mostra alterações em documentos sensiveis durante a madrugada
+2. **8h45** - Um funcionário reporta que recebeu um email suspeito pedindo para "atualizar a password da VPN" com um link
+3. **9h00** - Descobres que 3 contas de funcionários acederam a VPN com sucesso durante o fim de semana
+4. **9h15** - O sistema de ficheiros partilhado mostra alterações em documentos sensíveis durante a madrugada
 
 Para cada momento, indica:
 
@@ -576,20 +576,20 @@ Para cada momento, indica:
     **8h45 - Email de phishing reportado**
 
     - **Fase:** Deteção + Classificação (a situação evolui)
-    - **Ação:** Analisar o email de phishing. Verificar quantos funcionarios o receberam. Verificar se alguem clicou no link. Correlacionar com as tentativas de login da VPN.
+    - **Ação:** Analisar o email de phishing. Verificar quantos funcionários o receberam. Verificar se alguém clicou no link. Correlacionar com as tentativas de login da VPN.
     - **Classificação atualizada:** Incidente **provável** - há uma campanha de phishing direcionada ao municipio, possivelmente coordenada com o ataque a VPN. Ameaça a **confidencialidade**.
 
     **9h00 - 3 contas acederam a VPN no fim de semana**
 
     - **Fase:** Classificação + Contenção (a gravidade aumenta)
-    - **Ação:** Identificar as 3 contas. Verificar se os acessos são legitimos (contactar os funcionarios). Se não forem, suspender imediatamente as contas. Verificar que recursos foram acedidos via VPN. Iniciar contenção.
+    - **Ação:** Identificar as 3 contas. Verificar se os acessos são legitimos (contactar os funcionários). Se não forem, suspender imediatamente as contas. Verificar que recursos foram acedidos via VPN. Iniciar contenção.
     - **Classificação atualizada:** Incidente **confirmado e grave** - credenciais comprometidas com acesso efetivo a rede interna. Ameaça a **confidencialidade** e potencialmente a **integridade**.
 
-    **9h15 - Alteracoes em documentos sensiveis**
+    **9h15 - Alteracoes em documentos sensíveis**
 
     - **Fase:** Contenção urgente + início de Erradicação
-    - **Ação:** Bloquear imediatamente o acesso remoto (VPN) para todas as contas suspeitas. Isolar o servidor de ficheiros se necessário. Preservar logs e evidências. Avaliar o alcance total dos dados comprometidos. Comunicar a direcao e, se aplicavel, a CNPD (dados pessoais).
-    - **Classificação final:** Incidente **crítico** - comprometimento confirmado de dados sensiveis do municipio. Todas as três dimensoes de CIA podem estar afetadas. Requer resposta completa com todas as fases do IRP.
+    - **Ação:** Bloquear imediatamente o acesso remoto (VPN) para todas as contas suspeitas. Isolar o servidor de ficheiros se necessário. Preservar logs e evidências. Avaliar o alcance total dos dados comprometidos. Comunicar a direção e, se aplicavel, a CNPD (dados pessoais).
+    - **Classificação final:** Incidente **crítico** - comprometimento confirmado de dados sensíveis do municipio. Todas as três dimensoes de CIA podem estar afetadas. Requer resposta completa com todas as fases do IRP.
 
     **Conclusão:**
 
@@ -620,9 +620,9 @@ Compara a resposta provável dos dois hospitais preenchendo a tabela:
     |------|---------------------|---------------------|
     | **Deteção** | Rapida: EDR e SIEM detetam cifragem anómala em minutos. Equipa CSIRT e alertada automaticamente. | Lenta: só e detetado quando os médicos tentam aceder aos registos e falham. Pode demorar horas. |
     | **Classificação** | Imediata: o playbook de ransomware define os critérios. Classificado como incidente crítico em minutos. | Confusa: a equipa de TI não sabe se e ransomware ou falha de sistema. Perde-se tempo a diagnosticar. |
-    | **Contenção** | Coordenada: isolamento de rede por segmentos, preservação de evidências, comunicação a direcao clínica seguindo procedimentos. | Desordenada: desligam servidores "por precaucao", possivelmente destruindo evidências. Sem plano claro. |
+    | **Contenção** | Coordenada: isolamento de rede por segmentos, preservação de evidências, comunicação a direção clínica seguindo procedimentos. | Desordenada: desligam servidores "por precaução", possivelmente destruindo evidências. Sem plano claro. |
     | **Recuperação** | Controlada: restauro a partir de backups testados, validação de integridade, retoma progressiva com monitorização. | Arriscada: backups não testados há 6 meses podem estar incompletos ou corrompidos. Recuperação incerta e demorada. |
-    | **Tempo total** | **2-6 horas** (dentro do MTD hospitalar tipico) | **24-72 horas** (provavelmente excede o MTD, com risco para pacientes) |
+    | **Tempo total** | **2-6 horas** (dentro do MTD hospitalar típico) | **24-72 horas** (provavelmente excede o MTD, com risco para pacientes) |
 
     **Conclusão:**
 
@@ -646,12 +646,12 @@ A prevenção e importante (firewalls, antivirus, formação), mas e uma funçã
 |--------|-----|-----|
 | Foco | Detetar e responder ao incidente | Restaurar serviços após o incidente |
 | Quando | Durante o incidente | Após a contenção |
-| Objetivo | Conter o impacto é eliminar a causa | Repor a operação normal |
+| Objetivo | Conter o impacto e eliminar a causa | Repor a operação normal |
 | Exemplo | Isolar um servidor comprometido | Restaurar o servidor a partir de backup |
 
 ### Confusão 3: Nem todo o evento e um incidente
 
-> Um alerta pode ser **ruido**, **falso positivo**, **evento benigno** ou **tentativa sem impacto**. E por isso que a **classificação é triagem** são essenciais.
+> Um alerta pode ser **ruido**, **falso positivo**, **evento benigno** ou **tentativa sem impacto**. E por isso que a **classificação e triagem** são essenciais.
 
 Tratar tudo como incidente crítico esgota recursos e cria fadiga de alertas. Não investigar alertas pode deixar passar incidentes reais.
 
@@ -664,7 +664,7 @@ Tratar tudo como incidente crítico esgota recursos e cria fadiga de alertas. N�
   │ BIA  │────►│ IRP  │────►│ DRP  │────►│ BCP  │
   └──────┘     └──────┘     └──────┘     └──────┘
   O que e       Como         Como         Como manter
-  critico?     responder?   recuperar?   o negocio?
+  crítico?     responder?   recuperar?   o negócio?
 ```
 
 O IRP depende da BIA para saber **o que é prioritário** e alimenta o DRP e o BCP com informação sobre **o que aconteceu** e **o que precisa de ser recuperado**.
@@ -677,17 +677,17 @@ Não é preciso ter um SOC com 20 pessoas. E preciso ter **pessoas identificadas
 
 ### Confusão 6: Deteção não é só tecnologia
 
-> A capacidade de deteção é **técnica é humana**. Não depende apenas de SIEM e EDR.
+> A capacidade de deteção e **técnica e humana**. Não depende apenas de SIEM e EDR.
 
 Deteção pode vir de utilizadores, helpdesk, logs, monitorização, fornecedores, parceiros ou auditoria. Uma organização que depende exclusivamente de ferramentas automáticas pode perder incidentes que só uma pessoa consegue identificar.
 
 ### Confusão 7: Respostas pré-definidas não significam rigidez cega
 
-> Ter procedimentos não significa seguir automaticamente sem pensar. Significa ter uma **base comum** para agir rápido, com **margem para adaptacao**.
+> Ter procedimentos não significa seguir automaticamente sem pensar. Significa ter uma **base comum** para agir rápido, com **margem para adaptação**.
 
 O playbook diz: "se há ransomware, isolar da rede". Mas a decisão de **quando** e **como** isolar pode variar consoante o contexto.
 
-### Confusão 8: O plano não substitui a competencia
+### Confusão 8: O plano não substitui a competência
 
 > Ter um IRP documentado **não chega**. Se a equipa não treinar, o plano pode falhar.
 
@@ -695,16 +695,16 @@ Um plano que existe no papel mas nunca foi testado e quase tao inutil como não 
 
 ---
 
-## Ligacao com a BIA
+## Ligação com a BIA
 
-A transicao da BIA para o IRP e conceptualmente clara:
+A transição da BIA para o IRP e conceptualmente clara:
 
 | BIA | IRP |
 |-----|-----|
 | Identifica o que é **crítico** | Define como **responder** quando o crítico e ameacado |
 | Quantifica o **impacto** de uma interrupção | Define **como agir** durante a interrupção |
 | Define **tempos** (RPO, RTO, MTD) | Usa esses tempos para **priorizar** a resposta |
-| Foca-se no **negocio** | Foca-se na **ação técnica é operacional** |
+| Foca-se no **negócio** | Foca-se na **ação técnica e operacional** |
 
 ```
   BIA                              IRP
@@ -719,50 +719,50 @@ A transicao da BIA para o IRP e conceptualmente clara:
 
 ## Resumo rápido
 
-| Conceito | Descricao |
+| Conceito | Descrição |
 |----------|-----------|
 | **IRP** | Plano que define como identificar, classificar e responder a incidentes |
 | **Incidente** | Evento que ameaça a confidencialidade, integridade ou disponibilidade |
-| **Triagem** | Processo de avaliar se um alerta é realmente um incidente relevante |
+| **Triagem** | Processo de avaliar se um alerta e realmente um incidente relevante |
 | **CIA** | Confidencialidade, Integridade, Disponibilidade - critérios de classificação |
 | **Natureza reativa** | O IRP atua quando o incidente ocorre, mas exige preparação previa |
 | **Fases** | Deteção, Classificação, Contenção, Erradicação, Recuperação, Lições Aprendidas |
 | **Playbook** | Procedimento detalhado para responder a um tipo específico de incidente |
 | **Runbook** | Procedimento técnico para executar ações concretas |
 | **Matriz de escalonamento** | Tabela de contactos, níveis e canais para escalar o incidente |
-| **Deteção** | Capacidade (técnica é humana) de perceber que um incidente está a ocorrer |
+| **Deteção** | Capacidade (técnica e humana) de perceber que um incidente está a ocorrer |
 | **Equipa de IR** | Pessoas identificadas com papeis definidos para responder a incidentes |
 
 ### Frases-chave para recordar
 
 - *"O IRP não existe para impedir que algo aconteca; existe para garantir que, quando acontece, a organização responde com rapidez e método."*
-- *"Nem todo o ataque é automaticamente um incidente com impacto relevante; e preciso qualificar."*
-- *"O IRP vive da deteção, da classificação é da resposta."*
+- *"Nem todo o ataque e automaticamente um incidente com impacto relevante; e preciso qualificar."*
+- *"O IRP vive da deteção, da classificação e da resposta."*
 - *"Responder a incidentes e mais reativo do que proativo, mas exige preparação previa muito seria."*
 - *"A BIA diz-nos o que doi mais; o IRP diz-nos como agir quando começa a doer."*
 - *"Em incident response, improvisar custa caro."*
-- *"Não basta ter um plano; e preciso saber quem atua e como o incidente é detetado."*
+- *"Não basta ter um plano; e preciso saber quem atua e como o incidente e detetado."*
 - *"Uma organização sem capacidade de deteção reage sempre tarde."*
 - *"Respostas pré-definidas não eliminam a necessidade de pensar; eliminam a necessidade de começar do zero."*
 
 ### Diagrama de sintese
 
 ```
-  Evento ──► Triagem ──► Incidente? ──► Classificacao ──► Resposta
+  Evento ──► Triagem ──► Incidente? ──► Classificação ──► Resposta
                               │
-                          Nao │ Sim
+                          Não │ Sim
                               │
                          Registar    ┌──────────────────────────────┐
-                         e fechar    │ Detecao ► Classificacao      │
-                                     │ ► Contencao ► Erradicacao    │
-                                     │ ► Recuperacao ► Licoes       │
+                         e fechar    │ Deteção ► Classificação      │
+                                     │ ► Contenção ► Erradicação    │
+                                     │ ► Recuperação ► Lições       │
                                      └──────────────────────────────┘
 
-  O IRP articula-se com:  BIA (o que e critico)
+  O IRP articula-se com:  BIA (o que e crítico)
                           DRP (como recuperar)
-                          BCP (como manter o negocio)
+                          BCP (como manter o negócio)
 ```
 
 ---
 
-*Próximo capitulo: [Planeamento do IRP](planeamento.md)*
+*Próximo capítulo: [Planeamento do IRP](planeamento.md)*
