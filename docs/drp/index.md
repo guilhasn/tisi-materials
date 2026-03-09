@@ -1,10 +1,10 @@
 # Disaster Recovery Plan (DRP)
 
-*Conteudo brevemente disponivel.*
+*Conteúdo brevemente disponível.*
 
-Este modulo abordara:
+Este módulo abordara:
 
-- Estrategias de recuperacao de desastres
-- Planos de continuidade tecnologica
-- Testes e simulacoes
-- Casos praticos e exercicios
+- Estratégias de recuperação de desastres
+- Planos de continuidade tecnológica
+- Testes e simulações
+- Casos práticos e exercícios

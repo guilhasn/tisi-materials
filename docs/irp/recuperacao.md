@@ -1,25 +1,25 @@
-# Recuperacao de Incidentes
+# Recuperação de Incidentes
 
-## Indice
+## Índice
 
-1. [Avaliacao de danos](#1-avaliacao-de-danos)
-2. [Pericia informatica](#2-pericia-informatica)
-3. [Recuperacao madura](#3-recuperacao-madura)
+1. [Avaliação de danos](#1-avaliacao-de-danos)
+2. [Perícia informatica](#2-pericia-informatica)
+3. [Recuperação madura](#3-recuperacao-madura)
 4. [Resposta automatizada](#4-resposta-automatizada)
-5. [Exemplos praticos](#5-exemplos-praticos)
-6. [Exercicios](#6-exercicios)
-7. [Armadilhas e confusoes a evitar](#7-armadilhas-e-confusoes-a-evitar)
-8. [Resumo rapido](#8-resumo-rapido)
+5. [Exemplos práticos](#5-exemplos-praticos)
+6. [Exercícios](#6-exercicios)
+7. [Armadilhas e confusões a evitar](#7-armadilhas-e-confusoes-a-evitar)
+8. [Resumo rápido](#8-resumo-rapido)
 
 ---
 
-## 1. Avaliacao de danos
+## 1. Avaliação de danos
 
-Apos a contencao de um incidente, a organizacao precisa de perceber **o que realmente aconteceu**. A avaliacao de danos e o processo de determinar o alcance, a profundidade e as consequencias do incidente antes de avancar para a recuperacao.
+Após a contenção de um incidente, a organização precisa de perceber **o que realmente aconteceu**. A avaliação de danos e o processo de determinar o alcance, a profundidade e as consequências do incidente antes de avancar para a recuperação.
 
 > Recuperar sem avaliar e como reconstruir uma casa sem saber quais as paredes que ficaram danificadas.
 
-A expressao "determinacao imediata" nao significa certeza instantanea. Significa **comecar a delimitar o ambito do incidente o mais cedo possivel**, com a melhor informacao disponivel naquele momento. A avaliacao inicial guia as primeiras decisoes de recuperacao; avaliacoes posteriores refinam essa compreensao a medida que surgem novos dados.
+A expressao "determinacao imediata" não significa certeza instantânea. Significa **começar a delimitar o âmbito do incidente o mais cedo possível**, com a melhor informação disponível naquele momento. A avaliação inicial guia as primeiras decisões de recuperação; avaliacoes posteriores refinam essa compreensao a medida que surgem novos dados.
 
 ```
   ┌───────────────┐     ┌───────────────┐     ┌───────────────┐
@@ -35,58 +35,58 @@ A expressao "determinacao imediata" nao significa certeza instantanea. Significa
               afetados?    expostos?   real?
 ```
 
-A avaliacao deve responder a perguntas essenciais:
+A avaliação deve responder a perguntas essenciais:
 
 - Que **sistemas** foram afetados?
 - Que **dados** foram alterados, perdidos ou expostos?
 - Que **ativos** ficaram comprometidos?
-- Ate onde chegou o incidente (qual o **perimetro** real)?
-- O impacto foi **apenas tecnico** ou tambem **operacional** (processos de negocio, servicos a clientes, obrigacoes legais)?
+- Até onde chegou o incidente (qual o **perímetro** real)?
+- O impacto foi **apenas técnico** ou também **operacional** (processos de negocio, serviços a clientes, obrigações legais)?
 
 ---
 
 ### O que procurar (a lente CIA)
 
-O dano causado por um incidente nao se resume a "sistema em baixo". Deve ser analisado atraves das tres dimensoes da seguranca da informacao:
+O dano causado por um incidente não se resume a "sistema em baixo". Deve ser analisado através das três dimensoes da segurança da informação:
 
-| Dimensao | Perguntas-chave | Exemplos de dano |
+| Dimensão | Perguntas-chave | Exemplos de dano |
 |----------|----------------|------------------|
-| **Confidencialidade** | Houve acesso nao autorizado? Dados foram expostos ou exfiltrados? Credenciais foram comprometidas? | Fuga de dados de clientes, exposicao de credenciais, leitura de documentos confidenciais por terceiros |
-| **Integridade** | Dados foram alterados sem autorizacao? Ha corrupcao de ficheiros ou registos? Configuracoes foram adulteradas? | Registos clinicos alterados, configuracoes de firewall modificadas pelo atacante, logs apagados para encobrir rastos |
-| **Disponibilidade** | Servicos ficaram indisponiveis? Durante quanto tempo? Que impacto operacional teve? | Site de e-commerce em baixo durante 6 horas, sistema de faturacao inacessivel, email corporativo bloqueado |
+| **Confidencialidade** | Houve acesso não autorizado? Dados foram expostos ou exfiltrados? Credenciais foram comprometidas? | Fuga de dados de clientes, exposicao de credenciais, leitura de documentos confidenciais por terceiros |
+| **Integridade** | Dados foram alterados sem autorização? Ha corrupção de ficheiros ou registos? Configuracoes foram adulteradas? | Registos clínicos alterados, configurações de firewall modificadas pelo atacante, logs apagados para encobrir rastos |
+| **Disponibilidade** | Serviços ficaram indisponiveis? Durante quanto tempo? Que impacto operacional teve? | Site de e-commerce em baixo durante 6 horas, sistema de faturação inacessível, email corporativo bloqueado |
 
-O dano pode manifestar-se de muitas formas que nao sao imediatamente obvias:
+O dano pode manifestar-se de muitas formas que não são imediatamente óbvias:
 
-- **Dados expostos** a terceiros nao autorizados
+- **Dados expostos** a terceiros não autorizados
 - **Dados alterados** de forma silenciosa (sem alerta)
 - **Contas comprometidas** que podem ser usadas futuramente
-- **Configuracoes adulteradas** que enfraquecem a seguranca
-- **Logs apagados** que dificultam a investigacao
-- **Servicos degradados** (nao totalmente em baixo, mas lentos ou instaveis)
+- **Configuracoes adulteradas** que enfraquecem a segurança
+- **Logs apagados** que dificultam a investigação
+- **Serviços degradados** (não totalmente em baixo, mas lentos ou instáveis)
 - **Impacto em terceiros** (parceiros, clientes, fornecedores)
-- **Perda de confianca** de stakeholders
+- **Perda de confiança** de stakeholders
 
 ---
 
-### Fontes de evidencia
+### Fontes de evidência
 
-A avaliacao de danos nao se baseia numa unica fonte. Requer cruzar informacao de multiplas origens:
+A avaliação de danos não se baseia numa única fonte. Requer cruzar informação de múltiplas origens:
 
 | Fonte | O que revela | Limitacao |
 |-------|-------------|-----------|
 | **Logs de sistema** | Que eventos ocorreram, quando, por quem | Podem ter sido apagados ou manipulados pelo atacante |
-| **Logs de detecao de intrusao (IDS/IPS)** | Que trafego anomalo foi detetado, que regras foram acionadas | Nao capturam tudo; dependem das regras configuradas |
-| **Documentacao de configuracao** | Qual era o estado esperado dos sistemas (para comparar com o estado atual) | Pode estar desatualizada se nao houver gestao de configuracao rigorosa |
-| **Documentacao do incidente** | Cronologia, decisoes tomadas, acoes executadas durante a resposta | Depende da qualidade do registo feito em tempo real |
-| **Analise detalhada de sistemas e dados** | Estado real dos ficheiros, processos, contas, servicos | Consome tempo; pode nao ser viavel para todos os sistemas |
-| **Logs de EDR/XDR** | Atividade nos endpoints, processos executados, ligacoes de rede | Cobertura limitada ao que estava instalado e configurado |
-| **Entrevistas com utilizadores** | Contexto humano, observacoes nao registadas em logs | Subjetivas, dependem da memoria e da disponibilidade |
+| **Logs de deteção de intrusão (IDS/IPS)** | Que tráfego anómalo foi detetado, que regras foram acionadas | Não capturam tudo; dependem das regras configuradas |
+| **Documentação de configuração** | Qual era o estado esperado dos sistemas (para comparar com o estado atual) | Pode estar desatualizada se não houver gestão de configuração rigorosa |
+| **Documentação do incidente** | Cronologia, decisões tomadas, ações executadas durante a resposta | Depende da qualidade do registo feito em tempo real |
+| **Análise detalhada de sistemas e dados** | Estado real dos ficheiros, processos, contas, serviços | Consome tempo; pode não ser viavel para todos os sistemas |
+| **Logs de EDR/XDR** | Atividade nos endpoints, processos executados, ligações de rede | Cobertura limitada ao que estava instalado e configurado |
+| **Entrevistas com utilizadores** | Contexto humano, observacoes não registadas em logs | Subjetivas, dependem da memoria e da disponibilidade |
 
 ---
 
-### Avaliacao inicial vs refinamento posterior
+### Avaliação inicial vs refinamento posterior
 
-A avaliacao de danos nao e um evento unico. Funciona em ciclos:
+A avaliação de danos não é um evento único. Funciona em ciclos:
 
 ```
   ╔══════════════════════════════════════════════════════════════════╗
@@ -106,23 +106,23 @@ A avaliacao de danos nao e um evento unico. Funciona em ciclos:
   ╚══════════════════════════════════════════════════════════════════╝
 ```
 
-> Nao esperes ter toda a informacao para comecar a agir. Mas nao ignores que a avaliacao precisa de ser refinada a medida que a informacao evolui.
+> Não esperes ter toda a informação para começar a agir. Mas não ignores que a avaliação precisa de ser refinada a medida que a informação evolui.
 
-A avaliacao inicial guia a recuperacao; as avaliacoes subsequentes refinam a compreensao e alimentam o relatorio pos-incidente, a comunicacao com stakeholders e as decisoes sobre obrigacoes legais (como a notificacao a CNPD em caso de violacao de dados pessoais).
+A avaliação inicial guia a recuperação; as avaliacoes subsequentes refinam a compreensao e alimentam o relatório pós-incidente, a comunicação com stakeholders e as decisões sobre obrigações legais (como a notificação a CNPD em caso de violacao de dados pessoais).
 
 ---
 
-## 2. Pericia informatica
+## 2. Perícia informatica
 
-### O que e a pericia informatica
+### O que é a perícia informatica
 
-A **pericia informatica** (computer forensics) e o processo de **recolher, analisar e preservar provas digitais** de forma cuidadosa, para que possam ser utilizadas de forma fiavel e, quando necessario, formal (por exemplo, em processos disciplinares, judiciais ou regulatorios).
+A **perícia informatica** (computer forensics) e o processo de **recolher, analisar e preservar provas digitais** de forma cuidadosa, para que possam ser utilizadas de forma fiável e, quando necessário, formal (por exemplo, em processos disciplinares, judiciais ou regulatorios).
 
-Nao se trata apenas de "ver os logs". Envolve:
+Não se trata apenas de "ver os logs". Envolve:
 
 - **Recolha correta** das provas (sem alterar os dados originais)
-- **Preservacao da integridade** (garantir que a prova nao foi modificada apos recolha)
-- **Documentacao da origem e manuseamento** (quem recolheu, quando, como, onde esta guardada)
+- **Preservacao da integridade** (garantir que a prova não foi modificada após recolha)
+- **Documentação da origem e manuseamento** (quem recolheu, quando, como, onde está guardada)
 
 ```
   ┌───────────────────────────────────────────────────────┐
@@ -140,34 +140,34 @@ Nao se trata apenas de "ver os logs". Envolve:
 
 As provas digitais podem demonstrar:
 
-- **Acao**: que ferramentas foram usadas, que comandos foram executados
+- **Ação**: que ferramentas foram usadas, que comandos foram executados
 - **Intencao**: tentativas de apagar logs, exfiltrar dados deliberadamente, criar persistencia
-- **Cronologia**: quando cada acao ocorreu, em que sequencia
+- **Cronologia**: quando cada ação ocorreu, em que sequencia
 - **Alcance**: que sistemas e dados foram efetivamente acedidos ou comprometidos
 
 ---
 
-### Quando e necessaria
+### Quando e necessária
 
-A pericia informatica **nao e obrigatoria em todos os incidentes**. Ganha importancia em situacoes especificas:
+A perícia informatica **não é obrigatória em todos os incidentes**. Ganha importância em situações específicas:
 
-| Situacao | Necessidade forense | Justificacao |
+| Situação | Necessidade forense | Justificação |
 |----------|:-------------------:|-------------|
-| Phishing generico com reset rapido de password | Baixa | Incidente contido rapidamente, sem indicios de acesso efetivo a dados sensiveis |
-| Suspeita de crime informatico | **Alta** | Pode ser necessario reportar as autoridades e apresentar provas |
-| Obrigacao regulatoria (RGPD, NIS2) | **Alta** | O regulador pode exigir evidencia de como o incidente ocorreu e que dados foram afetados |
-| Possibilidade de litigio | **Alta** | A organizacao pode precisar de provas para se defender ou para acionar terceiros |
-| Impacto disciplinar interno | **Media-Alta** | E necessario demonstrar que um colaborador teve determinado comportamento |
-| Necessidade de prova formal | **Alta** | Qualquer situacao onde "o que aconteceu" precisa de ser demonstrado de forma fiavel |
-| Falha de sistema sem indicios de ataque | Baixa | Se nao ha suspeita de acao maliciosa, a investigacao tecnica normal e suficiente |
+| Phishing generico com reset rápido de password | Baixa | Incidente contido rapidamente, sem indicios de acesso efetivo a dados sensiveis |
+| Suspeita de crime informatico | **Alta** | Pode ser necessário reportar as autoridades e apresentar provas |
+| Obrigacao regulatória (RGPD, NIS2) | **Alta** | O regulador pode exigir evidência de como o incidente ocorreu e que dados foram afetados |
+| Possibilidade de litigio | **Alta** | A organização pode precisar de provas para se defender ou para acionar terceiros |
+| Impacto disciplinar interno | **Media-Alta** | E necessário demonstrar que um colaborador teve determinado comportamento |
+| Necessidade de prova formal | **Alta** | Qualquer situação onde "o que aconteceu" precisa de ser demonstrado de forma fiável |
+| Falha de sistema sem indicios de ataque | Baixa | Se não há suspeita de ação maliciosa, a investigação técnica normal e suficiente |
 
-Uma prova digital que foi **alterada, mal documentada, contaminada ou armazenada sem controlo** perde o seu valor tecnico, organizacional e legal. Nao basta recolher - e preciso recolher **bem**.
+Uma prova digital que foi **alterada, mal documentada, contaminada ou armazenada sem controlo** perde o seu valor técnico, organizacional e legal. Não basta recolher - e preciso recolher **bem**.
 
 ---
 
 ### Cadeia de custodia
 
-A **cadeia de custodia** e o registo documentado de quem recolheu a prova, quando, como, e por onde passou desde a recolha ate a sua utilizacao.
+A **cadeia de custodia** e o registo documentado de quem recolheu a prova, quando, como, e por onde passou desde a recolha até a sua utilização.
 
 ```
   ╔═══════════════════════════════════════════════════════════════╗
@@ -189,13 +189,13 @@ A **cadeia de custodia** e o registo documentado de quem recolheu a prova, quand
   ╚═══════════════════════════════════════════════════════════════╝
 ```
 
-Nem todas as equipas estao preparadas para conduzir pericia informatica. Uma resposta apressada ou mal conduzida pode **destruir artefactos** que seriam essenciais para a investigacao.
+Nem todas as equipas estão preparadas para conduzir perícia informatica. Uma resposta apressada ou mal conduzida pode **destruir artefactos** que seriam essenciais para a investigação.
 
 ---
 
-### A tensao entre recuperacao rapida e preservacao de prova
+### A tensao entre recuperação rápida e preservação de prova
 
-Existe uma tensao real entre duas necessidades legitimas: a **urgencia operacional** de restaurar servicos e a **necessidade de preservar provas** antes de alterar os sistemas.
+Existe uma tensao real entre duas necessidades legitimas: a **urgência operacional** de restaurar serviços e a **necessidade de preservar provas** antes de alterar os sistemas.
 
 ```
   ┌─────────────────────────────────────────────────────────────────┐
@@ -222,33 +222,33 @@ Existe uma tensao real entre duas necessidades legitimas: a **urgencia operacion
 
 E importante distinguir claramente:
 
-| Aspeto | Avaliacao de danos | Pericia informatica |
+| Aspeto | Avaliação de danos | Perícia informatica |
 |--------|-------------------|---------------------|
 | **Pergunta central** | O que foi afetado? Qual o impacto? O que restaurar? | Que provas existem? Como preserva-las? O que pode ser demonstrado? |
-| **Objetivo** | Guiar a recuperacao | Garantir que as provas sao fiaveis e utilizaveis |
-| **Urgencia** | Alta - necessaria para avancar | Variavel - depende do tipo de incidente |
+| **Objetivo** | Guiar a recuperação | Garantir que as provas são fiaveis e utilizaveis |
+| **Urgência** | Alta - necessária para avancar | Variavel - depende do tipo de incidente |
 | **Quem faz** | Equipa de resposta a incidentes | Especialistas em forense digital (internos ou externos) |
-| **Risco de nao fazer** | Recuperacao cega, sem saber o alcance | Perda de provas, incapacidade de demonstrar o que aconteceu |
+| **Risco de não fazer** | Recuperação cega, sem saber o alcance | Perda de provas, incapacidade de demonstrar o que aconteceu |
 
-> Recuperar depressa demais pode destruir provas. Preservar provas em excesso pode atrasar a recuperacao. O equilibrio depende do contexto de cada incidente.
+> Recuperar depressa demais pode destruir provas. Preservar provas em excesso pode atrasar a recuperação. O equilíbrio depende do contexto de cada incidente.
 
 ---
 
-## 3. Recuperacao madura
+## 3. Recuperação madura
 
-A recuperacao nao e simplesmente "ligar tudo outra vez". Uma recuperacao madura tem **multiplas camadas**, cada uma com objetivos distintos.
+A recuperação não é simplesmente "ligar tudo outra vez". Uma recuperação madura tem **múltiplas camadas**, cada uma com objetivos distintos.
 
-### As 7 camadas da recuperacao
+### As 7 camadas da recuperação
 
-| Camada | Objetivo | Acoes tipicas | Exemplo |
+| Camada | Objetivo | Ações tipicas | Exemplo |
 |--------|----------|--------------|---------|
-| **1. Corrigir vulnerabilidades** | Eliminar a causa raiz que permitiu o incidente e a sua propagacao | Aplicar patches, corrigir configuracoes, fechar portas, eliminar contas obsoletas | A vulnerabilidade no servidor web que permitiu a intrusao e corrigida antes de o repor online |
-| **2. Corrigir salvaguardas** | Reforcar os controlos que falharam ou estavam ausentes | Implementar MFA, instalar EDR, configurar backups, segmentar a rede, melhorar a recolha de logs, configurar alertas | Apos um comprometimento via password unica, e implementado MFA em todos os acessos remotos |
-| **3. Melhorar a monitorizacao** | Avaliar se a detecao foi eficaz e melhorar a visibilidade | Rever regras do SIEM, adicionar fontes de logs, melhorar alertas, ajustar limiares, rever metodos de reporte | A organizacao percebe que nao tinha alertas para acessos fora de horario e configura-os |
-| **4. Restaurar dados** | Repor dados a partir de fontes fiaveis, sem reintroduzir corrupcao | Restaurar backups validados, verificar integridade, confirmar que a fonte de restauro nao esta comprometida | Os dados sao restaurados do backup de quinta-feira (verificado como limpo), nao do de sexta (ja comprometido) |
-| **5. Restaurar servicos e processos** | Repor nao so a tecnologia mas tambem os processos operacionais | Reativar servicos, processar filas pendentes, reconciliar dados, reativar contas de utilizadores, retomar processos manuais interrompidos | Alem de restaurar o sistema de faturacao, e necessario processar as 200 faturas que ficaram em fila durante a indisponibilidade |
-| **6. Monitorizacao pos-restauro** | Vigiar os sistemas restaurados para detetar persistencia, recorrencia ou instabilidade | Monitorizacao intensiva nas primeiras horas/dias, vigilancia de indicadores de compromisso (IoC), verificacao de que as correcoes sao eficazes | Durante 72 horas apos o restauro, a equipa monitoriza ativamente os logs do servidor para sinais de reinfecao |
-| **7. Restaurar confianca e rever** | Reconstruir a confianca dos stakeholders e aprender com o incidente | Comunicacao transparente, revisao pos-acao (after-action review), atualizacao de planos e procedimentos | A organizacao comunica aos clientes o que aconteceu, que medidas foram tomadas, e o que mudou para evitar recorrencia |
+| **1. Corrigir vulnerabilidades** | Eliminar a causa raiz que permitiu o incidente é a sua propagação | Aplicar patches, corrigir configurações, fechar portas, eliminar contas obsoletas | A vulnerabilidade no servidor web que permitiu a intrusão e corrigida antes de o repor online |
+| **2. Corrigir salvaguardas** | Reforcar os controlos que falharam ou estavam ausentes | Implementar MFA, instalar EDR, configurar backups, segmentar a rede, melhorar a recolha de logs, configurar alertas | Após um comprometimento via password única, e implementado MFA em todos os acessos remotos |
+| **3. Melhorar a monitorização** | Avaliar se a deteção foi eficaz e melhorar a visibilidade | Rever regras do SIEM, adicionar fontes de logs, melhorar alertas, ajustar limiares, rever métodos de reporte | A organização percebe que não tinha alertas para acessos fora de horario e configura-os |
+| **4. Restaurar dados** | Repor dados a partir de fontes fiaveis, sem reintroduzir corrupção | Restaurar backups validados, verificar integridade, confirmar que a fonte de restauro não está comprometida | Os dados são restaurados do backup de quinta-feira (verificado como limpo), não do de sexta (já comprometido) |
+| **5. Restaurar serviços e processos** | Repor não só a tecnologia mas também os processos operacionais | Reativar serviços, processar filas pendentes, reconciliar dados, reativar contas de utilizadores, retomar processos manuais interrompidos | Além de restaurar o sistema de faturação, e necessário processar as 200 faturas que ficaram em fila durante a indisponibilidade |
+| **6. Monitorização pós-restauro** | Vigiar os sistemas restaurados para detetar persistencia, recorrencia ou instabilidade | Monitorização intensiva nas primeiras horas/dias, vigilância de indicadores de compromisso (IoC), verificação de que as correcoes são eficazes | Durante 72 horas após o restauro, a equipa monitoriza ativamente os logs do servidor para sinais de reinfecao |
+| **7. Restaurar confiança é rever** | Reconstruir a confiança dos stakeholders e aprender com o incidente | Comunicação transparente, revisao pós-ação (after-action review), atualização de planos e procedimentos | A organização comunica aos clientes o que aconteceu, que medidas foram tomadas, e o que mudou para evitar recorrencia |
 
 ```
   ╔═════════════════════════════════════════════════════════════╗
@@ -274,11 +274,11 @@ A recuperacao nao e simplesmente "ligar tudo outra vez". Uma recuperacao madura 
 
 ---
 
-### Corrigir causas, nao restaurar fraquezas
+### Corrigir causas, não restaurar fraquezas
 
-> Voltar ao estado anterior sem melhorias e uma recuperacao fraca. E como reparar a porta sem mudar a fechadura que o ladrao abriu.
+> Voltar ao estado anterior sem melhorias e uma recuperação fraca. E como reparar a porta sem mudar a fechadura que o ladrao abriu.
 
-Uma recuperacao madura nao se limita a repor o estado anterior. Se o incidente explorou uma vulnerabilidade, e essa vulnerabilidade nao for corrigida, a organizacao esta a preparar-se para o proximo incidente.
+Uma recuperação madura não se limita a repor o estado anterior. Se o incidente explorou uma vulnerabilidade, e essa vulnerabilidade não for corrigida, a organização está a preparar-se para o próximo incidente.
 
 ```
   ╔════════════════════════╦════════════════════════════════╗
@@ -297,32 +297,32 @@ Uma recuperacao madura nao se limita a repor o estado anterior. Se o incidente e
 
 ---
 
-### Monitorizacao pos-restauro
+### Monitorização pós-restauro
 
-Apos restaurar os sistemas, a vigilancia nao termina. Pelo contrario, as primeiras horas e dias apos o restauro sao criticos:
+Após restaurar os sistemas, a vigilância não termina. Pelo contrário, as primeiras horas e dias após o restauro são críticos:
 
 - O atacante pode ter deixado **mecanismos de persistencia** (backdoors, contas ocultas, tarefas agendadas)
-- O incidente pode **recorrer** se a causa raiz nao foi totalmente eliminada
-- E necessario **confirmar estabilidade** dos sistemas restaurados
-- As **medidas corretivas** implementadas precisam de ser verificadas na pratica
+- O incidente pode **recorrer** se a causa raiz não foi totalmente eliminada
+- E necessário **confirmar estabilidade** dos sistemas restaurados
+- As **medidas corretivas** implementadas precisam de ser verificadas na prática
 
-A monitorizacao pos-restauro deve ser **mais intensiva** do que a monitorizacao habitual, pelo menos durante um periodo definido (tipicamente 48 a 72 horas, podendo ser mais em incidentes graves).
+A monitorização pós-restauro deve ser **mais intensiva** do que a monitorização habitual, pelo menos durante um período definido (tipicamente 48 a 72 horas, podendo ser mais em incidentes graves).
 
 ---
 
-### Revisao pos-acao (after-action review)
+### Revisao pós-ação (after-action review)
 
-A revisao pos-acao e o momento formal em que a organizacao olha para o incidente de forma critica e construtiva:
+A revisao pós-ação é o momento formal em que a organização olha para o incidente de forma crítica e construtiva:
 
 | Pergunta | Objetivo |
 |----------|----------|
-| O que **correu bem** na resposta? | Identificar praticas a manter e reforcar |
-| O que **correu mal** ou foi dificil? | Identificar falhas, bloqueios e ineficiencias |
-| O que **faltou** (ferramentas, informacao, competencias, procedimentos)? | Identificar lacunas a preencher |
-| O que **mudar** no plano, nas equipas, nos controlos, na comunicacao? | Definir acoes concretas de melhoria |
-| O que **aprendemos** sobre a ameaca, os atacantes, os nossos sistemas? | Incorporar conhecimento na postura de seguranca |
+| O que **correu bem** na resposta? | Identificar práticas a manter e reforcar |
+| O que **correu mal** ou foi difícil? | Identificar falhas, bloqueios e ineficiencias |
+| O que **faltou** (ferramentas, informação, competencias, procedimentos)? | Identificar lacunas a preencher |
+| O que **mudar** no plano, nas equipas, nos controlos, na comunicação? | Definir ações concretas de melhoria |
+| O que **aprendemos** sobre a ameaça, os atacantes, os nossos sistemas? | Incorporar conhecimento na postura de segurança |
 
-A revisao pos-acao nao e para atribuir culpas. E para **aprender e melhorar**. Uma organizacao que nao faz revisao pos-acao esta condenada a repetir os mesmos erros.
+A revisao pós-ação não é para atribuir culpas. E para **aprender e melhorar**. Uma organização que não faz revisao pós-ação está condenada a repetir os mesmos erros.
 
 ---
 
@@ -330,23 +330,23 @@ A revisao pos-acao nao e para atribuir culpas. E para **aprender e melhorar**. U
 
 ### Automacao moderna na resposta
 
-A automacao na resposta a incidentes permite executar **acoes predefinidas de forma rapida e consistente** quando determinadas condicoes sao detetadas. Nao e magia; e a execucao sistematica de regras definidas antecipadamente.
+A automacao na resposta a incidentes permite executar **ações predefinidas de forma rápida e consistente** quando determinadas condicoes são detetadas. Não é magia; e a execução sistematica de regras definidas antecipadamente.
 
 | Mecanismo | O que faz | Exemplo | Limitacao |
 |-----------|----------|---------|-----------|
-| **EDR/XDR** | Isola endpoints comprometidos automaticamente | EDR deteta ransomware e isola o posto da rede em segundos | Pode isolar postos legitimos por falsos positivos; nao resolve a causa raiz |
-| **Firewall automatica** | Cria regras de bloqueio baseadas em indicadores de compromisso | IP malicioso detetado pelo SIEM e bloqueado automaticamente na firewall | Atacantes mudam de IP; regras excessivas podem bloquear trafego legitimo |
-| **SIEM/SOAR** | Executa playbooks automaticos em resposta a alertas | Alerta de forca bruta aciona playbook que bloqueia a conta e notifica a equipa | Depende da qualidade das regras e dos playbooks; pode gerar fadiga de alertas |
-| **Bloqueio automatico de contas/sessoes** | Suspende contas ou sessoes apos detetar comportamento anomalo | Conta bloqueada apos 5 tentativas falhadas em 2 minutos | Pode bloquear utilizadores legitimos; atacantes podem explorar isto para denial of service |
+| **EDR/XDR** | Isola endpoints comprometidos automaticamente | EDR deteta ransomware e isola o posto da rede em segundos | Pode isolar postos legitimos por falsos positivos; não resolve a causa raiz |
+| **Firewall automática** | Cria regras de bloqueio baseadas em indicadores de compromisso | IP malicioso detetado pelo SIEM e bloqueado automaticamente na firewall | Atacantes mudam de IP; regras excessivas podem bloquear tráfego legítimo |
+| **SIEM/SOAR** | Executa playbooks automáticos em resposta a alertas | Alerta de força bruta aciona playbook que bloqueia a conta e notifica a equipa | Depende da qualidade das regras e dos playbooks; pode gerar fadiga de alertas |
+| **Bloqueio automático de contas/sessões** | Suspende contas ou sessões após detetar comportamento anómalo | Conta bloqueada após 5 tentativas falhadas em 2 minutos | Pode bloquear utilizadores legitimos; atacantes podem explorar isto para denial of service |
 | **Quarentena de email** | Isola emails suspeitos antes de chegarem ao destinatario | Email com anexo malicioso e movido para quarentena automaticamente | Pode reter emails legitimos; exige revisao humana dos falsos positivos |
 
 ---
 
 ### Honeypots e honeynets
 
-**Honeypots** sao sistemas-engodo, propositadamente colocados na rede para atrair atividade maliciosa. Nao servem utilizadores reais - qualquer interacao com eles e, por definicao, suspeita.
+**Honeypots** são sistemas-engodo, propositadamente colocados na rede para atrair atividade maliciosa. Não servem utilizadores reais - qualquer interação com eles e, por definicao, suspeita.
 
-**Honeynets** sao redes de honeypots interligados, simulando um ambiente mais realista.
+**Honeynets** são redes de honeypots interligados, simulando um ambiente mais realista.
 
 ```
   ┌───────────────────────────────────────────────────────────┐
@@ -371,19 +371,19 @@ A automacao na resposta a incidentes permite executar **acoes predefinidas de fo
 
 Os honeypots servem para:
 
-- **Detetar** atividade maliciosa (qualquer interacao e suspeita)
-- **Observar** o comportamento do atacante (que tecnicas usa, o que procura)
-- **Gerar alertas** precoces de intrusao
-- **Recolher inteligencia** sobre ameacas
-- **Desviar** o atacante dos sistemas reais (em alguns cenarios)
+- **Detetar** atividade maliciosa (qualquer interação e suspeita)
+- **Observar** o comportamento do atacante (que técnicas usa, o que procura)
+- **Gerar alertas** precoces de intrusão
+- **Recolher inteligência** sobre ameaças
+- **Desviar** o atacante dos sistemas reais (em alguns cenários)
 
-Um honeypot precisa de **design cuidadoso, isolamento adequado, monitorizacao constante e objetivos claros**. Um honeypot mal configurado pode tornar-se numa porta de entrada para a rede real.
+Um honeypot precisa de **design cuidadoso, isolamento adequado, monitorização constante e objetivos claros**. Um honeypot mal configurado pode tornar-se numa porta de entrada para a rede real.
 
-**Enticement vs entrapment (conceito simplificado):** Ha uma distincao entre criar um alvo-engodo que atrai quem ja tem intencao maliciosa (**enticement** - atrair/seduzir) e induzir alguem a cometer um crime que nao cometeria de outra forma (**entrapment** - armadilha). O enquadramento legal varia de pais para pais, mas o principio geral e que o honeypot deve ser um alvo passivo, nao uma provocacao ativa.
+**Enticement vs entrapment (conceito simplificado):** Ha uma distincao entre criar um alvo-engodo que atrai quem já tem intenção maliciosa (**enticement** - atrair/seduzir) e induzir alguem a cometer um crime que não cometeria de outra forma (**entrapment** - armadilha). O enquadramento legal varia de país para país, mas o principio geral e que o honeypot deve ser um alvo passivo, não uma provocacao ativa.
 
 ---
 
-### Automacao nao substitui o IRP
+### Automacao não substitui o IRP
 
 A automacao e uma ferramenta poderosa, mas tem limites claros:
 
@@ -409,469 +409,469 @@ A automacao e uma ferramenta poderosa, mas tem limites claros:
   ╚════════════════════════════════════════════════════════════════╝
 ```
 
-> A automacao e o copiloto, nao o piloto. Ajuda a reagir mais rapido, mas nao substitui quem decide, coordena e aprende.
+> A automacao e o copiloto, não o piloto. Ajuda a reagir mais rápido, mas não substitui quem decide, coordena e aprende.
 
 ---
 
-## 5. Exemplos praticos
+## 5. Exemplos práticos
 
-### Exemplo 1 - Universidade (Recuperacao pos-phishing)
+### Exemplo 1 - Universidade (Recuperação pós-phishing)
 
-**Cenario:** Uma universidade sofreu um ataque de phishing que comprometeu credenciais de 15 docentes. O atacante usou essas credenciais para aceder a plataforma de gestao academica durante 3 dias antes de ser detetado. A contencao ja foi feita (passwords resetadas, sessoes invalidadas).
+**Cenário:** Uma universidade sofreu um ataque de phishing que comprometeu credenciais de 15 docentes. O atacante usou essas credenciais para aceder a plataforma de gestão académica durante 3 dias antes de ser detetado. A contenção já foi feita (passwords resetadas, sessões invalidadas).
 
-| Fase da recuperacao | Acao concreta |
+| Fase da recuperação | Ação concreta |
 |--------------------|--------------|
-| **Avaliacao de danos** | Analisar logs de acesso a plataforma: que dados foram consultados? Houve alteracao de notas? Foram exportados dados pessoais de alunos? |
-| **Decisao forense** | Baixa necessidade forense: nao ha indicios de crime sofisticado, mas e necessario documentar para eventual notificacao a CNPD |
-| **Corrigir vulnerabilidades** | Implementar MFA obrigatorio para todos os acessos a plataforma academica |
-| **Corrigir salvaguardas** | Rever as regras de filtragem de email, implementar formacao anti-phishing obrigatoria |
-| **Melhorar monitorizacao** | Configurar alertas para acessos anomalos (fora de horario, volume invulgar de consultas) |
-| **Restaurar confianca** | Comunicar aos docentes afetados o que aconteceu e que medidas foram tomadas |
-| **Revisao pos-acao** | Rever: porque e que 15 docentes cairam no phishing? A formacao e suficiente? O email devia ter sido detetado? |
+| **Avaliação de danos** | Analisar logs de acesso a plataforma: que dados foram consultados? Houve alteração de notas? Foram exportados dados pessoais de alunos? |
+| **Decisão forense** | Baixa necessidade forense: não há indicios de crime sofisticado, mas e necessário documentar para eventual notificação a CNPD |
+| **Corrigir vulnerabilidades** | Implementar MFA obrigatório para todos os acessos a plataforma académica |
+| **Corrigir salvaguardas** | Rever as regras de filtragem de email, implementar formação anti-phishing obrigatória |
+| **Melhorar monitorização** | Configurar alertas para acessos anómalos (fora de horario, volume invulgar de consultas) |
+| **Restaurar confiança** | Comunicar aos docentes afetados o que aconteceu e que medidas foram tomadas |
+| **Revisao pós-ação** | Rever: porque e que 15 docentes cairam no phishing? A formação e suficiente? O email devia ter sido detetado? |
 
 **Como interpretar:**
 
-*Este caso mostra que a recuperacao pos-phishing vai muito alem de resetar passwords. E necessario avaliar se houve acesso a dados sensiveis, corrigir a causa raiz (ausencia de MFA, formacao insuficiente), e comunicar de forma transparente. A avaliacao de danos e crucial para saber se ha obrigacao de notificacao ao regulador.*
+*Este caso mostra que a recuperação pós-phishing vai muito além de resetar passwords. E necessário avaliar se houve acesso a dados sensiveis, corrigir a causa raiz (ausência de MFA, formação insuficiente), e comunicar de forma transparente. A avaliação de danos e crucial para saber se há obrigação de notificação ao regulador.*
 
 **Para refletir:**
 
-- Se o atacante tivesse alterado notas de alunos, como mudaria a avaliacao de danos?
-- Que dados pessoais de alunos podem estar acessiveis atraves da plataforma academica?
-- Como decidir se ha obrigacao de notificar a CNPD neste caso?
+- Se o atacante tivesse alterado notas de alunos, como mudaria a avaliação de danos?
+- Que dados pessoais de alunos podem estar acessiveis através da plataforma académica?
+- Como decidir se há obrigação de notificar a CNPD neste caso?
 
 ---
 
-### Exemplo 2 - Hospital (Recuperacao pos-malware)
+### Exemplo 2 - Hospital (Recuperação pós-malware)
 
-**Cenario:** Um hospital detetou malware num servidor de gestao de exames clinicos. O malware esteve ativo durante 5 dias antes da detecao. O servidor armazena resultados de exames de milhares de pacientes. A contencao isolou o servidor.
+**Cenário:** Um hospital detetou malware num servidor de gestão de exames clínicos. O malware esteve ativo durante 5 dias antes da deteção. O servidor armazena resultados de exames de milhares de pacientes. A contenção isolou o servidor.
 
-| Fase da recuperacao | Acao concreta |
+| Fase da recuperação | Ação concreta |
 |--------------------|--------------|
-| **Avaliacao de danos** | Que exames foram acedidos? Houve alteracao de resultados (integridade)? Houve exfiltracao de dados (confidencialidade)? Que pacientes sao afetados? |
-| **Decisao forense** | Alta necessidade forense: dados de saude sao regulados, pode haver obrigacao legal de demonstrar o que aconteceu; regulador pode exigir relatorio detalhado |
+| **Avaliação de danos** | Que exames foram acedidos? Houve alteração de resultados (integridade)? Houve exfiltração de dados (confidencialidade)? Que pacientes são afetados? |
+| **Decisão forense** | Alta necessidade forense: dados de saúde são regulados, pode haver obrigação legal de demonstrar o que aconteceu; regulador pode exigir relatório detalhado |
 | **Preservar provas** | Antes de restaurar, criar imagem forense do servidor, preservar logs, documentar o estado do sistema |
-| **Restaurar dados** | Restaurar a partir do backup de antes da infecao, validar integridade dos resultados de exames restaurados |
-| **Restaurar servicos e processos** | Reativar o servidor, processar exames pendentes (5 dias de acumulacao), notificar medicos de que resultados anteriores devem ser revalidados |
-| **Monitorizacao pos-restauro** | Monitorizacao intensiva durante 7 dias, com particular atencao a indicadores de compromisso conhecidos do malware identificado |
-| **Revisao pos-acao** | Como entrou o malware? O antivirus/EDR detetou? Porque demorou 5 dias a ser identificado? Que visibilidade faltava? |
+| **Restaurar dados** | Restaurar a partir do backup de antes da infeção, validar integridade dos resultados de exames restaurados |
+| **Restaurar serviços e processos** | Reativar o servidor, processar exames pendentes (5 dias de acumulacao), notificar médicos de que resultados anteriores devem ser revalidados |
+| **Monitorização pós-restauro** | Monitorização intensiva durante 7 dias, com particular atenção a indicadores de compromisso conhecidos do malware identificado |
+| **Revisao pós-ação** | Como entrou o malware? O antivirus/EDR detetou? Porque demorou 5 dias a ser identificado? Que visibilidade faltava? |
 
 **Como interpretar:**
 
-*Num hospital, a integridade dos dados clinicos e critica: um resultado de exame alterado pode levar a decisoes clinicas erradas. A recuperacao exige nao so restaurar o sistema, mas validar que os dados restaurados sao fiaveis. A necessidade forense e alta pela regulamentacao aplicavel a dados de saude.*
+*Num hospital, a integridade dos dados clínicos e crítica: um resultado de exame alterado pode levar a decisões clínicas erradas. A recuperação exige não só restaurar o sistema, mas validar que os dados restaurados são fiaveis. A necessidade forense e alta pela regulamentação aplicavel a dados de saúde.*
 
 **Para refletir:**
 
-- Se um resultado de exame tivesse sido alterado silenciosamente, como seria possivel detetar isso?
-- Porque e que a necessidade forense e particularmente alta em contextos de saude?
+- Se um resultado de exame tivesse sido alterado silenciosamente, como seria possível detetar isso?
+- Porque e que a necessidade forense e particularmente alta em contextos de saúde?
 - Que impacto tem nos pacientes a indisponibilidade de 5 dias do sistema de exames?
 
 ---
 
-### Exemplo 3 - E-commerce (Recuperacao pos-ataque)
+### Exemplo 3 - E-commerce (Recuperação pós-ataque)
 
-**Cenario:** Uma plataforma de e-commerce sofreu um ataque que explorou uma vulnerabilidade no sistema de checkout. O atacante pode ter acedido a dados de clientes (nomes, moradas, emails). O site esteve em baixo durante 8 horas.
+**Cenário:** Uma plataforma de e-commerce sofreu um ataque que explorou uma vulnerabilidade no sistema de checkout. O atacante pode ter acedido a dados de clientes (nomes, moradas, emails). O site esteve em baixo durante 8 horas.
 
-| Fase da recuperacao | Acao concreta |
+| Fase da recuperação | Ação concreta |
 |--------------------|--------------|
-| **Avaliacao de danos** | Que dados de clientes foram expostos? Dados de pagamento foram afetados? Quantas encomendas foram perdidas durante as 8 horas? Que impacto financeiro? |
-| **Decisao forense** | Media-alta: necessario para determinar exatamente que dados foram acedidos e para cumprir obrigacoes de notificacao |
-| **Corrigir vulnerabilidades** | Corrigir a vulnerabilidade no sistema de checkout, rever o codigo para vulnerabilidades similares |
-| **Restaurar servicos** | Restaurar o site com a vulnerabilidade corrigida, processar encomendas pendentes, reativar meios de pagamento |
-| **Melhorar detecao** | Implementar WAF (Web Application Firewall), melhorar monitorizacao de acessos a base de dados de clientes |
-| **Restaurar confianca** | Notificar clientes afetados, comunicar medidas tomadas, oferecer monitorizacao de credenciais se aplicavel |
-| **Revisao pos-acao** | A vulnerabilidade devia ter sido identificada em testes? O WAF teria prevenido? A detecao foi rapida o suficiente? Como melhorar o processo de desenvolvimento seguro? |
+| **Avaliação de danos** | Que dados de clientes foram expostos? Dados de pagamento foram afetados? Quantas encomendas foram perdidas durante as 8 horas? Que impacto financeiro? |
+| **Decisão forense** | Media-alta: necessário para determinar exatamente que dados foram acedidos e para cumprir obrigações de notificação |
+| **Corrigir vulnerabilidades** | Corrigir a vulnerabilidade no sistema de checkout, rever o código para vulnerabilidades similares |
+| **Restaurar serviços** | Restaurar o site com a vulnerabilidade corrigida, processar encomendas pendentes, reativar meios de pagamento |
+| **Melhorar deteção** | Implementar WAF (Web Application Firewall), melhorar monitorização de acessos a base de dados de clientes |
+| **Restaurar confiança** | Notificar clientes afetados, comunicar medidas tomadas, oferecer monitorização de credenciais se aplicavel |
+| **Revisao pós-ação** | A vulnerabilidade devia ter sido identificada em testes? O WAF teria prevenido? A deteção foi rápida o suficiente? Como melhorar o processo de desenvolvimento seguro? |
 
 **Como interpretar:**
 
-*Neste caso, a avaliacao de danos tem uma componente financeira direta (8 horas de vendas perdidas) e uma componente reputacional (confianca dos clientes). A recuperacao nao se limita a repor o site online - e necessario processar o backlog de encomendas, comunicar com clientes e implementar melhorias para que nao volte a acontecer.*
+*Neste caso, a avaliação de danos tem uma componente financeira direta (8 horas de vendas perdidas) e uma componente reputacional (confiança dos clientes). A recuperação não se limita a repor o site online - e necessário processar o backlog de encomendas, comunicar com clientes e implementar melhorias para que não volte a acontecer.*
 
 **Para refletir:**
 
-- Se dados de pagamento tivessem sido expostos, como mudaria a gravidade e as obrigacoes da organizacao?
+- Se dados de pagamento tivessem sido expostos, como mudaria a gravidade é as obrigações da organização?
 - Qual o custo total do incidente (perdas diretas + custo de resposta + impacto reputacional)?
-- Que testes de seguranca poderiam ter identificado a vulnerabilidade antes do ataque?
+- Que testes de segurança poderiam ter identificado a vulnerabilidade antes do ataque?
 
 ---
 
-### Exemplo 4 - Industria (Recuperacao pos-comprometimento)
+### Exemplo 4 - Industria (Recuperação pós-comprometimento)
 
-**Cenario:** Uma fabrica detetou que um atacante comprometeu a rede corporativa e pode ter acedido a rede de producao (OT). Ha suspeita de sabotagem intencional, pois foram encontradas alteracoes em parametros de configuracao de equipamentos industriais.
+**Cenário:** Uma fabrica detetou que um atacante comprometeu a rede corporativa e pode ter acedido a rede de produção (OT). Ha suspeita de sabotagem intencional, pois foram encontradas alterações em parâmetros de configuração de equipamentos industriais.
 
-| Fase da recuperacao | Acao concreta |
+| Fase da recuperação | Ação concreta |
 |--------------------|--------------|
-| **Avaliacao de danos** | Que equipamentos industriais foram afetados? Que parametros foram alterados? A producao esteve comprometida? Ha risco de seguranca fisica (maquinas com parametros alterados)? |
-| **Decisao forense** | Alta: suspeita de sabotagem implica necessidade de provas para eventual acao legal; regulador industrial pode exigir relatorio |
-| **Preservar provas** | Imagens forenses dos sistemas comprometidos, preservacao de logs de rede e de sistemas SCADA, documentacao detalhada das alteracoes encontradas |
-| **Corrigir vulnerabilidades** | Implementar segmentacao rigorosa entre rede corporativa e rede OT, corrigir acessos entre redes |
-| **Restaurar com segmentacao** | Restaurar configuracoes industriais a partir de golden images verificadas, validar todos os parametros antes de retomar producao |
-| **Monitorizacao continua** | Implementar monitorizacao dedicada na rede OT, instalar sensores de detecao de anomalias no trafego industrial |
-| **Revisao pos-acao** | Como foi possivel saltar da rede corporativa para a OT? A segmentacao existente era suficiente? Que visibilidade temos sobre a rede de producao? |
+| **Avaliação de danos** | Que equipamentos industriais foram afetados? Que parâmetros foram alterados? A produção esteve comprometida? Ha risco de segurança física (maquinas com parâmetros alterados)? |
+| **Decisão forense** | Alta: suspeita de sabotagem implica necessidade de provas para eventual ação legal; regulador industrial pode exigir relatório |
+| **Preservar provas** | Imagens forenses dos sistemas comprometidos, preservação de logs de rede é de sistemas SCADA, documentação detalhada das alterações encontradas |
+| **Corrigir vulnerabilidades** | Implementar segmentação rigorosa entre rede corporativa e rede OT, corrigir acessos entre redes |
+| **Restaurar com segmentação** | Restaurar configurações industriais a partir de golden images verificadas, validar todos os parâmetros antes de retomar produção |
+| **Monitorização contínua** | Implementar monitorização dedicada na rede OT, instalar sensores de deteção de anomalias no tráfego industrial |
+| **Revisao pós-ação** | Como foi possível saltar da rede corporativa para a OT? A segmentação existente era suficiente? Que visibilidade temos sobre a rede de produção? |
 
 **Como interpretar:**
 
-*Em ambientes industriais, um comprometimento pode ter consequencias de seguranca fisica. Parametros alterados em equipamentos industriais podem causar danos materiais ou colocar pessoas em risco. A recuperacao exige validacao rigorosa de todas as configuracoes antes de retomar a producao, e a pericia informatica e essencial quando ha suspeita de sabotagem.*
+*Em ambientes industriais, um comprometimento pode ter consequências de segurança física. Parametros alterados em equipamentos industriais podem causar danos materiais ou colocar pessoas em risco. A recuperação exige validação rigorosa de todas as configurações antes de retomar a produção, e a perícia informatica e essencial quando há suspeita de sabotagem.*
 
 **Para refletir:**
 
-- Que consequencias fisicas pode ter a alteracao de parametros de equipamentos industriais?
-- Porque e que a segmentacao entre rede corporativa e rede OT e tao critica?
-- Como validar que os parametros industriais restaurados estao corretos e seguros?
+- Que consequências físicas pode ter a alteração de parâmetros de equipamentos industriais?
+- Porque e que a segmentação entre rede corporativa e rede OT e tao crítica?
+- Como validar que os parâmetros industriais restaurados estão corretos e seguros?
 - Se se confirmar a sabotagem, que passos legais devem ser tomados?
 
 ---
 
-## 6. Exercicios
+## 6. Exercícios
 
-### Nivel 1 - Compreensao
+### Nível 1 - Compreensao
 
-#### Exercicio 1.1 - Verdadeiro ou Falso
+#### Exercício 1.1 - Verdadeiro ou Falso
 
 Classifica as seguintes afirmacoes como Verdadeiras (V) ou Falsas (F):
 
 | # | Afirmacao |
 |---|-----------|
-| a) | A avaliacao de danos so deve comecar quando se tem toda a informacao disponivel. |
-| b) | A pericia informatica e obrigatoria em todos os incidentes de seguranca. |
+| a) | A avaliação de danos só deve começar quando se tem toda a informação disponível. |
+| b) | A perícia informatica e obrigatória em todos os incidentes de segurança. |
 | c) | A cadeia de custodia documenta quem recolheu a prova, quando e como. |
-| d) | Recuperar um sistema a partir de backup e suficiente para uma recuperacao madura. |
-| e) | A monitorizacao pos-restauro serve para detetar persistencia e recorrencia do incidente. |
-| f) | Os honeypots sao sistemas reais que servem utilizadores normais. |
+| d) | Recuperar um sistema a partir de backup é suficiente para uma recuperação madura. |
+| e) | A monitorização pós-restauro serve para detetar persistencia e recorrencia do incidente. |
+| f) | Os honeypots são sistemas reais que servem utilizadores normais. |
 | g) | A automacao na resposta a incidentes substitui a necessidade de um IRP. |
-| h) | Restaurar o estado anterior sem corrigir a vulnerabilidade explorada e uma recuperacao fraca. |
-| i) | A avaliacao de danos e identica a pericia informatica. |
-| j) | A revisao pos-acao serve para atribuir culpas pela falha de seguranca. |
+| h) | Restaurar o estado anterior sem corrigir a vulnerabilidade explorada e uma recuperação fraca. |
+| i) | A avaliação de danos e identica a perícia informatica. |
+| j) | A revisao pós-ação serve para atribuir culpas pela falha de segurança. |
 
-??? success "Solucao 1.1"
+??? success "Solução 1.1"
 
-    | # | Resposta | Justificacao |
+    | # | Resposta | Justificação |
     |---|:--------:|-------------|
-    | a) | **F** | A avaliacao deve comecar o mais cedo possivel com a melhor informacao disponivel. Esperar por informacao completa atrasa a recuperacao. |
-    | b) | **F** | A pericia informatica nao e necessaria em todos os incidentes. Ganha importancia quando ha suspeita de crime, obrigacoes regulatorias, litigio ou necessidade de prova formal. |
+    | a) | **F** | A avaliação deve começar o mais cedo possível com a melhor informação disponível. Esperar por informação completa atrasa a recuperação. |
+    | b) | **F** | A perícia informatica não é necessária em todos os incidentes. Ganha importância quando há suspeita de crime, obrigações regulatorias, litigio ou necessidade de prova formal. |
     | c) | **V** | A cadeia de custodia e o registo documentado de quem recolheu a prova, quando, como e por onde passou. |
-    | d) | **F** | Uma recuperacao madura tem 7 camadas, incluindo corrigir vulnerabilidades, melhorar salvaguardas, monitorizacao pos-restauro e revisao pos-acao. Restaurar o backup e apenas uma das camadas. |
-    | e) | **V** | A monitorizacao pos-restauro visa detetar mecanismos de persistencia deixados pelo atacante, recorrencia do incidente, e confirmar a estabilidade dos sistemas. |
-    | f) | **F** | Os honeypots sao sistemas-engodo que nao servem utilizadores reais. Qualquer interacao com eles e, por definicao, suspeita. |
-    | g) | **F** | A automacao ajuda a acelerar, escalar e padronizar acoes, mas nao substitui decisao contextual, coordenacao, gestao de impacto, comunicacao e recuperacao complexa. |
-    | h) | **V** | Voltar ao estado anterior sem corrigir a causa raiz e preparar o proximo incidente. A recuperacao madura exige correcao das vulnerabilidades exploradas. |
-    | i) | **F** | A avaliacao de danos pergunta "o que foi afetado e qual o impacto"; a pericia pergunta "que provas existem e como preserva-las". Sao processos distintos, embora complementares. |
-    | j) | **F** | A revisao pos-acao nao e para atribuir culpas. E para aprender e melhorar: o que correu bem, o que correu mal, o que faltou, o que mudar. |
+    | d) | **F** | Uma recuperação madura tem 7 camadas, incluindo corrigir vulnerabilidades, melhorar salvaguardas, monitorização pós-restauro e revisao pós-ação. Restaurar o backup é apenas uma das camadas. |
+    | e) | **V** | A monitorização pós-restauro visa detetar mecanismos de persistencia deixados pelo atacante, recorrencia do incidente, e confirmar a estabilidade dos sistemas. |
+    | f) | **F** | Os honeypots são sistemas-engodo que não servem utilizadores reais. Qualquer interação com eles e, por definicao, suspeita. |
+    | g) | **F** | A automacao ajuda a acelerar, escalar e padronizar ações, mas não substitui decisão contextual, coordenação, gestão de impacto, comunicação é recuperação complexa. |
+    | h) | **V** | Voltar ao estado anterior sem corrigir a causa raiz e preparar o próximo incidente. A recuperação madura exige correcao das vulnerabilidades exploradas. |
+    | i) | **F** | A avaliação de danos pergunta "o que foi afetado e qual o impacto"; a perícia pergunta "que provas existem e como preserva-las". São processos distintos, embora complementares. |
+    | j) | **F** | A revisao pós-ação não é para atribuir culpas. E para aprender e melhorar: o que correu bem, o que correu mal, o que faltou, o que mudar. |
 
 ---
 
-#### Exercicio 1.2 - Associar camadas de recuperacao
+#### Exercício 1.2 - Associar camadas de recuperação
 
-Associa cada acao a camada de recuperacao correspondente.
+Associa cada ação a camada de recuperação correspondente.
 
-**Camadas:** 1-Corrigir vulnerabilidades | 2-Corrigir salvaguardas | 3-Melhorar monitorizacao | 4-Restaurar dados | 5-Restaurar servicos e processos | 6-Monitorizacao pos-restauro | 7-Restaurar confianca e rever
+**Camadas:** 1-Corrigir vulnerabilidades | 2-Corrigir salvaguardas | 3-Melhorar monitorização | 4-Restaurar dados | 5-Restaurar serviços e processos | 6-Monitorização pós-restauro | 7-Restaurar confiança é rever
 
-| # | Acao |
+| # | Ação |
 |---|------|
 | a) | Processar as 150 encomendas que ficaram pendentes durante a indisponibilidade |
-| b) | Aplicar o patch de seguranca que corrige a vulnerabilidade explorada |
+| b) | Aplicar o patch de segurança que corrige a vulnerabilidade explorada |
 | c) | Comunicar aos clientes o que aconteceu e que medidas foram tomadas |
-| d) | Verificar durante 72 horas se ha sinais de reinfecao |
+| d) | Verificar durante 72 horas se há sinais de reinfecao |
 | e) | Restaurar a base de dados a partir do backup de quarta-feira |
 | f) | Implementar MFA em todos os acessos remotos |
 | g) | Adicionar alertas no SIEM para acessos fora de horario |
-| h) | Realizar sessao de licoes aprendidas com toda a equipa de resposta |
+| h) | Realizar sessão de lições aprendidas com toda a equipa de resposta |
 
-??? success "Solucao 1.2"
+??? success "Solução 1.2"
 
-    | # | Acao | Camada |
+    | # | Ação | Camada |
     |---|------|--------|
-    | a) | Processar encomendas pendentes | **5 - Restaurar servicos e processos** - nao basta repor a tecnologia, e preciso tratar o backlog operacional |
-    | b) | Aplicar o patch de seguranca | **1 - Corrigir vulnerabilidades** - eliminar a causa raiz que permitiu o incidente |
-    | c) | Comunicar aos clientes | **7 - Restaurar confianca e rever** - transparencia com stakeholders |
-    | d) | Verificar sinais de reinfecao durante 72h | **6 - Monitorizacao pos-restauro** - vigiar persistencia e recorrencia |
-    | e) | Restaurar a base de dados do backup | **4 - Restaurar dados** - repor dados de fonte fiavel |
+    | a) | Processar encomendas pendentes | **5 - Restaurar serviços e processos** - não basta repor a tecnologia, e preciso tratar o backlog operacional |
+    | b) | Aplicar o patch de segurança | **1 - Corrigir vulnerabilidades** - eliminar a causa raiz que permitiu o incidente |
+    | c) | Comunicar aos clientes | **7 - Restaurar confiança é rever** - transparência com stakeholders |
+    | d) | Verificar sinais de reinfecao durante 72h | **6 - Monitorização pós-restauro** - vigiar persistencia e recorrencia |
+    | e) | Restaurar a base de dados do backup | **4 - Restaurar dados** - repor dados de fonte fiável |
     | f) | Implementar MFA | **2 - Corrigir salvaguardas** - reforcar controlos que falharam ou estavam ausentes |
-    | g) | Adicionar alertas para acessos fora de horario | **3 - Melhorar monitorizacao** - aumentar a visibilidade |
-    | h) | Sessao de licoes aprendidas | **7 - Restaurar confianca e rever** - aprender com o incidente |
+    | g) | Adicionar alertas para acessos fora de horario | **3 - Melhorar monitorização** - aumentar a visibilidade |
+    | h) | Sessao de lições aprendidas | **7 - Restaurar confiança é rever** - aprender com o incidente |
 
 ---
 
-### Nivel 2 - Aplicacao pratica
+### Nível 2 - Aplicação prática
 
-#### Exercicio 2.1 - Avaliacao de danos pos-incidente
+#### Exercício 2.1 - Avaliação de danos pós-incidente
 
-**Cenario:** Uma empresa de consultoria detetou que um atacante acedeu ao servidor de ficheiros durante 48 horas atraves de uma conta de administrador comprometida. A conta tinha acesso a pastas com contratos de clientes, propostas comerciais e dados financeiros internos.
+**Cenário:** Uma empresa de consultoria detetou que um atacante acedeu ao servidor de ficheiros durante 48 horas através de uma conta de administrador comprometida. A conta tinha acesso a pastas com contratos de clientes, propostas comerciais e dados financeiros internos.
 
-Realiza a avaliacao de danos respondendo:
+Realiza a avaliação de danos respondendo:
 
 1. Que dimensoes da CIA foram potencialmente afetadas? Justifica.
-2. Que fontes de evidencia usarias para delimitar o alcance?
-3. Que perguntas adicionais farias para refinar a avaliacao?
+2. Que fontes de evidência usarias para delimitar o alcance?
+3. Que perguntas adicionais farias para refinar a avaliação?
 
-??? success "Solucao 2.1"
+??? success "Solução 2.1"
 
     **1. Dimensoes da CIA afetadas:**
 
-    | Dimensao | Afetada? | Justificacao |
+    | Dimensão | Afetada? | Justificação |
     |----------|:--------:|-------------|
     | **Confidencialidade** | **Sim** | O atacante pode ter lido/copiado contratos, propostas e dados financeiros. Acesso de 48 horas e tempo suficiente para exfiltrar grandes volumes de dados. |
-    | **Integridade** | **Possivelmente** | O atacante pode ter alterado ficheiros (ex: inserir backdoors em documentos, modificar dados financeiros). E necessario verificar. |
-    | **Disponibilidade** | **Potencialmente** | Embora os servicos nao tenham ficado em baixo, o atacante pode ter eliminado ou cifrado ficheiros. E necessario verificar. |
+    | **Integridade** | **Possivelmente** | O atacante pode ter alterado ficheiros (ex: inserir backdoors em documentos, modificar dados financeiros). E necessário verificar. |
+    | **Disponibilidade** | **Potencialmente** | Embora os serviços não tenham ficado em baixo, o atacante pode ter eliminado ou cifrado ficheiros. E necessário verificar. |
 
-    **2. Fontes de evidencia:**
+    **2. Fontes de evidência:**
 
-    - **Logs de acesso ao servidor de ficheiros**: que pastas e ficheiros foram acedidos, quando, e com que operacoes (leitura, escrita, eliminacao)
-    - **Logs de autenticacao**: quando e de onde a conta comprometida fez login
-    - **Logs de rede**: volume de trafego de saida (possivel exfiltracao), destinos das ligacoes
-    - **Logs do EDR/antivirus**: se houve execucao de ferramentas suspeitas
-    - **Documentacao de configuracao**: que permissoes tinha a conta comprometida
+    - **Logs de acesso ao servidor de ficheiros**: que pastas e ficheiros foram acedidos, quando, e com que operações (leitura, escrita, eliminacao)
+    - **Logs de autenticação**: quando e de onde a conta comprometida fez login
+    - **Logs de rede**: volume de tráfego de saida (possível exfiltração), destinos das ligações
+    - **Logs do EDR/antivirus**: se houve execução de ferramentas suspeitas
+    - **Documentação de configuração**: que permissoes tinha a conta comprometida
     - **Entrevista com o titular da conta**: como foi comprometida, que atividade recente teve
 
     **3. Perguntas adicionais:**
 
-    - Que ficheiros especificos foram acedidos (nao apenas as pastas)?
-    - Houve copia massiva de ficheiros (indicador de exfiltracao)?
-    - Existem clientes com clausulas de notificacao obrigatoria em caso de exposicao de dados?
-    - A conta comprometida tinha acesso a outros sistemas alem do servidor de ficheiros?
-    - Ha evidencia de movimento lateral (o atacante tentou aceder a outros sistemas)?
+    - Que ficheiros específicos foram acedidos (não apenas as pastas)?
+    - Houve copia massiva de ficheiros (indicador de exfiltração)?
+    - Existem clientes com clausulas de notificação obrigatória em caso de exposicao de dados?
+    - A conta comprometida tinha acesso a outros sistemas além do servidor de ficheiros?
+    - Ha evidência de movimento lateral (o atacante tentou aceder a outros sistemas)?
 
 ---
 
-#### Exercicio 2.2 - Quando e necessaria pericia informatica?
+#### Exercício 2.2 - Quando e necessária perícia informatica?
 
-Para cada cenario, decide se a pericia informatica e necessaria e justifica a tua decisao.
+Para cada cenário, decide se a perícia informatica e necessária e justifica a tua decisão.
 
-| # | Cenario |
+| # | Cenário |
 |---|---------|
-| a) | Um colaborador clicou num link de phishing, mas a equipa de TI resetou a password em 10 minutos e nao ha indicios de acesso a sistemas. |
-| b) | A organizacao suspeita que um ex-colaborador copiou uma base de dados de clientes antes de sair. |
+| a) | Um colaborador clicou num link de phishing, mas a equipa de TI resetou a password em 10 minutos e não há indicios de acesso a sistemas. |
+| b) | A organização suspeita que um ex-colaborador copiou uma base de dados de clientes antes de sair. |
 | c) | Um servidor web foi comprometido e o atacante pode ter acedido a dados pessoais de 50.000 utilizadores. |
-| d) | Uma falha de energia causou a corrupcao de uma base de dados, sem indicios de acao maliciosa. |
-| e) | Um ataque de ransomware cifrou 40% dos ficheiros da organizacao e o atacante exige pagamento. |
+| d) | Uma falha de energia causou a corrupção de uma base de dados, sem indicios de ação maliciosa. |
+| e) | Um ataque de ransomware cifrou 40% dos ficheiros da organização é o atacante exige pagamento. |
 
-??? success "Solucao 2.2"
+??? success "Solução 2.2"
 
-    | # | Forense? | Justificacao |
+    | # | Forense? | Justificação |
     |---|:--------:|-------------|
-    | a) | **Nao** (mas documentar) | Incidente contido rapidamente, sem indicios de acesso efetivo. Documentar o ocorrido e suficiente. Se surgirem indicios posteriores de acesso, reavaliar. |
-    | b) | **Sim** | Suspeita de crime (roubo de dados), possivel litigio, necessidade de prova formal de que a copia foi feita e do que foi copiado. |
-    | c) | **Sim** | Obrigacao regulatoria (RGPD exige saber que dados foram afetados), possivel notificacao a CNPD, necessidade de demonstrar o alcance real do comprometimento. |
-    | d) | **Nao** | Sem indicios de acao maliciosa. Investigacao tecnica normal para perceber a causa da corrupcao e restaurar dados e suficiente. |
-    | e) | **Sim** | Possivel crime informatico (extorsao), necessidade de preservar provas para as autoridades, possivel obrigacao regulatoria, necessidade de perceber o vetor de entrada para corrigir. |
+    | a) | **Não** (mas documentar) | Incidente contido rapidamente, sem indicios de acesso efetivo. Documentar o ocorrido e suficiente. Se surgirem indicios posteriores de acesso, reavaliar. |
+    | b) | **Sim** | Suspeita de crime (roubo de dados), possível litigio, necessidade de prova formal de que a copia foi feita e do que foi copiado. |
+    | c) | **Sim** | Obrigacao regulatória (RGPD exige saber que dados foram afetados), possível notificação a CNPD, necessidade de demonstrar o alcance real do comprometimento. |
+    | d) | **Não** | Sem indicios de ação maliciosa. Investigação técnica normal para perceber a causa da corrupção e restaurar dados e suficiente. |
+    | e) | **Sim** | Possível crime informatico (extorsao), necessidade de preservar provas para as autoridades, possível obrigação regulatória, necessidade de perceber o vetor de entrada para corrigir. |
 
 ---
 
-#### Exercicio 2.3 - Desenhar plano de recuperacao
+#### Exercício 2.3 - Desenhar plano de recuperação
 
-**Cenario:** Uma clinica dentaria sofreu um ataque de ransomware que cifrou o servidor de agendamentos e o servidor de registos clinicos. Os backups existem mas nao eram testados ha 4 meses. A equipa de TI (2 pessoas) conseguiu conter o ataque isolando os servidores.
+**Cenário:** Uma clínica dentaria sofreu um ataque de ransomware que cifrou o servidor de agendamentos e o servidor de registos clínicos. Os backups existem mas não eram testados há 4 meses. A equipa de TI (2 pessoas) conseguiu conter o ataque isolando os servidores.
 
-Desenha um plano de recuperacao que cubra as 7 camadas. Para cada camada, indica pelo menos uma acao concreta.
+Desenha um plano de recuperação que cubra as 7 camadas. Para cada camada, indica pelo menos uma ação concreta.
 
-??? success "Solucao 2.3"
+??? success "Solução 2.3"
 
-    | Camada | Acao concreta |
+    | Camada | Ação concreta |
     |--------|--------------|
-    | **1. Corrigir vulnerabilidades** | Identificar como o ransomware entrou (vetor: email? RDP exposto? vulnerabilidade?). Corrigir: fechar RDP exposto, aplicar patches, corrigir configuracao que permitiu a entrada. |
-    | **2. Corrigir salvaguardas** | Implementar EDR nos servidores, configurar backups automaticos com verificacao diaria, implementar segmentacao entre rede administrativa e rede clinica, ativar MFA no acesso remoto. |
-    | **3. Melhorar monitorizacao** | Configurar alertas para cifragem massiva de ficheiros (indicador de ransomware), acessos fora de horario, tentativas de desativacao do antivirus. |
-    | **4. Restaurar dados** | Testar os backups (ha 4 meses que nao eram testados - podem estar incompletos). Restaurar com validacao: verificar integridade dos registos clinicos, confirmar que as agendas estao corretas. Se os backups falharem, avaliar alternativas (reconstrucao manual, contacto com pacientes). |
-    | **5. Restaurar servicos e processos** | Reativar o sistema de agendamento, remarcar consultas perdidas durante a indisponibilidade, notificar pacientes afetados, processar registos clinicos que ficaram pendentes. |
-    | **6. Monitorizacao pos-restauro** | Monitorizacao intensiva durante pelo menos 1 semana. Verificar se o ransomware deixou mecanismos de persistencia. Vigiar tentativas de re-execucao. |
-    | **7. Restaurar confianca e rever** | Comunicar aos pacientes se os seus dados foram comprometidos. Rever internamente: porque nao se testavam os backups? Que formacao falta a equipa? Atualizar procedimentos. |
+    | **1. Corrigir vulnerabilidades** | Identificar como o ransomware entrou (vetor: email? RDP exposto? vulnerabilidade?). Corrigir: fechar RDP exposto, aplicar patches, corrigir configuração que permitiu a entrada. |
+    | **2. Corrigir salvaguardas** | Implementar EDR nos servidores, configurar backups automáticos com verificação diaria, implementar segmentação entre rede administrativa e rede clínica, ativar MFA no acesso remoto. |
+    | **3. Melhorar monitorização** | Configurar alertas para cifragem massiva de ficheiros (indicador de ransomware), acessos fora de horario, tentativas de desativacao do antivirus. |
+    | **4. Restaurar dados** | Testar os backups (há 4 meses que não eram testados - podem estar incompletos). Restaurar com validação: verificar integridade dos registos clínicos, confirmar que as agendas estão corretas. Se os backups falharem, avaliar alternativas (reconstrucao manual, contacto com pacientes). |
+    | **5. Restaurar serviços e processos** | Reativar o sistema de agendamento, remarcar consultas perdidas durante a indisponibilidade, notificar pacientes afetados, processar registos clínicos que ficaram pendentes. |
+    | **6. Monitorização pós-restauro** | Monitorização intensiva durante pelo menos 1 semana. Verificar se o ransomware deixou mecanismos de persistencia. Vigiar tentativas de re-execução. |
+    | **7. Restaurar confiança é rever** | Comunicar aos pacientes se os seus dados foram comprometidos. Rever internamente: porque não se testavam os backups? Que formação falta a equipa? Atualizar procedimentos. |
 
-    **Nota critica:** Os backups nao testados sao um risco real. Pode dar-se o caso de que, ao tentar restaurar, se descubra que os backups estao incompletos ou corrompidos. O plano deve prever esta possibilidade.
+    **Nota crítica:** Os backups não testados são um risco real. Pode dar-se o caso de que, ao tentar restaurar, se descubra que os backups estão incompletos ou corrompidos. O plano deve prever está possibilidade.
 
 ---
 
-### Nivel 3 - Analise
+### Nível 3 - Análise
 
-#### Exercicio 3.1 - Cenario completo pos-incidente
+#### Exercício 3.1 - Cenário completo pós-incidente
 
-**Cenario:** Es o responsavel de seguranca de uma empresa de logistica com 500 colaboradores. Na quarta-feira, as 14h, o SIEM detetou trafego anomalo de saida num servidor de base de dados que contem informacao de rotas, clientes e contratos. A investigacao revelou:
+**Cenário:** Es o responsável de segurança de uma empresa de logística com 500 colaboradores. Na quarta-feira, as 14h, o SIEM detetou tráfego anómalo de saida num servidor de base de dados que contem informação de rotas, clientes e contratos. A investigação revelou:
 
-- Um atacante explorou uma vulnerabilidade conhecida (com patch disponivel ha 2 meses) no servidor web
+- Um atacante explorou uma vulnerabilidade conhecida (com patch disponível há 2 meses) no servidor web
 - A partir do servidor web, moveu-se lateralmente para o servidor de base de dados
-- Esteve ativo na rede durante aproximadamente 10 dias antes da detecao
-- Ha indicios de exfiltracao de dados (grande volume de trafego de saida para IPs desconhecidos)
+- Esteve ativo na rede durante aproximadamente 10 dias antes da deteção
+- Ha indicios de exfiltração de dados (grande volume de tráfego de saida para IPs desconhecidos)
 - Os logs do servidor web dos primeiros 5 dias foram apagados pelo atacante
 
 Desenvolve um plano completo que inclua:
 
-1. Avaliacao de danos detalhada
-2. Decisao fundamentada sobre pericia informatica
-3. Plano de recuperacao com as 7 camadas
-4. Estrutura para a revisao pos-acao
+1. Avaliação de danos detalhada
+2. Decisão fundamentada sobre perícia informatica
+3. Plano de recuperação com as 7 camadas
+4. Estrutura para a revisao pós-ação
 
-??? success "Solucao 3.1"
+??? success "Solução 3.1"
 
-    **1. Avaliacao de danos:**
+    **1. Avaliação de danos:**
 
-    | Dimensao | Avaliacao | Detalhes |
+    | Dimensão | Avaliação | Detalhes |
     |----------|----------|---------|
-    | **Confidencialidade** | **Comprometida** | Indicios de exfiltracao de dados de clientes, rotas e contratos. 10 dias de acesso nao detetado sao suficientes para copiar toda a base de dados. |
-    | **Integridade** | **Potencialmente comprometida** | O atacante pode ter alterado dados na base de dados. Logs apagados indicam intencao de esconder atividade. E necessario verificar integridade dos dados. |
-    | **Disponibilidade** | **Parcialmente afetada** | Embora os servicos nao tenham ficado em baixo, a necessidade de isolar servidores para investigacao afeta a disponibilidade. |
+    | **Confidencialidade** | **Comprometida** | Indicios de exfiltração de dados de clientes, rotas e contratos. 10 dias de acesso não detetado são suficientes para copiar toda a base de dados. |
+    | **Integridade** | **Potencialmente comprometida** | O atacante pode ter alterado dados na base de dados. Logs apagados indicam intenção de esconder atividade. E necessário verificar integridade dos dados. |
+    | **Disponibilidade** | **Parcialmente afetada** | Embora os serviços não tenham ficado em baixo, a necessidade de isolar servidores para investigação afeta a disponibilidade. |
 
-    **Fontes a usar:** Logs do SIEM, logs de rede (trafego de saida), logs da base de dados (que queries foram executadas), logs do EDR (se existir), logs de firewall, entrevistas com a equipa de TI.
+    **Fontes a usar:** Logs do SIEM, logs de rede (tráfego de saida), logs da base de dados (que queries foram executadas), logs do EDR (se existir), logs de firewall, entrevistas com a equipa de TI.
 
-    **Nota critica:** Os logs do servidor web dos primeiros 5 dias foram apagados. Isto limita a capacidade de avaliar o que aconteceu inicialmente e reorca a necessidade de pericia informatica.
+    **Nota crítica:** Os logs do servidor web dos primeiros 5 dias foram apagados. Isto limita a capacidade de avaliar o que aconteceu inicialmente e reorca a necessidade de perícia informatica.
 
-    **2. Decisao forense:**
+    **2. Decisão forense:**
 
-    **Sim, e necessaria pericia informatica.** Justificacao:
-    - Ha indicios de exfiltracao de dados de clientes (possivel crime informatico)
-    - Obrigacao regulatoria: dados pessoais de clientes podem implicar notificacao a CNPD
-    - Possivel litigio com clientes cujos dados foram expostos
-    - Os logs apagados indicam sofisticacao e intencao de esconder rastos - e necessario recuperar o que for possivel
-    - Contratos expostos podem ter implicacoes comerciais e legais
+    **Sim, e necessária perícia informatica.** Justificação:
+    - Ha indicios de exfiltração de dados de clientes (possível crime informatico)
+    - Obrigacao regulatória: dados pessoais de clientes podem implicar notificação a CNPD
+    - Possível litigio com clientes cujos dados foram expostos
+    - Os logs apagados indicam sofisticacao e intenção de esconder rastos - e necessário recuperar o que for possível
+    - Contratos expostos podem ter implicações comerciais e legais
 
-    **Acoes forenses prioritarias:**
+    **Ações forenses prioritarias:**
     - Criar imagens forenses dos servidores web e de base de dados antes de qualquer restauro
     - Preservar todos os logs de rede, SIEM, firewall, EDR
     - Documentar cadeia de custodia
     - Considerar apoio de especialistas forenses externos
 
-    **3. Plano de recuperacao (7 camadas):**
+    **3. Plano de recuperação (7 camadas):**
 
-    | Camada | Acoes |
+    | Camada | Ações |
     |--------|-------|
-    | **1. Corrigir vulnerabilidades** | Aplicar o patch que estava disponivel ha 2 meses no servidor web. Fazer scan de vulnerabilidades a todos os servidores expostos. Corrigir todas as vulnerabilidades criticas encontradas. |
-    | **2. Corrigir salvaguardas** | Implementar politica de patch management com SLA (patches criticos em 48h). Segmentar a rede (servidor web nao deve ter acesso direto a base de dados). Implementar EDR em todos os servidores. Rever politica de retencao de logs (proteger contra apagamento). |
-    | **3. Melhorar monitorizacao** | Rever porque o SIEM so detetou apos 10 dias. Adicionar regras para detetar movimento lateral. Configurar alertas para grandes volumes de trafego de saida. Implementar monitorizacao de integridade de logs. |
-    | **4. Restaurar dados** | Identificar backup anterior ao comprometimento (pelo menos 10 dias antes). Validar integridade do backup. Restaurar com verificacao de que nao contem artefactos do atacante. |
-    | **5. Restaurar servicos e processos** | Reativar servicos com vulnerabilidade corrigida. Reconciliar dados (10 dias de operacao podem ter gerado dados legitimos que nao estao no backup antigo). Revalidar contratos e dados de clientes. |
-    | **6. Monitorizacao pos-restauro** | Monitorizacao intensiva durante pelo menos 2 semanas (dada a sofisticacao do ataque). Vigiar IoCs conhecidos. Verificar se o atacante criou contas ou mecanismos de persistencia. |
-    | **7. Restaurar confianca e rever** | Notificar clientes afetados. Notificar CNPD se dados pessoais foram expostos. Comunicar internamente. Revisao pos-acao completa. |
+    | **1. Corrigir vulnerabilidades** | Aplicar o patch que estava disponível há 2 meses no servidor web. Fazer scan de vulnerabilidades a todos os servidores expostos. Corrigir todas as vulnerabilidades críticas encontradas. |
+    | **2. Corrigir salvaguardas** | Implementar política de patch management com SLA (patches críticos em 48h). Segmentar a rede (servidor web não deve ter acesso direto a base de dados). Implementar EDR em todos os servidores. Rever política de retenção de logs (proteger contra apagamento). |
+    | **3. Melhorar monitorização** | Rever porque o SIEM só detetou após 10 dias. Adicionar regras para detetar movimento lateral. Configurar alertas para grandes volumes de tráfego de saida. Implementar monitorização de integridade de logs. |
+    | **4. Restaurar dados** | Identificar backup anterior ao comprometimento (pelo menos 10 dias antes). Validar integridade do backup. Restaurar com verificação de que não contem artefactos do atacante. |
+    | **5. Restaurar serviços e processos** | Reativar serviços com vulnerabilidade corrigida. Reconciliar dados (10 dias de operação podem ter gerado dados legitimos que não estão no backup antigo). Revalidar contratos e dados de clientes. |
+    | **6. Monitorização pós-restauro** | Monitorização intensiva durante pelo menos 2 semanas (dada a sofisticacao do ataque). Vigiar IoCs conhecidos. Verificar se o atacante criou contas ou mecanismos de persistencia. |
+    | **7. Restaurar confiança é rever** | Notificar clientes afetados. Notificar CNPD se dados pessoais foram expostos. Comunicar internamente. Revisao pós-ação completa. |
 
-    **4. Estrutura para revisao pos-acao:**
+    **4. Estrutura para revisao pós-ação:**
 
     | Pergunta | Foco |
     |----------|------|
-    | Porque e que o patch nao foi aplicado durante 2 meses? | Processo de gestao de patches |
-    | Porque e que o movimento lateral nao foi detetado? | Segmentacao de rede e monitorizacao |
-    | Porque e que o SIEM so detetou apos 10 dias? | Regras de detecao e visibilidade |
-    | Os logs podiam ter sido protegidos contra apagamento? | Protecao e retencao de logs |
-    | A equipa tinha competencias e ferramentas para esta resposta? | Capacidade da equipa |
-    | O plano de resposta a incidentes foi seguido? Foi util? | Qualidade do IRP |
-    | Que informacao faltou durante a resposta? | Lacunas de visibilidade |
-    | Que comunicacao foi feita e foi adequada? | Processo de comunicacao |
+    | Porque e que o patch não foi aplicado durante 2 meses? | Processo de gestão de patches |
+    | Porque e que o movimento lateral não foi detetado? | Segmentação de rede é monitorização |
+    | Porque e que o SIEM só detetou após 10 dias? | Regras de deteção é visibilidade |
+    | Os logs podiam ter sido protegidos contra apagamento? | Proteção e retenção de logs |
+    | A equipa tinha competencias e ferramentas para está resposta? | Capacidade da equipa |
+    | O plano de resposta a incidentes foi seguido? Foi útil? | Qualidade do IRP |
+    | Que informação faltou durante a resposta? | Lacunas de visibilidade |
+    | Que comunicação foi feita e foi adequada? | Processo de comunicação |
 
 ---
 
-#### Exercicio 3.2 - Automacao vs decisao humana
+#### Exercício 3.2 - Automacao vs decisão humana
 
-Para cada situacao, indica se a resposta deve ser **automatizada**, **humana**, ou **hibrida** (automacao inicial + decisao humana). Justifica.
+Para cada situação, indica se a resposta deve ser **automatizada**, **humana**, ou **hibrida** (automacao inicial + decisão humana). Justifica.
 
-| # | Situacao |
+| # | Situação |
 |---|---------|
 | a) | Endpoint deteta processo a cifrar ficheiros em massa |
 | b) | Cliente reporta que os seus dados pessoais apareceram num forum online |
-| c) | SIEM deteta 50 tentativas falhadas de login numa conta de servico |
-| d) | Descoberta de que um fornecedor critico foi comprometido e pode afetar a organizacao |
+| c) | SIEM deteta 50 tentativas falhadas de login numa conta de serviço |
+| d) | Descoberta de que um fornecedor crítico foi comprometido e pode afetar a organização |
 | e) | Email com anexo malicioso detetado a caminho de 200 colaboradores |
-| f) | Decisao sobre se deve notificar a CNPD apos uma violacao de dados |
+| f) | Decisão sobre se deve notificar a CNPD após uma violacao de dados |
 
-??? success "Solucao 3.2"
+??? success "Solução 3.2"
 
-    | # | Tipo | Justificacao |
+    | # | Tipo | Justificação |
     |---|------|-------------|
-    | a) | **Automatizada** | Cifragem em massa e indicador forte de ransomware. O EDR deve isolar o endpoint imediatamente - cada segundo conta. A decisao humana vem depois (investigar, avaliar alcance). |
-    | b) | **Humana** | Requer investigacao (confirmar se e verdade, avaliar que dados, determinar origem), avaliacao de impacto, decisao sobre comunicacao e obrigacoes legais. Nao e automatizavel. |
-    | c) | **Hibrida** | A automacao deve bloquear a conta apos X tentativas (prevenir comprometimento). A equipa humana deve investigar: e ataque externo? Problema de configuracao? A conta esta comprometida? |
-    | d) | **Humana** | Requer avaliacao contextual: que servicos dependemos desse fornecedor? Que dados partilhamos? Qual o risco real? Que acoes tomar? E uma decisao estrategica e de coordenacao. |
-    | e) | **Automatizada** | A quarentena do email deve ser automatica para os 200 destinatarios. A analise humana vem depois (confirmar que e malicioso, verificar se alguem abriu antes da quarentena). |
-    | f) | **Humana** | E uma decisao legal que requer avaliacao do impacto, dos dados afetados, das obrigacoes aplicaveis e das consequencias. Nao pode ser automatizada. |
+    | a) | **Automatizada** | Cifragem em massa e indicador forte de ransomware. O EDR deve isolar o endpoint imediatamente - cada segundo conta. A decisão humana vem depois (investigar, avaliar alcance). |
+    | b) | **Humana** | Requer investigação (confirmar se e verdade, avaliar que dados, determinar origem), avaliação de impacto, decisão sobre comunicação é obrigações legais. Não é automatizavel. |
+    | c) | **Hibrida** | A automacao deve bloquear a conta após X tentativas (prevenir comprometimento). A equipa humana deve investigar: e ataque externo? Problema de configuração? A conta está comprometida? |
+    | d) | **Humana** | Requer avaliação contextual: que serviços dependemos desse fornecedor? Que dados partilhamos? Qual o risco real? Que ações tomar? E uma decisão estratégica e de coordenação. |
+    | e) | **Automatizada** | A quarentena do email deve ser automática para os 200 destinatarios. A análise humana vem depois (confirmar que é malicioso, verificar se alguem abriu antes da quarentena). |
+    | f) | **Humana** | E uma decisão legal que requer avaliação do impacto, dos dados afetados, das obrigações aplicaveis e das consequências. Não pode ser automatizada. |
 
 ---
 
-## 7. Armadilhas e confusoes a evitar
+## 7. Armadilhas e confusões a evitar
 
-### Confusao 1: Avaliacao de danos nao e o mesmo que pericia informatica
+### Confusão 1: Avaliação de danos não é o mesmo que perícia informatica
 
-> A avaliacao de danos pergunta: "o que foi afetado e o que restaurar?" A pericia pergunta: "que provas existem e como preserva-las para uso formal?"
+> A avaliação de danos pergunta: "o que foi afetado e o que restaurar?" A perícia pergunta: "que provas existem e como preserva-las para uso formal?"
 
-Sao processos distintos. A avaliacao de danos guia a recuperacao; a pericia garante que as provas sao fiaveis. Podem ocorrer em paralelo, mas tem objetivos diferentes.
+São processos distintos. A avaliação de danos guia a recuperação; a perícia garante que as provas são fiaveis. Podem ocorrer em paralelo, mas tem objetivos diferentes.
 
-### Confusao 2: Recuperar nao e apenas restaurar o backup
+### Confusão 2: Recuperar não é apenas restaurar o backup
 
-> Restaurar o backup e uma das camadas da recuperacao, nao a recuperacao completa.
+> Restaurar o backup é uma das camadas da recuperação, não a recuperação completa.
 
-Uma recuperacao madura inclui corrigir vulnerabilidades, reforcar salvaguardas, melhorar a monitorizacao, restaurar processos (nao so tecnologia), monitorizar pos-restauro e rever o que aconteceu.
+Uma recuperação madura inclui corrigir vulnerabilidades, reforcar salvaguardas, melhorar a monitorização, restaurar processos (não só tecnologia), monitorizar pós-restauro e rever o que aconteceu.
 
-### Confusao 3: "Determinacao imediata" nao significa certeza instantanea
+### Confusão 3: "Determinacao imediata" não significa certeza instantânea
 
-> Comecar a avaliar cedo nao e o mesmo que ter todas as respostas imediatamente.
+> Comecar a avaliar cedo não é o mesmo que ter todas as respostas imediatamente.
 
-A avaliacao inicial baseia-se na melhor informacao disponivel. Sera refinada a medida que surgem novos dados. Esperar por certeza completa antes de agir atrasa a recuperacao.
+A avaliação inicial baseia-se na melhor informação disponível. Sera refinada a medida que surgem novos dados. Esperar por certeza completa antes de agir atrasa a recuperação.
 
-### Confusao 4: A pericia informatica nao e necessaria em todos os incidentes
+### Confusão 4: A perícia informatica não é necessária em todos os incidentes
 
-> Nao e preciso chamar a equipa forense para um reset de password pos-phishing sem indicios de acesso a dados.
+> Não é preciso chamar a equipa forense para um reset de password pós-phishing sem indicios de acesso a dados.
 
-A necessidade de pericia depende do tipo de incidente, das obrigacoes legais, da possibilidade de litigio e da necessidade de prova formal.
+A necessidade de perícia depende do tipo de incidente, das obrigações legais, da possibilidade de litigio e da necessidade de prova formal.
 
-### Confusao 5: Restaurar rapidamente pode destruir provas
+### Confusão 5: Restaurar rapidamente pode destruir provas
 
-> A urgencia de "ligar tudo outra vez" pode apagar artefactos forenses essenciais.
+> A urgência de "ligar tudo outra vez" pode apagar artefactos forenses essenciais.
 
-Antes de restaurar, avaliar se ha necessidade de preservar provas. Uma imagem forense demora minutos a criar e pode ser critica meses mais tarde.
+Antes de restaurar, avaliar se há necessidade de preservar provas. Uma imagem forense demora minutos a criar e pode ser crítica meses mais tarde.
 
-### Confusao 6: Automacao nao e magia
+### Confusão 6: Automacao não é magia
 
-> A automacao executa acoes predefinidas em condicoes previstas. Nao pensa, nao avalia contexto, nao coordena.
+> A automacao executa ações predefinidas em condicoes previstas. Não pensa, não avalia contexto, não coordena.
 
-A automacao e excelente para acoes rapidas e repetitivas (isolar um endpoint, bloquear um IP). Nao substitui decisao humana para situacoes complexas, ambiguas ou com impacto estrategico.
+A automacao e excelente para ações rapidas e repetitivas (isolar um endpoint, bloquear um IP). Não substitui decisão humana para situações complexas, ambiguas ou com impacto estratégico.
 
-### Confusao 7: Honeypots nao sao "armadilhas legais"
+### Confusão 7: Honeypots não são "armadilhas legais"
 
-> Um honeypot atrai quem ja tem intencao maliciosa. Nao deve induzir alguem a cometer um ato que nao cometeria de outra forma.
+> Um honeypot atrai quem já tem intenção maliciosa. Não deve induzir alguem a cometer um ato que não cometeria de outra forma.
 
 A distincao entre enticement (criar um alvo passivo) e entrapment (provocar ativamente) e importante. O enquadramento legal varia, mas o principio e claro: o honeypot deve ser passivo.
 
-### Confusao 8: A revisao pos-acao nao e para culpar pessoas
+### Confusão 8: A revisao pós-ação não é para culpar pessoas
 
-> A revisao pos-acao existe para aprender e melhorar, nao para encontrar culpados.
+> A revisao pós-ação existe para aprender e melhorar, não para encontrar culpados.
 
-Se a revisao se transformar num exercicio de atribuicao de culpa, as pessoas deixam de ser transparentes sobre o que correu mal. Isso impede a organizacao de aprender e melhorar verdadeiramente.
+Se a revisao se transformar num exercício de atribuicao de culpa, as pessoas deixam de ser transparentes sobre o que correu mal. Isso impede a organização de aprender e melhorar verdadeiramente.
 
-### Confusao 9: Voltar ao estado anterior nao e uma boa recuperacao
+### Confusão 9: Voltar ao estado anterior não é uma boa recuperação
 
-> Se o incidente explorou uma fraqueza, voltar ao mesmo estado e preparar o proximo incidente.
+> Se o incidente explorou uma fraqueza, voltar ao mesmo estado e preparar o próximo incidente.
 
-A recuperacao madura corrige as causas, reforeca as salvaguardas e melhora a postura de seguranca. Voltar ao estado anterior e o minimo, nao o objetivo.
+A recuperação madura corrige as causas, reforeca as salvaguardas e melhora a postura de segurança. Voltar ao estado anterior e o mínimo, não o objetivo.
 
-### Confusao 10: Monitorizacao pos-restauro nao e opcional
+### Confusão 10: Monitorização pós-restauro não é opcional
 
-> Os primeiros dias apos o restauro sao criticos. Nao vigiar e assumir que o problema esta resolvido sem confirmacao.
+> Os primeiros dias após o restauro são críticos. Não vigiar e assumir que o problema está resolvido sem confirmacao.
 
-O atacante pode ter deixado mecanismos de persistencia. A causa raiz pode nao ter sido totalmente eliminada. As correcoes implementadas podem nao funcionar como esperado. Vigiar e essencial.
+O atacante pode ter deixado mecanismos de persistencia. A causa raiz pode não ter sido totalmente eliminada. As correcoes implementadas podem não funcionar como esperado. Vigiar e essencial.
 
 ---
 
-## 8. Resumo rapido
+## 8. Resumo rápido
 
 ### Tabela de conceitos-chave
 
 | Conceito | Descricao |
 |----------|-----------|
-| **Avaliacao de danos** | Processo de determinar o alcance, profundidade e consequencias de um incidente, atraves da lente CIA |
-| **Determinacao imediata** | Comecar a delimitar o ambito do incidente com a melhor informacao disponivel, nao esperar por certeza completa |
-| **Pericia informatica** | Recolha, analise e preservacao de provas digitais de forma cuidadosa e documentada |
+| **Avaliação de danos** | Processo de determinar o alcance, profundidade e consequências de um incidente, através da lente CIA |
+| **Determinacao imediata** | Comecar a delimitar o âmbito do incidente com a melhor informação disponível, não esperar por certeza completa |
+| **Perícia informatica** | Recolha, análise é preservação de provas digitais de forma cuidadosa e documentada |
 | **Cadeia de custodia** | Registo de quem recolheu a prova, quando, como e por onde passou |
-| **Recuperacao madura** | Recuperacao em 7 camadas: vulnerabilidades, salvaguardas, monitorizacao, dados, servicos, monitorizacao pos-restauro, revisao |
-| **Revisao pos-acao** | Analise critica e construtiva do incidente para identificar melhorias |
-| **Automacao (SOAR)** | Execucao automatica de acoes predefinidas em resposta a alertas |
-| **Honeypot** | Sistema-engodo para atrair atividade maliciosa, detetar intrusoes e recolher inteligencia |
+| **Recuperação madura** | Recuperação em 7 camadas: vulnerabilidades, salvaguardas, monitorização, dados, serviços, monitorização pós-restauro, revisao |
+| **Revisao pós-ação** | Análise crítica e construtiva do incidente para identificar melhorias |
+| **Automacao (SOAR)** | Execução automática de ações predefinidas em resposta a alertas |
+| **Honeypot** | Sistema-engodo para atrair atividade maliciosa, detetar intrusoes e recolher inteligência |
 | **Honeynet** | Rede de honeypots interligados simulando um ambiente mais realista |
-| **Enticement** | Atrair quem ja tem intencao maliciosa com um alvo passivo (geralmente legal) |
-| **Entrapment** | Induzir alguem a cometer um crime que nao cometeria de outra forma (geralmente ilegal) |
-| **Monitorizacao pos-restauro** | Vigilancia intensiva apos o restauro para detetar persistencia, recorrencia e validar correcoes |
+| **Enticement** | Atrair quem já tem intenção maliciosa com um alvo passivo (geralmente legal) |
+| **Entrapment** | Induzir alguem a cometer um crime que não cometeria de outra forma (geralmente ilegal) |
+| **Monitorização pós-restauro** | Vigilancia intensiva após o restauro para detetar persistencia, recorrencia e validar correcoes |
 
 ### Frases-chave para recordar
 
-- *"Recuperar sem avaliar e como reconstruir sem saber o que esta danificado."*
-- *"A pericia informatica nao e obrigatoria em todos os incidentes, mas quando e necessaria, e insubstituivel."*
+- *"Recuperar sem avaliar e como reconstruir sem saber o que está danificado."*
+- *"A perícia informatica não é obrigatória em todos os incidentes, mas quando e necessária, e insubstituivel."*
 - *"Uma prova mal recolhida e uma prova perdida."*
-- *"Restaurar o backup e uma camada da recuperacao, nao a recuperacao completa."*
-- *"Voltar ao estado anterior sem corrigir a fraqueza e preparar o proximo incidente."*
-- *"A automacao e o copiloto, nao o piloto."*
-- *"A revisao pos-acao existe para aprender, nao para culpar."*
-- *"Os primeiros dias apos o restauro sao os mais criticos para detetar persistencia."*
-- *"Recuperar depressa demais pode destruir provas. Preservar provas em excesso pode atrasar a recuperacao. O equilibrio depende do contexto."*
+- *"Restaurar o backup é uma camada da recuperação, não a recuperação completa."*
+- *"Voltar ao estado anterior sem corrigir a fraqueza e preparar o próximo incidente."*
+- *"A automacao e o copiloto, não o piloto."*
+- *"A revisao pós-ação existe para aprender, não para culpar."*
+- *"Os primeiros dias após o restauro são os mais críticos para detetar persistencia."*
+- *"Recuperar depressa demais pode destruir provas. Preservar provas em excesso pode atrasar a recuperação. O equilíbrio depende do contexto."*
 
 ### Diagrama de sintese
 
@@ -923,4 +923,4 @@ O atacante pode ter deixado mecanismos de persistencia. A causa raiz pode nao te
 
 ---
 
-*Proximo capitulo: [Casos Praticos do IRP](casos-praticos.md)*
+*Próximo capitulo: [Casos Práticos do IRP](casos-praticos.md)*

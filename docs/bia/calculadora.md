@@ -1,12 +1,12 @@
 # Calculadora Interativa BIA
 
-Ferramentas de calculo interativas para praticar as metricas da Business Impact Analysis. Experimenta com diferentes valores diretamente no browser.
+Ferramentas de cálculo interativas para praticar as métricas da Business Impact Analysis. Experimenta com diferentes valores diretamente no browser.
 
 ---
 
 ## 1. Validador BIA (RTO + WRT &le; MTD)
 
-Verifica se as metricas definidas sao validas e calcula a margem disponivel.
+Verifica se as métricas definidas são validas e calcula a margem disponível.
 
 **Exemplos rapidos:**
 
@@ -49,18 +49,18 @@ Verifica se as metricas definidas sao validas e calcula a margem disponivel.
 
 ## 2. Calculadora MTBF / MTTR / Disponibilidade
 
-Calcula metricas de fiabilidade a partir de dados de falhas e compara com SLAs.
+Calcula métricas de fiabilidade a partir de dados de falhas e compara com SLAs.
 
 <div class="calc-form">
 <label for="fiab-nome">Nome do sistema:</label>
 <input type="text" id="fiab-nome" placeholder="Ex: Cluster de Hosting">
 <div class="calc-row">
 <div>
-<label for="fiab-horas">Horas totais de operacao:</label>
+<label for="fiab-horas">Horas totais de operação:</label>
 <input type="number" id="fiab-horas" placeholder="Ex: 8760 (1 ano, 24/7)" min="1">
 </div>
 <div>
-<label for="fiab-falhas">Duracao de cada reparacao (horas, separadas por virgula):</label>
+<label for="fiab-falhas">Duracao de cada reparação (horas, separadas por virgula):</label>
 <input type="text" id="fiab-falhas" placeholder="Ex: 1.5, 0.75, 3.25, 2, 1, 4.5">
 </div>
 </div>
@@ -73,13 +73,13 @@ Calcula metricas de fiabilidade a partir de dados de falhas e compara com SLAs.
 
 ## 3. Calculadora de Custo de Downtime
 
-Estima as perdas financeiras por incidente e por ano. Opcionalmente, analisa o retorno de um investimento em infraestrutura.
+Estima as perdas financeiras por incidente é por ano. Opcionalmente, analisa o retorno de um investimento em infraestrutura.
 
 <div class="calc-form">
 <div class="calc-row">
 <div>
-<label for="custo-faturacao">Faturacao por hora (EUR):</label>
-<input type="number" id="custo-faturacao" placeholder="Ex: 50000" min="0">
+<label for="custo-faturação">Faturacao por hora (EUR):</label>
+<input type="number" id="custo-faturação" placeholder="Ex: 50000" min="0">
 </div>
 <div>
 <label for="custo-incidentes">Incidentes por ano:</label>
@@ -101,14 +101,14 @@ Estima as perdas financeiras por incidente e por ano. Opcionalmente, analisa o r
 
 <hr style="margin: 1rem 0; border-color: var(--md-default-fg-color--lightest);">
 
-<p><strong>Analise de investimento (opcional):</strong></p>
+<p><strong>Análise de investimento (opcional):</strong></p>
 <div class="calc-row">
 <div>
 <label for="custo-investimento">Custo do investimento (EUR/ano):</label>
 <input type="number" id="custo-investimento" placeholder="Ex: 120000" min="0">
 </div>
 <div>
-<label for="custo-novo-rto">Novo RTO apos investimento (minutos):</label>
+<label for="custo-novo-rto">Novo RTO após investimento (minutos):</label>
 <input type="number" id="custo-novo-rto" placeholder="Ex: 60" min="0">
 </div>
 </div>
@@ -121,7 +121,7 @@ Estima as perdas financeiras por incidente e por ano. Opcionalmente, analisa o r
 
 ## 4. Verificador de Backup vs RPO
 
-Verifica se a frequencia de backups e adequada ao RPO definido.
+Verifica se a frequência de backups e adequada ao RPO definido.
 
 <div class="calc-form">
 <div class="calc-row">
@@ -130,7 +130,7 @@ Verifica se a frequencia de backups e adequada ao RPO definido.
 <input type="number" id="backup-rpo" placeholder="Ex: 60" min="0">
 </div>
 <div>
-<label for="backup-freq">Frequencia de backup (a cada X minutos):</label>
+<label for="backup-freq">Frequência de backup (a cada X minutos):</label>
 <input type="number" id="backup-freq" placeholder="Ex: 1440 (diario)" min="1">
 </div>
 </div>
@@ -141,15 +141,15 @@ Verifica se a frequencia de backups e adequada ao RPO definido.
 
 ---
 
-## Referencia rapida
+## Referência rápida
 
-| Metrica | Pergunta-chave |
+| Métrica | Pergunta-chave |
 |---------|---------------|
 | **RPO** | Quanto dado posso perder? |
 | **RTO** | Em quanto tempo quero recuperar? |
 | **WRT** | Quanto tempo preciso para normalizar? |
-| **MTD** | Maximo total de paragem toleravel? |
-| **MOR** | Minimo para continuar a operar? |
+| **MTD** | Máximo total de paragem tolerável? |
+| **MOR** | Mínimo para continuar a operar? |
 | **MTBF** | De quanto em quanto tempo falha? |
 | **MTTR** | Quanto tempo demora a reparar? |
 
@@ -157,6 +157,6 @@ Verifica se a frequencia de backups e adequada ao RPO definido.
 
 ---
 
-*Material de apoio: [Metricas BIA](metricas.md) | [Casos praticos](casos-praticos.md) | [Exercicios](exercicios.md)*
+*Material de apoio: [Métricas BIA](metricas.md) | [Casos práticos](casos-praticos.md) | [Exercícios](exercicios.md)*
 
-*Proximo modulo: [Incident Response Plan (IRP)](../irp/index.md)*
+*Próximo módulo: [Incident Response Plan (IRP)](../irp/index.md)*

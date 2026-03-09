@@ -1,10 +1,10 @@
 # Business Continuity Plan (BCP)
 
-*Conteudo brevemente disponivel.*
+*Conteúdo brevemente disponível.*
 
-Este modulo abordara:
+Este módulo abordara:
 
 - Planeamento de continuidade de negocio
-- Analise de riscos e estrategias
-- Testes e manutencao do plano
-- Casos praticos e exercicios
+- Análise de riscos e estratégias
+- Testes e manutenção do plano
+- Casos práticos e exercícios

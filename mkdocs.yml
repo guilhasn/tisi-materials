@@ -1,5 +1,5 @@
-site_name: TISI - Tratamento de Incidentes de Seguranca Informatica
-site_description: Materiais praticos de apoio a UC TISI - MCIF - IPLeiria
+site_name: TISI - Tratamento de Incidentes de Segurança Informática
+site_description: Materiais práticos de apoio à UC TISI - MCIF - IPLeiria
 site_author: IPLeiria - MCIF
 
 theme:
@@ -31,19 +31,19 @@ theme:
     repo: fontawesome/brands/github
 
 nav:
-  - Inicio: index.md
+  - Início: index.md
   - Business Impact Analysis:
-    - Metricas BIA: bia/metricas.md
-    - Casos Praticos: bia/casos-praticos.md
-    - Exercicios: bia/exercicios.md
+    - Métricas BIA: bia/metricas.md
+    - Casos Práticos: bia/casos-praticos.md
+    - Exercícios: bia/exercicios.md
     - Calculadora Interativa: bia/calculadora.md
   - Incident Response Plan:
     - Fundamentos: irp/index.md
     - Planeamento: irp/planeamento.md
-    - Detecao: irp/detecao.md
-    - Reacao: irp/reacao.md
-    - Recuperacao: irp/recuperacao.md
-    - Casos Praticos: irp/casos-praticos.md
+    - Deteção: irp/detecao.md
+    - Reação: irp/reacao.md
+    - Recuperação: irp/recuperacao.md
+    - Casos Práticos: irp/casos-praticos.md
   - Disaster Recovery Plan: drp/index.md
   - Business Continuity Plan: bcp/index.md
 
