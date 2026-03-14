@@ -54,7 +54,23 @@ Como identificar, classificar e responder a incidentes de segurança da informa�
 
 ### :material-backup-restore: [Disaster Recovery Plan (DRP)](drp/index.md)
 
-*Brevemente*
+Como preparar, responder e recuperar de desastres que excedem a capacidade de resposta a incidentes:
+
+| Conceito | Descrição |
+|----------|-----------|
+| **Incidente vs Desastre** | Classificar a situação e ativar o plano adequado |
+| **Etapas do DRP** | Prioridades, papéis, alerta, documentação, mitigação |
+| **Estratégias de recuperação** | Hot/warm/cold sites, backups, replicação |
+| **Gestão de crise** | Comunicação, stakeholders, apoio ao pessoal |
+| **Testes** | Checklist, walk-through, simulação, paralelo, interrupção total |
+
+**Conteúdos:**
+
+- [Fundamentos do DRP](drp/index.md) - Conceitos, etapas, categorias de disrupção e exercícios
+- [Estratégias de Recuperação](drp/estrategias.md) - Sites alternativos, hardware, software, pessoal e dados
+- [Gestão de Crise](drp/gestao-crise.md) - Comunicação, stakeholders e liderança durante o desastre
+- [Testes e Manutenção](drp/testes.md) - Como testar e manter o DRP atualizado
+- [Casos Práticos](drp/casos-praticos.md) - 5 cenários completos de diferentes setores
 
 ### :material-shield-check: [Business Continuity Plan (BCP)](bcp/index.md)
 
@@ -67,7 +83,7 @@ Como identificar, classificar e responder a incidentes de segurança da informa�
 1. Consulta os materiais em cada módulo para estudo teórico-prático
 2. Segue a ordem recomendada: **BIA → IRP → DRP → BCP**
 3. Em cada módulo, le a teoria e depois resolve os exercícios antes de consultar as soluções
-4. Usa os [casos práticos do BIA](bia/casos-praticos.md) e os [casos práticos do IRP](irp/casos-praticos.md) para consolidar conhecimentos
+4. Usa os [casos práticos do BIA](bia/casos-praticos.md), os [casos práticos do IRP](irp/casos-praticos.md) e os [casos práticos do DRP](drp/casos-praticos.md) para consolidar conhecimentos
 5. Experimenta a [calculadora interativa](bia/calculadora.md) para simular diferentes cenários
 
 ---

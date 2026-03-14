@@ -1583,6 +1583,10 @@ def main():
     files_to_process = [
         os.path.join(docs, 'index.md'),
         os.path.join(docs, 'drp', 'index.md'),
+        os.path.join(docs, 'drp', 'estrategias.md'),
+        os.path.join(docs, 'drp', 'gestao-crise.md'),
+        os.path.join(docs, 'drp', 'testes.md'),
+        os.path.join(docs, 'drp', 'casos-praticos.md'),
         os.path.join(docs, 'bcp', 'index.md'),
         os.path.join(docs, 'bia', 'metricas.md'),
         os.path.join(docs, 'bia', 'casos-praticos.md'),

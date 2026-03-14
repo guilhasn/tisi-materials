@@ -44,7 +44,12 @@ nav:
     - Reação: irp/reacao.md
     - Recuperação: irp/recuperacao.md
     - Casos Práticos: irp/casos-praticos.md
-  - Disaster Recovery Plan: drp/index.md
+  - Disaster Recovery Plan:
+    - Fundamentos: drp/index.md
+    - Estratégias de Recuperação: drp/estrategias.md
+    - Gestão de Crise: drp/gestao-crise.md
+    - Testes e Manutenção: drp/testes.md
+    - Casos Práticos: drp/casos-praticos.md
   - Business Continuity Plan: bcp/index.md
 
 extra_css:
