@@ -50,7 +50,13 @@ nav:
     - Gestão de Crise: drp/gestao-crise.md
     - Testes e Manutenção: drp/testes.md
     - Casos Práticos: drp/casos-praticos.md
-  - Business Continuity Plan: bcp/index.md
+  - Business Continuity Plan:
+    - Fundamentos: bcp/index.md
+    - Estratégias de Continuidade: bcp/estrategias.md
+    - Implementação e Operações: bcp/implementacao.md
+    - Testes e Manutenção: bcp/testes.md
+    - Normas e Frameworks: bcp/normas.md
+    - Casos Práticos: bcp/casos-praticos.md
 
 extra_css:
   - stylesheets/extra.css

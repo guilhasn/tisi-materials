@@ -74,7 +74,25 @@ Como preparar, responder e recuperar de desastres que excedem a capacidade de re
 
 ### :material-shield-check: [Business Continuity Plan (BCP)](bcp/index.md)
 
-*Brevemente*
+Como manter as funções críticas de negócio em funcionamento durante e após um desastre:
+
+| Conceito | Descrição |
+|----------|-----------|
+| **BCP vs DRP** | Continuidade do negócio vs recuperação técnica |
+| **Governação** | CEO como proprietário, coordenador BCP, equipas |
+| **Estratégias** | Sites alternativos, hardware, software, pessoal, dados |
+| **Implementação** | Declaração de desastre, operação alternativa, regresso |
+| **Testes** | Checklist, walk-through, simulação, paralelo, full-interruption |
+| **Normas** | ISO 22301, ISO 27031, NIST 800-34, DRII, BCI GPG |
+
+**Conteúdos:**
+
+- [Fundamentos do BCP](bcp/index.md) - Conceitos, BCP vs DRP, governação e exercícios
+- [Estratégias de Continuidade](bcp/estrategias.md) - Sites alternativos, recuperação de dados e pessoal
+- [Implementação e Operações](bcp/implementacao.md) - Ativação, operação alternativa e regresso
+- [Testes e Manutenção](bcp/testes.md) - Tipos de teste, frequência e manutenção do plano
+- [Normas e Frameworks](bcp/normas.md) - ISO 22301, NIST 800-34, DRII, BCI GPG
+- [Casos Práticos](bcp/casos-praticos.md) - 5 cenários completos de diferentes setores
 
 ---
 
@@ -83,7 +101,7 @@ Como preparar, responder e recuperar de desastres que excedem a capacidade de re
 1. Consulta os materiais em cada módulo para estudo teórico-prático
 2. Segue a ordem recomendada: **BIA → IRP → DRP → BCP**
 3. Em cada módulo, le a teoria e depois resolve os exercícios antes de consultar as soluções
-4. Usa os [casos práticos do BIA](bia/casos-praticos.md), os [casos práticos do IRP](irp/casos-praticos.md) e os [casos práticos do DRP](drp/casos-praticos.md) para consolidar conhecimentos
+4. Usa os [casos práticos do BIA](bia/casos-praticos.md), os [casos práticos do IRP](irp/casos-praticos.md), os [casos práticos do DRP](drp/casos-praticos.md) e os [casos práticos do BCP](bcp/casos-praticos.md) para consolidar conhecimentos
 5. Experimenta a [calculadora interativa](bia/calculadora.md) para simular diferentes cenários
 
 ---
