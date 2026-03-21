@@ -1593,6 +1593,7 @@ def main():
         os.path.join(docs, 'bcp', 'testes.md'),
         os.path.join(docs, 'bcp', 'normas.md'),
         os.path.join(docs, 'bcp', 'casos-praticos.md'),
+        os.path.join(docs, 'bia', 'index.md'),
         os.path.join(docs, 'bia', 'metricas.md'),
         os.path.join(docs, 'bia', 'casos-praticos.md'),
         os.path.join(docs, 'bia', 'exercicios.md'),
@@ -1603,6 +1604,12 @@ def main():
         os.path.join(docs, 'irp', 'reacao.md'),
         os.path.join(docs, 'irp', 'recuperacao.md'),
         os.path.join(docs, 'irp', 'casos-praticos.md'),
+        os.path.join(docs, 'ih', 'index.md'),
+        os.path.join(docs, 'ih', 'frameworks.md'),
+        os.path.join(docs, 'ih', 'preparacao.md'),
+        os.path.join(docs, 'ih', 'detecao-contencao.md'),
+        os.path.join(docs, 'ih', 'erradicacao-recuperacao.md'),
+        os.path.join(docs, 'ih', 'casos-praticos.md'),
     ]
 
     # Also process mkdocs.yml (just the nav labels)

@@ -295,7 +295,7 @@ O **DRII** é a organização profissional de referência para profissionais de 
 
 ## 6. BCI GPG — Good Practice Guidelines
 
-O **Business Continuity Institute (BCI)** publica as **Good Practice Guidelines (GPG)**, uma referência global para boas práticas de continuidade de negócio.
+O **Business Continuity Institute (BCI)** pública as **Good Practice Guidelines (GPG)**, uma referência global para boas práticas de continuidade de negócio.
 
 ### Características
 

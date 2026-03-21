@@ -54,7 +54,7 @@ O BCP abrange **toda a organização**, não apenas a componente tecnológica:
 | **Processos** | Funções críticas de negócio, procedimentos alternativos |
 | **Tecnologia** | Sistemas de informação, comunicações, dados |
 | **Instalações** | Site alternativo, logística, segurança física |
-| **Stakeholders** | Clientes, fornecedores, reguladores, media |
+| **Stakeholders** | Clientes, fornecedores, reguladores, média |
 | **Financeiro** | Fluxo de caixa, seguros, custos de recuperação |
 
 ---
@@ -132,7 +132,7 @@ O BCP envolve decisões que vão muito além da tecnologia:
 
 - **Investimentos significativos** — contratar sites alternativos, seguros, redundância
 - **Impacto em toda a organização** — não apenas TI, mas RH, finanças, jurídico, operações
-- **Relações com stakeholders** — clientes, reguladores, media, acionistas
+- **Relações com stakeholders** — clientes, reguladores, média, acionistas
 - **Decisões estratégicas** — priorizar funções de negócio, aceitar riscos residuais
 - **Autoridade** — apenas a Direção pode decidir que funções sacrificar temporariamente
 
@@ -189,7 +189,7 @@ Esta identificação é feita durante a **BIA (Business Impact Analysis)** e ali
   ║                                                            ║
   ║   BIA identifica          BCP garante                      ║
   ║   ┌────────────┐          ┌────────────────────┐           ║
-  ║   │ Função X   │          │ Função X continua   │           ║
+  ║   │ Função X   │          │ Função X contínua   │           ║
   ║   │ MTD = 4h   │ ───────► │ no site alternativo │           ║
   ║   │ RTO = 2h   │          │ em < 2h             │           ║
   ║   │ RPO = 1h   │          │ com dados de < 1h   │           ║

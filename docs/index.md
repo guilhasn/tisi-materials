@@ -94,14 +94,36 @@ Como manter as funções críticas de negócio em funcionamento durante e após 
 - [Normas e Frameworks](bcp/normas.md) - ISO 22301, NIST 800-34, DRII, BCI GPG
 - [Casos Práticos](bcp/casos-praticos.md) - 5 cenários completos de diferentes setores
 
+### :material-server-security: [Incident Handling](ih/index.md)
+
+O programa completo de gestão de incidentes de segurança — antes, durante e após o incidente:
+
+| Conceito | Descrição |
+|----------|-----------|
+| **Taxonomia** | Evento → Evento adverso → Incidente de segurança → Ataque |
+| **Modelo de 7 passos** | Preparação, Deteção, Contenção, Investigação, Erradicação, Recuperação, Follow-up |
+| **Frameworks** | ISO 27035, NIST 800-61, SANS, ENISA, ISACA |
+| **Aspetos legais** | RGPD (72h), NIS2 (24h), preservação de evidências |
+| **Separação forense** | Decisão crítica entre investigação e recuperação rápida |
+| **Ciclo contínuo** | Follow-up alimenta a preparação — melhoria contínua |
+
+**Conteúdos:**
+
+- [Fundamentos](ih/index.md) - Taxonomia, modelo de 7 passos, resposta imediata e exercícios
+- [Frameworks de IR](ih/frameworks.md) - ISO 27035, NIST 800-61, SANS, ENISA, ISACA e comparação
+- [Preparação](ih/preparacao.md) - Políticas, CSIRT, ferramentas, treino e templates
+- [Deteção, Contenção e Investigação](ih/detecao-contencao.md) - IoCs, preservação de evidências, contenção e forense
+- [Erradicação, Recuperação e Follow-up](ih/erradicacao-recuperacao.md) - Limpeza, restauração e lições aprendidas
+- [Casos Práticos](ih/casos-praticos.md) - 5 cenários completos de diferentes setores
+
 ---
 
 ## Como usar
 
 1. Consulta os materiais em cada módulo para estudo teórico-prático
-2. Segue a ordem recomendada: **BIA → IRP → DRP → BCP**
+2. Segue a ordem recomendada: **BIA → IRP → DRP → BCP → Incident Handling**
 3. Em cada módulo, le a teoria e depois resolve os exercícios antes de consultar as soluções
-4. Usa os [casos práticos do BIA](bia/casos-praticos.md), os [casos práticos do IRP](irp/casos-praticos.md), os [casos práticos do DRP](drp/casos-praticos.md) e os [casos práticos do BCP](bcp/casos-praticos.md) para consolidar conhecimentos
+4. Usa os [casos práticos do BIA](bia/casos-praticos.md), os [casos práticos do IRP](irp/casos-praticos.md), os [casos práticos do DRP](drp/casos-praticos.md), os [casos práticos do BCP](bcp/casos-praticos.md) e os [casos práticos de IH](ih/casos-praticos.md) para consolidar conhecimentos
 5. Experimenta a [calculadora interativa](bia/calculadora.md) para simular diferentes cenários
 
 ---

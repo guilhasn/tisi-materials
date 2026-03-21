@@ -118,7 +118,7 @@ Existem **cinco tipos de testes**, ordenados do mais simples ao mais complexo e 
 | Aspeto | Descrição |
 |--------|-----------|
 | **O que é** | Os sistemas são movidos para o site alternativo e o processamento ocorre lá, **em paralelo** com o site primário |
-| **Como funciona** | Site alternativo processa dados reais; site primário continua operacional como fallback |
+| **Como funciona** | Site alternativo processa dados reais; site primário contínua operacional como fallback |
 | **Participantes** | Equipas TI + operações |
 | **Duração** | 1-3 dias |
 | **Risco** | Moderado — operação real no site alternativo, mas com fallback |
@@ -383,7 +383,7 @@ A manutenção do BCP deve estar integrada no processo de **gestão de mudanças
 
 ### Exemplo 2 — Teste paralelo com surpresa
 
-**Contexto:** Um hospital realiza um teste paralelo, ativando o site alternativo para o sistema de gestão de pacientes enquanto o site primário continua operacional.
+**Contexto:** Um hospital realiza um teste paralelo, ativando o site alternativo para o sistema de gestão de pacientes enquanto o site primário contínua operacional.
 
 **Resultados do teste:**
 
@@ -414,7 +414,7 @@ Classifique cada atividade no tipo de teste correto:
 |-----------|--------------|
 | a) O gestor de TI verifica se a lista de servidores no BCP está atualizada | ? |
 | b) A equipa de crise reúne-se e discute o cenário "terremoto em Lisboa" | ? |
-| c) O site alternativo é ativado e processa dados reais enquanto o primário continua | ? |
+| c) O site alternativo é ativado e processa dados reais enquanto o primário contínua | ? |
 | d) Um auditor externo avalia se o BCP cumpre a ISO 22301 | ? |
 | e) O site primário é desligado e toda a operação muda para o alternativo | ? |
 | f) A equipa percorre um cenário de ransomware, executando ações até ao ponto de relocação | ? |

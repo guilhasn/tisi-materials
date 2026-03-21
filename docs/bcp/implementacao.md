@@ -204,7 +204,7 @@ Uma das distinções mais críticas na operacionalização do BCP é a diferenç
 ```
 
 !!! danger "Porquê restringir a declaração de desastre?"
-    Declarar um desastre ativa o failover para instalações alternativas — um processo **extremamente caro e disruptivo**. Uma declaração prematura ou injustificada pode custar centenas de milhares de euros e causar disrupção desnecessária. Por isso, esta decisão é restrita ao coordenador BCP ou pessoa designada.
+    Declarar um desastre ativa o failover para instalações alternativas — um processo **extremamente caro e disruptivo**. Uma declaração prematura ou injustificada pode custar centenas de milhares de euros e causar disrupção desnecessária. Por isso, está decisão é restrita ao coordenador BCP ou pessoa designada.
 
 ---
 
@@ -497,7 +497,7 @@ Elabore uma **checklist de validação** antes de autorizar o regresso, e identi
 
 ### Exercício 3 — Revisão pós-incidente (Nível avançado)
 
-Analise o seguinte relatório resumido de um desastre e identifique: (a) o que correu bem, (b) o que correu mal, e (c) recomendações.
+Análise o seguinte relatório resumido de um desastre e identifique: (a) o que correu bem, (b) o que correu mal, e (c) recomendações.
 
 **Relatório:** Uma universidade sofreu uma falha total de energia que durou 72 horas devido a temporal. O BCP foi ativado.
 

@@ -21,7 +21,7 @@ theme:
         name: Modo claro
   features:
     - navigation.sections
-    - navigation.expand
+    - navigation.indexes
     - navigation.top
     - search.suggest
     - search.highlight
@@ -32,31 +32,39 @@ theme:
 
 nav:
   - Início: index.md
-  - Business Impact Analysis:
+  - 📊 Business Impact Analysis:
+    - bia/index.md
     - Métricas BIA: bia/metricas.md
     - Casos Práticos: bia/casos-praticos.md
     - Exercícios: bia/exercicios.md
     - Calculadora Interativa: bia/calculadora.md
-  - Incident Response Plan:
-    - Fundamentos: irp/index.md
+  - 🚨 Incident Response Plan:
+    - irp/index.md
     - Planeamento: irp/planeamento.md
     - Deteção: irp/detecao.md
     - Reação: irp/reacao.md
     - Recuperação: irp/recuperacao.md
     - Casos Práticos: irp/casos-praticos.md
-  - Disaster Recovery Plan:
-    - Fundamentos: drp/index.md
+  - 💾 Disaster Recovery Plan:
+    - drp/index.md
     - Estratégias de Recuperação: drp/estrategias.md
     - Gestão de Crise: drp/gestao-crise.md
     - Testes e Manutenção: drp/testes.md
     - Casos Práticos: drp/casos-praticos.md
-  - Business Continuity Plan:
-    - Fundamentos: bcp/index.md
+  - 🏢 Business Continuity Plan:
+    - bcp/index.md
     - Estratégias de Continuidade: bcp/estrategias.md
     - Implementação e Operações: bcp/implementacao.md
     - Testes e Manutenção: bcp/testes.md
     - Normas e Frameworks: bcp/normas.md
     - Casos Práticos: bcp/casos-praticos.md
+  - 🔥 Incident Handling:
+    - ih/index.md
+    - Frameworks de IR: ih/frameworks.md
+    - Preparação: ih/preparacao.md
+    - Deteção, Contenção e Investigação: ih/detecao-contencao.md
+    - Erradicação, Recuperação e Follow-up: ih/erradicacao-recuperacao.md
+    - Casos Práticos: ih/casos-praticos.md
 
 extra_css:
   - stylesheets/extra.css

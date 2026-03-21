@@ -128,7 +128,7 @@ Hospital regional com 350 camas, 1.500 colaboradores e um datacenter on-premises
   │  T+4h:     Sistema clínico eletrónico migrado para hot       │
   │            site (dados de pacientes acessíveis).              │
   │                                                              │
-  │  T+6h:     Comunicação formal a ARS, famílias, media.        │
+  │  T+6h:     Comunicação formal a ARS, famílias, média.        │
   │                                                              │
   │  T+12h:    Hospital a operar a 60% de capacidade             │
   │            (Alas A + C + hospital parceiro).                  │
@@ -238,7 +238,7 @@ Banco digital (fintech) com 200 colaboradores, sem agências físicas. Toda a in
 
 ### Contexto
 
-Município de media dimensão com 600 funcionários e 40.000 habitantes. O edifício principal alberga serviços administrativos, atendimento ao público, e o datacenter municipal. Não existia BCP formalizado — apenas um "plano de contingência informático" básico no departamento de TI.
+Município de média dimensão com 600 funcionários e 40.000 habitantes. O edifício principal alberga serviços administrativos, atendimento ao público, e o datacenter municipal. Não existia BCP formalizado — apenas um "plano de contingência informático" básico no departamento de TI.
 
 ### Classificação
 

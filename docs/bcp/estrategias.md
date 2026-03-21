@@ -338,7 +338,7 @@ Para que os sites alternativos funcionem, a organização precisa de **acesso ao
   │                                              │
   │   3 ── Manter pelo menos 3 cópias dos dados │
   │                                              │
-  │   2 ── Em pelo menos 2 tipos de media       │
+  │   2 ── Em pelo menos 2 tipos de média       │
   │        diferentes (disco, tape, cloud)       │
   │                                              │
   │   1 ── Pelo menos 1 cópia off-site          │
@@ -394,8 +394,8 @@ A equipa de planeamento de contingência deve avaliar e comparar as alternativas
 | **Custo** | Qual é o custo anual da estratégia vs impacto financeiro de uma paragem? |
 | **MTD** | A estratégia permite recuperar dentro do MTD definido na BIA? |
 | **Escalabilidade** | A estratégia suporta crescimento futuro? |
-| **Complexidade** | A organização tem capacidade para gerir esta estratégia? |
-| **Risco residual** | Que riscos permanecem mesmo com esta estratégia? |
+| **Complexidade** | A organização tem capacidade para gerir está estratégia? |
+| **Risco residual** | Que riscos permanecem mesmo com está estratégia? |
 | **Conformidade** | A estratégia cumpre requisitos legais e regulatórios? |
 
 ---
@@ -480,7 +480,7 @@ Para cada função de uma empresa de seguros, selecione a estratégia de continu
 
 ### Exercício 2 — Análise custo-benefício (Nível intermédio)
 
-Uma empresa tem uma função crítica com MTD = 8 horas. Analise as duas opções:
+Uma empresa tem uma função crítica com MTD = 8 horas. Análise as duas opções:
 
 - **Opção A:** Hot site — custo anual €600.000
 - **Opção B:** Warm site — custo anual €200.000, mas tempo de ativação de 3-5 dias
@@ -495,7 +495,7 @@ Qual opção recomendaria e porquê?
 ??? success "Solução 2"
     **Análise:**
 
-    **Opção B é inviável** — o tempo de ativação (3-5 dias) excede largamente o MTD (8 horas). Independentemente do custo, esta opção não cumpre o requisito de continuidade. Se a função tem MTD de 8 horas, estar parado 3-5 dias resultaria em danos potencialmente irreversíveis.
+    **Opção B é inviável** — o tempo de ativação (3-5 dias) excede largamente o MTD (8 horas). Independentemente do custo, está opção não cumpre o requisito de continuidade. Se a função tem MTD de 8 horas, estar parado 3-5 dias resultaria em danos potencialmente irreversíveis.
 
     **Opção A é a escolha correta**, mas vale a pena validar com números:
 
@@ -509,7 +509,7 @@ Qual opção recomendaria e porquê?
 
 ### Exercício 3 — Identificar pontos únicos de falha (Nível avançado)
 
-Analise o seguinte cenário e identifique todos os pontos únicos de falha no pessoal:
+Análise o seguinte cenário e identifique todos os pontos únicos de falha no pessoal:
 
 Uma PME de desenvolvimento de software (40 pessoas) tem:
 
