@@ -924,3 +924,11 @@ O atacante pode ter deixado mecanismos de persistência. A causa raiz pode não 
 ---
 
 *Próximo capítulo: [Casos Práticos do IRP](casos-praticos.md)*
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio ao planeamento de resposta a incidentes:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

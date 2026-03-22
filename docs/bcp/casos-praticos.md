@@ -399,3 +399,11 @@ Os cinco casos práticos ilustram aspetos fundamentais do BCP:
 | **Indústria alimentar (fornecedor)** | O BCP deve cobrir **dependências externas** (fornecedores, cloud, supply chain), não apenas infraestrutura interna |
 
 > **Princípio comum:** Nenhuma organização é uma ilha. O BCP deve considerar o ecossistema completo — fornecedores, clientes, reguladores, comunidade — e não apenas os ativos internos.
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio à elaboração do plano de continuidade de negócio:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

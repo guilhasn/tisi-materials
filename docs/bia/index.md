@@ -57,3 +57,11 @@ A BIA responde a quatro questões essenciais:
 ---
 
 *Comece pelas [Métricas BIA](metricas.md) para dominar os conceitos fundamentais.*
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio à elaboração do BIA:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

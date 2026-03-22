@@ -384,3 +384,11 @@ Uma startup de SaaS com 60 colaboradores e 5.000 clientes empresariais aloja tod
 - Qual o custo de não ter redundância vs o custo de 48 horas sem serviço?
 - Como comunicar com 5.000 clientes quando o próprio sistema de comunicação está em baixo?
 - O SLA do fornecedor de cloud cobria este cenário? Que compensação e realista?
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio à elaboração do plano de recuperação de desastres:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

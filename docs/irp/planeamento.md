@@ -766,3 +766,11 @@ Playbooks curtos, secções claras, contactos visíveis e ações numeradas são
 ---
 
 *Próximo capítulo: [Deteção de incidentes](detecao.md)*
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio ao planeamento de resposta a incidentes:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

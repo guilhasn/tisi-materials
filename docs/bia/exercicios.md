@@ -463,3 +463,11 @@ Estes exercícios cobrem desde a compreensão básica até a análise avancada d
 *Material de apoio: [Métricas BIA](metricas.md) | [Casos práticos](casos-praticos.md) | [Calculadora interativa](calculadora.md)*
 
 *Próximo capítulo: [Calculadora Interativa](calculadora.md)*
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio à elaboração do BIA:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

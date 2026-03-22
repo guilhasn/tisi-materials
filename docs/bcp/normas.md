@@ -533,3 +533,11 @@ Uma empresa está a implementar a ISO 22301 e precisa de mapear as suas atividad
 ---
 
 **Próximos passos:** Explore os [Casos Práticos](casos-praticos.md) para ver o BCP em ação em diferentes setores e cenários.
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio à elaboração do plano de continuidade de negócio:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

@@ -548,3 +548,11 @@ e) Como se articula com os planos locais de cada fábrica?
 ---
 
 **Próximos passos:** Explore as [Estratégias de Continuidade](estrategias.md) para aprofundar as opções de recuperação de instalações, hardware, software, pessoal e dados.
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio à elaboração do plano de continuidade de negócio:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

@@ -766,3 +766,11 @@ A transição da BIA para o IRP e conceptualmente clara:
 ---
 
 *Próximo capítulo: [Planeamento do IRP](planeamento.md)*
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio ao planeamento de resposta a incidentes:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

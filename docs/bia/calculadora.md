@@ -160,3 +160,11 @@ Verifica se a frequência de backups e adequada ao RPO definido.
 *Material de apoio: [Métricas BIA](metricas.md) | [Casos práticos](casos-praticos.md) | [Exercícios](exercicios.md)*
 
 *Próximo módulo: [Incident Response Plan (IRP)](../irp/index.md)*
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio à elaboração do BIA:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

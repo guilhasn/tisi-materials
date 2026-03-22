@@ -568,3 +568,11 @@ Qual opcao recomendaria? Justifique com base nos dados.
 - *"A distância entre sites não é um luxo — e uma medida de segurança."*
 - *"Recuperar dados sem pessoas treinadas e como ter peças sem mecânico."*
 - *"A regra 3-2-1 não é uma sugestao — e o mínimo aceitável."*
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio à elaboração do plano de recuperação de desastres:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

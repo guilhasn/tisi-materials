@@ -579,3 +579,11 @@ Identifique os pontos únicos de falha e proponha soluções.
 ---
 
 **Próximos passos:** Explore a [Implementação e Operações](implementacao.md) para perceber como colocar o BCP em prática.
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio à elaboração do plano de continuidade de negócio:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

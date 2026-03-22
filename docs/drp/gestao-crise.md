@@ -481,3 +481,11 @@ d) As implicações regulatorias específicas do setor farmaceutico
 - *"Comunicar internamente primeiro, externamente depois."*
 - *"Uma crise mal comunicada pode causar mais danos do que o desastre original."*
 - *"As pessoas são o recurso mais crítico e mais frequentemente esquecido."*
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio à elaboração do plano de recuperação de desastres:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

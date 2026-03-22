@@ -578,3 +578,11 @@ Análise o seguinte relatório resumido de um desastre e identifique: (a) o que 
 ---
 
 **Próximos passos:** Explore os [Testes, Manutenção e Auditoria](testes.md) para perceber como validar e manter o BCP atualizado.
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio à elaboração do plano de continuidade de negócio:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

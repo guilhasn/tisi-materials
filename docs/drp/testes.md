@@ -489,3 +489,11 @@ Uma empresa de média dimensão (200 colaboradores, 1 datacenter, 1 warmsite) nu
 - *"Se o teste não revelou problemas, o teste não foi rigoroso o suficiente."*
 - *"Testar o DRP e barato. Não testar e que sai caro."*
 - *"Comecar com um checklist e melhor do que esperar pelo teste perfeito."*
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio à elaboração do plano de recuperação de desastres:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

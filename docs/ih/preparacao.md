@@ -164,7 +164,7 @@ O **CSIRT** (Computer Security Incident Response Team) é o núcleo operacional 
 | **CSIRT Manager** | Coordenação geral, decisões de escalação, interface com a gestão | Experiência em gestão e segurança, capacidade de decisão sob pressão |
 | **Analista Tier 1** | Triagem de alertas, classificação inicial, recolha de dados | Conhecimento de redes, sistemas operativos, ferramentas SIEM |
 | **Analista Tier 2/3** | Investigação aprofundada, análise forense, contenção avançada | Experiência em forense digital, malware analysis, threat hunting |
-| **Comunicação** | Notificações internas/externas, relações com media, relatórios | Competências de comunicação em crise |
+| **Comunicação** | Notificações internas/externas, relações com média, relatórios | Competências de comunicação em crise |
 | **Jurídico** | Aspetos legais, preservação de evidências, notificações regulatórias | Conhecimento de RGPD, NIS2, lei do cibercrime |
 
 ### Ferramentas e recursos do CSIRT

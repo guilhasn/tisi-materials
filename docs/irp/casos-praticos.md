@@ -601,3 +601,11 @@ O phishing revela falta de MFA. O ransomware revela RDP exposto. A fraude revela
     - [Recuperação — Exercícios](recuperacao.md#6-exercicios)
 
 *Próximo módulo: [Disaster Recovery Plan (DRP)](../drp/index.md)*
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio ao planeamento de resposta a incidentes:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

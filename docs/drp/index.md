@@ -644,3 +644,11 @@ Agora que compreende os fundamentos do DRP, avance para:
 - [Gestão de crise](gestao-crise.md) — comunicação, stakeholders e lideranca durante o desastre
 - [Testes e manutenção](testes.md) — como testar e manter o DRP atualizado
 - [Casos práticos](casos-praticos.md) — cenários completos de DRP em diferentes setores
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio à elaboração do plano de recuperação de desastres:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

@@ -351,3 +351,11 @@ Falha ──► RTO ──► sistema restaurado ──► WRT ──► operaç
 :material-file-download: **Modelos BIA:** [Templates e exemplos para download](https://github.com/guilhasn/tisi-materials/tree/main/BIA/Modelos){:target="_blank"}
 
 *Próximo capítulo: [Casos práticos adicionais](casos-praticos.md)*
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio à elaboração do BIA:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

@@ -536,3 +536,11 @@ Identifique o impacto de cada mudança no BCP e as ações necessárias.
 ---
 
 **Próximos passos:** Explore as [Normas e Frameworks](normas.md) para conhecer os padrões internacionais que orientam o BCP.
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio à elaboração do plano de continuidade de negócio:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

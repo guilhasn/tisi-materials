@@ -225,3 +225,11 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 ---
 
 *Próximo: [Exercícios](exercicios.md) - Exercícios para os alunos resolverem*
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio à elaboração do BIA:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

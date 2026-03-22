@@ -909,3 +909,11 @@ Uma mensagem de alerta que diz apenas "há um incidente, vem já" não da contex
 ---
 
 *Próximo capítulo: [Recuperação de incidentes](recuperacao.md)*
+
+---
+
+## 📋 Templates
+
+Consulte os templates disponíveis para apoio ao planeamento de resposta a incidentes:
+
+[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }

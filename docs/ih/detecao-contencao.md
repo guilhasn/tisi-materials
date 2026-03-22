@@ -204,7 +204,7 @@ A preservação de evidências é uma das ações mais críticas e frequentement
 |-------------------|-----------|-------------|
 | **Memória RAM** | Processos ativos, chaves de cifra, conexões de rede | Muito alta |
 | **Cópia bit-stream** | Imagem forense completa do disco | Baixa |
-| **Armazenamento externo** | USB, discos externos, media amovível | Baixa |
+| **Armazenamento externo** | USB, discos externos, média amovível | Baixa |
 | **Logs de rede** | Registos de firewall, proxy, DNS, NetFlow | Média |
 | **Logs de sistema** | Event logs, syslog, logs de aplicações | Média |
 | **Logs de aplicação** | Registos de bases de dados, servidores web, e-mail | Média |
@@ -531,7 +531,7 @@ Uma universidade deteta que o seu servidor de e-mail foi comprometido e está a 
 
 Uma empresa de comércio online descobre que um atacante acedeu à base de dados de clientes durante 2 semanas. Foram potencialmente comprometidos dados de 50 000 clientes, incluindo nomes, moradas e os últimos 4 dígitos dos cartões de crédito. A empresa opera em Portugal e processa pagamentos com cartão.
 
-> Analise o cenário e determine: (a) que caminho(s) seguir no Break-Off Point; (b) que obrigações legais existem; (c) que ações específicas de investigação são necessárias.
+> Análise o cenário e determine: (a) que caminho(s) seguir no Break-Off Point; (b) que obrigações legais existem; (c) que ações específicas de investigação são necessárias.
 
 ??? success "Solução 3"
     **(a) Caminhos no Break-Off Point:**
