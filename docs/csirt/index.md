@@ -633,7 +633,7 @@ Por **área de análise**:
 | **Network Monitoring** | **Nagios**, **Zabbix**, PRTG |
 | **Malware Analysis** | **Cuckoo Sandbox**, **REMnux**, CAPEv2, Any.run, YARA |
 
-Stack forense detalhada em [Deteção, Contenção e Investigação](detecao-contencao.md#stack-forense-de-referencia).
+Stack forense detalhada em [Deteção, Contenção e Investigação](../ih/detecao-contencao.md#stack-forense-de-referencia).
 
 #### 4.3.3 Partilha de Threat Intelligence
 
@@ -726,7 +726,7 @@ O NIST define **6 fases** que todo o CSIRT maduro executa ciclicamente:
 | **5. Recuperação** | Restaurar sistemas afetados | Operação normal retomada |
 | **6. Lições Aprendidas** | Reunião pós-incidente, PIR, melhoria | Playbooks e controlos actualizados |
 
-> Complementar com o modelo SANS (6 passos: PICERL — Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned). Ver [Frameworks de IR](frameworks.md) para comparação.
+> Complementar com o modelo SANS (6 passos: PICERL — Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned). Ver [Frameworks de IR](../ih/frameworks.md) para comparação.
 
 #### 4.4.3 Playbooks e casos de uso
 
@@ -997,4 +997,4 @@ A criação e operação de um CSIRT materializa-se nos seguintes templates. Cat
 
 ---
 
-**Próximos passos:** Com o CSIRT estruturado, explore a [Preparação](preparacao.md) para perceber as atividades contínuas que a equipa deve manter entre incidentes (políticas, ferramentas, treino, canais de reporte).
+**Próximos passos:** Com o CSIRT estruturado, explore a [Preparação](../ih/preparacao.md) do módulo Incident Handling para perceber as atividades contínuas que a equipa deve manter entre incidentes (políticas, ferramentas, treino, canais de reporte).

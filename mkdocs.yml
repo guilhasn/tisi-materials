@@ -63,11 +63,11 @@ nav:
   - 🔥 Incident Handling:
     - ih/index.md
     - Frameworks de IR: ih/frameworks.md
-    - Setting Up CSIRT: ih/csirt.md
     - Preparação: ih/preparacao.md
     - Deteção, Contenção e Investigação: ih/detecao-contencao.md
     - Erradicação, Recuperação e Follow-up: ih/erradicacao-recuperacao.md
     - Casos Práticos: ih/casos-praticos.md
+  - 🛡️ CSIRT: csirt/index.md
   - 📋 Templates: modelos/index.md
   - 📚 Recursos:
     - Mapa MITRE ATT&CK: comum/attack-mapping.md
