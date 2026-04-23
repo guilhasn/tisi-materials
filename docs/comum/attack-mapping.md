@@ -1,5 +1,15 @@
 # MITRE ATT&CK — Mapa de referência para TISI
 
+!!! info "Versão de referência"
+    Este mapa está alinhado com **ATT&CK v18 (Enterprise)**, publicada em **28 de outubro de 2025** — 14 tácticas, 216 técnicas, 475 sub-técnicas. A v18 introduziu uma mudança estrutural importante: **Data Sources foram deprecadas** a favor de **Detection Strategies + Analytics + Data Components** (691 / 1739 / 106 no total).
+
+    A **v19 será publicada a 28 de abril de 2026** e traz uma alteração pedagogicamente relevante: a táctica **Defense Evasion (TA0005) será dividida** em duas:
+
+    - **Stealth (TA0005)** — herda o ID, cobre técnicas de ocultação (masquerading T1036, obfuscation T1027, system binary proxy execution T1218, hide artifacts T1564);
+    - **Impair Defenses** (novo TA) — cobre técnicas de desactivação/degradação activa de controlos de segurança (absorve a técnica T1562 e subtécnicas).
+
+    Quando v19 for publicada, a tabela desta página será actualizada. Para a avaliação, considerar v18 como referência corrente.
+
 > Referência transversal usada pelos módulos **IRP** e **IH** para classificar técnicas observadas em incidentes reais. O MITRE ATT&CK é o vocabulário *de facto* da indústria para descrever **comportamento adversário** (TTPs — Tactics, Techniques and Procedures) a partir de observação empírica, não a partir de frameworks teóricos.
 
 ## Índice
@@ -39,7 +49,7 @@
 | 4 | **TA0002** — Execution | Executar código malicioso |
 | 5 | **TA0003** — Persistence | Manter acesso através de reboots/credenciais alteradas |
 | 6 | **TA0004** — Privilege Escalation | Obter permissões superiores |
-| 7 | **TA0005** — Defense Evasion | Evitar detecção (ofuscação, clear logs) |
+| 7 | **TA0005** — Defense Evasion ⚠️ | Evitar detecção (ofuscação, clear logs). Em **v19 (28 abr 2026)** será dividida em **Stealth** (ocultação) e **Impair Defenses** (desactivação activa de controlos). |
 | 8 | **TA0006** — Credential Access | Roubar credenciais (passwords, tokens, keys) |
 | 9 | **TA0007** — Discovery | Enumerar o ambiente (hosts, utilizadores, rede) |
 | 10 | **TA0008** — Lateral Movement | Mover-se entre sistemas |
@@ -119,7 +129,7 @@ Tabela de referência rápida — as técnicas mais observadas por vector, para 
 | **CALDERA** | Emulação adversária automatizada baseada em ATT&CK | `github.com/mitre/caldera` |
 | **Atomic Red Team** | Testes atómicos, um por técnica | `github.com/redcanaryco/atomic-red-team` |
 | **Sigma rules** | Regras de detecção agnósticas mapeadas a ATT&CK | `github.com/SigmaHQ/sigma` |
-| **DeTT&CT** | Avaliar cobertura de data sources vs ATT&CK | `github.com/rabobank-cdc/DeTTECT` |
+| **DeTT&CT** | Avaliar cobertura de *detection strategies* e logging vs ATT&CK (historicamente focado em data sources — a estrutura muda com v18) | `github.com/rabobank-cdc/DeTTECT` |
 
 ## 5. Relação com outros modelos
 
@@ -160,7 +170,10 @@ Tabela de referência rápida — as técnicas mais observadas por vector, para 
 
 - [MITRE ATT&CK — Enterprise Matrix](https://attack.mitre.org/matrices/enterprise/)
 - [MITRE ATT&CK — ICS Matrix](https://attack.mitre.org/matrices/ics/)
+- [MITRE ATT&CK — Version History](https://attack.mitre.org/resources/versions/)
+- [MITRE ATT&CK — Updates & Release Notes](https://attack.mitre.org/resources/updates/)
 - [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/)
+- Lusty, L. (2026). *Defense Evasion Split: A Tale of Two Tactics* — **MITRE ATT&CK Blog** (mar/2026), sobre a divisão da tática em v19.
 - Strom, B. et al. (2018). **MITRE ATT&CK: Design and Philosophy** — MITRE Technical Paper.
 - Pols, P. (2017). **The Unified Kill Chain**.
 - Bianco, D. (2013). **The Pyramid of Pain** — [enterprise.detect blog](https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html).
