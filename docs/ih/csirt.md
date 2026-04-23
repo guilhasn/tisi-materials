@@ -1,87 +1,111 @@
-# Setting Up CSIRT — Como criar uma equipa de resposta a incidentes
+# Setting Up CSIRT — Como criar e operacionalizar um CSIRT
+
+> **Objetivo do capítulo:** compreender o que é um CSIRT, que tipos existem, como se cria um (os 4 fundamentos), e como se operacionaliza (pessoas, processos, tecnologia, 24/7).
 
 ## Índice
 
-1. [Visão geral e breve história](#1-visao-geral-e-breve-historia)
-2. [Terminologia: CERT, CSIRT, CIRT, PSIRT](#2-terminologia)
-3. [O que um CSIRT faz — atividades e serviços](#3-o-que-um-csirt-faz)
-4. [Tipos de CSIRT](#4-tipos-de-csirt)
-5. [Modelos organizacionais](#5-modelos-organizacionais)
-6. [Os 4 pilares da criação de um CSIRT](#6-os-4-pilares-da-criacao-de-um-csirt)
-7. [Recursos: pessoas, processos, tecnologia](#7-recursos-pessoas-processos-tecnologia)
-8. [Operação 24/7 e workflow de referência](#8-operacao-247-e-workflow-de-referencia)
-9. [Exemplos práticos](#9-exemplos-praticos)
-10. [Exercícios](#10-exercicios)
-11. [Armadilhas e confusões a evitar](#11-armadilhas-e-confusoes-a-evitar)
-12. [Resumo rápido](#12-resumo-rapido)
+### Capítulo 1 — O que é um CSIRT?
+1.1 [O Incidente que Mudou a Internet](#11-o-incidente-que-mudou-a-internet)
+1.2 [Definição, Siglas e Terminologia](#12-definicao-siglas-e-terminologia)
+1.3 [Atividades e Serviços de um CSIRT](#13-atividades-e-servicos-de-um-csirt)
+
+### Capítulo 2 — Tipos de CSIRT e Exemplos Reais
+2.1 [Tipos de CSIRT por Constituinte](#21-tipos-de-csirt-por-constituinte)
+2.2 [Exemplos Reais pelo Mundo](#22-exemplos-reais-pelo-mundo)
+2.3 [Vantagens de Ter um CSIRT](#23-vantagens-de-ter-um-csirt)
+
+### Capítulo 3 — Como Criar um CSIRT
+3.1 [Os 4 Fundamentos Essenciais](#31-os-4-fundamentos-essenciais)
+3.2 [Missão e Constituinte](#32-missao-e-constituinte)
+3.3 [Modelos Organizacionais](#33-modelos-organizacionais)
+3.4 [Autoridade e Cooperação](#34-autoridade-e-cooperacao)
+
+### Capítulo 4 — Recursos, Processos e Operações
+4.1 [Estrutura da Equipa e Papéis](#41-estrutura-da-equipa-e-papeis)
+4.2 [Processos e Procedimentos](#42-processos-e-procedimentos)
+4.3 [Ferramentas Tecnológicas](#43-ferramentas-tecnologicas)
+4.4 [Fluxo de Resposta a Incidentes](#44-fluxo-de-resposta-a-incidentes)
+4.5 [Disponibilidade 24/7 e Integração](#45-disponibilidade-247-e-integracao)
+
+### Aplicação e avaliação
+5. [Exemplos práticos](#5-exemplos-praticos)
+6. [Exercícios](#6-exercicios)
+7. [Armadilhas e confusões a evitar](#7-armadilhas-e-confusoes-a-evitar)
+8. [Resumo rápido](#8-resumo-rapido)
 
 ---
 
-## 1. Visão geral e breve história
+## Capítulo 1 — O que é um CSIRT?
 
-Um **CSIRT (Computer Security Incident Response Team)** é uma equipa organizada com mandato formal para **prevenir, detetar, responder e aprender** com incidentes de cibersegurança que afetam uma *constituency* bem definida (a organização-mãe, um setor, um país).
+### 1.1 O Incidente que Mudou a Internet
 
-### Origem: o worm de Morris (1988)
+Um **CSIRT (Computer Security Incident Response Team)** é uma equipa organizada com mandato formal para **prevenir, detetar, responder e aprender** com incidentes de cibersegurança que afetam uma *constituency* bem definida. A sua razão histórica de existir nasce num evento concreto.
+
+#### O Worm Morris — novembro de 1988
 
 ```
   ┌───────────────────────────────────────────────────────────────┐
   │                                                               │
   │   02 Nov 1988  —  Robert Tappan Morris (estudante Cornell)    │
-  │                   lança do MIT um worm auto-replicante.        │
+  │                   lança do MIT o primeiro worm auto-replicante │
+  │                   da Internet.                                 │
   │                                                               │
-  │                   Infeta ~6 000 máquinas — ~10% da Internet    │
-  │                   da época. 3 anos de liberdade condicional,   │
+  │                   Infecta ~6 000 máquinas — ~10% da Internet   │
+  │                   da época.                                    │
+  │                   Sentença: 3 anos liberdade condicional,      │
   │                   400h trabalho comunitário, multa USD 10.050. │
   │                                                               │
-  │   07 Nov 1988  —  Resolução do incidente por colaboração       │
-  │                   internacional ad-hoc. Muito desperdício de  │
-  │                   esforço, duplicação de trabalho.             │
+  │   07 Nov 1988  —  Resolução por colaboração internacional      │
+  │                   ad-hoc. Muito desperdício de esforço,        │
+  │                   duplicação de trabalho entre universidades.  │
   │                                                               │
   │   17 Nov 1988  —  Criado o primeiro CERT (CERT/CC) na          │
-  │                   Carnegie Mellon University, financiado       │
-  │                   pela DARPA. Nasce o conceito de CSIRT.       │
+  │                   Carnegie Mellon, financiado pela DARPA.      │
+  │                   Nasce o conceito de CSIRT.                   │
   └───────────────────────────────────────────────────────────────┘
 ```
 
 > O Morris Worm não foi apenas um incidente técnico — foi o **momento fundador** da disciplina de Incident Response moderna. A resposta caótica mostrou que a Internet precisava de **pontos de contacto formais** e coordenados.
 
-### Porque existe um CSIRT
-
-Ter um CSIRT dá à organização três benefícios estruturais:
-
-| Benefício | Valor concreto |
-|-----------|----------------|
-| **Gestão centralizada da informação de incidentes** | Decisões coerentes; sem informação dispersa por silos |
-| **Ponto único de contacto (PoC)** | Interno (para utilizadores reportarem) e externo (para autoridades, parceiros, outros CSIRTs) |
-| **Relações de confiança pré-estabelecidas** | Pronto a responder sem improvisar; maior conteúdo informativo durante a crise |
-
-!!! info "Sem confiança, não há CSIRT funcional"
-    O eixo central da operação de CSIRTs — mesmo entre equipas diferentes — é a **confiança**. Sem ela, não há partilha de IOCs, não há cooperação transfronteiriça, não há relatórios de incidentes internos. Construir essa confiança demora anos, destrói-se em dias.
-
 ---
 
-## 2. Terminologia
+### 1.2 Definição, Siglas e Terminologia
 
-Várias siglas evoluíram ao longo dos anos para descrever essencialmente a mesma função. Os alunos devem reconhecê-las em literatura e relatórios.
+#### Definição canónica
+
+> *Um CSIRT é uma equipa que fornece, a uma constituinte bem definida, serviços e suporte para prevenir e responder a incidentes de segurança informática.*
+
+#### Siglas que se encontram em literatura
 
 | Sigla | Significado | Nota |
 |-------|-------------|------|
-| **CERT** | Computer Emergency Response Team | **Marca registada** da Carnegie Mellon (SEI/CERT-CC) desde 1988. Uso requer autorização formal. |
-| **CSIRT** | Computer Security Incident Response Team | Termo **genérico, livre de marca**, padrão desde 1998. O mais usado hoje. |
-| **CIRT / IRT** | (Computer) Incident Response Team | Variantes mais curtas; equivalente funcional. |
-| **CSIRC / CIRC** | Computer (Security) Incident Response Capability / Center | Realça a *capacidade* mais do que a equipa. |
-| **IHT** | Incident Handling Team | Ênfase em *handling*. |
-| **PSIRT** | **Product** Security Incident Response Team | Trata vulnerabilidades **em produtos da própria empresa** (ex.: Cisco PSIRT, Microsoft MSRC). |
-| **SOC** | Security Operations Center | Estrutura **operacional 24/7**; pode ser distinta ou sobrepor-se ao CSIRT. |
+| **CERT** | Computer Emergency Response Team | **Marca registada** pela Carnegie Mellon desde 1988 |
+| **CSIRT** | Computer Security Incident Response Team | Termo **genérico, livre** desde 1998 — mais usado hoje |
+| **SIRT** | Security Incident Response Team | Variante mais curta |
+| **CIRT / IRT** | (Computer) Incident Response Team | Equivalentes funcionais |
+| **CSIRC / CIRC** | Computer (Security) Incident Response Capability / Center | Ênfase na *capacidade* |
+| **IHT** | Incident Handling Team | Ênfase em *handling* |
+| **PSIRT** | **Product** Security Incident Response Team | Trata vulnerabilidades **nos produtos da própria empresa** (Cisco PSIRT, Microsoft MSRC) |
+| **SOC** | Security Operations Center | Estrutura **operacional 24/7**; pode sobrepor-se ao CSIRT |
+
+#### CERT (1988) vs CSIRT (1998) — comparação lado-a-lado
+
+| Dimensão | **CERT** (1988) | **CSIRT** (1998) |
+|----------|-----------------|-------------------|
+| Estatuto | **Marca registada** | Termo **genérico** |
+| Uso | **Restrito** — autorização necessária | **Livre** — qualquer organização pode adotar |
+| Origem | CERT/CC na Carnegie Mellon | Definido no [CSIRT Handbook](https://resources.sei.cmu.edu/library/asset-view.cfm?assetid=6305) (SEI, 2003) |
+| Autorização | [sei.cmu.edu/legal/permission](https://sei.cmu.edu/legal/permission/index.cfm) | — (não aplicável) |
+| Abrangência | CSIRTs específicos autorizados | Abrange **todos os tipos** de equipas |
 
 !!! warning "CERT ≠ CSIRT na formalidade"
-    Para evitar problemas legais, se a equipa **não está autorizada** pela SEI a usar a marca CERT, deve chamar-se **CSIRT** (ou outra variante). O termo CERT é marca registada desde 1997 — autorização em [sei.cmu.edu/legal/permission](https://sei.cmu.edu/legal/permission/index.cfm).
+    Para evitar problemas legais, se a equipa **não está autorizada** pela SEI a usar a marca CERT, deve chamar-se **CSIRT** (ou variante genérica). O termo CERT é marca registada desde 1997.
 
 ---
 
-## 3. O que um CSIRT faz
+### 1.3 Atividades e Serviços de um CSIRT
 
-As atividades de um CSIRT moderno organizam-se em **três grupos de serviços**, formalizados no **FIRST CSIRT Services Framework** (v2.1).
+As atividades organizam-se em **três grupos de serviços**, formalizados no [FIRST CSIRT Services Framework v2.1](https://www.first.org/standards/frameworks/csirts/csirt_services_framework_v2.1).
 
 ```
   ┌─────────────────────────────────────────────────────────────────┐
@@ -93,76 +117,63 @@ As atividades de um CSIRT moderno organizam-se em **três grupos de serviços**,
   │   │  Responder após  │  │  Reduzir         │  │              │  │
   │   │  incidente       │  │  probabilidade   │  │  Melhorar    │  │
   │   │                  │  │  e impacto       │  │  postura a   │  │
-  │   │  • Alertas       │  │                  │  │  longo prazo │  │
-  │   │  • Handling      │  │  • Announcements │  │              │  │
-  │   │  • Artefactos    │  │  • Technology    │  │  • Audits    │  │
-  │   │  • Vulnerab.     │  │    watch         │  │  • Risk      │  │
-  │   │                  │  │  • IDS & Monitor │  │    analysis  │  │
-  │   │                  │  │  • Config de     │  │  • BCP       │  │
-  │   │                  │  │    ferramentas   │  │  • Consulting│  │
-  │   │                  │  │                  │  │  • Education │  │
+  │   │  • Incident      │  │                  │  │  longo prazo │  │
+  │   │    Handling      │  │  • Technology    │  │              │  │
+  │   │  • Alerts &      │  │    Watch         │  │  • Risk      │  │
+  │   │    Warnings      │  │  • Announcements │  │    Analysis  │  │
+  │   │  • Vulnerability │  │  • Intrusion     │  │  • BCP       │  │
+  │   │    Handling      │  │    Detection     │  │  • Security  │  │
+  │   │  • Artefact      │  │  • Audits &      │  │    Consult.  │  │
+  │   │    Handling      │  │    Assessments   │  │  • Education │  │
+  │   │                  │  │  • Tool Dev.     │  │    / Training│  │
+  │   │                  │  │                  │  │  • Product   │  │
+  │   │                  │  │                  │  │    Evaluation│  │
   │   └──────────────────┘  └──────────────────┘  └──────────────┘  │
   └─────────────────────────────────────────────────────────────────┘
 ```
 
-### 3.1 Serviços reativos (os "clássicos")
+#### Lista de atividades típicas (RFC 2350 + práticas modernas)
 
-| Serviço | Descrição |
-|---------|-----------|
-| **Alerts & Warnings** | Emissão de alertas a constituentes sobre ameaças ativas ou vulnerabilidades. |
-| **Incident Handling** | Triagem, análise, contenção, erradicação, recuperação — o core do CSIRT. |
-| **Vulnerability Handling** | Receção, análise e coordenação da divulgação de vulnerabilidades. |
-| **Artifact Handling** | Análise forense de malware, artefactos de disco e memória. |
-
-### 3.2 Serviços proativos
-
-| Serviço | Descrição |
-|---------|-----------|
-| **Announcements** | Boletins periódicos, boas práticas, *best of breed* de controlos. |
-| **Technology Watch** | Monitorização de *threat landscape*, CVEs críticos, novas ferramentas de atacantes. |
-| **Intrusion Detection** | Operação de sensores IDS/IPS; *threat hunting* proativo. |
-| **Security Tool Development** | Construção de ferramentas internas de deteção e resposta. |
-| **Information Dissemination** | Portal interno, *newsletters*, partilha setorial (MISP). |
-
-### 3.3 Gestão da qualidade de segurança
-
-| Serviço | Descrição |
-|---------|-----------|
-| **Risk Analysis** | Suporte ao programa de gestão de risco organizacional. |
-| **Business Continuity** | Alimenta o BCP/DRP com cenários de ciberataque. |
-| **Security Consulting** | Assessoria interna em arquitetura e projetos. |
-| **Education / Training** | Sensibilização de utilizadores, formação técnica do pessoal de IT. |
-| **Product Evaluation** | Avaliação de soluções de segurança antes de aquisição. |
+| Reativos | Proativos | Qualidade de Segurança |
+|----------|-----------|-------------------------|
+| Incident Handling | Technology Watch | Risk Analysis |
+| Alerts & Warnings | Announcements | Business Continuity Planning |
+| Vulnerability Handling | Intrusion Detection | Security Consulting |
+| Artefact Handling | Security Tool Development | Education / Awareness |
+| | Information Dissemination | Product Evaluation |
+| | Audits & Assessments | Configuração e manutenção de infraestrutura |
 
 !!! tip "Referência canónica"
-    O [FIRST CSIRT Services Framework v2.1](https://www.first.org/standards/frameworks/csirts/csirt_services_framework_v2.1) define 44 serviços organizados em 5 áreas. É a referência profissional para desenhar a carteira de serviços de um CSIRT.
+    O [FIRST CSIRT Services Framework v2.1](https://www.first.org/standards/frameworks/csirts/csirt_services_framework_v2.1) define 44 serviços em 5 áreas. É a referência profissional para desenhar a carteira de serviços de um CSIRT. Complementar com a [RFC 2350](https://www.rfc-editor.org/rfc/rfc2350), que formaliza o que os constituintes devem esperar de um CSIRT.
 
 ---
 
-## 4. Tipos de CSIRT
+## Capítulo 2 — Tipos de CSIRT e Exemplos Reais
+
+### 2.1 Tipos de CSIRT por Constituinte
 
 Os CSIRTs diferenciam-se pela *constituency* que servem:
 
-| Tipo | Constituency | Exemplo |
-|------|-------------|---------|
-| **Enterprise CSIRT** | A organização-mãe (banco, universidade, fabricante, agência pública) | CSIRT do IPLeiria; CSIRT da Galp |
-| **National CSIRT** | Todo um país, normalmente com mandato legal | **CNCS/CERT.PT** (Portugal); BSI-CERT (Alemanha); ANSSI (França) |
-| **Coordination Center** | Facilita cooperação entre múltiplos CSIRTs | **CERT/CC** (SEI/CMU); **US-CERT/CISA**; ENISA (UE) |
-| **Analysis Center** | Sintetiza dados para detetar tendências e emitir *early warnings* | Analysis centers do FBI; H-ISAC (saúde) |
-| **Vendor Team (PSIRT)** | Utilizadores dos produtos do *vendor* | Cisco PSIRT, Microsoft MSRC, Red Hat Product Security |
-| **Incident Response Provider** | Clientes pagos (modelo MSSP/DFIR) | Mandiant, CrowdStrike Services, S21sec |
+| Tipo | Constituency | O que faz |
+|------|-------------|-----------|
+| **Enterprise CSIRT** | Organização-mãe (banco, universidade, fabricante, agência pública) | Serve internamente uma organização |
+| **National CSIRT** | Todo um país | Mandato legal nacional (em PT: **CNCS**) |
+| **Coordination Center** | Múltiplos CSIRTs | Facilita cooperação; não responde diretamente (CERT/CC, CISA, CERT-EU) |
+| **Analysis Center** | Setor ou comunidade | Sintetiza dados, emite *early warnings* (H-ISAC, FS-ISAC) |
+| **Vendor Team (PSIRT)** | Utilizadores dos produtos do *vendor* | Trata vulnerabilidades do produto (MSRC, Cisco PSIRT) |
+| **Incident Response Provider** | Clientes pagos | Modelo MSSP/DFIR (Mandiant, CrowdStrike Services) |
 
-### Exemplos por setor
+#### Exemplos por setor
 
 | Setor | Exemplo típico |
 |-------|----------------|
-| Governo | CNCS (Portugal), US-CERT, JP-CERT |
+| Governo | **CNCS** (Portugal), CISA (EUA), NCSC (UK) |
 | Militar | DoD-CERT, NATO-CCIR |
-| Polícia / judicial | Polícia Judiciária — UNC3T (Unidade Nacional de Combate ao Cibercrime e à Criminalidade Tecnológica) |
+| Polícia / Judicial | **PJ — UNC3T** (Unidade Nacional de Combate ao Cibercrime e Criminalidade Tecnológica) |
 | Financeiro | FS-ISAC, SIBS CERT |
-| Saúde | H-ISAC, SPMS-CSIRT |
-| Académico | FCCN-CERT (rede universitária portuguesa), REN-ISAC (EUA) |
-| ISP / Telecomunicações | CERT dos operadores |
+| Saúde | **SPMS-CSIRT**, H-ISAC |
+| Académico | **FCCN-CERT** (rede universitária PT), REN-ISAC (EUA) |
+| Telecom / ISP | CERTs dos operadores |
 | Indústria | CSIRTs setoriais (energia, automóvel) |
 
 !!! info "Em Portugal"
@@ -170,146 +181,239 @@ Os CSIRTs diferenciam-se pela *constituency* que servem:
 
 ---
 
-## 5. Modelos organizacionais
+### 2.2 Exemplos Reais pelo Mundo
 
-A forma como a equipa está **estruturada internamente** determina o nível de maturidade e a eficácia da resposta.
+Os CSIRTs nacionais de referência que qualquer aluno de cibersegurança deve conhecer:
 
-```
-  ┌─────────────────────────────────────────────────────────────────┐
-  │   5 MODELOS ORGANIZACIONAIS — DA IMATURIDADE À COORDENAÇÃO      │
-  │                                                                 │
-  │   1. Security Team    (sem CSIRT formal; ad-hoc)                │
-  │            │                                                    │
-  │            ▼                                                    │
-  │   2. Distributed      (equipa espalhada, coordenador)           │
-  │            │                                                    │
-  │            ▼                                                    │
-  │   3. Centralized      (equipa dedicada a tempo inteiro)         │
-  │            │                                                    │
-  │            ▼                                                    │
-  │   4. Combined         (núcleo central + braços distribuídos)    │
-  │            │                                                    │
-  │            ▼                                                    │
-  │   5. Coordinating     (não responde — coordena outros CSIRTs)   │
-  └─────────────────────────────────────────────────────────────────┘
-```
+| 🌐 CSIRT | País / Região | Papel | Website |
+|---------|---------------|-------|---------|
+| **CERT/CC** | EUA (Carnegie Mellon) | O **primeiro** CSIRT — fundado 17 nov 1988 | [sei.cmu.edu/about/divisions/cert](https://www.sei.cmu.edu/about/divisions/cert/) |
+| **CISA / US-CERT** | EUA (governo federal) | Proteção nacional de infraestrutura crítica | [cisa.gov](https://www.cisa.gov) |
+| **NCSC UK** | Reino Unido | National Cyber Security Centre | [ncsc.gov.uk](https://www.ncsc.gov.uk) |
+| **CERT-EU** | União Europeia | Instituições europeias | [cert.europa.eu](https://www.cert.europa.eu) |
+| **SingCERT** | Singapura | Modelo de CSIRT nacional de referência | [csa.gov.sg/singcert](https://www.csa.gov.sg/singcert) |
+| **CNCS / CERT.PT** | Portugal | Centro Nacional de Cibersegurança | [cncs.gov.pt](https://www.cncs.gov.pt) |
 
-### 5.1 Security Team
+#### Caso de estudo: SingCERT
 
-- **CSIRT ainda não foi formalmente criado.**
-- Nenhum grupo tem **responsabilidade formal** pelo IR.
-- Administradores de rede/sistemas lidam com incidentes **ad-hoc**, sem procedimentos, sem coordenação entre si.
-- Falha típica: cada incidente é tratado de raiz; não há aprendizagem acumulada.
+**Missão:** *"One Point of Trusted Contact — Facilitate Security Threats Resolution — Increase National Competency in IT Security."*
 
-### 5.2 CSIRT Interno Distribuído
+Três frases, três compromissos claros. É citado em manuais por ser um dos *mission statements* mais curtos e concretos alguma vez redigidos para um CSIRT nacional.
 
-- Estrutura **por localização geográfica ou responsabilidade funcional**.
-- Membros são colaboradores existentes com **atribuição parcial** ao CSIRT.
-- Existe um **gestor coordenador** com autoridade formal.
-- Vantagem: conhecimento local profundo. Desvantagem: conflitos de prioridades diárias.
+#### Caso de estudo: CNCS — Portugal
 
-### 5.3 CSIRT Interno Centralizado
-
-- Equipa **localizada centralmente**, dedicada a tempo inteiro.
-- Gestor reporta à **gestão de topo** (frequentemente ao CISO ou diretamente ao CEO).
-- Funciona como **ponto único de contacto** para incidentes.
-- Modelo de referência para organizações de dimensão média/grande.
-
-### 5.4 CSIRT Combinado Distribuído + Centralizado
-
-- **Núcleo central** (triagem, coordenação, especialistas forense/malware).
-- **Braços distribuídos** em unidades de negócio ou localizações remotas.
-- Aproveita conhecimento local **e** centraliza a inteligência.
-- Adotado pela maioria dos CSIRTs empresariais multinacionais.
-
-### 5.5 CSIRT Coordenador
-
-- **Não responde diretamente** a incidentes.
-- Facilita cooperação entre outros CSIRTs, normalmente a nível nacional, setorial ou internacional.
-- Exemplos: CERT/CC, FIRST, CNCS (parcialmente).
+Centro Nacional de Cibersegurança, tutelado pelo Ministro da Presidência. Coordena a resposta a incidentes em todo o país, opera o **CERT.PT** como ponto operacional, e lidera a **Rede Nacional de CSIRTs**. Recebe notificações NIS2 (DL 125/2025 art. 42.º) e colabora com autoridades judiciais e CSIRTs internacionais.
 
 ---
 
-## 6. Os 4 pilares da criação de um CSIRT
+### 2.3 Vantagens de Ter um CSIRT
 
-Criar um CSIRT formal exige definir quatro fundações. Saltar qualquer uma produz uma equipa com mandato ambíguo e baixa eficácia.
+Ter um CSIRT formal traz três benefícios estruturais à organização:
+
+| Benefício | Valor concreto |
+|-----------|----------------|
+| **1. Gestão centralizada da informação de incidentes** | Informação e decisões coerentes; histórico completo; partilha eficiente entre equipas; decisão mais rápida |
+| **2. Ponto central de contacto (PoC)** | *Trusted broker* interno e externo; comunicação direta de incidentes; informação consolidada do exterior; PoC 24/7 |
+| **3. Relação de confiança pré-estabelecida** | Mais informação disponível para resposta; pronto para qualquer situação; troca de *threat intel* com outros CSIRTs |
+
+!!! danger "Sem confiança, não há relatórios de incidentes"
+    A vantagem de ter um CSIRT **depende da dimensão e tipo de negócio** da organização. Mas em qualquer caso, **sem confiança construída** com a constituinte e com pares externos, o CSIRT não recebe reportes nem consegue partilhar IOCs. A confiança demora anos a construir e destrói-se em dias.
+
+#### Fluxo do Incident Handling pelo CSIRT
+
+Ao receber um reporte, o CSIRT executa um fluxo bem definido:
+
+```
+  ┌──────────────────────────────────────────────────────────────┐
+  │   FLUXO DO INCIDENT HANDLING PELO CSIRT                      │
+  │                                                              │
+  │   ┌──────────┐   ┌────────┐   ┌───────────┐                  │
+  │   │  Point   │──►│ Triage │──►│Priorização│                  │
+  │   │ of       │   │        │   │           │                  │
+  │   │ Contact  │   │        │   │           │                  │
+  │   └──────────┘   └────────┘   └─────┬─────┘                  │
+  │                                     │                        │
+  │                                     ▼                        │
+  │                         ┌───────────────────┐                │
+  │                         │  Assistência       │                │
+  │                         │  Técnica           │                │
+  │                         └─────────┬─────────┘                │
+  │                                   │                          │
+  │                                   ▼                          │
+  │                         ┌───────────────────┐                │
+  │                         │  Resolução,        │                │
+  │                         │  Supressão de dano,│                │
+  │                         │  Assistência à     │                │
+  │                         │  recuperação       │                │
+  │                         └───────────────────┘                │
+  └──────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Capítulo 3 — Como Criar um CSIRT
+
+### 3.1 Os 4 Fundamentos Essenciais
+
+Criar um CSIRT formal exige definir quatro fundações. **Saltar qualquer uma** produz uma equipa com mandato ambíguo e baixa eficácia.
 
 ```
   ╔═══════════════════════════════════════════════════════════════════╗
-  ║   OS 4 PILARES DE UM CSIRT                                       ║
-  ║                                                                 ║
-  ║   ┌─────────────┐   ┌─────────────┐                             ║
-  ║   │  1. MISSÃO  │   │ 2. CONSTI-  │                             ║
-  ║   │             │   │    TUENCY   │                             ║
-  ║   │  Porque     │   │             │                             ║
-  ║   │  existimos? │   │  Quem       │                             ║
-  ║   │             │   │  servimos?  │                             ║
-  ║   └──────┬──────┘   └──────┬──────┘                             ║
-  ║          │                 │                                    ║
-  ║          ▼                 ▼                                    ║
-  ║   ┌─────────────┐   ┌─────────────┐                             ║
-  ║   │ 3. PAPEL E  │   │ 4. RELAÇÃO  │                             ║
-  ║   │  AUTORIDADE │   │  COM OUTROS │                             ║
-  ║   │             │   │   CSIRTs    │                             ║
-  ║   │  Que posição│   │             │                             ║
-  ║   │  na org?    │   │  Com quem   │                             ║
-  ║   │             │   │  cooperamos?│                             ║
-  ║   └─────────────┘   └─────────────┘                             ║
+  ║   OS 4 FUNDAMENTOS DE UM CSIRT                                   ║
+  ║                                                                  ║
+  ║   ┌─────────────┐   ┌─────────────┐                              ║
+  ║   │  1. MISSÃO  │   │ 2. CONSTI-  │                              ║
+  ║   │             │   │    TUINTE   │                              ║
+  ║   │  Porque     │   │             │                              ║
+  ║   │  existimos? │   │  Quem       │                              ║
+  ║   │             │   │  servimos?  │                              ║
+  ║   └──────┬──────┘   └──────┬──────┘                              ║
+  ║          │                 │                                     ║
+  ║          ▼                 ▼                                     ║
+  ║   ┌─────────────┐   ┌─────────────┐                              ║
+  ║   │ 3. POSIÇÃO  │   │ 4. RELAÇÃO  │                              ║
+  ║   │    NA ORG + │   │  COM OUTRAS │                              ║
+  ║   │  AUTORIDADE │   │   EQUIPAS   │                              ║
+  ║   │             │   │             │                              ║
+  ║   │  Que papel  │   │  Com quem   │                              ║
+  ║   │  e poder?   │   │  cooperamos?│                              ║
+  ║   └─────────────┘   └─────────────┘                              ║
   ╚═══════════════════════════════════════════════════════════════════╝
 ```
 
-### 6.1 Pilar 1 — Mission Statement
+#### Resumo dos 4 fundamentos
 
-Declaração de 3-4 frases que responde à pergunta **"Porque é que existimos?"**. Deve ser:
+| # | Fundamento | Questão-chave | Saídas documentais |
+|---|-----------|---------------|---------------------|
+| **1** | **Missão (Mission Statement)** | Porquê existimos? | Declaração de missão (3-4 frases) |
+| **2** | **Constituinte** | Quem servimos? Que incidentes tratamos? | Definição de perímetro, SLAs de serviço |
+| **3** | **Posição e Autoridade** | Que papel na gestão de risco? Que poder? | Organograma, matriz RACI, níveis de autoridade pré-aprovados |
+| **4** | **Relação com outras equipas** | Com quem cooperamos? Sob que base legal? | NDA, MOU, Terms of Reference |
 
-- **Não ambígua** — sem linguagem vazia tipo "excelência em segurança".
-- **Imperativa** — obriga a equipa a estabelecer serviços, políticas e padrões de qualidade.
-- **Alinhada** com a missão da organização-mãe.
-- **Comunicada amplamente** à constituency e a outros CSIRTs.
+---
 
-!!! example "Exemplos de mission statements reais"
+### 3.2 Missão e Constituinte
 
-    **SingCERT (CSIRT Nacional de Singapura):**
+#### 3.2.1 Como definir a missão
+
+Uma *mission statement* é uma declaração de 3-4 frases que responde a **"Porquê existimos?"**. Deve ser:
+
+- **Não ambígua** — sem linguagem vazia tipo "excelência em segurança";
+- **Imperativa** — obriga a equipa a estabelecer serviços, políticas e padrões de qualidade;
+- **Alinhada** com a missão da organização-mãe;
+- **Comunicada** amplamente à constituinte e a outros CSIRTs.
+
+**Passos de definição:**
+
+1. Clarificar o papel esperado pela organização;
+2. Redigir texto que **reforce** os objetivos da organização-mãe;
+3. **Obter compromisso formal** da Direção (sem isto, o CSIRT não tem autoridade);
+4. Anunciar à constituinte e a outros CSIRTs.
+
+!!! example "Exemplos reais de mission statements"
+
+    **SingCERT (Singapura):**
 
     > *One Point of Trusted Contact — Facilitate Security Threats Resolution — Increase National Competency in IT Security.*
 
-    **CERT fictício em empresa:**
+    **Exemplo fictício de CERT empresarial:**
 
     > *O CERT fornece informação e assistência ao pessoal da empresa para reduzir o risco de incidentes de cibersegurança e responder a tais incidentes quando ocorrem.*
 
-**Como definir:**
+#### 3.2.2 Como definir a constituinte
 
-1. Clarificar o papel esperado pela organização.
-2. Redigir texto que **reforce** os objetivos da organização-mãe.
-3. **Obter compromisso formal** da administração/gestão de topo (sem este passo, o CSIRT não tem autoridade).
-4. Anunciar à constituency e a outros CSIRTs.
+A **constituinte** é o conjunto bem definido de **entidades servidas** pelo CSIRT. Sem constituinte clara, o CSIRT não sabe a quem responde nem de quem aceita reportes.
 
-### 6.2 Pilar 2 — Constituency
-
-A **constituency** é o conjunto bem definido de **entidades servidas** pelo CSIRT. Sem constituency clara, o CSIRT não sabe a quem responde nem de quem aceita reportes.
-
-| Tipo de constituency | Exemplos |
-|---------------------|----------|
-| **Empresa / organização única** | CSIRT de um banco, de uma universidade, de um município |
-| **Setor** | FS-ISAC (financeiro), H-ISAC (saúde) |
-| **Infraestrutura crítica** | Operadores de serviços essenciais (NIS2) |
-| **Produto** | PSIRT: utilizadores do software/hardware do *vendor* |
-| **Nacional / país** | CNCS/CERT.PT |
-| **Clientes** | MSSPs / fornecedores de IR como serviço |
-
-**O que a constituency ajuda a definir:**
+**A constituinte ajuda a definir:**
 
 - Qual é o propósito e natureza do CSIRT?
 - Quem é servido?
 - Que tipos de incidentes são tratados?
 - Que relações com outros CSIRTs são necessárias?
+- **Qual é a autoridade** do CSIRT sobre essa constituinte.
 
-!!! warning "Sobreposição de constituencies"
-    Constituencies podem **sobrepor-se** (ex.: um banco está coberto pelo seu CSIRT interno, pelo FS-ISAC setorial, pelo CSIRT nacional, pelo Banco de Portugal). A **coordenação é chave** — quem comunica primeiro, com quem se partilha informação, quem decide estratégias comuns. O conceito de *"CSIRT of Last Resort"* (normalmente o nacional) ajuda a resolver ambiguidade.
+**Tipos de constituintes:**
 
-### 6.3 Pilar 3 — Papel e autoridade na organização
+| Tipo | Exemplos | Incidentes |
+|------|----------|------------|
+| **Enterprise** | Bank CSIRT, University CSIRT | Internos |
+| **Setor** | FS-ISAC (financeiro), H-ISAC (saúde) | Setoriais |
+| **Infraestrutura crítica** | Operadores de serviços essenciais (NIS2) | NIS2-relevantes |
+| **Produto** | Cisco PSIRT, Microsoft MSRC | Vulnerabilidades do produto |
+| **Nacional** | CNCS (PT), SingCERT | Nacionais |
+| **Cliente** | MSSPs | Contratuais |
 
-Para além de **onde** está posicionado (reporta ao CISO? à Direção?), é crítico clarificar **quanta autoridade** tem para agir.
+!!! warning "Sobreposição de constituintes"
+    Constituintes podem **sobrepor-se** (ex.: um hospital público está coberto pelo seu CSIRT interno, pelo SPMS-CSIRT setorial, pelo CNCS nacional). A **coordenação é chave** — e existe o conceito de *"CSIRT de último recurso"* (normalmente o nacional) para resolver ambiguidade.
+
+---
+
+### 3.3 Modelos Organizacionais
+
+A forma como a equipa está **estruturada internamente** determina o nível de maturidade e a eficácia da resposta. Existem **5 modelos** em ordem crescente de maturidade.
+
+```
+  ┌─────────────────────────────────────────────────────────────────┐
+  │   5 MODELOS ORGANIZACIONAIS — DA IMATURIDADE À COORDENAÇÃO      │
+  │                                                                 │
+  │   1. Security Team      (sem CSIRT formal; ad-hoc)              │
+  │            │                                                    │
+  │            ▼                                                    │
+  │   2. Distributed        (equipa espalhada, coordenador)         │
+  │            │                                                    │
+  │            ▼                                                    │
+  │   3. Centralized        (equipa dedicada a tempo inteiro)       │
+  │            │                                                    │
+  │            ▼                                                    │
+  │   4. Combined           (núcleo central + braços distribuídos)  │
+  │            │                                                    │
+  │            ▼                                                    │
+  │   5. Coordinating       (não responde — coordena outros CSIRTs) │
+  └─────────────────────────────────────────────────────────────────┘
+```
+
+#### 1. Security Team (Ad-hoc)
+
+- CSIRT ainda **não foi formalmente criado**;
+- Administradores locais lidam com incidentes de forma **ad-hoc**;
+- Sem coordenação ou padronização;
+- Falha típica: cada incidente é tratado de raiz; não há aprendizagem acumulada.
+
+#### 2. Internal Distributed CSIRT
+
+- Estrutura por **localização geográfica** ou **função**;
+- Membros são colaboradores existentes com atribuição parcial ao CSIRT;
+- Existe um **gestor coordenador** com autoridade formal;
+- ✅ Vantagem: conhecimento local profundo.
+- ⚠️ Desvantagem: conflitos de prioridades diárias.
+
+#### 3. Internal Centralized CSIRT
+
+- Equipa **localizada centralmente**, dedicada **a tempo inteiro**;
+- Gestor reporta à **gestão de topo** (CISO ou CEO);
+- Funciona como **ponto único de contacto**;
+- Modelo de referência para organizações de dimensão média/grande.
+
+#### 4. Combined Distributed & Centralized
+
+- **Núcleo central** (triagem, coordenação, especialistas forense/malware);
+- **Braços distribuídos** em unidades de negócio ou localizações remotas;
+- Aproveita conhecimento local **e** centraliza inteligência;
+- Adotado por CSIRTs empresariais multinacionais.
+
+#### 5. Coordinating CSIRT
+
+- **Não responde diretamente** a incidentes;
+- Facilita cooperação entre outros CSIRTs (nacional, setorial, internacional);
+- Exemplos: CERT/CC, FIRST, CNCS (parcialmente).
+
+---
+
+### 3.4 Autoridade e Cooperação
+
+#### 3.4.1 Três níveis de autoridade
+
+Para além de **onde** está posicionado, é crítico clarificar **quanta autoridade** tem para agir.
 
 ```
   ┌─────────────────────────────────────────────────────────────────┐
@@ -323,8 +427,8 @@ Para além de **onde** está posicionado (reporta ao CISO? à Direção?), é cr
   │   │ e executa    │    │ não decide   │    │ nem executa  │      │
   │   │              │    │ sozinho      │    │              │      │
   │   │ Ex.: isolar  │    │ Ex.: propõe  │    │ Ex.: sugere  │      │
-  │   │ rede em      │    │ e aguarda    │    │ medidas a    │      │
-  │   │ P1 sem call  │    │ Direção      │    │ process owner│      │
+  │   │ rede em P1   │    │ e aguarda    │    │ medidas a    │      │
+  │   │ sem call     │    │ Direção      │    │ process owner│      │
   │   └──────────────┘    └──────────────┘    └──────────────┘      │
   │                                                                 │
   │   MATURIDADE ALTA    MATURIDADE MÉDIA    MATURIDADE BAIXA       │
@@ -335,16 +439,14 @@ Para além de **onde** está posicionado (reporta ao CISO? à Direção?), é cr
 |-------|---------------|-------------|
 | **Full** | Decide e atua sem aprovação em tempo real | P1 crítico onde atraso = dano; CSIRTs maduros |
 | **Shared** | Recomenda e a decisão é do process owner ou Direção | Maioria das decisões não-críticas |
-| **No authority** | Apenas aconselha; mesmo em crise, não pode atuar | CSIRTs iniciais; tenderá a falhar em P1 |
+| **No authority** | Apenas aconselha; mesmo em crise, não pode atuar | CSIRTs iniciais; tende a falhar em P1 |
 
 !!! danger "O problema do CSIRT sem autoridade"
-    Um CSIRT com *No authority* é frequentemente **apenas cosmético** — serve auditorias mas falha em crises. Durante um P1, não há tempo para convocar comités. A autoridade tem de ser **pré-aprovada por escrito** pela Direção, não negociada durante a crise.
+    Um CSIRT *No authority* é frequentemente **apenas cosmético** — serve auditorias mas falha em P1. A autoridade tem de ser **pré-aprovada por escrito** pela Direção, não negociada durante a crise.
 
-### 6.4 Pilar 4 — Relação com outros teams
+#### 3.4.2 Modelos de cooperação entre CSIRTs
 
-Nenhum CSIRT atua isolado. A colaboração com outros CSIRTs é **coração** do modelo.
-
-**Modelos de cooperação:**
+Nenhum CSIRT opera isolado. A cooperação com outros CSIRTs é **coração** do modelo.
 
 | Modelo | Descrição | Exemplo |
 |--------|-----------|---------|
@@ -352,142 +454,137 @@ Nenhum CSIRT atua isolado. A colaboração com outros CSIRTs é **coração** do
 | **Associação (multilateral)** | Grupo, fórum, *task force*, aliança com interesses comuns | [FIRST](https://www.first.org), [TF-CSIRT](https://tf-csirt.org), Rede Nacional de CSIRTs |
 | **Cooperação entre associações** | Duas ou mais associações trocam experiência e alinham políticas | FIRST ↔ TF-CSIRT |
 
-**Base legal para cooperação:**
+#### 3.4.3 Base legal para cooperação
+
+Quatro instrumentos jurídicos suportam a cooperação, por ordem crescente de formalidade:
 
 | Instrumento | Natureza |
 |-------------|----------|
 | **NDA** (Non-Disclosure Agreement) | Contrato legal para proteger informação confidencial partilhada |
-| **MOU** (Memorandum of Understanding) | Acordo bilateral formal, menos vinculativo que contrato — declaração de intenção |
-| **Contract** | Acordo legal completo, com obrigações mutuamente vinculativas |
-| **Terms of Reference** | Documento que define **propósito, visão, objetivos, stakeholders, papéis, plano** — crítico para associações |
+| **MOU** (Memorandum of Understanding) | Acordo bilateral formal, menos vinculativo que contrato — declaração de intenção com linha de ação comum |
+| **Contract** | Acordo legal completo, com obrigações mutuamente vinculativas e remédios legais em caso de quebra |
+| **Terms of Reference** | Define **visão, objetivos, *scope*, *stakeholders*, papéis, plano de recursos** — crítico para associações |
+
+> *"O domínio dos CERTs é a Internet — e, portanto, o mundo. A cooperação está no coração do framework CERT."*
 
 !!! info "Rede Nacional de CSIRTs (Portugal)"
     O CNCS coordena a Rede Nacional de CSIRTs — uma associação que cobre CSIRTs setoriais, académicos e empresariais. A adesão envolve requisitos mínimos de maturidade e compromissos de partilha de informação. Ver [redecsirt.pt](https://www.redecsirt.pt/).
 
 ---
 
-## 7. Recursos: pessoas, processos, tecnologia
+## Capítulo 4 — Recursos, Processos e Operações
 
-Um CSIRT só é eficaz se tiver os três recursos equilibrados.
+### 4.1 Estrutura da Equipa e Papéis
 
-### 7.1 Pessoas — *skills* e papéis
+#### 4.1.1 Níveis L1 a L4
 
-**Competências técnicas essenciais:**
+Modelo tipico de SOC/CSIRT moderno, com responsabilidades crescentes:
 
-- Familiaridade com sistemas operativos, redes, cloud, *endpoints*;
-- Conhecimento de tipos de incidente e TTPs (ver [mapa ATT&CK](../comum/attack-mapping.md));
-- Base forense (análise de disco, memória, rede, malware).
-
-**Competências não-técnicas (muitas vezes subestimadas):**
-
-- **Comunicação oral e escrita** — para reportes, briefings a Direção, notificações regulatórias;
-- **Confiabilidade** (*trustworthiness*) — o CSIRT acede a dados sensíveis; um *background check* é normal;
-- Calma sob pressão; pensamento estruturado; trabalho em equipa.
-
-### 7.2 Estrutura de níveis (L1 a L4)
-
-Modelo tipico de SOC/CSIRT moderno:
+```
+  ┌────────────────────────────────────────────────────────────────┐
+  │   NÍVEIS DE UMA EQUIPA CSIRT                                   │
+  │                                                                │
+  │   L1 — Security Analyst                                        │
+  │        Primeira resposta, triagem inicial, identificar         │
+  │        ameaças, responder rapidamente, medidas de              │
+  │        contenção. Linha da frente. Frequentemente 24/7.        │
+  │            │                                                   │
+  │            ▼                                                   │
+  │   L2 — Senior Security Analyst                                 │
+  │        Ameaças graves, investigação aprofundada, análise       │
+  │        de sistemas afetados, planos de reparação,              │
+  │        erradicação de ameaças.                                 │
+  │            │                                                   │
+  │            ▼                                                   │
+  │   L3 — Security Manager / Threat Hunter                        │
+  │        Vulnerabilidades proativas, ferramentas avançadas,      │
+  │        forense digital, compliance, auditoria, melhoria        │
+  │        contínua.                                               │
+  │            │                                                   │
+  │            ▼                                                   │
+  │   L4 — CISO (Chief Information Security Officer)               │
+  │        Estratégia e políticas, comunicação com administração,  │
+  │        gestão de risco, orçamento, relações externas.          │
+  └────────────────────────────────────────────────────────────────┘
+```
 
 | Nível | Papel | Responsabilidades principais |
 |-------|-------|-------------------------------|
-| **L1** | **Security Analyst** — linha da frente | Triagem inicial, aplicação de *runbooks*, escalonamento. Frequentemente 24/7. |
+| **L1** | **Security Analyst** — linha da frente | Triagem inicial, aplicação de *runbooks*, escalonamento. 24/7. |
 | **L2** | **Senior Security Analyst** | Investigação técnica aprofundada, aplicação de *playbooks*, decisão sobre contenção e erradicação. |
-| **L3** | **Security Manager / Threat Hunter** | *Threat hunting* proativo, ferramentas avançadas, desenho de detecções, forense digital, auditoria. |
-| **L4** | **CISO (Chief Information Security Officer)** | Define política, supervisiona todas as operações, reporta à administração, gere *compliance*. |
+| **L3** | **Security Manager / Threat Hunter** | *Threat hunting*, ferramentas avançadas, desenho de detecções, forense digital, auditoria. |
+| **L4** | **CISO** | Define política, supervisiona todas as operações, reporta à administração, gere *compliance*. |
 
-**Papéis adicionais que podem existir (grandes CSIRTs):**
+#### 4.1.2 Outros papéis essenciais
 
-- *Team leader* / *Manager*
-- *Hotline/helpdesk* (ponto de entrada)
-- *Incident handler*
-- *Vulnerability handler*
-- *Artifact/malware analyst*
-- *Platform specialist* (Windows, Linux, cloud)
-- *Technology watcher*
-- *Trainer*
-- *SIEM/EDR engineer*
-- *CyberIntel specialist*
-- *Technical writer*
-- *Media relations officer*
-- *Legal counsel / paralegal*
-- *Law-enforcement liaison*
+Em CSIRTs médios/grandes, para além da hierarquia L1-L4, existem papéis especializados:
 
-### 7.3 Formação recomendada
+| Papéis operacionais | Papéis de suporte |
+|---------------------|-------------------|
+| Hotline / Helpdesk | Legal / Paralegal Liaison |
+| Incident Handlers | Law Enforcement Liaison |
+| Vulnerability Handlers | Media Relations |
+| Artefact Analysis (malware) | Technical Writers |
+| Platform Specialists (Win/Linux/Cloud) | Network / System Administrators |
+| Trainers | Auditors / Quality Assurance |
+| Technology Watchers | Marketing / Awareness |
+| CyberIntel Specialists | |
+| SIEM / EDR Engineers | |
+| Forensics Experts | |
+
+#### 4.1.3 Competências requeridas
+
+**Técnicas essenciais:** familiaridade com OS, redes, cloud, endpoints; conhecimento de TTPs (ver [mapa ATT&CK](../comum/attack-mapping.md)); base forense.
+
+**Não-técnicas (frequentemente subestimadas):**
+
+- **Comunicação oral e escrita** — para reportes, briefings, notificações regulatórias;
+- **Confiabilidade** (*trustworthiness*) — o CSIRT acede a dados sensíveis; *background check* é normal;
+- Calma sob pressão; pensamento estruturado; trabalho em equipa.
+
+#### 4.1.4 Formação e certificações
 
 Se a organização não consegue contratar *skills* prontas, tem de formar. Recursos comuns:
 
-- **SEI CERT Division** — cursos oficiais em Incident Response.
-- **SANS** — certificações GIAC (GCIH, GCFA, GNFA) amplamente reconhecidas.
-- **ENISA** — training material público para CSIRTs europeus (grátis).
+- **SEI CERT Division** — cursos oficiais em Incident Response;
+- **SANS** — certificações **GIAC** (GCIH, GCFA, GNFA) amplamente reconhecidas;
+- **ENISA** — training material público para CSIRTs europeus (grátis);
 - **FIRST** — eventos anuais, *hands-on training*.
-
-### 7.4 Processos — políticas e procedimentos
-
-Toda a operação do CSIRT deve ser regida por documentação formal. Principais artefactos:
-
-| Artefacto | Propósito | Referência |
-|-----------|-----------|------------|
-| **Política de Gestão de Incidentes** | Mandato, âmbito, princípios, responsabilidades | [Template](../modelos/index.md) |
-| **Procedimento de Classificação** | Matriz P1-P5, categorias | [Template](../modelos/index.md) |
-| **Matriz RACI e Escalonamento** | Quem decide o quê, contactos internos e externos | [Template](../modelos/index.md) |
-| **Playbooks por tipo de incidente** | Ransomware, phishing, violação de dados, DDoS, insider, etc. | [Templates](../modelos/index.md) |
-| **SOPs (Standard Operating Procedures)** | Aceitar e seguir reportes; atender hotline; preservar evidência; monitorizar sistemas; backup de dados de incidente; notificações | — |
-| **Plano de Comunicação de Crise** | Audiências, canais, porta-vozes | [Template](../modelos/index.md) |
-| **Acceptable Use Policy** da equipa | Uso das ferramentas e redes do CSIRT | — |
-| **Information Disclosure Policy** | O que pode ser partilhado, com quem, em que condições | — |
-
-!!! tip "Handbook canónico"
-    *Handbook for Computer Security Incident Response Teams (CSIRTs)* do SEI (Killcrece et al., 2003) continua a ser a referência mais completa para desenho de políticas e procedimentos. Descarregável gratuitamente em [resources.sei.cmu.edu](https://resources.sei.cmu.edu/asset_files/Handbook/2003_002_001_14102.pdf).
-
-### 7.5 Tecnologia — ferramentas essenciais
-
-Tecnologia divide-se em duas categorias principais:
-
-**Gestão de incidentes (*case management* + tickets + comunicação segura):**
-
-| Ferramenta | Notas |
-|-----------|-------|
-| **TheHive + Cortex** | Open source, *case management* + *analyzers* automatizados. Referência em CSIRTs europeus. |
-| **DFIR-IRIS** | Alternativa *open source* focada em DFIR. |
-| **RTIR (Request Tracker for Incident Response)** | Clássico, baseado em Perl, usado por muitos CSIRTs nacionais. |
-| **OTRS** | Ticketing com módulos de IR. |
-| **JIRA Service Management** | Comercial, boa integração com *devops*. |
-| **GLPI** | *Service desk* genérico com uso em algumas organizações públicas PT. |
-| **ServiceNow SecOps** | Comercial *enterprise*, integração com CMDB. |
-
-**Análise e investigação (DFIR):**
-
-Ver [Stack forense de referência](detecao-contencao.md#stack-forense-de-referencia) no capítulo de Deteção e Contenção para o catálogo completo — Volatility3, KAPE, Velociraptor, Autopsy, Plaso, Wireshark/Zeek, YARA, CAPEv2.
-
-**Partilha de inteligência:**
-
-| Ferramenta | Propósito |
-|-----------|-----------|
-| **MISP** | Plataforma aberta de partilha de IOCs e TTPs |
-| **OpenCTI** | Plataforma CTI com integração ATT&CK nativa |
-| **Standards STIX 2.1 / TAXII** | Formatos abertos para troca de *threat intelligence* |
 
 ---
 
-## 8. Operação 24/7 e workflow de referência
+### 4.2 Processos e Procedimentos
 
-### 8.1 Alcance 24/7 — o CSIRT tem de estar contactável
+#### 4.2.1 SOPs (Standard Operating Procedures) essenciais
 
-Os incidentes não ocorrem em horário laboral. Mecanismos mínimos de contacto:
+Toda a operação do CSIRT deve ser regida por SOPs formais. Principais:
 
-| Canal | Uso |
-|-------|-----|
-| **Email dedicado** | `csirt@organização` — *mailing list* que chega a vários destinatários |
-| **Telefone com rotatividade** | Número único 24/7 com *on-call* rotativo |
-| **SMS / mensageria** | Para casos urgentes fora de horário |
-| **Registo WHOIS** (RT-Object) | IP-range da constituency aponta para contactos CSIRT |
-| **Página web institucional** | Contactos, responsible disclosure policy |
-| **Abuse mailbox** | `abuse@organização` conforme [RIPE](https://www.ripe.net/support/abuse) |
+- ✔ Aceitar e acompanhar relatórios de incidentes
+- ✔ Responder à *hotline* / linha direta
+- ✔ *Handling* de incidentes e vulnerabilidades
+- ✔ Recolha, fixação e preservação de provas (cadeia de custódia, RFC 3227)
+- ✔ Configuração de redes e sistemas CSIRT
+- ✔ Monitorização e deteção de intrusões
+- ✔ Backup e armazenamento de dados de incidente
+- ✔ Processos de notificação (NIS2 24h/72h/30d; RGPD 72h)
+- ✔ Formação e *mentoring*
 
-!!! tip "Manter as relações ativas"
-    Além de publicar contactos, o CSIRT maduro mantém **relações ativas** com CSIRTs nacionais (CNCS), ISPs, *vendors*, autoridades policiais. Contactos só com papel timbrado não funcionam numa crise — pré-estabelecer *human trust* é essencial.
+#### 4.2.2 Procedimentos por tipo de incidente
 
-### 8.2 Ordem lógica de serviços
+Para cada tipologia, o CSIRT deve ter um **playbook específico**. Mínimos típicos:
+
+| Tipo de Incidente | Ações principais |
+|-------------------|-------------------|
+| **Malware** | Análise estática e dinâmica, contenção (isolamento), remoção, validação |
+| **DDoS** | Mitigação (scrubbing, rate limiting), filtragem na borda, escalonamento para ISP/CDN |
+| **Web Defacement** | Restauração do site, investigação do vetor (CMS, credenciais, vulnerabilidade), hardening |
+| **Fraud** | Preservação de evidência, notificação legal (MP/PJ), coordenação com banco |
+| **Data Breach** | Avaliação de risco (WP250), notificação CNPD 72h (RGPD art. 33.º), comunicação aos titulares (art. 34.º), forense |
+| **Privacy** | Avaliação de impacto, remediação, coordenação com DPO |
+
+Ver os [playbooks detalhados](../gestao_incidentes/playbook-ransomware.docx) em formato editável.
+
+#### 4.2.3 Ordem lógica de serviços
 
 ```
   ┌─────────────────────────────────────────────────────────────────┐
@@ -503,75 +600,215 @@ Os incidentes não ocorrem em horário laboral. Mecanismos mínimos de contacto:
   └─────────────────────────────────────────────────────────────────┘
 ```
 
-### 8.3 Workflow de referência (SOC moderno)
-
-```
-  ┌─────────────────────────────────────────────────────────────────┐
-  │   SISTEMAS GERADORES DE ALERTAS                                 │
-  │   (SIEM, EDR, IDS/IPS, NDR, DLP, Cloud, Email Security)         │
-  │              │                                                  │
-  │              ▼                                                  │
-  │   ┌───────────────────────────┐                                 │
-  │   │   L1 — Triagem            │                                 │
-  │   │   • Abertura de ticket    │                                 │
-  │   │   • Classificação         │                                 │
-  │   │   • Priorização           │                                 │
-  │   │   • Análise falso positivo│                                 │
-  │   │   • Resolução simples     │                                 │
-  │   └────────────┬──────────────┘                                 │
-  │                │ escalonamento                                  │
-  │                ▼                                                │
-  │   ┌───────────────────────────┐                                 │
-  │   │   L2 — Resposta            │                                 │
-  │   │   • Aplicação de playbooks │                                 │
-  │   │   • Investigação técnica   │                                 │
-  │   │   • Gestão do SLA          │                                 │
-  │   │   • Ativação de equipas    │                                 │
-  │   │   • Ciclo de vida do case  │                                 │
-  │   └────────────┬──────────────┘                                 │
-  │                │                                                │
-  │                ▼                                                │
-  │   ┌───────────────────────────┐                                 │
-  │   │   L3 / Forense / CTI       │                                 │
-  │   │   • Análise profunda       │                                 │
-  │   │   • Caça a ameaças         │                                 │
-  │   │   • Threat intel           │                                 │
-  │   └────────────┬──────────────┘                                 │
-  │                │                                                │
-  │                ▼                                                │
-  │   ┌───────────────────────────┐                                 │
-  │   │   MELHORIA CONTÍNUA        │                                 │
-  │   │   • Reuniões periódicas    │                                 │
-  │   │   • Criação/ajuste de      │                                 │
-  │   │     playbooks e use cases  │                                 │
-  │   │   • Atualização de RACI    │                                 │
-  │   └───────────────────────────┘                                 │
-  └─────────────────────────────────────────────────────────────────┘
-```
-
-### 8.4 Integração típica de plataformas
-
-Uma stack representativa em organização média:
-
-```
-  SIEM (Splunk/Sentinel/Wazuh)
-      │ alertas
-      ▼
-  Case management (TheHive)
-      │ enriquecimento via Cortex analyzers
-      ▼
-  Ticketing / ITSM (GLPI / ServiceNow)
-      │ integração com outras equipas de IT
-      ▼
-  CTI Platform (MISP / OpenCTI)
-      │ feedback de IOCs
-      ▼
-  Monitorização (dashboards de SLA, MTTD, MTTR)
-```
+!!! tip "Handbook canónico"
+    *Handbook for Computer Security Incident Response Teams (CSIRTs)* (SEI, Killcrece et al., 2003) é a referência mais completa para desenho de políticas e procedimentos. Descarregável gratuitamente em [resources.sei.cmu.edu](https://resources.sei.cmu.edu/library/asset-view.cfm?assetid=6305).
 
 ---
 
-## 9. Exemplos práticos
+### 4.3 Ferramentas Tecnológicas
+
+As ferramentas dividem-se em **dois grupos principais**.
+
+#### 4.3.1 Gestão de incidentes (ticketing, case management)
+
+| Ferramenta | Categoria | Notas |
+|-----------|-----------|-------|
+| **RTIR** (Request Tracker for IR) | *Ticketing* clássico | Baseado em Perl, usado por muitos CSIRTs nacionais |
+| **OTRS** | *Ticketing* | Módulos de IR |
+| **GLPI** | *Service desk* | Uso comum em organizações públicas PT |
+| **JIRA Service Management** | *Issue tracking* comercial | Boa integração com *devops* |
+| **ServiceNow SecOps** | ITSM *enterprise* | Integração com CMDB |
+| **TheHive** + **Cortex** | *Case management open source* | **Referência** em CSIRTs europeus |
+| **DFIR-IRIS** | *Case management open source* | Alternativa focada em DFIR |
+
+#### 4.3.2 Análise e investigação (DFIR)
+
+Por **área de análise**:
+
+| Área de análise | Ferramentas típicas |
+|-----------------|----------------------|
+| **Host Analysis** | **Volatility** (memória), **Velociraptor** (endpoint), KAPE, Autopsy |
+| **Log Analysis** | **Splunk**, **ELK Stack** (Elasticsearch + Logstash + Kibana), Graylog |
+| **Traffic Analysis** | **Wireshark**, **Zeek** (ex-Bro), tshark, NetworkMiner |
+| **Network Monitoring** | **Nagios**, **Zabbix**, PRTG |
+| **Malware Analysis** | **Cuckoo Sandbox**, **REMnux**, CAPEv2, Any.run, YARA |
+
+Stack forense detalhada em [Deteção, Contenção e Investigação](detecao-contencao.md#stack-forense-de-referencia).
+
+#### 4.3.3 Partilha de Threat Intelligence
+
+| Ferramenta / Padrão | Propósito |
+|---------------------|-----------|
+| **MISP** | Plataforma aberta de partilha de IOCs e TTPs |
+| **OpenCTI** | Plataforma CTI com integração ATT&CK nativa |
+| **STIX 2.1** | *Structured Threat Information Expression* — formato de dados |
+| **TAXII** | *Trusted Automated Exchange of Intelligence Information* — protocolo de transporte |
+
+#### 4.3.4 Exemplo prático: integração GLPI + TheHive + Cortex + MISP
+
+```
+  ┌──────────────────────────────────────────────────────────────┐
+  │   STACK DE CASE MANAGEMENT + ENRIQUECIMENTO + CTI            │
+  │                                                              │
+  │   ┌────────────┐         ┌────────────┐                      │
+  │   │   GLPI     │────────►│  TheHive   │                      │
+  │   │            │ Ticket /│            │                      │
+  │   │ Service    │ Asset    │ Case       │                      │
+  │   │ Desk       │ sync    │ Management │                      │
+  │   └────────────┘         └─────┬──────┘                      │
+  │                                 │                            │
+  │                                 │ Observables                │
+  │                                 ▼                            │
+  │                          ┌────────────┐                      │
+  │                          │   Cortex   │                      │
+  │                          │            │                      │
+  │                          │  Analysis  │                      │
+  │                          │  Engines   │                      │
+  │                          └─────┬──────┘                      │
+  │                                 │                            │
+  │                                 │ IOCs / TTPs                │
+  │                                 ▼                            │
+  │                          ┌────────────┐                      │
+  │                          │    MISP    │                      │
+  │                          │            │                      │
+  │                          │  Threat    │                      │
+  │                          │  Sharing   │◄─── pares setoriais  │
+  │                          └────────────┘                      │
+  └──────────────────────────────────────────────────────────────┘
+```
+
+**Fluxo:** ticket em GLPI → enriquece caso em TheHive → Cortex corre *analyzers* (VirusTotal, MISP lookup, etc.) → IOCs confirmados são publicados no MISP → partilhados com pares setoriais (ISACs, CNCS, FIRST).
+
+---
+
+### 4.4 Fluxo de Resposta a Incidentes
+
+#### 4.4.1 Fluxo operacional (SOC moderno)
+
+```
+  ┌────────────────────────────────────────────────────────────────┐
+  │   FLUXO OPERACIONAL                                            │
+  │                                                                │
+  │   ┌──────────┐  ┌──────────┐  ┌──────────────┐  ┌───────────┐  │
+  │   │  Alertas │─►│  Triagem │─►│ Classificação│─►│Priorização│  │
+  │   └──────────┘  └──────────┘  └──────────────┘  └─────┬─────┘  │
+  │                                                       │        │
+  │                                                       ▼        │
+  │                                                ┌────────────┐  │
+  │                                                │Escalonamen-│  │
+  │                                                │    to      │  │
+  │                                                └─────┬──────┘  │
+  │                                                      │         │
+  │                                                      ▼         │
+  │                                              ┌───────────────┐ │
+  │                                              │   Análise     │ │
+  │                                              │ (L2/L3 DFIR)  │ │
+  │                                              └───────┬───────┘ │
+  │                                                      │         │
+  │                                                      ▼         │
+  │                                              ┌───────────────┐ │
+  │                                              │  Resolução    │ │
+  │                                              │  + Lessons    │ │
+  │                                              └───────────────┘ │
+  └────────────────────────────────────────────────────────────────┘
+```
+
+#### 4.4.2 Fases do Incident Handling (NIST SP 800-61)
+
+O NIST define **6 fases** que todo o CSIRT maduro executa ciclicamente:
+
+| Fase | O que se faz | Resultado |
+|------|--------------|-----------|
+| **1. Preparação** | Playbooks, casos de uso, treino, ferramentas instaladas | Pronto para responder |
+| **2. Deteção e Análise** | Identificar e confirmar; rejeitar falsos positivos | Incidente confirmado e classificado |
+| **3. Contenção** | Limitar o impacto do incidente | Propagação interrompida |
+| **4. Erradicação** | Remover a causa raiz | Ameaça eliminada |
+| **5. Recuperação** | Restaurar sistemas afetados | Operação normal retomada |
+| **6. Lições Aprendidas** | Reunião pós-incidente, PIR, melhoria | Playbooks e controlos actualizados |
+
+> Complementar com o modelo SANS (6 passos: PICERL — Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned). Ver [Frameworks de IR](frameworks.md) para comparação.
+
+#### 4.4.3 Playbooks e casos de uso
+
+Para cada tipo de incidente, o CSIRT deve ter:
+
+- 📄 **Playbook documentado** com passos sequenciais;
+- 🎯 **Casos de uso** para SIEM/SOAR (regras de detecção);
+- 🛠️ **Runbooks operacionais** (comandos, scripts, queries);
+- 📈 **Escalonamento** definido (quando e para quem);
+- ⏱️ **SLAs de resposta** por severidade;
+- 📧 **Notificação a stakeholders** definida.
+
+#### 4.4.4 Melhoria contínua
+
+Cada incidente é **oportunidade de aprendizagem**. Práticas maduras:
+
+- Reuniões pós-incidente em ≤ 2 semanas;
+- Relatório pós-incidente (PIR) formal em ≤ 30 dias;
+- Atualização de *playbooks* com base nas lições;
+- Ajuste de casos de uso do SIEM/SOAR;
+- Revisão de SLAs conforme histórico.
+
+---
+
+### 4.5 Disponibilidade 24/7 e Integração
+
+#### 4.5.1 Alcance 24/7 — o CSIRT tem de estar contactável
+
+Os incidentes não ocorrem em horário laboral. Mecanismos mínimos:
+
+| Canal | Uso |
+|-------|-----|
+| **Email dedicado** | `csirt@organização` — *mailing list* que chega a vários destinatários |
+| **Telefone 24/7** | Número único com *on-call* rotativo |
+| **SMS / mensageria** | Para casos urgentes fora de horário |
+| **Registo WHOIS** (RT-Object) | IP-range da constituinte aponta para contactos CSIRT |
+| **Website institucional** | Contactos e *responsible disclosure policy* |
+| **Abuse mailbox** | `abuse@organização` conforme [RIPE](https://www.ripe.net/support/abuse), ARIN, etc. |
+
+#### 4.5.2 Estrutura de equipa por níveis
+
+```
+  ┌──────────────────────────────────────────────────────────────┐
+  │                                                              │
+  │   ┌────────────────────┐                                     │
+  │   │   1.ª LINHA        │   Helpdesk, triagem, classificação  │
+  │   │   (L1)             │   inicial                           │
+  │   └──────────┬─────────┘                                     │
+  │              │                                               │
+  │              ▼                                               │
+  │   ┌────────────────────┐                                     │
+  │   │   2.ª LINHA        │   Especialistas: Network Forensics, │
+  │   │   (L2/L3)          │   Malware Analysis, Threat Hunting  │
+  │   └──────────┬─────────┘                                     │
+  │              │                                               │
+  │              ▼                                               │
+  │   ┌────────────────────┐                                     │
+  │   │   COORDENAÇÃO      │   Gestão, decisão estratégica,      │
+  │   │   (L4 — CISO)      │   relações externas                 │
+  │   └────────────────────┘                                     │
+  │                                                              │
+  └──────────────────────────────────────────────────────────────┘
+```
+
+#### 4.5.3 Relações externas essenciais
+
+Um CSIRT maduro mantém contactos **pré-estabelecidos e ativos** com:
+
+- **ISPs** — para mitigação de DDoS, bloqueios de rotas, etc.;
+- ***Vendors*** — suporte em incidentes com os seus produtos;
+- **Law Enforcement** — PJ (UNC3T), Ministério Público, Europol;
+- **Abuse Contacts** — RIPE, ARIN, APNIC (registros regionais);
+- **CSIRTs Nacionais** — CNCS em Portugal, outros via Rede Nacional;
+- **FIRST** (Forum of Incident Response and Security Teams) — comunidade global;
+- **CERT-EU** — instituições europeias e partilha intra-UE.
+
+!!! tip "Manter as relações ativas"
+    Publicar contactos não basta. É preciso **interagir regularmente** com pares — conferências FIRST, exercícios conjuntos, reuniões periódicas da Rede Nacional de CSIRTs. Durante uma crise, a confiança construída ao longo de anos é o que permite cooperação imediata.
+
+---
+
+## 5. Exemplos práticos
 
 ### Exemplo 1 — Município de Vila Feliz decide criar CSIRT
 
@@ -579,14 +816,14 @@ Uma stack representativa em organização média:
 
 | Pilar | Decisão |
 |-------|---------|
-| **Missão** | *"O CSIRT de Vila Feliz protege a informação do município e dos seus munícipes, prevenindo e respondendo a incidentes de cibersegurança, cooperando com o CNCS e a rede de CSIRTs municipais."* |
-| **Constituency** | Todos os serviços da CM; indiretamente, cidadãos que usam serviços digitais |
-| **Papel** | Reporta ao responsável pela DIMSI (Divisão de Informática); **Shared authority** — pode conter mas não declarar desastre |
-| **Relações** | Rede Nacional de CSIRTs (CNCS); Polícia Judiciária; CCDR; CNPD |
-| **Modelo** | *Internal Distributed* — equipa de 3 pessoas a tempo parcial (incluindo responsável DIMSI + 2 técnicos SI) |
+| **Missão** | *"O CSIRT de Vila Feliz protege a informação do município e dos seus munícipes, prevenindo e respondendo a incidentes de cibersegurança, cooperando com o CNCS e a Rede Nacional de CSIRTs."* |
+| **Constituinte** | Todos os serviços da CM; indiretamente, cidadãos que usam serviços digitais |
+| **Papel** | Reporta ao responsável pela DIMSI; **Shared authority** — pode conter mas não declarar desastre |
+| **Relações** | Rede Nacional de CSIRTs (CNCS); PJ-UNC3T; CCDR; CNPD |
+| **Modelo** | *Internal Distributed* — equipa de 3 pessoas a tempo parcial (responsável DIMSI + 2 técnicos SI) |
 | **Ferramentas** | GLPI (já usado internamente) + TheHive open source; SIEM da CNCS/SOC nacional |
 
-**Primeiro marco:** publicar Política de Gestão de Incidentes, Matriz RACI e procedimento de classificação. Fazer tabletop em 90 dias.
+**Primeiro marco:** publicar Política de Gestão de Incidentes, Matriz RACI e procedimento de classificação. Fazer *tabletop* em 90 dias.
 
 ### Exemplo 2 — Banco escolhe modelo organizacional
 
@@ -596,15 +833,15 @@ Uma stack representativa em organização média:
 |-------|---------|
 | **Security Team (status quo)** | ❌ Falha em auditorias de conformidade (supervisão Banco de Portugal); não cumpre DORA |
 | **Distributed** | ⚠️ Adequado para multinacionais; demasiado para dimensão regional |
-| **Centralized** | ✅ **Recomendado** — 4 pessoas dedicadas 24/7 (com rotatividade), reportando ao CISO |
+| **Centralized** | ✅ **Recomendado** — 4 pessoas dedicadas 24/7, reportando ao CISO |
 | **Combined** | ⚠️ Sobredimensionado para esta escala |
-| **Coordinating** | ❌ Não aplicável (não coordena outros CSIRTs) |
+| **Coordinating** | ❌ Não aplicável |
 
 **Decisão:** Centralized, integrando 3 novos perfis (L1 + L2 + L3/forense); CISO continua como L4. Contratar MSSP externo para cobertura noturna e fins de semana. Orçamento aprovado: €350K/ano.
 
-### Exemplo 3 — CSIRT nacional e constituency sobreposta
+### Exemplo 3 — CSIRT nacional e constituinte sobreposta
 
-**Contexto:** Durante um incidente de ransomware num hospital público, três CSIRTs têm constituency sobreposta:
+**Contexto:** Durante um incidente de ransomware num hospital público, três CSIRTs têm constituinte sobreposta:
 
 - **CSIRT interno** do hospital;
 - **SPMS-CSIRT** (setor saúde nacional);
@@ -612,7 +849,7 @@ Uma stack representativa em organização média:
 
 | Quem faz o quê | Como se coordena |
 |----------------|------------------|
-| **CSIRT hospital** | Contenção imediata, preservação de evidência, aplicação de playbook |
+| **CSIRT hospital** | Contenção imediata, preservação de evidência, aplicação de *playbook* |
 | **SPMS-CSIRT** | Apoio técnico, coordenação setorial (outros hospitais alertados) |
 | **CNCS** | Notificação NIS2 (24h/72h/30d), coordenação com autoridades europeias |
 
@@ -620,7 +857,7 @@ Uma stack representativa em organização média:
 
 ---
 
-## 10. Exercícios
+## 6. Exercícios
 
 ### Exercício 1 — Identificar o modelo organizacional (nível básico)
 
@@ -630,8 +867,8 @@ Para cada descrição, identifique qual dos 5 modelos organizacionais se aplica:
 |-----------|---------|
 | a) Universidade sem equipa formal; cada faculdade trata os seus próprios incidentes quando acontecem | ? |
 | b) Empresa multinacional com equipa de 15 pessoas em Lisboa que coordena sub-equipas em 8 países | ? |
-| c) CNCS que coordena incidentes entre CSIRTs nacionais e setoriais, mas não responde diretamente a incidentes no *endpoint* de nenhum operador | ? |
-| d) Banco com 5 analistas dedicados 24/7 no seu SOC central; CISO reporta ao CEO | ? |
+| c) CNCS que coordena incidentes entre CSIRTs nacionais e setoriais, mas não responde diretamente a incidentes de nenhum operador | ? |
+| d) Banco com 5 analistas dedicados 24/7 no SOC central; CISO reporta ao CEO | ? |
 | e) PME com 40 pessoas onde o responsável de IT mantém a resposta a incidentes como 20% do seu tempo | ? |
 
 ??? success "Solução 1"
@@ -641,7 +878,7 @@ Para cada descrição, identifique qual dos 5 modelos organizacionais se aplica:
     | b) | **Combined Distributed + Centralized** | Núcleo central + braços distribuídos |
     | c) | **Coordinating CSIRT** | Coordena outros CSIRTs sem responder |
     | d) | **Internal Centralized** | Equipa dedicada, centralizada, 24/7 |
-    | e) | **Internal Distributed** (embrionário) ou **Security Team** | Depende da formalização. Se o CSIRT tem mandato escrito → Distributed; se apenas funcional → Security Team |
+    | e) | **Internal Distributed** (embrionário) ou **Security Team** | Depende da formalização |
 
 ### Exercício 2 — Redigir mission statement (nível intermédio)
 
@@ -655,89 +892,84 @@ Uma empresa de e-commerce portuguesa (100 colaboradores, 2 armazéns, site com 2
 ??? success "Solução 2 (exemplo)"
     *"O CSIRT de [Nome da organização] protege a confidencialidade dos dados pessoais dos clientes e a disponibilidade dos serviços de e-commerce, através da prevenção, deteção e resposta a incidentes de cibersegurança. Atua como ponto único de contacto para reporte de incidentes, coordenando com autoridades (CNCS, CNPD) e parceiros externos. Contribui para o cumprimento das obrigações de conformidade (RGPD, DL 125/2025) e para a confiança contínua dos clientes na marca."*
 
-    **Por que funciona:**
+    **Porque funciona:**
     - Explicita propósito (proteger confidencialidade + disponibilidade);
-    - Identifica constituency (dados dos clientes, serviços);
+    - Identifica constituinte (dados dos clientes, serviços);
     - Nomeia autoridades relevantes;
     - Liga-se a obrigações legais específicas do negócio (RGPD + NIS2);
     - Termina com valor de negócio (confiança dos clientes).
 
 ### Exercício 3 — Desenhar níveis de autoridade (nível avançado)
 
-O CISO de uma empresa industrial quer clarificar os níveis de autoridade do CSIRT recém-criado. Para cada ação abaixo, justifique qual deveria ser o nível de autoridade (**Full / Shared / No**) e porquê:
+O CISO de uma empresa industrial quer clarificar os níveis de autoridade do CSIRT recém-criado. Para cada ação, justifique qual deveria ser o nível de autoridade (**Full / Shared / No**):
 
-1. Isolar da rede um *endpoint* onde o EDR detetou *beaconing* para C2 conhecido.
-2. Desligar integralmente o servidor ERP durante horário laboral porque há suspeita de comprometimento.
-3. Notificar CNCS (NIS2) em 24h.
-4. Pagar resgate de ransomware.
-5. Reset forçado de todas as passwords de domínio.
-6. Comunicar à imprensa.
-7. Bloquear temporariamente domínio `.exemplo.com` no proxy corporativo por se tratar de C2 ativo.
+1. Isolar da rede um *endpoint* onde o EDR detetou *beaconing* para C2 conhecido;
+2. Desligar integralmente o servidor ERP durante horário laboral por suspeita de comprometimento;
+3. Notificar CNCS (NIS2) em 24h;
+4. Pagar resgate de ransomware;
+5. Reset forçado de todas as passwords de domínio;
+6. Comunicar à imprensa;
+7. Bloquear temporariamente domínio `.exemplo.com` no proxy;
 8. Acionar fornecedor externo de DFIR (contrato *retainer*).
 
 ??? success "Solução 3"
     | # | Ação | Autoridade | Justificação |
     |---|------|------------|--------------|
-    | 1 | Isolar endpoint com beacon C2 | **Full** | Decisão técnica urgente, dano proporcional, reversível |
-    | 2 | Desligar ERP | **Shared** | Impacto operacional massivo; process owner do ERP deve participar |
-    | 3 | Notificar CNCS em 24h | **Full** (DPO/CISO ou delegado) | Obrigação legal objetiva; atraso = infração |
-    | 4 | Pagar resgate | **No** (apenas aconselha) | Decisão estratégica, jurídica, financeira — Direção decide |
-    | 5 | Reset forçado de todas as passwords | **Shared** | Impacto em operações; coordenar com IT Ops e Direção |
-    | 6 | Comunicar à imprensa | **No** (apenas input técnico) | Gestão de comunicação e Direção |
-    | 7 | Bloquear domínio no proxy | **Full** | Reversível, dano proporcional, ação defensiva standard |
-    | 8 | Acionar DFIR externo | **Full** (se dentro do budget pré-aprovado) ou **Shared** | Depende da alçada financeira do CISO |
+    | 1 | Isolar endpoint com beacon C2 | **Full** | Urgente, proporcional, reversível |
+    | 2 | Desligar ERP | **Shared** | Impacto operacional massivo; process owner deve participar |
+    | 3 | Notificar CNCS em 24h | **Full** (DPO/CISO) | Obrigação legal objetiva; atraso = infração |
+    | 4 | Pagar resgate | **No** (apenas aconselha) | Decisão estratégica — Direção decide |
+    | 5 | Reset de todas as passwords | **Shared** | Impacto em operações |
+    | 6 | Comunicar à imprensa | **No** | Gestão de comunicação e Direção |
+    | 7 | Bloquear domínio no proxy | **Full** | Reversível, defensivo standard |
+    | 8 | Acionar DFIR externo | **Full** (dentro do budget) / **Shared** | Depende da alçada financeira |
 
 ---
 
-## 11. Armadilhas e confusões a evitar
+## 7. Armadilhas e confusões a evitar
 
 !!! danger "Confusão 1: CSIRT = SOC"
-    **Errado.** Podem sobrepor-se mas não são idênticos. **SOC** é o *centro operacional* (monitorização 24/7, deteção, triagem). **CSIRT** é a *equipa de resposta* (investigação, erradicação, recuperação, follow-up). Em organizações pequenas a mesma equipa faz ambos; em grandes, são funções distintas com integração formal.
+    **Errado.** Podem sobrepor-se mas não são idênticos. **SOC** é o *centro operacional* (monitorização 24/7, deteção, triagem). **CSIRT** é a *equipa de resposta* (investigação, erradicação, recuperação, *follow-up*). Em organizações pequenas a mesma equipa faz ambos; em grandes, são funções distintas com integração formal.
 
 !!! danger "Confusão 2: Começar pela tecnologia"
-    **Errado.** Comprar SIEM/EDR sem definir missão, constituency, papéis e processos produz **uma fábrica de alertas ignorados**. Primeiro os 4 pilares e os processos; só depois a tecnologia. Caso contrário, compra-se Ferrari sem saber conduzir.
+    **Errado.** Comprar SIEM/EDR sem definir missão, constituinte, papéis e processos produz **uma fábrica de alertas ignorados**. Primeiro os 4 fundamentos e os processos; só depois a tecnologia.
 
 !!! danger "Confusão 3: Um CSIRT sem autoridade é cosmético"
-    **Errado.** Um CSIRT *No authority* serve para auditoria mas **falha em P1**. A autoridade tem de estar **pré-aprovada por escrito** pela Direção, com níveis claros (Full/Shared/No) para cada tipo de ação. Durante a crise não há tempo para convocar comités.
+    **Errado.** Um CSIRT *No authority* serve para auditoria mas **falha em P1**. A autoridade tem de estar **pré-aprovada por escrito** pela Direção, com níveis claros para cada tipo de ação. Durante a crise não há tempo para convocar comités.
 
-!!! danger "Confusão 4: Constituency vaga = conflitos"
-    **Errado.** "Servimos a empresa" não é constituency — é aspiração. Uma constituency bem definida inclui *perímetro* (IPs, domínios, utilizadores, serviços), *natureza* (interna, externa, ambas) e *exclusões explícitas* (o que **não** é âmbito, para evitar descoberta no meio de uma crise).
+!!! danger "Confusão 4: Constituinte vaga = conflitos"
+    **Errado.** "Servimos a empresa" não é constituinte — é aspiração. Uma constituinte bem definida inclui *perímetro* (IPs, domínios, utilizadores, serviços), *natureza* (interna, externa, ambas) e *exclusões explícitas*.
 
 !!! danger "Confusão 5: CERT é sinónimo livre de CSIRT"
-    **Errado.** CERT é **marca registada** da SEI/Carnegie Mellon desde 1997. Usar CERT sem autorização é incorreto (e potencialmente litigável). Na prática, os novos CSIRTs em 2026 usam **CSIRT** ou variante como termo genérico.
+    **Errado.** CERT é **marca registada** da SEI/Carnegie Mellon desde 1997. Usar CERT sem autorização é incorreto. Na prática, os novos CSIRTs usam **CSIRT** como termo genérico.
 
 !!! danger "Confusão 6: Relações com outros CSIRTs vêm naturalmente"
-    **Errado.** A confiança que permite partilha de IOCs só se constrói através de **interação consistente** ao longo de anos — conferências (FIRST), exercícios conjuntos, reuniões periódicas da Rede Nacional de CSIRTs. Um CSIRT que descobre que precisa de contactos externos durante uma crise já perdeu.
+    **Errado.** A confiança que permite partilha de IOCs só se constrói através de **interação consistente** — conferências (FIRST), exercícios conjuntos, reuniões da Rede Nacional. Um CSIRT que descobre que precisa de contactos externos durante uma crise já perdeu.
 
 !!! danger "Confusão 7: Formação técnica é suficiente"
-    **Errado.** *Skills* não-técnicas (comunicação, escrita, calma sob pressão) são **iguais ou mais importantes** do que profundidade técnica, especialmente em L3 e L4. Um CISO tem de comunicar questões técnicas complexas à Direção e a stakeholders não-técnicos.
+    **Errado.** *Skills* não-técnicas (comunicação, escrita, calma sob pressão) são **iguais ou mais importantes**, especialmente em L3 e L4. Um CISO tem de comunicar questões técnicas complexas à Direção e a *stakeholders* não-técnicos.
 
 ---
 
-## 12. Resumo rápido
+## 8. Resumo rápido
 
-| Conceito | O essencial |
+### Síntese por capítulo
+
+| Capítulo | O essencial |
 |----------|-------------|
-| **Origem histórica** | Morris Worm (1988) → primeiro CERT em 17 Nov 1988 na Carnegie Mellon |
-| **CSIRT** | Equipa formal com mandato para prevenir, detetar, responder e aprender com incidentes, para uma constituency definida |
-| **Serviços** | 3 grupos: Reativos, Proativos, Qualidade de Segurança (ref: FIRST v2.1) |
-| **Tipos** | Enterprise, National, Coordination, Analysis, Vendor (PSIRT), Provider |
-| **Modelos organizacionais** | Security Team → Distributed → Centralized → Combined → Coordinating (maturidade crescente) |
-| **4 pilares de criação** | Missão · Constituency · Papel e Autoridade · Relação com outros teams |
-| **Níveis de autoridade** | Full (decide + atua) · Shared (participa, não decide) · No (só aconselha) |
-| **Cooperação** | Bilateral · Associação · Entre associações. Base legal: NDA, MOU, Contract, Terms of Reference |
-| **Pessoas L1-L4** | Analyst → Senior Analyst → Manager/Hunter → CISO |
-| **Tecnologia** | Case management (TheHive, RTIR, GLPI) + SIEM + DFIR + CTI (MISP) |
-| **24/7** | Email, telefone, SMS, WHOIS, abuse box, relações ativas com CSIRTs pares |
+| **Cap 1 — O que é um CSIRT?** | Equipa formal com mandato para prevenir, detetar, responder e aprender com incidentes, para uma constituinte definida. Nasceu em 17 Nov 1988 (pós-Morris Worm). 3 grupos de serviços: Reativos, Proativos, Qualidade (ref: FIRST v2.1). |
+| **Cap 2 — Tipos e Exemplos** | 6 tipos: Enterprise, National (CNCS), Coordination (CERT/CC, CISA, CERT-EU), Analysis (H-ISAC), Vendor/PSIRT, Provider (MSSP). 3 vantagens: gestão centralizada, PoC, confiança. |
+| **Cap 3 — Como Criar** | **4 fundamentos**: Missão, Constituinte, Posição+Autoridade (Full/Shared/No), Relações externas. **5 modelos**: Security Team → Distributed → Centralized → Combined → Coordinating. **4 bases legais**: NDA, MOU, Contract, Terms of Reference. |
+| **Cap 4 — Recursos e Ops** | **Pessoas:** L1 Analyst → L4 CISO + papéis de apoio. **Processos:** SOPs + playbooks por tipo (Malware, DDoS, Defacement, Fraud, Data Breach, Privacy) + NIST 6-phase. **Tecnologia:** GLPI/TheHive/Cortex/MISP + ferramentas por área (Volatility, Splunk, Wireshark, Zabbix, Cuckoo). **24/7:** email, tel, SMS, WHOIS, abuse, relações ativas. |
 
 ### Frases-chave para recordar
 
-- "Sem confiança, **não há partilha**; sem partilha, não há defesa coletiva."
-- "A autoridade do CSIRT é **pré-aprovada**, não negociada durante a crise."
-- "A missão responde a **porquê existimos**; a constituency a **quem servimos**."
-- "Tecnologia sem processos é uma **fábrica de alertas ignorados**."
-- "*Skills* não-técnicas são iguais — ou mais — importantes que as técnicas."
-- "CERT é marca registada; **CSIRT é genérico** e pode ser usado livremente."
+- *"Sem confiança, **não há partilha**; sem partilha, não há defesa coletiva."*
+- *"A autoridade do CSIRT é **pré-aprovada**, não negociada durante a crise."*
+- *"A missão responde a **porquê existimos**; a constituinte a **quem servimos**."*
+- *"Tecnologia sem processos é uma **fábrica de alertas ignorados**."*
+- *"*Skills* não-técnicas são iguais — ou mais — importantes que as técnicas."*
+- *"CERT é marca registada; **CSIRT é genérico** e pode ser usado livremente."*
 
 ---
 
@@ -745,11 +977,11 @@ O CISO de uma empresa industrial quer clarificar os níveis de autoridade do CSI
 
 A criação e operação de um CSIRT materializa-se nos seguintes templates. Catálogo completo em [📋 Templates](../modelos/index.md).
 
-- [📄 Política de Gestão de Incidentes](../gestao_incidentes/politica-gestao-incidentes.docx) — estabelece o mandato e papéis do CSIRT.
+- [📄 Política de Gestão de Incidentes](../gestao_incidentes/politica-gestao-incidentes.docx) — mandato e papéis do CSIRT.
 - [📄 Procedimento de Escalonamento e Matriz RACI](../gestao_incidentes/procedimento-escalonamento-raci.docx) — cadeia de comando e contactos.
 - [📄 Procedimento de Classificação e Severidade](../gestao_incidentes/procedimento-classificacao-severidade.docx) — matriz P1-P5 usada pela L1.
 - [📄 Plano de Resposta a Incidentes (NIS2)](../gestao_incidentes/plano-resposta-incidentes-nis2.docx) — plano base para CSIRTs em entidades NIS2.
-- [📄 Plano de Comunicação de Crise](../gestao_incidentes/plano-comunicacao-crise.docx) — essencial para a operação externa do CSIRT.
+- [📄 Plano de Comunicação de Crise](../gestao_incidentes/plano-comunicacao-crise.docx) — operação externa do CSIRT.
 
 ---
 
@@ -757,6 +989,7 @@ A criação e operação de um CSIRT materializa-se nos seguintes templates. Cat
 
 - FIRST (2019). **CSIRT Services Framework v2.1**. <https://www.first.org/standards/frameworks/csirts/csirt_services_framework_v2.1>
 - Killcrece, G. et al. (2003). **Handbook for Computer Security Incident Response Teams (CSIRTs)**, 2nd ed. SEI/CERT Division. <https://resources.sei.cmu.edu/library/asset-view.cfm?assetid=6305>
+- NIST (2012). **SP 800-61 Revision 2 — Computer Security Incident Handling Guide**. <https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final>
 - ENISA. **Good Practice Guide for Incident Management**. <https://www.enisa.europa.eu/publications/good-practice-guide-for-incident-management>
 - RFC 2350 — *Expectations for Computer Security Incident Response*. <https://www.rfc-editor.org/rfc/rfc2350>
 - Centro Nacional de Cibersegurança — **Rede Nacional de CSIRTs**. <https://www.redecsirt.pt/>
