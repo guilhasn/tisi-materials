@@ -10,7 +10,7 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 
 | Métrica | Valor | Justificação |
 |---------|-------|-------------|
-| **RPO** | Zero (0) | Nenhuma transação financeira pode ser perdida - implicações legais e regulatorias |
+| **RPO** | Zero (0) | Nenhuma transação financeira pode ser perdida - implicações legais e regulatórias |
 | **RTO** | 30 minutos | Regulação e expectativa dos clientes exigem recuperação rápida |
 | **WRT** | 1 hora | Reconciliação de transações, verificação de saldos, testes de integridade |
 | **MTD** | 2 horas | Danos reputacionais graves, possíveis sanções do regulador (Banco de Portugal) |
@@ -93,10 +93,10 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 
 | Métrica | Valor | Justificação |
 |---------|-------|-------------|
-| **RPO** | 1 hora | Gravacoes de reuniões podem ser perdidas, mas não há dados transacionais críticos |
+| **RPO** | 1 hora | Gravações de reuniões podem ser perdidas, mas não há dados transacionais críticos |
 | **RTO** | 20 minutos | Clientes empresariais esperam alta disponibilidade (SLA de 99.9%) |
 | **WRT** | 40 minutos | Restauro de sessões, reconexao de utilizadores, verificação de qualidade |
-| **MTD** | 1 hora 30 minutos | Além disso, clientes começam a migrar para concorrencia |
+| **MTD** | 1 hora 30 minutos | Além disso, clientes começam a migrar para concorrência |
 
 **MOR:**
 - Audio funcional (video pode estar degradado)
@@ -137,7 +137,7 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 **Para refletir:**
 - Caso com **baixa criticidade técnica** mas **alta criticidade social**.
 - A existência de **canais alternativos** (balcão físico) permite métricas mais relaxadas.
-- Diferença entre serviços publicos e privados na definição de criticidade.
+- Diferença entre serviços públicos e privados na definição de criticidade.
 - Período crítico vs. período normal: durante eleições, estas métricas mudariam drasticamente.
 
 ---
@@ -158,7 +158,7 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 - Rotas pré-definidas impressas
 - Atualização manual de status no site
 - Equipa de dispatching a operar por telefone
-- Prioridade nas entregas urgentes/pereciveis
+- Prioridade nas entregas urgentes/perecíveis
 
 **Validação:** `RTO (1h) + WRT (1h) = 2h <= MTD (3h)` ✓
 
@@ -230,6 +230,7 @@ Casos práticos para estudo e aprofundamento, organizados por setor e nível de 
 
 ## 📋 Templates
 
-Consulte os templates disponíveis para apoio à elaboração do BIA:
+Consulte o [menu Templates](../modelos/index.md) para todos os modelos operacionais, com contexto de uso, personalização e cadência de revisão. Relevante para BIA:
 
-[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }
+[:material-file-document-outline: BIA Vila Feliz](../modelos/BIA_Municipio_Vila_Feliz_TISI.docx){ .md-button .md-button--primary }
+[:material-view-list: Hub de Templates](../modelos/index.md){ .md-button }
