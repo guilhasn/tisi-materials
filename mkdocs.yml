@@ -28,6 +28,7 @@ theme:
     - search.suggest
     - search.highlight
     - content.tabs.link
+    - toc.integrate
   icon:
     repo: fontawesome/brands/github
 
@@ -66,7 +67,13 @@ nav:
     - Deteção, Contenção e Investigação: ih/detecao-contencao.md
     - Erradicação, Recuperação e Follow-up: ih/erradicacao-recuperacao.md
     - Casos Práticos: ih/casos-praticos.md
-  - 🛡️ CSIRT: csirt/index.md
+  - 🛡️ CSIRT:
+    - csirt/index.md
+    - O que é um CSIRT?: csirt/o-que-e.md
+    - Tipos e Exemplos Reais: csirt/tipos-exemplos.md
+    - Como Criar um CSIRT: csirt/como-criar.md
+    - Recursos e Operações: csirt/recursos-operacoes.md
+    - Casos Práticos e Exercícios: csirt/casos-praticos.md
   - 📋 Templates: modelos/index.md
   - 📚 Recursos:
     - Mapa MITRE ATT&CK: comum/attack-mapping.md
