@@ -6,7 +6,7 @@
 2. [A equipa de gestão de crise](#2-a-equipa-de-gestao-de-crise)
 3. [Comunicação durante o desastre](#3-comunicacao-durante-o-desastre)
 4. [Apoio ao pessoal](#4-apoio-ao-pessoal)
-5. [Declaracao formal de desastre](#5-declaracao-formal-de-desastre)
+5. [Declaração formal de desastre](#5-declaracao-formal-de-desastre)
 6. [Exemplos práticos](#6-exemplos-praticos)
 7. [Exercícios](#7-exercicios)
 8. [Armadilhas e confusões a evitar](#8-armadilhas-e-confusoes-a-evitar)
@@ -38,7 +38,7 @@ A **gestão de crise** (crisis management) engloba as ações tomadas **durante 
   ║  │           │   │           │   │           │              ║
   ║  │ Apoiar    │   │ Avaliar   │   │ Informar  │              ║
   ║  │ colabor.  │   │ impacto e │   │ público,  │              ║
-  ║  │ e familias│   │ decidir   │   │ clientes, │              ║
+  ║  │ e famílias│   │ decidir   │   │ clientes, │              ║
   ║  │           │   │ resposta  │   │ média     │              ║
   ║  └───────────┘   └───────────┘   └───────────┘              ║
   ╚═══════════════════════════════════════════════════════════════╝
@@ -50,9 +50,9 @@ A gestão de crise distingue-se da recuperação técnica em vários aspetos:
 |--------|--------------------------|-----------------|
 | **Foco** | Sistemas, dados, infraestrutura | Pessoas, organização, reputação |
 | **Equipa** | IT, infraestrutura, segurança | Direção, comunicação, RH, jurídico |
-| **Decisoes** | Que sistemas restaurar primeiro | Declarar desastre, comunicar, apoiar |
+| **Decisões** | Que sistemas restaurar primeiro | Declarar desastre, comunicar, apoiar |
 | **Horizonte** | Imediato a curto prazo | Curto a médio prazo |
-| **Sucesso** | Sistemas operacionais | Organização funcional e confiavel |
+| **Sucesso** | Sistemas operacionais | Organização funcional e confiável |
 
 ---
 
@@ -60,7 +60,7 @@ A gestão de crise distingue-se da recuperação técnica em vários aspetos:
 
 A equipa de gestão de crise e responsável por **gerir o evento numa perspetiva empresarial**. Não se limita a aspetos técnicos — cobre toda a dimensão organizacional do desastre.
 
-### Composicao típica
+### Composição típica
 
 ```
   ┌───────────────────────────────────────────────────────┐
@@ -79,21 +79,21 @@ A equipa de gestão de crise e responsável por **gerir o evento numa perspetiva
   │ │Pessoa│ │      │ │      │ │      │ │      │        │
   │ └──────┘ └──────┘ └──────┘ └──────┘ └──────┘        │
   │  Apoio    Media    RGPD     Impacto   Seguros        │
-  │  pessoal  Clientes Regul.   Negocio   Custos         │
-  │  Familias Público  Legal    Continu.  Fornec.        │
+  │  pessoal  Clientes Regul.   Negócio   Custos         │
+  │  Famílias Público  Legal    Continu.  Fornec.        │
   └───────────────────────────────────────────────────────┘
 ```
 
 ### Responsabilidades detalhadas
 
-| Função | Responsabilidades | Decisoes-chave |
+| Função | Responsabilidades | Decisões-chave |
 |--------|-------------------|----------------|
 | **Lider de crise** | Coordenar toda a resposta organizacional; decisão final | Declarar desastre? Ativar BCP? Contactar média? |
-| **Recursos humanos** | Apoiar colaboradores e familias; gerir questões laborais | Pessoal essencial? Turnos? Apoio psicologico? |
+| **Recursos humanos** | Apoiar colaboradores e famílias; gerir questões laborais | Pessoal essencial? Turnos? Apoio psicológico? |
 | **Comunicação** | Gerir mensagens internas e externas; relação com média | O que dizer? A quem? Quando? |
 | **Jurídico** | Avaliar obrigações legais; gerir conformidade regulatória | Notificar CNPD? Responsabilidade civil? Seguros? |
-| **Operacoes** | Avaliar impacto no negócio; coordenar continuidade | Que funções manter? Que clientes priorizar? |
-| **Financeiro** | Gerir custos de recuperação; acionar seguros | Orcamento de emergência? Pedido de indemnizacao? |
+| **Operações** | Avaliar impacto no negócio; coordenar continuidade | Que funções manter? Que clientes priorizar? |
+| **Financeiro** | Gerir custos de recuperação; acionar seguros | Orçamento de emergência? Pedido de indemnização? |
 
 ---
 
@@ -109,11 +109,11 @@ A comunicação e talvez o aspeto mais crítico e mais frequentemente falhado da
 | **Transparencia** | Dizer o que se sabe, o que não se sabe e o que se está a fazer | Minimizar o problema erode a confiança quando a verdade emerge |
 | **Consistencia** | Uma só voz; mensagens alinhadas entre todos os canais | Porta-voz diz uma coisa, email interno diz outra |
 | **Empatia** | Reconhecer o impacto nas pessoas antes de falar de tecnologia | "Os nossos sistemas estão a ser restaurados" sem mencionar os afetados |
-| **Regularidade** | Atualizacoes regulares, mesmo que não haja novidades | "Sem atualizações" por dias sugere que ninguém está a tratar do assunto |
+| **Regularidade** | Atualizações regulares, mesmo que não haja novidades | "Sem atualizações" por dias sugere que ninguém está a tratar do assunto |
 
-### Audiencias e mensagens
+### Audiências e mensagens
 
-Diferentes publicos precisam de mensagens diferentes, em momentos diferentes e por canais diferentes:
+Diferentes públicos precisam de mensagens diferentes, em momentos diferentes e por canais diferentes:
 
 ```
   ╔═══════════════════════════════════════════════════════════════╗
@@ -144,15 +144,15 @@ Diferentes publicos precisam de mensagens diferentes, em momentos diferentes e p
 
 ### Templates de comunicação
 
-O DRP deve incluir **templates pré-escritos** para cada audiencia, que possam ser rapidamente adaptados durante a crise:
+O DRP deve incluir **templates pré-escritos** para cada audiência, que possam ser rapidamente adaptados durante a crise:
 
-| Template | Audiencia | Conteúdo-tipo |
+| Template | Audiência | Conteúdo-tipo |
 |----------|-----------|---------------|
 | **Alerta inicial** | Colaboradores | "Estamos a investigar um incidente que afeta [sistemas]. Mais informações em breve." |
 | **Notificação a clientes** | Clientes | "Informamos que [serviço] está temporariamente indisponível. Estamos a trabalhar na resolução. Tempo estimado: [prazo]." |
 | **Notificação regulatória** | CNPD/regulador | "Em cumprimento do artigo 33 do RGPD, notificamos uma violação de dados pessoais ocorrida em [data]..." |
-| **Comunicado de imprensa** | Media | "A [organização] está a gerir uma situação que afeta [descrição]. Não há indicacao de [dados expostos/risco]. Informacoes adicionais serão disponibilizadas em [canal]." |
-| **Atualização** | Todos | "Atualização [N]: A situação contínua a ser gerida. Progresso: [detalhes]. Proxima atualização: [hora]." |
+| **Comunicado de imprensa** | Media | "A [organização] está a gerir uma situação que afeta [descrição]. Não há indicação de [dados expostos/risco]. Informacoes adicionais serão disponibilizadas em [canal]." |
+| **Atualização** | Todos | "Atualização [N]: A situação contínua a ser gerida. Progresso: [detalhes]. Próxima atualização: [hora]." |
 
 ### Canais de comunicação alternativos
 
@@ -162,35 +162,35 @@ Durante um desastre, os canais normais de comunicação podem estar indisponíve
 |-------------|-------------|-------------|
 | Email corporativo | Email pessoal, SMS em massa | Quando o servidor de email está em baixo |
 | Intranet | Redes sociais, website público | Quando a rede interna está inacessível |
-| Telefone fixo/VoIP | Telemoveis pessoais, WhatsApp | Quando a infraestrutura de voz falha |
-| Videoconferencia | Chamadas telefonicas em grupo | Quando a internet está indisponível |
-| Mensagem interna (Teams/Slack) | SMS, grupos WhatsApp pré-criados | Quando as plataformas cloud estão inacessiveis |
+| Telefone fixo/VoIP | Telemóveis pessoais, WhatsApp | Quando a infraestrutura de voz falha |
+| Videoconferência | Chamadas telefónicas em grupo | Quando a internet está indisponível |
+| Mensagem interna (Teams/Slack) | SMS, grupos WhatsApp pré-criados | Quando as plataformas cloud estão inacessíveis |
 
 ---
 
 ## 4. Apoio ao pessoal
 
-A gestão de crise inclui o apoio aos **colaboradores e suas familias** durante o desastre. Este aspeto e frequentemente negligenciado mas e fundamental para a recuperação.
+A gestão de crise inclui o apoio aos **colaboradores e suas famílias** durante o desastre. Este aspeto e frequentemente negligenciado mas e fundamental para a recuperação.
 
 ### Areas de apoio
 
 | Área | Ações | Responsável |
 |------|-------|-------------|
 | **Segurança física** | Evacuação, verificação de presencas, apoio médico | Segurança / facilities |
-| **Apoio psicologico** | Linha de apoio, sessões de debriefing, acompanhamento | RH / serviço externo |
-| **Logística** | Transporte, alojamento, alimentacao (se site alternativo longe) | Operacoes / RH |
+| **Apoio psicológico** | Linha de apoio, sessões de debriefing, acompanhamento | RH / serviço externo |
+| **Logística** | Transporte, alojamento, alimentação (se site alternativo longe) | Operações / RH |
 | **Informação** | Manter colaboradores informados sobre a situação | Comunicação |
-| **Questoes laborais** | Horas extraordinarias, seguros, subsidios de deslocacao | RH / jurídico |
-| **Apoio familiar** | Informar familias em caso de desastre físico; apoio em deslocacoes | RH |
+| **Questoes laborais** | Horas extraordinárias, seguros, subsidios de deslocação | RH / jurídico |
+| **Apoio familiar** | Informar famílias em caso de desastre físico; apoio em deslocações | RH |
 
-### Cenarios que exigem apoio refor¢ado
+### Cenários que exigem apoio refor¢ado
 
 ```
   ┌─────────────────────────────────────────────────────────────┐
   │        QUANDO REFORCAR O APOIO AO PESSOAL                   │
   │                                                              │
   │  ● Desastre natural com risco físico (incêndio, terramoto)  │
-  │    → Apoio médico e psicologico imediato                    │
+  │    → Apoio médico e psicológico imediato                    │
   │                                                              │
   │  ● Desastre que afeta residencias dos colaboradores         │
   │    → Apoio logístico (alojamento, transporte)               │
@@ -198,8 +198,8 @@ A gestão de crise inclui o apoio aos **colaboradores e suas familias** durante 
   │  ● Recuperação prolongada (semanas)                          │
   │    → Gestão de fadiga, rotação de equipas, folgas            │
   │                                                              │
-  │  ● Deslocacao para site alternativo distante                │
-  │    → Transporte, alojamento, apoio a familias               │
+  │  ● Deslocação para site alternativo distante                │
+  │    → Transporte, alojamento, apoio a famílias               │
   │                                                              │
   │  ● Situação mediática (imprensa, redes sociais)              │
   │    → Preparar colaboradores para lidar com perguntas         │
@@ -208,9 +208,9 @@ A gestão de crise inclui o apoio aos **colaboradores e suas familias** durante 
 
 ---
 
-## 5. Declaracao formal de desastre
+## 5. Declaração formal de desastre
 
-A **declaracao de desastre** e o ato formal que ativa o DRP e mobiliza os recursos de recuperação. Não é uma decisão que se toma de animo leve — tem implicações operacionais, financeiras e legais.
+A **declaração de desastre** e o ato formal que ativa o DRP e mobiliza os recursos de recuperação. Não é uma decisão que se toma de animo leve — tem implicações operacionais, financeiras e legais.
 
 ### Quem pode declarar
 
@@ -218,22 +218,22 @@ A **declaracao de desastre** e o ato formal que ativa o DRP e mobiliza os recurs
 |-------|-----------|
 | **CEO** | Autoridade máxima para declarar desastre |
 | **CISO / CTO** | Pode declarar em nome do CEO se este estiver indisponível |
-| **Coordenador DRP** | Pode recomendar a declaracao, mas não a pode fazer sozinho |
+| **Coordenador DRP** | Pode recomendar a declaração, mas não a pode fazer sozinho |
 | **Cadeia de substituição** | Deve estar predefinida: se o CEO não está acessível, quem decide? |
 
-### Criterios de ativação
+### Critérios de ativação
 
-A decisão de declarar desastre deve basear-se em **critérios objetivos predefinidos**, não em percepcoes subjetivas:
+A decisão de declarar desastre deve basear-se em **critérios objetivos predefinidos**, não em perceções subjetivas:
 
-| Critério | Limiar para declaracao |
+| Critério | Limiar para declaração |
 |----------|----------------------|
 | **Sistemas críticos indisponíveis** | Mais de [N] sistemas críticos em baixo simultaneamente |
-| **Duração da indisponibilidade** | Previsao de indisponibilidade superior ao MTD |
-| **Instalacoes inutilizaveis** | Impossibilidade de aceder ao site primário |
+| **Duração da indisponibilidade** | Previsão de indisponibilidade superior ao MTD |
+| **Instalações inutilizáveis** | Impossibilidade de aceder ao site primário |
 | **Impacto em pessoas** | Risco para segurança física de colaboradores |
 | **Escala do incidente** | Incidente que excede a capacidade de resposta do IRP |
 
-### Processo de declaracao
+### Processo de declaração
 
 ```
   ┌───────────────────────────────────────────────────────┐
@@ -246,7 +246,7 @@ A decisão de declarar desastre deve basear-se em **critérios objetivos predefi
   │         ▼                                              │
   │  ┌──────────────┐                                     │
   │  │ Avaliação:   │──── Não ────► IRP (resposta normal) │
-  │  │ Criterios    │                                     │
+  │  │ Critérios    │                                     │
   │  │ de desastre? │                                     │
   │  └──────┬───────┘                                     │
   │         │ Sim                                          │
@@ -267,7 +267,7 @@ A decisão de declarar desastre deve basear-se em **critérios objetivos predefi
 
 **Para refletir:**
 
-- E se o CEO estiver em viagem e incomunicavel? O plano preve está situação?
+- E se o CEO estiver em viagem e incomunicável? O plano preve está situação?
 - Declarar desastre demasiado cedo desperdiCA recursos. Declarar demasiado tarde agrava os danos. Como encontrar o equilíbrio?
 - Quem audita a decisão de declarar (ou não declarar) desastre?
 
@@ -277,32 +277,32 @@ A decisão de declarar desastre deve basear-se em **critérios objetivos predefi
 
 ### Exemplo 1 — Falha de comunicação durante ciberataque
 
-**Cenário:** Uma empresa de telecomunicacoes sofre um ataque de ransomware que cifra os servidores de email e o sistema interno de mensagens. A equipa de IT começa a trabalhar na recuperação mas ninguém informa os 2.000 colaboradores. Passam 6 horas e as redes sociais já tem publicacoes de funcionários a especular sobre "ataque hacker" e "dados roubados". Um jornalista liga para o departamento de comunicação, que não sabe nada.
+**Cenário:** Uma empresa de telecomunicações sofre um ataque de ransomware que cifra os servidores de email e o sistema interno de mensagens. A equipa de IT começa a trabalhar na recuperação mas ninguém informa os 2.000 colaboradores. Passam 6 horas e as redes sociais já tem publicações de funcionários a especular sobre "ataque hacker" e "dados roubados". Um jornalista liga para o departamento de comunicação, que não sabe nada.
 
 | O que falhou | Consequencia | O que deveria ter acontecido |
 |-------------|--------------|------------------------------|
 | Sem comunicação interna nas primeiras 6h | Colaboradores especulam e publicam nas redes sociais | Alerta via SMS/WhatsApp nos primeiros 30 minutos |
 | Equipa de comunicação não foi avisada | Jornalista apanha comunicação desprevenida | Comunicação na lista de alerta de nível 2 |
-| Sem template de comunicação preparado | Resposta improvisada e contraditoria | Templates pré-escritos para cada audiencia |
+| Sem template de comunicação preparado | Resposta improvisada e contraditória | Templates pré-escritos para cada audiência |
 | Foco exclusivo na recuperação técnica | Dano reputacional significativo | Gestão técnica e comunicação em paralelo |
 
-**Como interpretar:** *A recuperação técnica pode estar a correr perfeitamente, mas se a comunicação falha, o dano reputacional pode ser pior que o dano técnico. Neste caso, a falta de comunicação transformou um problema técnico num problema de relacoes publicas.*
+**Como interpretar:** *A recuperação técnica pode estar a correr perfeitamente, mas se a comunicação falha, o dano reputacional pode ser pior que o dano técnico. Neste caso, a falta de comunicação transformou um problema técnico num problema de relações públicas.*
 
 ---
 
 ### Exemplo 2 — Gestão de crise num incêndio
 
-**Cenário:** Um incêndio eclode as 14h30 num dos pisos de escritorios de uma empresa de serviços financeiros com 500 colaboradores. O datacenter (no piso -1) não é afetado, mas o edifício e evacuado. As autoridades declaram que o edifício não pode ser reocupado durante pelo menos 5 dias para avaliação estrutural.
+**Cenário:** Um incêndio eclode as 14h30 num dos pisos de escritórios de uma empresa de serviços financeiros com 500 colaboradores. O datacenter (no piso -1) não é afetado, mas o edifício e evacuado. As autoridades declaram que o edifício não pode ser reocupado durante pelo menos 5 dias para avaliação estrutural.
 
 | Ação de gestão de crise | Detalhe | Quando |
 |-------------------------|---------|--------|
 | Evacuação e verificação | Confirmar que todos os colaboradores estão a salvo | Imediato (minutos) |
-| Apoio médico | Assistencia a 3 colaboradores com inalacao de fumo | Primeiros 30 min |
-| Comunicação a familias | SMS a contactos de emergência dos 500 colaboradores | Primeira hora |
-| Avaliação de impacto | Datacenter intacto; escritorios inacessiveis 5+ dias | Primeiras 2 horas |
+| Apoio médico | Assistência a 3 colaboradores com inalação de fumo | Primeiros 30 min |
+| Comunicação a famílias | SMS a contactos de emergência dos 500 colaboradores | Primeira hora |
+| Avaliação de impacto | Datacenter intacto; escritórios inacessíveis 5+ dias | Primeiras 2 horas |
 | Ativação de trabalho remoto | VPN já estava configurada; portateis em casa | Primeiras 4 horas |
 | Comunicação a clientes | "Serviços continuam operacionais; contacto via email e telemóvel" | Primeiras 6 horas |
-| Apoio psicologico | Linha de apoio ativada para colaboradores | Dia seguinte |
+| Apoio psicológico | Linha de apoio ativada para colaboradores | Dia seguinte |
 | Planeamento de regresso | Coordenação com bombeiros e peritos para avaliação | Dias seguintes |
 
 **Como interpretar:** *Neste caso, o desastre não afetou a tecnologia (datacenter intacto) mas afetou as pessoas e o espaço de trabalho. A gestão de crise foi predominantemente organizacional e humana, não técnica. O DRP e o BCP trabalharam em conjunto — o DRP confirmou que não era necessário site alternativo técnico, e o BCP ativou trabalho remoto para continuidade.*
@@ -319,16 +319,16 @@ A decisão de declarar desastre deve basear-se em **critérios objetivos predefi
 2. A comunicação durante um desastre deve esperar até toda a informação estar confirmada.
 3. A equipa de gestão de crise deve incluir representantes de RH, comunicação e jurídico.
 4. Os templates de comunicação devem ser escritos durante o desastre.
-5. A declaracao formal de desastre pode ser feita por qualquer membro da organização.
-6. O apoio psicologico aos colaboradores faz parte da gestão de crise.
+5. A declaração formal de desastre pode ser feita por qualquer membro da organização.
+6. O apoio psicológico aos colaboradores faz parte da gestão de crise.
 
 ??? success "Solução 1.1"
 
     1. **Falso.** A gestão de crise e responsabilidade de toda a organização, liderada pela direção (CEO), não pela equipa de TI.
     2. **Falso.** A comunicação deve ser rápida, mesmo que incompleta. O silencio gera rumores e pânico. E melhor dizer "estamos a investigar" do que não dizer nada.
-    3. **Verdadeiro.** A equipa de gestão de crise e multidisciplinar e deve cobrir todas as dimensoes do impacto.
+    3. **Verdadeiro.** A equipa de gestão de crise e multidisciplinar e deve cobrir todas as dimensões do impacto.
     4. **Falso.** Os templates devem estar **pré-escritos** e prontos para ser adaptados durante o desastre. Improvisar sob pressão leva a erros.
-    5. **Falso.** A declaracao de desastre e uma decisão formal, tipicamente do CEO ou de quem estiver designado na cadeia de substituição.
+    5. **Falso.** A declaração de desastre e uma decisão formal, tipicamente do CEO ou de quem estiver designado na cadeia de substituição.
     6. **Verdadeiro.** O bem-estar dos colaboradores e uma responsabilidade da gestão de crise, especialmente em desastres com impacto físico ou emocional.
 
 ---
@@ -339,16 +339,16 @@ A decisão de declarar desastre deve basear-se em **critérios objetivos predefi
 
 Uma universidade descobre num sábado de manhã que os dados pessoais de 15.000 alunos (nomes, números de aluno, notas) foram exfiltrados por um atacante. Elabore um plano de comunicação que cubra:
 
-a) As 4 audiencias principais
+a) As 4 audiências principais
 b) A mensagem-chave para cada uma
 c) O canal a utilizar
 d) O timing
 
 ??? success "Solução 2.1"
 
-    | Audiencia | Mensagem-chave | Canal | Timing |
+    | Audiência | Mensagem-chave | Canal | Timing |
     |-----------|---------------|-------|--------|
-    | **Alunos afetados** | "Os vossos dados pessoais podem ter sido acedidos. Estamos a investigar. Não há indicacao de dados financeiros expostos. Recomendamos alteração de passwords." | Email pessoal (não institucional se comprometido) + SMS | Primeiras 12 horas |
+    | **Alunos afetados** | "Os vossos dados pessoais podem ter sido acedidos. Estamos a investigar. Não há indicação de dados financeiros expostos. Recomendamos alteração de passwords." | Email pessoal (não institucional se comprometido) + SMS | Primeiras 12 horas |
     | **CNPD** | Notificação formal de violação de dados pessoais (Art. 33 RGPD). Descrição do incidente, dados afetados, medidas tomadas e planeadas. | Formulário oficial CNPD | Máximo 72 horas |
     | **Media/público** | "A universidade detetou um acesso não autorizado a dados académicos. Foi ativado o plano de resposta. A CNPD foi notificada. Estamos a trabalhar com especialistas em cibersegurança." | Comunicado no site + conferencia de imprensa (se necessário) | 24-48 horas |
     | **Docentes e funcionários** | "Ocorreu um incidente de segurança. Os dados de alunos foram potencialmente acedidos. Instrucoes: não responder a média, encaminhar perguntas para comunicação." | Email institucional (se funcional) ou SMS | Primeiras 6 horas |
@@ -379,14 +379,14 @@ Para cada situação, indique **quem deve tomar a decisão** e justifique:
 
 **Exercício 3.1 — Cenário de crise completo**
 
-Uma empresa farmaceutica com 1.500 colaboradores sofre um incêndio no seu armazém principal as 02h00 de um domingo. O armazém contem medicamentos termossensiveis avaliados em 5 milhoes de euros. O datacenter (noutro edifício) não é afetado. Não há feridos (o armazém estava vazio).
+Uma empresa farmaceutica com 1.500 colaboradores sofre um incêndio no seu armazém principal as 02h00 de um domingo. O armazém contem medicamentos termossensíveis avaliados em 5 milhoes de euros. O datacenter (noutro edifício) não é afetado. Não há feridos (o armazém estava vazio).
 
 Defina:
 
-a) A composicao da equipa de gestão de crise
+a) A composição da equipa de gestão de crise
 b) As primeiras 5 ações nas primeiras 4 horas
 c) O plano de comunicação para as primeiras 24 horas
-d) As implicações regulatorias específicas do setor farmaceutico
+d) As implicações regulatórias específicas do setor farmaceutico
 
 ??? success "Solução 3.1"
 
@@ -394,7 +394,7 @@ d) As implicações regulatorias específicas do setor farmaceutico
 
     - CEO (lider de crise)
     - Diretor de operações/logística (impacto no armazém e cadeia de abastecimento)
-    - Responsável de qualidade/assuntos regulatorios (Infarmed, farmacovigilancia)
+    - Responsável de qualidade/assuntos regulatórios (Infarmed, farmacovigilancia)
     - Diretor financeiro (seguros, custos, impacto financeiro)
     - Responsável de comunicação (média, clientes, público)
     - Diretor de RH (apoio ao pessoal, questões laborais)
@@ -410,19 +410,19 @@ d) As implicações regulatorias específicas do setor farmaceutico
 
     **c) Plano de comunicação (24 horas):**
 
-    | Quando | Audiencia | Mensagem |
+    | Quando | Audiência | Mensagem |
     |--------|-----------|----------|
     | 4h | Equipa de gestão | Briefing completo com avaliação de danos |
-    | 6h | Colaboradores | "Incêndio no armazém. Sem feridos. Operacoes no escritório continuam normalmente segunda-feira." |
+    | 6h | Colaboradores | "Incêndio no armazém. Sem feridos. Operações no escritório continuam normalmente segunda-feira." |
     | 8h | Clientes (farmacias, hospitais) | "Informamos sobre perturbação na nossa cadeia de abastecimento. Lista de produtos afetados em breve." |
     | 12h | Infarmed | Notificação formal de interrupção no fornecimento de medicamentos |
     | 24h | Media (se necessário) | Comunicado: "Incêndio controlado, sem feridos, stock em avaliação, plano de contingência ativado" |
 
-    **d) Implicações regulatorias:**
+    **d) Implicações regulatórias:**
 
     - **Infarmed:** Notificação obrigatória de interrupção no fornecimento de medicamentos
     - **Farmacovigilancia:** Verificar se medicamentos danificados podem representar risco (ex: fuga de substancias)
-    - **Cadeia de frio:** Medicamentos termossensiveis expostos ao calor devem ser destruidos — não podem ser redistribuidos
+    - **Cadeia de frio:** Medicamentos termossensíveis expostos ao calor devem ser destruidos — não podem ser redistribuidos
     - **Rastreabilidade:** Documentar lotes destruidos para conformidade com regulamentação farmaceutica
     - **Plano de distribuição alternativa:** Contactar outros distribuidores para medicamentos críticos sem alternativa
 
@@ -438,7 +438,7 @@ d) As implicações regulatorias específicas do setor farmaceutico
 
 ### 2. "Se recuperarmos os sistemas, a crise acaba"
 
-**Errado.** A crise pode continuar muito depois dos sistemas estarem operacionais. Impacto reputacional, processos legais, investigacoes regulatorias e danos na confiança dos clientes podem prolongar-se durante meses.
+**Errado.** A crise pode continuar muito depois dos sistemas estarem operacionais. Impacto reputacional, processos legais, investigacoes regulatórias e danos na confiança dos clientes podem prolongar-se durante meses.
 
 ---
 
@@ -469,10 +469,10 @@ d) As implicações regulatorias específicas do setor farmaceutico
 | **Gestão de crise** | Ações durante e após o desastre, focadas em pessoas e organização |
 | **Equipa de crise** | Multidisciplinar: direção, RH, comunicação, jurídico, operações |
 | **Comunicação** | Rapida, transparente, consistente, empatica, regular |
-| **4 audiencias** | Colaboradores, clientes, reguladores, público/média |
-| **Templates** | Mensagens pré-escritas para cada audiencia e cenário |
-| **Declaracao de desastre** | Decisão formal do CEO com base em critérios predefinidos |
-| **Apoio ao pessoal** | Segurança, apoio psicologico, logística, informação |
+| **4 audiências** | Colaboradores, clientes, reguladores, público/média |
+| **Templates** | Mensagens pré-escritas para cada audiência e cenário |
+| **Declaração de desastre** | Decisão formal do CEO com base em critérios predefinidos |
+| **Apoio ao pessoal** | Segurança, apoio psicológico, logística, informação |
 
 ### Frases-chave para recordar
 

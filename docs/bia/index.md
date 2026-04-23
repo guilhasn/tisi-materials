@@ -12,7 +12,7 @@ A BIA responde a quatro questões essenciais:
 |---------|---------|
 | Quanto dado posso perder? | **RPO** — Recovery Point Objective |
 | Em quanto tempo tenho de recuperar? | **RTO** — Recovery Time Objective |
-| Qual é o mínimo para continuar a operar? | **MBO** — Minimum Business Objective |
+| Qual é o mínimo para continuar a operar? | **MOR** — Minimum Operating Requirements |
 | Qual é o tempo máximo de interrupção tolerável? | **MTD** — Maximum Tolerable Downtime |
 
 ---
@@ -49,7 +49,7 @@ A BIA responde a quatro questões essenciais:
 
 | Página | Descrição |
 |--------|-----------|
-| [Métricas BIA](metricas.md) | RPO, RTO, WRT, MTD, MBO — definições, fórmulas e exemplos |
+| [Métricas BIA](metricas.md) | RPO, RTO, WRT, MTD, MOR — definições, fórmulas e exemplos |
 | [Casos Práticos](casos-praticos.md) | Cenários reais com análise passo a passo |
 | [Exercícios](exercicios.md) | Problemas para praticar com soluções detalhadas |
 | [Calculadora Interativa](calculadora.md) | Ferramenta para calcular e visualizar métricas |

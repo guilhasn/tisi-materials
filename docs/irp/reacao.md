@@ -90,7 +90,7 @@ A urgência de um incidente pode criar pressão para "fazer qualquer coisa já".
 | Reação rápida e coordenada | Reação rápida e caótica |
 |---------------------------|------------------------|
 | A equipa segue o playbook | Cada pessoa faz o que acha melhor |
-| Ha um coordenador que decide | Várias pessoas tomam decisões contraditorias |
+| Ha um coordenador que decide | Várias pessoas tomam decisões contraditórias |
 | As ações são registadas | Ninguem documenta nada |
 | A contenção e proporcional | Desligam-se sistemas sem avaliar impacto |
 | As evidências são preservadas | Evidências são destruidas por ações precipitadas |
@@ -137,7 +137,7 @@ Esta lista deve existir **antes** do incidente. Não se procura números de tele
 | **Contacto secundário** | Canal alternativo | ana.silva@org.pt (email) |
 | **Substituto** | Quem assume se a pessoa não estiver disponível | Pedro Costa |
 | **Ordem de escalonamento** | Posição na cadeia de notificação | 1.o nível |
-| **Turno/Disponibilidade** | Quando está disponível | Dias uteis 08h-18h |
+| **Turno/Disponibilidade** | Quando está disponível | Dias úteis 08h-18h |
 | **Notas** | Informação relevante (ferias, licença, restrições) | Ausente 15-30 Ago |
 
 A lista de alerta **deve ser mantida atualizada**. Numeros mudam, pessoas mudam de função, substitutos desaparecem. Uma lista desatualizada pode ser pior do que não ter lista nenhuma - cria uma falsa sensação de segurança.
@@ -183,7 +183,7 @@ Uma pessoa contacta um grupo restrito, e cada elemento desse grupo contacta outr
 | **Controlo** | Alto - uma pessoa gere toda a comunicação | Medio - a mensagem pode sofrer alterações em cada nível |
 | **Velocidade** | Mais lento - uma pessoa de cada vez | Mais rápido - notificações em paralelo |
 | **Risco de falha** | Baixo - se um contacto falha, o notificador passa ao seguinte | Maior - se um no intermediário falha, todo o ramo fica sem notificação |
-| **Consistencia da mensagem** | Alta - todos recebem a mesma mensagem | Variavel - a mensagem pode ser reinterpretada |
+| **Consistencia da mensagem** | Alta - todos recebem a mesma mensagem | Variável - a mensagem pode ser reinterpretada |
 | **Quando usar** | Equipas pequenas, incidentes de gravidade média | Equipas grandes, incidentes críticos que exigem mobilização rápida |
 | **Complexidade** | Simples de implementar e testar | Requer planeamento e treino dos nos intermediários |
 
@@ -215,7 +215,7 @@ A mensagem de alerta não precisa de ser longa. Precisa de ser **curta, clara e 
   │  Canal de coordenação: #incidente-2026-03 (Teams)          │
   │  Coordenador: Ana Silva (+351 912 345 678)                 │
   │                                                            │
-  │  Proxima comunicação: em 30 minutos ou antes se necessário │
+  │  Próxima comunicação: em 30 minutos ou antes se necessário │
   └────────────────────────────────────────────────────────────┘
 ```
 
@@ -296,7 +296,7 @@ A documentação de um incidente não é apenas técnica. Deve cobrir **decisõe
 | **Classificação** | Tipo e gravidade do incidente | Comprometimento de credenciais, gravidade Alta |
 | **Ativos afetados** | Que sistemas, dados ou processos foram impactados | Servidor de ficheiros FS01, contas do domínio AD |
 | **Ações tomadas** | Que ações de contenção/mitigação foram executadas | Conta bloqueada, segmento de rede isolado |
-| **Decisoes** | Que decisões foram tomadas e por quem | "Decisão de isolar o segmento tomada pelo coordenador as 09:30" |
+| **Decisões** | Que decisões foram tomadas e por quem | "Decisão de isolar o segmento tomada pelo coordenador as 09:30" |
 | **Comunicacoes** | Que comunicações internas e externas foram feitas | Direção informada as 09:45, CNPD notificada as 11:00 |
 | **Escalonamento** | Se o incidente foi escalado, para quem e quando | Escalado para CISO as 09:35 devido a gravidade |
 | **Impacto** | Impacto real observado (operacional, financeiro, reputacional) | 200 utilizadores sem acesso ao email durante 3 horas |
@@ -314,14 +314,14 @@ Este principio e absolutamente crítico e frequentemente violado. As razões sã
 | Se documentar durante | Se documentar só depois |
 |----------------------|------------------------|
 | Tempos exatos e registados | Tempos são aproximados ou esquecidos |
-| Decisoes são registadas com contexto | Decisoes perdem o contexto original |
+| Decisões são registadas com contexto | Decisões perdem o contexto original |
 | Sequencia de eventos e precisa | Sequencia e reconstruida de memória (com erros) |
 | Detalhes técnicos são capturados | Detalhes técnicos são esquecidos ou simplificados |
 | Comunicacoes são rastreadas | Comunicacoes são omitidas ou distorcidas |
 
 **Na prática**, isto significa que deve existir alguém (ou um processo) dedicado a registar eventos em tempo real. Em equipas maiores, pode haver um **escriba** (scribe) dedicado. Em equipas menores, cada pessoa regista as suas ações num canal ou documento partilhado.
 
-Ferramentas uteis para documentação em tempo real:
+Ferramentas úteis para documentação em tempo real:
 
 - Canal dedicado no Teams/Slack (com timestamps automáticos)
 - Documento partilhado (Google Docs, Confluence, Wiki)
@@ -379,7 +379,7 @@ As perguntas críticas antes de conter:
   └──────────────────────────────────────────────────────────┘
 ```
 
-O âmbito determina o **nível de contenção** adequado. Conter demasiado causa paragem desnecessaria. Conter de menos permite que o incidente se propague.
+O âmbito determina o **nível de contenção** adequado. Conter demasiado causa paragem desnecessária. Conter de menos permite que o incidente se propague.
 
 ---
 
@@ -499,7 +499,7 @@ E fundamental distinguir três fases que são frequentemente confundidas:
 
 **Como interpretar:**
 
-*Este cenário ilustra a complexidade da coordenação quando o incidente envolve dados críticos (saúde). A contenção deve ser rápida mas proporcional: isolar o servidor e essencial, mas garantir que os serviços clínicos continuam a funcionar e igualmente prioritário. A notificação envolve não só a equipa técnica mas também a direção clínica (porque os serviços médicos são afetados) e o DPO (porque dados de saúde estão em causa). A documentação e especialmente crítica neste contexto por exigencias regulatorias (RGPD, legislação de saúde).*
+*Este cenário ilustra a complexidade da coordenação quando o incidente envolve dados críticos (saúde). A contenção deve ser rápida mas proporcional: isolar o servidor e essencial, mas garantir que os serviços clínicos continuam a funcionar e igualmente prioritário. A notificação envolve não só a equipa técnica mas também a direção clínica (porque os serviços médicos são afetados) e o DPO (porque dados de saúde estão em causa). A documentação e especialmente crítica neste contexto por exigencias regulatórias (RGPD, legislação de saúde).*
 
 **Para refletir:**
 
@@ -516,7 +516,7 @@ E fundamental distinguir três fases que são frequentemente confundidas:
 | Fase | Ação | Detalhe |
 |------|------|---------|
 | **Notificação** | Alerta multi-equipa | Equipa de operações (infraestrutura), equipa de negócio (impacto comercial), equipa de comunicação (clientes e imprensa) |
-| **Atribuição** | Resposta paralela | Ops: mitigação DDoS + investigação SQL injection; Negocio: avaliação de perda de receita; Comunicação: mensagem para clientes no site e redes sociais |
+| **Atribuição** | Resposta paralela | Ops: mitigação DDoS + investigação SQL injection; Negócio: avaliação de perda de receita; Comunicação: mensagem para clientes no site e redes sociais |
 | **Contenção** | Mitigação em dois níveis | DDoS: ativação de proteção anti-DDoS do CDN; SQL injection: bloqueio de pedidos maliciosos no WAF, revisão de parâmetros de entrada |
 | **Documentação** | Timeline de impacto | Hora de início da indisponibilidade, número de transações perdidas, ações de mitigação com tempos, comunicações enviadas |
 | **Preparação da recuperação** | Avaliação de danos | Quantas transações falharam? Houve comprometimento de dados de pagamento? Os backups estão intactos? |
@@ -585,7 +585,7 @@ Classifica as seguintes afirmações como Verdadeiras (V) ou Falsas (F):
     | c) | **V** | No modelo hierárquico (calling tree), as notificações são feitas em paralelo por diferentes nos, o que aumenta a velocidade. O risco e que se um no falha, o ramo inteiro fica sem notificação. |
     | d) | **F** | A documentação deve cobrir também **decisões, comunicações, escalonamentos, impacto e ações de mitigação**. Não é apenas técnica. |
     | e) | **F** | O shutdown total e uma medida de **último recurso**, extremamente disruptiva. A contenção deve ser **proporcional** a ameaça. |
-    | f) | **V** | Documentar em tempo real garante tempos exatos, sequência precisa e contexto das decisões. Documentar depois introduz erros de memória e omissoes. |
+    | f) | **V** | Documentar em tempo real garante tempos exatos, sequência precisa e contexto das decisões. Documentar depois introduz erros de memória e omissões. |
     | g) | **F** | A mensagem de alerta deve ser **curta e útil**: gravidade, ação esperada, canal de coordenação. Detalhes técnicos excessivos podem confundir ou alarmar. |
     | h) | **F** | Conter significa **parar e limitar** o incidente. Erradicar significa **remover a causa raiz**. São fases distintas. |
 
@@ -643,13 +643,13 @@ Desenha uma lista de alerta para está organização, incluindo: nome/função, 
 
     | Ordem | Função/Papel IRP | Contacto primário | Contacto sec. | Substituto | Notificado por |
     |:-----:|-----------------|-------------------|---------------|------------|----------------|
-    | 1 | Responsável TI/Segurança (Coordenador) | Telemovel | Teams | Lider Contabilidade | Quem deteta o incidente |
-    | 2 | Diretor-geral | Telemovel | Email | Responsável TI | Coordenador |
-    | 3 | Responsável Comunicação | Teams | Telemovel | Diretor-geral | Coordenador |
-    | 4 | Jurídico externo | Telemovel | Email | (segundo contacto no escritório) | Coordenador |
-    | 5 | Lider Contabilidade | Teams | Telemovel | Lider Fiscal | Coordenador |
-    | 6 | Lider Fiscal | Teams | Telemovel | Lider Auditoria | Coordenador |
-    | 7 | Lider Auditoria | Teams | Telemovel | Lider Contabilidade | Coordenador |
+    | 1 | Responsável TI/Segurança (Coordenador) | Telemóvel | Teams | Lider Contabilidade | Quem deteta o incidente |
+    | 2 | Diretor-geral | Telemóvel | Email | Responsável TI | Coordenador |
+    | 3 | Responsável Comunicação | Teams | Telemóvel | Diretor-geral | Coordenador |
+    | 4 | Jurídico externo | Telemóvel | Email | (segundo contacto no escritório) | Coordenador |
+    | 5 | Lider Contabilidade | Teams | Telemóvel | Lider Fiscal | Coordenador |
+    | 6 | Lider Fiscal | Teams | Telemóvel | Lider Auditoria | Coordenador |
+    | 7 | Lider Auditoria | Teams | Telemóvel | Lider Contabilidade | Coordenador |
 
     **Justificação do modelo hibrido:**
 
@@ -704,7 +704,7 @@ Para cada cenário, indica o nível de contenção adequado (cirurgico, amplo ou
 
 #### Exercício 3.1 - Cenário completo: da deteção a contenção
 
-**Cenário:** Es o coordenador de segurança de uma empresa de desenvolvimento de software com 150 colaboradores. A empresa tem escritorios em Lisboa e no Porto, ligados por VPN site-to-site. O repositório de código-fonte está num servidor GitLab on-premises em Lisboa.
+**Cenário:** Es o coordenador de segurança de uma empresa de desenvolvimento de software com 150 colaboradores. A empresa tem escritórios em Lisboa e no Porto, ligados por VPN site-to-site. O repositório de código-fonte está num servidor GitLab on-premises em Lisboa.
 
 **Sequencia de eventos:**
 
@@ -733,7 +733,7 @@ Para cada momento, define:
     **09:15 - Developer não consegue fazer push**
 
     - **Ações:** Correlacionar com o alerta anterior. Verificar se a conta do developer está bloqueada ou se o servidor está sob pressão. A coincidencia temporal e suspeita.
-    - **Notificação:** Alertar o admin de sistemas para investigação prioritaria.
+    - **Notificação:** Alertar o admin de sistemas para investigação prioritária.
     - **Contenção:** Ainda não. Preciso de mais informação.
     - **Documentação:** Registar o relato do developer, hora, tipo de erro.
 
@@ -786,7 +786,7 @@ Broadcast geral causa pânico, desinformação, perda de controlo sobre a narrat
 
 ### Armadilha 4: Usar contenção extrema por precaução
 
-> O shutdown total e uma decisão de **último recurso**. Usa-lo "por precaução" causa paragem desnecessaria e pode ser mais prejudicial do que o próprio incidente.
+> O shutdown total e uma decisão de **último recurso**. Usa-lo "por precaução" causa paragem desnecessária e pode ser mais prejudicial do que o próprio incidente.
 
 A contenção deve ser proporcional. Desligar toda a rede porque uma conta foi comprometida e desproporcional. Avaliar o âmbito antes de decidir o nível de contenção.
 
@@ -798,7 +798,7 @@ A lista de alerta deve ser revista e testada regularmente (pelo menos trimestral
 
 ### Armadilha 6: Documentação narrativa em vez de factual
 
-> A documentação deve ser **objetiva, cronológica e factual**. Não é um relatório narrativo nem uma historia com interpretações subjetivas.
+> A documentação deve ser **objetiva, cronológica e factual**. Não é um relatório narrativo nem uma história com interpretações subjetivas.
 
 "Achamos que o atacante provavelmente estava a tentar roubar dados" não é documentação factual. "As 09:35, os logs do GitLab mostram operações git clone de 3 repositórios a partir do IP 203.x.x.x" e documentação factual.
 

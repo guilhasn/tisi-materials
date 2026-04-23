@@ -59,20 +59,20 @@ Uma das decisões mais críticas no planeamento de contingência e **distinguir 
 
 > Nem toda a crise e um desastre. Mas todo o desastre começa como um evento que alguém tem de classificar corretamente.
 
-### Criterios de distinção
+### Critérios de distinção
 
 | Critério | Incidente | Desastre |
 |----------|-----------|----------|
 | **Impacto** | Limitado a um sistema ou serviço | Afeta múltiplos sistemas ou toda a organização |
 | **Duração** | Horas | Dias ou mais |
 | **Resposta** | IRP — equipa de resposta a incidentes | DRP — equipa de recuperação de desastres |
-| **Instalacoes** | Site primário operacional | Site primário pode estar inutilizavel |
+| **Instalações** | Site primário operacional | Site primário pode estar inutilizável |
 | **Recursos** | Equipa normal de IT/segurança | Mobilizacao alargada, possivelmente externa |
-| **Disrupcao** | Parcial e controlavel | Total ou quase total |
+| **Disrupção** | Parcial e controlavel | Total ou quase total |
 
-### Categorias de disrupcao
+### Categorias de disrupção
 
-A classificação não é apenas "incidente ou desastre". Existem **quatro níveis de disrupcao** que a organização deve estar preparada para enfrentar:
+A classificação não é apenas "incidente ou desastre". Existem **quatro níveis de disrupção** que a organização deve estar preparada para enfrentar:
 
 ```
   ┌─────────────────────────────────────────────────────────────┐
@@ -89,7 +89,7 @@ A classificação não é apenas "incidente ou desastre". Existem **quatro níve
   │  └──────┬───────┘                                            │
   │         ▼                                                    │
   │  ┌──────────────┐                                            │
-  │  │   Desastre   │  Instalacao inutilizavel por 1+ dias.      │
+  │  │   Desastre   │  Instalação inutilizável por 1+ dias.      │
   │  │              │  Requer site alternativo.                   │
   │  └──────┬───────┘                                            │
   │         ▼                                                    │
@@ -102,15 +102,15 @@ A classificação não é apenas "incidente ou desastre". Existem **quatro níve
 
 | Categoria | Descrição | Exemplo | Resposta típica |
 |-----------|-----------|---------|-----------------|
-| **Não-desastre** | Perturbacao limitada por avaria ou falha de dispositivo | Falha de um disco num servidor com RAID | Substituicao de hardware, restauro de ficheiros |
+| **Não-desastre** | Perturbacao limitada por avaria ou falha de dispositivo | Falha de um disco num servidor com RAID | Substituição de hardware, restauro de ficheiros |
 | **Emergência** | Evento com potencial de perda de vidas ou bens | Incêndio num piso do edifício, fuga de gas | Evacuação, acionamento de bombeiros, avaliação de danos |
-| **Desastre** | Instalacao inutilizavel durante 1 ou mais dias | Inundacao no datacenter, ataque ransomware generalizado | Ativação do DRP, migração para site alternativo |
-| **Catastrofe** | Destruicao total das instalacoes | Terramoto que destrói o edifício-sede | Reconstrução, solução off-site de longo prazo |
+| **Desastre** | Instalação inutilizável durante 1 ou mais dias | Inundação no datacenter, ataque ransomware generalizado | Ativação do DRP, migração para site alternativo |
+| **Catastrofe** | Destruicao total das instalações | Terramoto que destrói o edifício-sede | Reconstrução, solução off-site de longo prazo |
 
 **Para refletir:**
 
 - Um ataque de ransomware que cifra 80% dos servidores e um incidente ou um desastre? Que critérios usaria para decidir?
-- Se um datacenter sofre uma inundacao parcial (1 de 3 salas), como classificaria a situação?
+- Se um datacenter sofre uma inundação parcial (1 de 3 salas), como classificaria a situação?
 - A classificação pode mudar ao longo do tempo? Um incidente pode escalar para desastre?
 
 ---
@@ -165,8 +165,8 @@ Cada pessoa envolvida na recuperação precisa de saber **exatamente qual e o se
 | **Lider de equipa técnica** | Coordena a recuperação de sistemas e infraestrutura | Responsável de infraestrutura |
 | **Responsável de comunicação** | Gere a comunicação interna e externa | Responsável de comunicação ou RH |
 | **Responsável de documentação** | Regista todas as ações, decisões e cronologia | Membro designado da equipa |
-| **Ligação com fornecedores** | Contacta fornecedores críticos (cloud, hardware, telecomunicacoes) | Gestor de contratos ou compras |
-| **Responsável de segurança física** | Controla acesso as instalacoes e garante segurança das pessoas | Segurança ou facilities |
+| **Ligação com fornecedores** | Contacta fornecedores críticos (cloud, hardware, telecomunicações) | Gestor de contratos ou compras |
+| **Responsável de segurança física** | Controla acesso as instalações e garante segurança das pessoas | Segurança ou facilities |
 
 ---
 
@@ -191,7 +191,7 @@ A **lista de alerta** (alert roster) e a lista sequencial de pessoas e entidades
   │  Nível 3 — Importante (primeiros 60 min)      │
   │  ● Direção geral / CEO                       │
   │  ● Departamento jurídico                     │
-  │  ● Autoridades reguladoras (se aplicavel)     │
+  │  ● Autoridades reguladoras (se aplicável)     │
   │                                              │
   │  Nível 4 — Informativo (primeiras 4 horas)    │
   │  ● Colaboradores afetados                     │
@@ -209,13 +209,13 @@ Desde o primeiro momento, alguém deve ser **exclusivamente responsável por doc
 - **Recuperação:** saber o que já foi feito e o que falta fazer
 - **Análise pós-incidente:** aprender com o que aconteceu
 - **Questoes legais:** provar que a organização agiu de forma diligente
-- **Seguros:** fundamentar pedidos de indemnizacao
-- **Conformidade:** demonstrar cumprimento de obrigações regulatorias (RGPD, NIS2)
+- **Seguros:** fundamentar pedidos de indemnização
+- **Conformidade:** demonstrar cumprimento de obrigações regulatórias (RGPD, NIS2)
 
 | O que documentar | Exemplo |
 |-----------------|---------|
 | Cronologia de eventos | "14:32 — Detetada falha no servidor principal de base de dados" |
-| Decisoes tomadas | "14:45 — Decidido ativar site alternativo (warmsite)" |
+| Decisões tomadas | "14:45 — Decidido ativar site alternativo (warmsite)" |
 | Ações executadas | "15:00 — Iniciada transferência de dados do último backup" |
 | Recursos utilizados | "Equipa de 5 técnicos + fornecedor de cloud contactado" |
 | Comunicacoes efetuadas | "16:00 — Email a todos os colaboradores sobre indisponibilidade" |
@@ -230,7 +230,7 @@ Se e apenas se for possível, a equipa deve tentar **mitigar o impacto** do desa
 | Ação de mitigação | Quando aplicar | Risco de não fazer |
 |-------------------|----------------|-------------------|
 | Desligar sistemas não afetados para protege-los | Quando há risco de propagação (ex: ransomware) | Propagação do dano a sistemas que ainda estavam funcionais |
-| Ativar redundancias existentes | Quando há sistemas redundantes disponíveis | Tempo de inatividade prolongado desnecessariamente |
+| Ativar redundâncias existentes | Quando há sistemas redundantes disponíveis | Tempo de inatividade prolongado desnecessariamente |
 | Redirecionar tráfego para infraestrutura de contingência | Quando o site primário está indisponível | Perda total de serviço para clientes |
 | Comunicar proativamente com stakeholders | Sempre | Perda de confiança, desinformação, pânico |
 
@@ -246,10 +246,10 @@ O DRP como documento deve seguir uma estrutura organizada. Tal como o IRP, o DRP
 
 | Tipo de desastre | Procedimentos específicos | Exemplo |
 |------------------|--------------------------|---------|
-| **Desastre natural** | Evacuação, proteção de hardware, ativação de site alternativo | Inundacao, terramoto, incêndio |
-| **Falha de infraestrutura** | Ativação de redundancias, migração de serviços | Falha elétrica prolongada, falha de AVAC no datacenter |
+| **Desastre natural** | Evacuação, proteção de hardware, ativação de site alternativo | Inundação, terramoto, incêndio |
+| **Falha de infraestrutura** | Ativação de redundâncias, migração de serviços | Falha elétrica prolongada, falha de AVAC no datacenter |
 | **Ciberataque grave** | Isolamento de rede, restauro de backups, análise forense | Ransomware generalizado, comprometimento de Active Directory |
-| **Falha de fornecedor crítico** | Ativação de fornecedores alternativos, continuidade degradada | Falha do fornecedor de cloud, falha de telecomunicacoes |
+| **Falha de fornecedor crítico** | Ativação de fornecedores alternativos, continuidade degradada | Falha do fornecedor de cloud, falha de telecomunicações |
 | **Pandemia/crise sanitaria** | Trabalho remoto, redistribuicao de funções, reducao de operações | COVID-19, surto grave |
 
 ### Componentes essenciais do documento DRP
@@ -262,7 +262,7 @@ O DRP como documento deve seguir uma estrutura organizada. Tal como o IRP, o DRP
   ║  1. Âmbito e objetivos                                    ║
   ║     └─ Que sistemas e processos estão cobertos            ║
   ║                                                           ║
-  ║  2. Criterios de ativação                                 ║
+  ║  2. Critérios de ativação                                 ║
   ║     └─ Quando e como se declara desastre                  ║
   ║                                                           ║
   ║  3. Papeis e responsabilidades                            ║
@@ -274,19 +274,19 @@ O DRP como documento deve seguir uma estrutura organizada. Tal como o IRP, o DRP
   ║  5. Procedimentos por tipo de desastre                    ║
   ║     └─ Ações específicas para cada cenário                ║
   ║                                                           ║
-  ║  6. Inventario de recursos                                ║
+  ║  6. Inventário de recursos                                ║
   ║     └─ Hardware, software, licencas, contratos            ║
   ║                                                           ║
   ║  7. Estratégia de recuperação                             ║
   ║     └─ Sites alternativos, backups, replicação            ║
   ║                                                           ║
   ║  8. Plano de comunicação                                  ║
-  ║     └─ Mensagens pré-definidas para cada audiencia        ║
+  ║     └─ Mensagens pré-definidas para cada audiência        ║
   ║                                                           ║
   ║  9. Plano de testes                                       ║
   ║     └─ Como e quando testar o DRP                         ║
   ║                                                           ║
-  ║  10. Histórico de revisoes                                ║
+  ║  10. Histórico de revisões                                ║
   ║      └─ Quando foi atualizado e por quem                  ║
   ╚═══════════════════════════════════════════════════════════╝
 ```
@@ -331,7 +331,7 @@ A BIA e a **base de decisão** do DRP. Sem a BIA, o DRP não saberia o que prote
 | **RTO** (Recovery Time Objective) | Estabelece o tempo-alvo de recuperação |
 | **RPO** (Recovery Point Objective) | Determina a política de backups (frequência, tipo) |
 | **Criticidade dos processos** | Prioriza a ordem de recuperação |
-| **Dependencias entre sistemas** | Identifica a sequência correta de restauro |
+| **Dependências entre sistemas** | Identifica a sequência correta de restauro |
 | **Impacto financeiro** | Justifica o investimento em estratégias de recuperação |
 
 ### O que o IRP transfere para o DRP
@@ -339,9 +339,9 @@ A BIA e a **base de decisão** do DRP. Sem a BIA, o DRP não saberia o que prote
 | Situação no IRP | Transicao para DRP |
 |-----------------|-------------------|
 | Incidente não controlado que escala | Ativação do DRP |
-| Múltiplos incidentes simultâneos | Declaracao de desastre |
+| Múltiplos incidentes simultâneos | Declaração de desastre |
 | Danos que excedem capacidade do IRP | Mobilizacao da equipa DRP |
-| Instalacoes comprometidas | Ativação de site alternativo |
+| Instalações comprometidas | Ativação de site alternativo |
 
 > O IRP responde ao incidente. O DRP recupera os sistemas. O BCP garante que a organização contínua a operar.
 
@@ -351,15 +351,15 @@ A BIA e a **base de decisão** do DRP. Sem a BIA, o DRP não saberia o que prote
 
 ### Exemplo 1 — Datacenter de empresa de e-commerce inundado
 
-**Cenário:** Uma empresa de e-commerce com faturação anual de 50 milhoes de euros sofre uma inundacao no seu datacenter principal após chuvas torrenciais. O datacenter fica completamente inoperacional. Estamos em novembro, a duas semanas da Black Friday.
+**Cenário:** Uma empresa de e-commerce com faturação anual de 50 milhoes de euros sofre uma inundação no seu datacenter principal após chuvas torrenciais. O datacenter fica completamente inoperacional. Estamos em novembro, a duas semanas da Black Friday.
 
 | Fase DRP | Ação | Detalhe |
 |----------|------|---------|
-| **Classificação** | Desastre | Datacenter primário totalmente inutilizavel |
+| **Classificação** | Desastre | Datacenter primário totalmente inutilizável |
 | **Prioridades** | Loja online > gateway de pagamentos > ERP > email | Baseado na BIA: loja online tem MTD de 4 horas |
 | **Papeis** | Coordenador DRP ativa equipa de 12 pessoas | CTO lidera; equipas de infra, dev e operações |
 | **Alerta** | CEO, fornecedor cloud, transportadora, gateway pagamentos | Contactados nos primeiros 30 minutos |
-| **Documentação** | Timeline desde a deteção da inundacao | Responsável designado desde o primeiro momento |
+| **Documentação** | Timeline desde a deteção da inundação | Responsável designado desde o primeiro momento |
 | **Mitigação** | Ativação do hotsite na cloud | Loja online restaurada em 3 horas a partir do hotsite |
 
 **Como interpretar:** *Este cenário ilustra a importância de ter um hotsite configurado e testado. A proximidade da Black Friday torna o tempo de recuperação ainda mais crítico. Sem o hotsite, a empresa perderia potencialmente milhoes em vendas.*
@@ -379,7 +379,7 @@ A BIA e a **base de decisão** do DRP. Sem a BIA, o DRP não saberia o que prote
 | Fase DRP | Ação | Detalhe |
 |----------|------|---------|
 | **Classificação** | Desastre (catastrofe operacional) | 90% dos sistemas indisponíveis; risco para pacientes |
-| **Prioridades** | Sistemas clínicos > farmácia > urgencias > administração | Vidas humanas são a prioridade absoluta |
+| **Prioridades** | Sistemas clínicos > farmácia > urgências > administração | Vidas humanas são a prioridade absoluta |
 | **Papeis** | Equipa de crise multidisciplinar | Direção clínica + TI + administração + comunicação |
 | **Alerta** | Autoridade de saúde, CNPD, polícia judiciária, fornecedores | Notificação as autoridades em menos de 1 hora |
 | **Documentação** | Registo forense + registo clínico manual | Duas streams: IT e clínica |
@@ -389,7 +389,7 @@ A BIA e a **base de decisão** do DRP. Sem a BIA, o DRP não saberia o que prote
 
 **Para refletir:**
 
-- Pagar o resgate e uma opcao? Que implicações legais e eticas existem?
+- Pagar o resgate e uma opção? Que implicações legais e eticas existem?
 - Como funcionam as prescricoes medicas sem sistema informático?
 - Que obrigações legais de notificação existem neste caso?
 
@@ -451,7 +451,7 @@ Associe cada elemento da coluna A com a descrição correta da coluna B:
 | 1. Alert roster | a) Documento que regista todas as ações durante o desastre |
 | 2. Hotsite | b) Lista sequencial de contactos a acionar em caso de desastre |
 | 3. MTD | c) Tempo máximo que a organização tolera sem um sistema |
-| 4. Documentação | d) Instalacao totalmente operacional pronta para ser ativada |
+| 4. Documentação | d) Instalação totalmente operacional pronta para ser ativada |
 | 5. Coordenador DRP | e) Pessoa que lidera toda a operação de recuperação |
 
 ??? success "Solução 1.2"
@@ -467,7 +467,7 @@ Associe cada elemento da coluna A com a descrição correta da coluna B:
 Para cada cenário, indique se se trata de um **não-desastre**, **emergência**, **desastre** ou **catastrofe**:
 
 1. O servidor de email fica indisponível durante 2 horas por falha de hardware.
-2. Um incêndio destrói completamente o datacenter principal e os escritorios adjacentes.
+2. Um incêndio destrói completamente o datacenter principal e os escritórios adjacentes.
 3. Uma falha elétrica afeta o datacenter durante 30 minutos (o UPS aguentou, o gerador não arrancou).
 4. Um ataque de ransomware cifra 95% dos servidores e os backups locais.
 5. Um colaborador derruba cafe no switch principal do piso 3.
@@ -475,9 +475,9 @@ Para cada cenário, indique se se trata de um **não-desastre**, **emergência**
 ??? success "Solução 2.1"
 
     1. **Não-desastre** — Perturbacao limitada, resolução rápida por substituição de hardware.
-    2. **Catastrofe** — Destruicao total das instalacoes, requer reconstrução completa.
+    2. **Catastrofe** — Destruicao total das instalações, requer reconstrução completa.
     3. **Emergência** — Potencial de se tornar desastre (se o gerador não arrancasse e o UPS terminasse), mas ficou controlada.
-    4. **Desastre** — Sistemas inutilizaveis por período prolongado, sem backups locais para restauro rápido.
+    4. **Desastre** — Sistemas inutilizáveis por período prolongado, sem backups locais para restauro rápido.
     5. **Não-desastre** — Falha isolada de um equipamento, substituição rápida (mesmo que cause incomodo temporário).
 
 ---
@@ -503,7 +503,7 @@ Uma PME de serviços financeiros tem os seguintes sistemas. Com base nos valores
     2. **Active Directory** (MTD: 2h) — sem AD, ninguém consegue autenticar-se para usar os outros sistemas. E um pré-requisito técnico.
     3. **Sistema de backups** (MTD: 4h) — necessário para restaurar os outros sistemas. Sem backups, não há recuperação possível.
     4. **Sistema de compliance** (MTD: 8h) — obrigação regulatória; atrasos podem resultar em multas.
-    5. **Email corporativo** (MTD: 24h) — importante para comunicação mas existem alternativas temporarias (telefone, messaging).
+    5. **Email corporativo** (MTD: 24h) — importante para comunicação mas existem alternativas temporárias (telefone, messaging).
     6. **Website institucional** (MTD: 72h) — o menos crítico; impacto reputacional mas não operacional.
 
     **Nota importante:** A ordem de recuperação não depende apenas do MTD. O Active Directory, por exemplo, pode ter de ser recuperado **antes** do sistema de trading, porque o trading depende do AD para autenticação — mesmo que o MTD do trading seja menor.
@@ -518,14 +518,14 @@ Uma universidade sofre um terramoto de magnitude 5.2 que danifica estruturalment
 
 **Tarefas:**
 
-a) Classifique a situação (nível de disrupcao).
+a) Classifique a situação (nível de disrupção).
 b) Defina as primeiras 5 ações da equipa DRP nas primeiras 2 horas.
 c) Identifique pelo menos 3 desafios específicos na ativação do warmsite.
-d) Proponha um plano de comunicação para os 3 publicos principais.
+d) Proponha um plano de comunicação para os 3 públicos principais.
 
 ??? success "Solução 3.1"
 
-    **a) Classificação:** **Desastre** — As instalacoes estão inutilizaveis (impossível aceder ao datacenter) mas não foram destruidas. Os servidores estão intactos mas inacessiveis. Se o edifício fosse destruído, seria catastrofe.
+    **a) Classificação:** **Desastre** — As instalações estão inutilizáveis (impossível aceder ao datacenter) mas não foram destruidas. Os servidores estão intactos mas inacessíveis. Se o edifício fosse destruído, seria catastrofe.
 
     **b) Primeiras 5 ações (2 horas):**
 
@@ -547,7 +547,7 @@ d) Proponha um plano de comunicação para os 3 publicos principais.
 
     | Público | Mensagem-chave | Canal | Quando |
     |---------|---------------|-------|--------|
-    | **Alunos** | "Serviços temporariamente indisponíveis. Prazos de entrega adiados. Atualizacoes via email pessoal e redes sociais." | Email pessoal, redes sociais, site institucional (se acessível) | Primeiras 4 horas |
+    | **Alunos** | "Serviços temporariamente indisponíveis. Prazos de entrega adiados. Atualizações via email pessoal e redes sociais." | Email pessoal, redes sociais, site institucional (se acessível) | Primeiras 4 horas |
     | **Docentes** | "Situação sob controlo. Plataformas em recuperação. Instrucoes para prazos e avaliações alternativas seguem em 24h." | Email pessoal, telefone para diretores de curso | Primeiras 2 horas |
     | **Media/público** | "A universidade ativou o seu plano de recuperação de desastres. Não há feridos. Serviços em restauro." | Comunicado de imprensa, site institucional | Primeiras 6 horas |
 
@@ -570,7 +570,7 @@ d) Proponha um plano de comunicação para os 3 publicos principais.
 
 ### 2. "O DRP e só um problema de TI"
 
-**Errado.** O DRP envolve toda a organização. A gestão de crise inclui comunicação, recursos humanos, questões legais, relacoes com fornecedores e apoio aos colaboradores e suas familias. A componente técnica e importante, mas não é a única.
+**Errado.** O DRP envolve toda a organização. A gestão de crise inclui comunicação, recursos humanos, questões legais, relações com fornecedores e apoio aos colaboradores e suas famílias. A componente técnica e importante, mas não é a única.
 
 ---
 
@@ -622,7 +622,7 @@ d) Proponha um plano de comunicação para os 3 publicos principais.
 | **DRP** | Plano para preparação, resposta e recuperação de desastres |
 | **Desastre vs incidente** | Desastre = impacto prolongado, requer DRP. Incidente = tratado pelo IRP |
 | **5 etapas** | Prioridades, papeis, alerta, documentação, mitigação |
-| **Categorias de disrupcao** | Não-desastre, emergência, desastre, catastrofe |
+| **Categorias de disrupção** | Não-desastre, emergência, desastre, catastrofe |
 | **Alert roster** | Lista sequencial de contactos a acionar |
 | **Ligação BIA→DRP** | MTD e RTO definem prioridades e tempos de recuperação |
 | **Ligação IRP→DRP** | Incidente que escala ativa o DRP |
@@ -634,7 +634,7 @@ d) Proponha um plano de comunicação para os 3 publicos principais.
 - *"Num desastre, a primeira necessidade não é fazer tudo; e saber o que fazer primeiro."*
 - *"O IRP responde ao incidente. O DRP recupera os sistemas. O BCP garante a continuidade."*
 - *"Backups sem DRP são como um extintor sem saber onde está a saida de emergência."*
-- *"Um DRP não testado e apenas papel com boas intencoes."*
+- *"Um DRP não testado e apenas papel com boas intenções."*
 
 ### Próximo passo
 

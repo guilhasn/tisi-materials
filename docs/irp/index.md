@@ -73,7 +73,7 @@ Isto e importante porque evita banalizar tudo. Existe uma ideia de **triagem e q
 
 ### O foco do IRP e a triade CIA
 
-O incidente e relevante porque ameaça uma ou mais dimensoes da segurança da informação:
+O incidente e relevante porque ameaça uma ou mais dimensões da segurança da informação:
 
 ```
                     ┌─────────────────────┐
@@ -143,7 +143,7 @@ Mas a essência do IR e: **quando acontece, como respondemos?**
 
 ## Pre-requisitos para o IRP funcionar
 
-A resposta a incidentes **não pode ser inventada no momento**. Tem de haver respostas pré-definidas, capacidade de deteção e uma equipa preparada. Improvisar durante uma crise custa caro: gera confusão, atrasos, decisões contraditorias e perda de tempo.
+A resposta a incidentes **não pode ser inventada no momento**. Tem de haver respostas pré-definidas, capacidade de deteção e uma equipa preparada. Improvisar durante uma crise custa caro: gera confusão, atrasos, decisões contraditórias e perda de tempo.
 
 > Respostas pré-definidas não eliminam a necessidade de pensar; eliminam a necessidade de começar do zero.
 
@@ -177,7 +177,7 @@ Na prática, isto traduz-se em:
   ║ A equipa técnica hesita       ║ A equipa de IR entra em ação     ║
   ║ Perde-se tempo                ║ Ha contenção rápida              ║
   ║ O impacto aumenta             ║ Decide-se comunicação e mitigação║
-  ║ Decisoes contraditorias       ║ Coordenação clara                ║
+  ║ Decisões contraditórias       ║ Coordenação clara                ║
   ╚═══════════════════════════════╩═══════════════════════════════════╝
 ```
 
@@ -193,7 +193,7 @@ Em organizações pequenas ou médias, pode ser uma **equipa funcional**, compos
 |-------|-----------------|-----------------|
 | **Coordenador de incidente** | Lidera a resposta, toma decisões, comunica com a gestão | Responsável de segurança ou TI |
 | **Analista técnico** | Investiga o incidente, recolhe evidências, analisa logs | Técnico de segurança ou administrador de sistemas |
-| **Operacoes** | Executa ações de contenção e recuperação nos sistemas | Administrador de sistemas, redes |
+| **Operações** | Executa ações de contenção e recuperação nos sistemas | Administrador de sistemas, redes |
 | **Apoio jurídico** | Avalia implicações legais (RGPD, notificações obrigatórias) | Jurista interno ou externo |
 | **Comunicação** | Gere a comunicação interna e externa | Responsável de comunicação |
 | **Gestão** | Aprova decisões críticas, aloca recursos | Direção |
@@ -481,7 +481,7 @@ Para cada cenário, indica se se trata de um **incidente relevante** ou não, e 
     | a) | **Não** | Spam comercial e ruido normal. Não é dirigido contra ativos de informação e não ameaça diretamente CIA. |
     | b) | **Possivelmente** | Tentativas massivas de força bruta contra SSH podem indicar um ataque dirigido. Depende de se os acessos foram bem-sucedidos. Deve ser investigado (triagem). |
     | c) | **Sim** | Acesso não autorizado a dados de RH e um incidente de **confidencialidade**. E dirigido contra ativos de informação e teve sucesso. |
-    | d) | **Não (mas registar)** | O antivirus conteve a ameaça automaticamente. Não houve impacto real. Deve ser registado para análise de tendencias, mas não requer resposta a incidente completa. |
+    | d) | **Não (mas registar)** | O antivirus conteve a ameaça automaticamente. Não houve impacto real. Deve ser registado para análise de tendências, mas não requer resposta a incidente completa. |
     | e) | **Sim** | Roubo de portatil com acesso VPN e documentos confidenciais e um incidente de **confidencialidade** e potencialmente de **integridade**. Tem impacto real e requer resposta imediata (revogar VPN, localizar dispositivo, avaliar dados expostos). |
 
 ---
@@ -570,7 +570,7 @@ Para cada momento, indica:
     **8h30 - Tentativas de login falhadas massivas**
 
     - **Fase:** Deteção
-    - **Ação:** Analisar os logs do SIEM. Verificar os IPs de origem, a frequência e os padrões das tentativas. Neste momento, pode ser um ataque de força bruta generico ou algo dirigido.
+    - **Ação:** Analisar os logs do SIEM. Verificar os IPs de origem, a frequência e os padrões das tentativas. Neste momento, pode ser um ataque de força bruta genérico ou algo dirigido.
     - **Classificação inicial:** Evento suspeito, ainda não confirmado como incidente. Requer investigação.
 
     **8h45 - Email de phishing reportado**
@@ -588,8 +588,8 @@ Para cada momento, indica:
     **9h15 - Alteracoes em documentos sensíveis**
 
     - **Fase:** Contenção urgente + início de Erradicação
-    - **Ação:** Bloquear imediatamente o acesso remoto (VPN) para todas as contas suspeitas. Isolar o servidor de ficheiros se necessário. Preservar logs e evidências. Avaliar o alcance total dos dados comprometidos. Comunicar a direção e, se aplicavel, a CNPD (dados pessoais).
-    - **Classificação final:** Incidente **crítico** - comprometimento confirmado de dados sensíveis do municipio. Todas as três dimensoes de CIA podem estar afetadas. Requer resposta completa com todas as fases do IRP.
+    - **Ação:** Bloquear imediatamente o acesso remoto (VPN) para todas as contas suspeitas. Isolar o servidor de ficheiros se necessário. Preservar logs e evidências. Avaliar o alcance total dos dados comprometidos. Comunicar a direção e, se aplicável, a CNPD (dados pessoais).
+    - **Classificação final:** Incidente **crítico** - comprometimento confirmado de dados sensíveis do municipio. Todas as três dimensões de CIA podem estar afetadas. Requer resposta completa com todas as fases do IRP.
 
     **Conclusão:**
 

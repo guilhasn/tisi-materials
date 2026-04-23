@@ -1,0 +1,337 @@
+#!/usr/bin/env python3
+"""
+Suplemento ao fix_accents.py — adiciona palavras pt-PT que ficaram sem acento.
+Reutiliza a infra-estrutura de process_line_safe para preservar code blocks e links.
+
+Princípios:
+- Inclui SÓ mapeamentos unívocos (sem ambiguidade ser/ter, verbo/adjectivo, etc.).
+- NÃO inclui: auditoria, objetivo, melhoria, procedimento, maioria, categoria,
+  engenharia, teoria, avaria — estas palavras estão correctas em pt-PT sem acento.
+- NÃO inclui formas verbais homógrafas: tem/têm, vem/vêm, valida/válida,
+  funcionaria (conditional vs noun), secretaria (escritório vs profissão).
+- Trata maiúsculas/minúsculas separadamente para cada palavra.
+"""
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import fix_accents
+
+# Mapeamento suplementar — pares univocos em pt-PT
+SUPPLEMENT = {
+    # -ção / -ções
+    'disrupcao': 'disrupção', 'Disrupcao': 'Disrupção',
+    'orcamento': 'orçamento', 'Orcamento': 'Orçamento',
+    'orcamentos': 'orçamentos', 'Orcamentos': 'Orçamentos',
+    'instalacao': 'instalação', 'Instalacao': 'Instalação',
+    'instalacoes': 'instalações', 'Instalacoes': 'Instalações',
+    'inundacao': 'inundação', 'Inundacao': 'Inundação',
+    'inundacoes': 'inundações',
+    'declaracao': 'declaração', 'Declaracao': 'Declaração',
+    'declaracoes': 'declarações',
+    'deslocacao': 'deslocação', 'Deslocacao': 'Deslocação',
+    'deslocacoes': 'deslocações',
+    'opcao': 'opção', 'Opcao': 'Opção',
+    'opcoes': 'opções', 'Opcoes': 'Opções',
+    'telecomunicacoes': 'telecomunicações',
+    'Telecomunicacoes': 'Telecomunicações',
+    'intencao': 'intenção', 'intencoes': 'intenções',
+    'Intencao': 'Intenção', 'Intencoes': 'Intenções',
+    'aquisicao': 'aquisição', 'Aquisicao': 'Aquisição',
+    'aquisicoes': 'aquisições',
+    'publicacao': 'publicação', 'publicacoes': 'publicações',
+    'Publicacao': 'Publicação',
+    'contratacao': 'contratação', 'Contratacao': 'Contratação',
+    'contratacoes': 'contratações',
+    'climatizacao': 'climatização', 'Climatizacao': 'Climatização',
+    'alimentacao': 'alimentação', 'Alimentacao': 'Alimentação',
+    'indemnizacao': 'indemnização', 'Indemnizacao': 'Indemnização',
+    'indemnizacoes': 'indemnizações',
+    'indicacao': 'indicação', 'Indicacao': 'Indicação',
+    'indicacoes': 'indicações',
+    'substituicao': 'substituição', 'substituicoes': 'substituições',
+    'Substituicao': 'Substituição',
+    'reinstalacao': 'reinstalação', 'Reinstalacao': 'Reinstalação',
+    'digitalizacao': 'digitalização', 'Digitalizacao': 'Digitalização',
+    'selecao': 'seleção', 'Selecao': 'Seleção',
+    'populacao': 'população', 'Populacao': 'População',
+    'oposicao': 'oposição', 'Oposicao': 'Oposição',
+    'observacao': 'observação', 'Observacao': 'Observação',
+    'observacoes': 'observações',
+    'composicao': 'composição', 'Composicao': 'Composição',
+    'previsao': 'previsão', 'Previsao': 'Previsão',
+    'previsoes': 'previsões',
+    'gravacao': 'gravação', 'Gravacao': 'Gravação',
+    'gravacoes': 'gravações', 'Gravacoes': 'Gravações',
+    'relacao': 'relação', 'relacoes': 'relações',
+    'inalacao': 'inalação', 'Inalacao': 'Inalação',
+    'jurisdicoes': 'jurisdições', 'Jurisdicoes': 'Jurisdições',
+    'jurisdicao': 'jurisdição',
+    'remediacao': 'remediação', 'remediacoes': 'remediações',
+    'percepcao': 'perceção', 'percepcoes': 'perceções',  # pt-PT
+    'Percepcao': 'Perceção',
+    'mocao': 'moção', 'mocoes': 'moções',
+    # -ências / -âncias
+    'sobrevivencia': 'sobrevivência', 'Sobrevivencia': 'Sobrevivência',
+    'concorrencia': 'concorrência', 'Concorrencia': 'Concorrência',
+    'audiencia': 'audiência', 'Audiencia': 'Audiência',
+    'audiencias': 'audiências', 'Audiencias': 'Audiências',
+    'urgencia': 'urgência', 'urgencias': 'urgências',
+    'Urgencia': 'Urgência', 'Urgencias': 'Urgências',
+    'competencia': 'competência', 'Competencia': 'Competência',
+    'competencias': 'competências', 'Competencias': 'Competências',
+    'assistencia': 'assistência', 'Assistencia': 'Assistência',
+    'redundancia': 'redundância', 'Redundancia': 'Redundância',
+    'redundancias': 'redundâncias', 'Redundancias': 'Redundâncias',
+    'distancia': 'distância', 'Distancia': 'Distância',
+    'distancias': 'distâncias',
+    'agencia': 'agência', 'Agencia': 'Agência',
+    'agencias': 'agências', 'Agencias': 'Agências',
+    # -ável / -áveis / -ível / -íveis
+    'inaceitavel': 'inaceitável', 'Inaceitavel': 'Inaceitável',
+    'inaceitaveis': 'inaceitáveis',
+    'inutilizavel': 'inutilizável', 'inutilizaveis': 'inutilizáveis',
+    'Inutilizavel': 'Inutilizável',
+    'aplicavel': 'aplicável', 'Aplicavel': 'Aplicável',
+    'aplicaveis': 'aplicáveis',
+    'viavel': 'viável', 'Viavel': 'Viável', 'viaveis': 'viáveis',
+    'evitavel': 'evitável', 'Evitavel': 'Evitável',
+    'recuperavel': 'recuperável', 'Recuperavel': 'Recuperável',
+    'recuperaveis': 'recuperáveis',
+    'montavel': 'montável', 'montaveis': 'montáveis',
+    'inoperavel': 'inoperável', 'Inoperavel': 'Inoperável',
+    'inoperaveis': 'inoperáveis',
+    'replicavel': 'replicável', 'Replicavel': 'Replicável',
+    'replicaveis': 'replicáveis',
+    'confiavel': 'confiável', 'Confiavel': 'Confiável',
+    'confiaveis': 'confiáveis',
+    'incomunicavel': 'incomunicável', 'Incomunicavel': 'Incomunicável',
+    'variavel': 'variável', 'Variavel': 'Variável',
+    'variaveis': 'variáveis',
+    'imutavel': 'imutável', 'imutaveis': 'imutáveis',
+    'Imutavel': 'Imutável',
+    'reparavel': 'reparável', 'reparaveis': 'reparáveis',
+    'colapsavel': 'colapsável', 'colapsaveis': 'colapsáveis',
+    'insubstituivel': 'insubstituível', 'Insubstituivel': 'Insubstituível',
+    'insubstituiveis': 'insubstituíveis',
+    'irreversivel': 'irreversível', 'irreversiveis': 'irreversíveis',
+    'Irreversivel': 'Irreversível',
+    'inacessivel': 'inacessível', 'Inacessivel': 'Inacessível',
+    'inacessiveis': 'inacessíveis',
+    'incompativel': 'incompatível', 'Incompativel': 'Incompatível',
+    'incompativeis': 'incompatíveis',
+    'termossensivel': 'termossensível', 'termossensiveis': 'termossensíveis',
+    'combustivel': 'combustível', 'Combustivel': 'Combustível',
+    'combustiveis': 'combustíveis',
+    'pericivel': 'perecível', 'pereciveis': 'perecíveis',
+    'Pericivel': 'Perecível',
+    # -ório / -ória / -ários / -árias
+    'regulatoria': 'regulatória', 'Regulatoria': 'Regulatória',
+    'regulatorias': 'regulatórias', 'regulatorios': 'regulatórios',
+    'Regulatorias': 'Regulatórias', 'Regulatorios': 'Regulatórios',
+    'regulatorio': 'regulatório', 'Regulatorio': 'Regulatório',
+    'contraditoria': 'contraditória', 'Contraditoria': 'Contraditória',
+    'contraditorias': 'contraditórias', 'contraditorios': 'contraditórios',
+    'escritorio': 'escritório', 'Escritorio': 'Escritório',
+    'escritorios': 'escritórios', 'Escritorios': 'Escritórios',
+    'prioritaria': 'prioritária', 'Prioritaria': 'Prioritária',
+    'prioritario': 'prioritário', 'Prioritario': 'Prioritário',
+    'prioritarias': 'prioritárias', 'prioritarios': 'prioritários',
+    'desnecessaria': 'desnecessária', 'Desnecessaria': 'Desnecessária',
+    'desnecessario': 'desnecessário',
+    'desnecessarias': 'desnecessárias', 'desnecessarios': 'desnecessários',
+    'temporario': 'temporário', 'Temporario': 'Temporário',
+    'temporaria': 'temporária', 'Temporaria': 'Temporária',
+    'temporarios': 'temporários', 'temporarias': 'temporárias',
+    'extraordinario': 'extraordinário', 'extraordinaria': 'extraordinária',
+    'extraordinarios': 'extraordinários', 'extraordinarias': 'extraordinárias',
+    'Extraordinaria': 'Extraordinária',
+    'primario': 'primário', 'primaria': 'primária',
+    'primarios': 'primários', 'primarias': 'primárias',
+    'Primario': 'Primário',
+    'dentaria': 'dentária', 'dentario': 'dentário',
+    'Dentaria': 'Dentária',
+    'veterinaria': 'veterinária', 'Veterinaria': 'Veterinária',
+    'horaria': 'horária', 'Horaria': 'Horária',
+    'horario': 'horário', 'horarios': 'horários',
+    'diaria': 'diária', 'Diaria': 'Diária',
+    'diario': 'diário', 'diarios': 'diários', 'diarias': 'diárias',
+    'interbancaria': 'interbancária', 'interbancario': 'interbancário',
+    'mobiliario': 'mobiliário', 'Mobiliario': 'Mobiliário',
+    'inventario': 'inventário', 'inventarios': 'inventários',
+    'Inventario': 'Inventário', 'Inventarios': 'Inventários',
+    'operario': 'operário', 'operarios': 'operários',
+    'hipotetico': 'hipotético', 'Hipotetico': 'Hipotético',
+    'hipotetica': 'hipotética',
+    'psicologico': 'psicológico', 'psicologica': 'psicológica',
+    'Psicologico': 'Psicológico',
+    # outros univocos
+    'unicos': 'únicos', 'Unicos': 'Únicos',
+    'dimensoes': 'dimensões', 'Dimensoes': 'Dimensões',
+    'extensoes': 'extensões', 'Extensoes': 'Extensões',
+    'omissoes': 'omissões', 'Omissoes': 'Omissões',
+    'revisoes': 'revisões', 'Revisoes': 'Revisões',
+    'uteis': 'úteis', 'Uteis': 'Úteis',
+    'politico': 'político', 'politica': 'política',  # já existe provavelmente mas reforça
+    'publicos': 'públicos', 'publicas': 'públicas',
+    'generico': 'genérico', 'generica': 'genérica',
+    'Generico': 'Genérico',
+
+    # --- Ronda 2: palavras adicionais encontradas por scan directo ---
+    # -ões que faltaram
+    'decisao': 'decisão', 'Decisao': 'Decisão',
+    'decisoes': 'decisões', 'Decisoes': 'Decisões',
+    'operacao': 'operação', 'Operacao': 'Operação',
+    'operacoes': 'operações', 'Operacoes': 'Operações',
+    'atualizacao': 'atualização', 'Atualizacao': 'Atualização',
+    'atualizacoes': 'atualizações', 'Atualizacoes': 'Atualizações',
+    'notificacao': 'notificação', 'Notificacao': 'Notificação',
+    'notificacoes': 'notificações',
+    'accao': 'ação', 'Accao': 'Ação', 'accoes': 'ações',
+    # -ório / -ários univocos
+    'cenario': 'cenário', 'Cenario': 'Cenário',
+    'cenarios': 'cenários', 'Cenarios': 'Cenários',
+    'criterio': 'critério', 'Criterio': 'Critério',
+    'criterios': 'critérios', 'Criterios': 'Critérios',
+    'servico': 'serviço', 'Servico': 'Serviço',
+    'servicos': 'serviços', 'Servicos': 'Serviços',
+    'negocio': 'negócio', 'Negocio': 'Negócio',
+    'negocios': 'negócios', 'Negocios': 'Negócios',
+    'exercicio': 'exercício', 'Exercicio': 'Exercício',
+    'exercicios': 'exercícios', 'Exercicios': 'Exercícios',
+    'edificio': 'edifício', 'Edificio': 'Edifício',
+    'edificios': 'edifícios',
+    'calendario': 'calendário', 'Calendario': 'Calendário',
+    'relatorio': 'relatório', 'Relatorio': 'Relatório',
+    'relatorios': 'relatórios', 'Relatorios': 'Relatórios',
+    'territorio': 'território', 'territorios': 'territórios',
+    'Territorio': 'Território',
+    # palavras com acento agudo em a/o
+    'familia': 'família', 'Familia': 'Família',
+    'familias': 'famílias', 'Familias': 'Famílias',
+    'historia': 'história', 'Historia': 'História',
+    'historias': 'histórias',
+    'memoria': 'memória', 'Memoria': 'Memória',
+    'memorias': 'memórias',
+    'tragedia': 'tragédia', 'tragedias': 'tragédias',
+    'emergencia': 'emergência', 'Emergencia': 'Emergência',
+    'emergencias': 'emergências', 'Emergencias': 'Emergências',
+    'experiencia': 'experiência', 'Experiencia': 'Experiência',
+    'experiencias': 'experiências',
+    'tendencia': 'tendência', 'tendencias': 'tendências',
+    'Tendencia': 'Tendência',
+    'resiliencia': 'resiliência', 'Resiliencia': 'Resiliência',
+    'consciencia': 'consciência', 'Consciencia': 'Consciência',
+    'eficiencia': 'eficiência', 'Eficiencia': 'Eficiência',
+    'evidencia': 'evidência', 'Evidencia': 'Evidência',
+    'evidencias': 'evidências', 'Evidencias': 'Evidências',
+    'frequencia': 'frequência', 'Frequencia': 'Frequência',
+    'frequencias': 'frequências',
+    'referencia': 'referência', 'Referencia': 'Referência',
+    'referencias': 'referências', 'Referencias': 'Referências',
+    'preferencia': 'preferência', 'preferencias': 'preferências',
+    'ocorrencia': 'ocorrência', 'Ocorrencia': 'Ocorrência',
+    'ocorrencias': 'ocorrências',
+    'recorrencia': 'recorrência', 'recorrencias': 'recorrências',
+    'dependencia': 'dependência', 'Dependencia': 'Dependência',
+    'dependencias': 'dependências', 'Dependencias': 'Dependências',
+    'interdependencia': 'interdependência',
+    'interdependencias': 'interdependências',
+    # -móvel / móveis
+    'telemovel': 'telemóvel', 'Telemovel': 'Telemóvel',
+    'telemoveis': 'telemóveis', 'Telemoveis': 'Telemóveis',
+    # -fónico / -fónica
+    'telefonica': 'telefónica', 'telefonicas': 'telefónicas',
+    'telefonico': 'telefónico', 'telefonicos': 'telefónicos',
+    'Telefonica': 'Telefónica',
+    # -cie / próxima
+    'proximo': 'próximo', 'Proximo': 'Próximo',
+    'proxima': 'próxima', 'Proxima': 'Próxima',
+    'proximos': 'próximos', 'proximas': 'próximas',
+    # -videoconferência
+    'videoconferencia': 'videoconferência',
+    'Videoconferencia': 'Videoconferência',
+    'videoconferencias': 'videoconferências',
+    # outros comuns
+    'pratica': 'prática', 'praticas': 'práticas',
+    'pratico': 'prático', 'praticos': 'práticos',
+    'Pratica': 'Prática', 'Praticas': 'Práticas',
+    'Pratico': 'Prático', 'Praticos': 'Práticos',
+    'critica': 'crítica', 'criticas': 'críticas',
+    'Critica': 'Crítica', 'Criticas': 'Críticas',
+    'critico': 'crítico', 'criticos': 'críticos',
+    'publica': 'pública', 'publicas': 'públicas',
+    'publico': 'público', 'publicos': 'públicos',
+    'Publica': 'Pública', 'Publico': 'Público',
+    'tecnica': 'técnica', 'tecnicas': 'técnicas',
+    'tecnico': 'técnico', 'tecnicos': 'técnicos',
+    'Tecnica': 'Técnica', 'Tecnico': 'Técnico',
+    'fisico': 'físico', 'fisica': 'física',
+    'fisicos': 'físicos', 'fisicas': 'físicas',
+    'Fisico': 'Físico', 'Fisica': 'Física',
+    'logico': 'lógico', 'logica': 'lógica',
+    'logicos': 'lógicos', 'logicas': 'lógicas',
+    'Logico': 'Lógico', 'Logica': 'Lógica',
+    'economico': 'económico', 'economica': 'económica',
+    'Economico': 'Económico', 'Economica': 'Económica',
+    'academico': 'académico', 'academica': 'académica',
+    'minimo': 'mínimo', 'Minimo': 'Mínimo',
+    'minima': 'mínima', 'Minima': 'Mínima',
+    'minimos': 'mínimos', 'minimas': 'mínimas',
+    'maximo': 'máximo', 'Maximo': 'Máximo',
+    'maxima': 'máxima', 'Maxima': 'Máxima',
+    'maximos': 'máximos', 'maximas': 'máximas',
+    'unico': 'único', 'Unico': 'Único',
+    'unica': 'única', 'Unica': 'Única',
+    'unicas': 'únicas',
+    'ultimo': 'último', 'Ultimo': 'Último',
+    'ultima': 'última', 'Ultima': 'Última',
+    'ultimos': 'últimos', 'ultimas': 'últimas',
+    'nivel': 'nível', 'Nivel': 'Nível',
+    'niveis': 'níveis', 'Niveis': 'Níveis',
+    'indice': 'índice', 'Indice': 'Índice',
+    'indices': 'índices',
+    'util': 'útil', 'Util': 'Útil',
+    'dificil': 'difícil', 'Dificil': 'Difícil',
+    'facil': 'fácil', 'Facil': 'Fácil',
+    'faceis': 'fáceis', 'dificeis': 'difíceis',
+    'possivel': 'possível', 'Possivel': 'Possível',
+    'possiveis': 'possíveis',
+    'impossivel': 'impossível', 'impossiveis': 'impossíveis',
+    'sensivel': 'sensível', 'Sensivel': 'Sensível',
+    'sensiveis': 'sensíveis',
+    'visivel': 'visível', 'visiveis': 'visíveis',
+    'compativel': 'compatível', 'compativeis': 'compatíveis',
+    'Compativel': 'Compatível',
+    'responsavel': 'responsável', 'Responsavel': 'Responsável',
+    'responsaveis': 'responsáveis',
+}
+
+
+def main():
+    # Injectar o suplemento no WORD_MAP global de fix_accents (não substituir o que já existe)
+    added = 0
+    for k, v in SUPPLEMENT.items():
+        if k not in fix_accents.WORD_MAP:
+            fix_accents.WORD_MAP[k] = v
+            added += 1
+    print(f'[INFO] {added} mapeamentos adicionados ao WORD_MAP.')
+
+    base = os.path.dirname(os.path.abspath(__file__))
+    docs = os.path.join(base, 'docs')
+
+    total_changed = 0
+    for root, _, files in os.walk(docs):
+        for fn in files:
+            if not fn.endswith('.md'):
+                continue
+            p = os.path.join(root, fn)
+            if fix_accents.process_file(p):
+                rel = os.path.relpath(p, base)
+                print(f'[OK] {rel}')
+                total_changed += 1
+    print(f'[DONE] {total_changed} ficheiros alterados.')
+
+
+if __name__ == '__main__':
+    main()

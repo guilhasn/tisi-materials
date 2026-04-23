@@ -16,7 +16,7 @@
 
 ## 1. Porque testar o DRP
 
-Um DRP que nunca foi testado e apenas um documento com boas intencoes. Os testes são essenciais porque revelam problemas que ninguém antecipou durante o planeamento.
+Um DRP que nunca foi testado e apenas um documento com boas intenções. Os testes são essenciais porque revelam problemas que ninguém antecipou durante o planeamento.
 
 > "O objetivo dos testes e melhorar a resposta — nunca encontrar culpados."
 
@@ -28,10 +28,10 @@ Um DRP que nunca foi testado e apenas um documento com boas intencoes. Os testes
   ║  ● Contactos desatualizados na lista de alerta            ║
   ║  ● Backups corrompidos ou incompletos                     ║
   ║  ● Tempos de recuperação irrealistas                      ║
-  ║  ● Dependencias entre sistemas não previstas              ║
+  ║  ● Dependências entre sistemas não previstas              ║
   ║  ● Procedimentos ambiguos ou incompletos                  ║
   ║  ● Pessoal que não conhece o seu papel                    ║
-  ║  ● Hardware incompativel no site alternativo              ║
+  ║  ● Hardware incompatível no site alternativo              ║
   ║  ● Licencas de software invalidas no site de recuperação  ║
   ║  ● Falhas de comunicação entre equipas                    ║
   ║  ● Documentação desatualizada ou inacessível              ║
@@ -82,9 +82,9 @@ O teste mais simples. Copias do DRP são distribuidas aos gestores de cada área
 
 | Aspeto | Detalhe |
 |--------|---------|
-| **O que se faz** | Cada gestor le o plano e verifica contactos, procedimentos, inventarios |
+| **O que se faz** | Cada gestor le o plano e verifica contactos, procedimentos, inventários |
 | **Custo** | Muito baixo |
-| **Disrupcao** | Nenhuma |
+| **Disrupção** | Nenhuma |
 | **O que revela** | Informação desatualizada, lacunas óbvias, contactos errados |
 | **Limitação** | Não testa se o plano funciona na prática |
 
@@ -92,14 +92,14 @@ O teste mais simples. Copias do DRP são distribuidas aos gestores de cada área
 
 ### 2. Structured walk-through (tabletop)
 
-A equipa reune-se numa sala e **percorre o plano passo a passo**, discutindo cada fase e cada decisão. Um cenário hipotetico e apresentado e a equipa discute como responderia.
+A equipa reune-se numa sala e **percorre o plano passo a passo**, discutindo cada fase e cada decisão. Um cenário hipotético e apresentado e a equipa discute como responderia.
 
 | Aspeto | Detalhe |
 |--------|---------|
 | **O que se faz** | Reuniao de 2-4 horas com cenário simulado; equipa discute cada passo |
 | **Custo** | Baixo (tempo dos participantes) |
-| **Disrupcao** | Nenhuma (apenas discussão) |
-| **O que revela** | Ambiguidades nos procedimentos, conflitos de papeis, lacunas logicas |
+| **Disrupção** | Nenhuma (apenas discussão) |
+| **O que revela** | Ambiguidades nos procedimentos, conflitos de papeis, lacunas lógicas |
 | **Limitação** | Não testa a execução real; não revela problemas técnicos |
 
 **Exemplo de cenário tabletop:**
@@ -118,13 +118,13 @@ A equipa discute:
 
 ### 3. Simulação
 
-Um cenário de desastre e **simulado** com ações reais mas sem afetar os sistemas de produção. Pode envolver deslocacao ao site alternativo, teste de comunicações e ativação parcial de procedimentos.
+Um cenário de desastre e **simulado** com ações reais mas sem afetar os sistemas de produção. Pode envolver deslocação ao site alternativo, teste de comunicações e ativação parcial de procedimentos.
 
 | Aspeto | Detalhe |
 |--------|---------|
 | **O que se faz** | Simular o desastre com ações reais (deslocar equipa, testar comunicações, verificar backups) |
-| **Custo** | Medio (tempo, deslocacao, recursos) |
-| **Disrupcao** | Minima (produção não é afetada) |
+| **Custo** | Medio (tempo, deslocação, recursos) |
+| **Disrupção** | Mínima (produção não é afetada) |
 | **O que revela** | Problemas logisticos, falhas de comunicação, tempos reais de resposta |
 | **Limitação** | Não testa a transferência real de produção |
 
@@ -138,7 +138,7 @@ Os sistemas de recuperação são **ativados em paralelo** com os sistemas de pr
 |--------|---------|
 | **O que se faz** | Ativar site alternativo, restaurar dados, verificar que tudo funciona — sem desligar a produção |
 | **Custo** | Alto (ativação real de infraestrutura alternativa) |
-| **Disrupcao** | Baixa (produção contínua normal) |
+| **Disrupção** | Baixa (produção contínua normal) |
 | **O que revela** | Se o site alternativo realmente funciona; tempos reais de recuperação; problemas de compatibilidade |
 | **Limitação** | Não testa a transferência real de utilizadores e carga |
 
@@ -152,17 +152,17 @@ O teste mais realista e mais arriscado. A produção e **efetivamente transferid
 |--------|---------|
 | **O que se faz** | Desligar produção no site primário; operar exclusivamente no site alternativo |
 | **Custo** | Muito alto (risco real, recursos significativos) |
-| **Disrupcao** | Alta (produção pode ser afetada se o teste falhar) |
+| **Disrupção** | Alta (produção pode ser afetada se o teste falhar) |
 | **O que revela** | Se o plano funciona na realidade, sob condições reais |
 | **Limitação** | Risco de falha real; só recomendado para organizações maduras |
 
 ### Comparação de tipos de teste
 
-| Tipo | Custo | Disrupcao | Realismo | Recomendado para |
+| Tipo | Custo | Disrupção | Realismo | Recomendado para |
 |------|-------|-----------|----------|------------------|
-| Checklist | Muito baixo | Nenhuma | Baixo | Primeira validação; revisoes periódicas |
+| Checklist | Muito baixo | Nenhuma | Baixo | Primeira validação; revisões periódicas |
 | Walk-through | Baixo | Nenhuma | Medio-baixo | Validação de lógica e papeis |
-| Simulação | Medio | Minima | Medio | Organizacoes em maturacao |
+| Simulação | Medio | Mínima | Medio | Organizacoes em maturacao |
 | Paralelo | Alto | Baixa | Alto | Organizacoes com site alternativo |
 | Interrupcao total | Muito alto | Alta | Máximo | Organizacoes maduras; infraestruturas críticas |
 
@@ -175,10 +175,10 @@ O teste mais realista e mais arriscado. A produção e **efetivamente transferid
 | Evento | Ação |
 |--------|------|
 | **Anualmente** | Teste completo (mínimo walk-through; idealmente simulação ou paralelo) |
-| **Após mudanca significativa** | Novo sistema crítico, mudanca de datacenter, nova equipa, fusao/aquisicao |
+| **Após mudanca significativa** | Novo sistema crítico, mudanca de datacenter, nova equipa, fusao/aquisição |
 | **Após incidente real** | Validar que as lições aprendidas foram incorporadas no plano |
 | **Após revisão do plano** | Confirmar que as alterações funcionam na prática |
-| **Trimestralmente** | Revisão de checklist (contactos, inventarios) |
+| **Trimestralmente** | Revisão de checklist (contactos, inventários) |
 
 > Os testes devem acontecer **pelo menos uma vez por ano**, ou sempre que ocorra uma **mudanca significativa** na organização ou nos sistemas.
 
@@ -220,7 +220,7 @@ O DRP e um **documento vivo** que precisa de ser atualizado regularmente. Um pla
 | **Novo sistema crítico** | Sistema não coberto pelo DRP | Implementação de novo ERP |
 | **Mudanca de fornecedor** | SLAs e contactos desatualizados | Mudanca de fornecedor de cloud |
 | **Mudanca regulatória** | Requisitos legais não cumpridos | Nova diretiva NIS2; alterações ao RGPD |
-| **Mudanca organizacional** | Estrutura de decisão invalida | Fusao, aquisicao, reestruturacao |
+| **Mudanca organizacional** | Estrutura de decisão invalida | Fusao, aquisição, reestruturacao |
 
 ### Processo de manutenção
 
@@ -237,7 +237,7 @@ O DRP e um **documento vivo** que precisa de ser atualizado regularmente. Um pla
   │  ┌──────────────┐    ┌──────────────┐                 │
   │  │  Registar    │◄───│  Atualizar   │                 │
   │  │  no histórico│    │  o plano     │                 │
-  │  │  de revisoes │    │              │                 │
+  │  │  de revisões │    │              │                 │
   │  └──────┬───────┘    └──────────────┘                 │
   │         │                                              │
   │         ▼                                              │
@@ -249,7 +249,7 @@ O DRP e um **documento vivo** que precisa de ser atualizado regularmente. Um pla
   └───────────────────────────────────────────────────────┘
 ```
 
-### Histórico de revisoes
+### Histórico de revisões
 
 O DRP deve manter um **registo de todas as alterações**:
 
@@ -284,7 +284,7 @@ A **auditoria** do DRP e realizada por um **observador externo** (terceiro indep
 | **Backups** | Os backups são testados? Cumprem o RPO definido na BIA? |
 | **Site alternativo** | O site alternativo está operacional? Foi testado recentemente? |
 | **Comunicação** | Os canais de comunicação alternativos existem e foram testados? |
-| **Conformidade** | O plano cumpre os requisitos regulatorios (NIS2, RGPD, ISO 22301)? |
+| **Conformidade** | O plano cumpre os requisitos regulatórios (NIS2, RGPD, ISO 22301)? |
 | **Melhoria contínua** | As lições aprendidas de testes e incidentes são incorporadas? |
 
 ---
@@ -325,7 +325,7 @@ A **auditoria** do DRP e realizada por um **observador externo** (terceiro indep
   │  ✗ Sem MFA, regulador não permite operação bancária       │
   │                                                           │
   │  Conclusão: Sistemas restaurados mas INUTILIZAVEIS        │
-  │  sem autenticação. Dependencia crítica não identificada.   │
+  │  sem autenticação. Dependência crítica não identificada.   │
   └─────────────────────────────────────────────────────────┘
 ```
 
@@ -358,7 +358,7 @@ e) Structured walk-through
     Ordem por complexidade crescente:
 
     1. **b) Checklist** — Revisão documental, sem interação
-    2. **e) Structured walk-through** — Discussão em sala sobre cenário hipotetico
+    2. **e) Structured walk-through** — Discussão em sala sobre cenário hipotético
     3. **c) Simulação** — Ações simuladas sem afetar produção
     4. **a) Teste paralelo** — Ativação real do site alternativo em paralelo com produção
     5. **d) Interrupcao total** — Transferencia real da produção para o site alternativo
@@ -407,16 +407,16 @@ Para cada situação, recomende o tipo de teste mais adequado e justifique:
 
 **Exercício 2.2 — Planear o programa de testes**
 
-Uma empresa de média dimensão (200 colaboradores, 1 datacenter, 1 warmsite) nunca testou o DRP. O orcamento para testes e limitado. Proponha um programa de testes para os próximos 3 anos.
+Uma empresa de média dimensão (200 colaboradores, 1 datacenter, 1 warmsite) nunca testou o DRP. O orçamento para testes e limitado. Proponha um programa de testes para os próximos 3 anos.
 
 ??? success "Solução 2.2"
 
     | Ano | Tipo de teste | Objetivo | Custo estimado |
     |-----|--------------|----------|---------------|
-    | **Ano 1 — Q1** | Checklist | Validar informação do plano (contactos, inventarios, procedimentos) | Baixo (2-3 dias de trabalho) |
+    | **Ano 1 — Q1** | Checklist | Validar informação do plano (contactos, inventários, procedimentos) | Baixo (2-3 dias de trabalho) |
     | **Ano 1 — Q3** | Walk-through | Treinar equipa de crise; testar lógica dos procedimentos | Baixo (1 dia de reunião) |
     | **Ano 2 — Q1** | Checklist | Revalidar após correções do ano anterior | Baixo |
-    | **Ano 2 — Q2** | Simulação | Testar comunicações, deslocacao ao warmsite, restauro de backups | Medio (2-3 dias, custos de deslocacao) |
+    | **Ano 2 — Q2** | Simulação | Testar comunicações, deslocação ao warmsite, restauro de backups | Medio (2-3 dias, custos de deslocação) |
     | **Ano 2 — Q4** | Walk-through | Cenário diferente; foco em gestão de crise e comunicação | Baixo |
     | **Ano 3 — Q1** | Checklist | Revisão periodica | Baixo |
     | **Ano 3 — Q2** | Teste paralelo | Ativar warmsite, restaurar sistemas, validar tempos de recuperação | Alto (ativação real de infraestrutura) |
@@ -450,9 +450,9 @@ Uma empresa de média dimensão (200 colaboradores, 1 datacenter, 1 warmsite) nu
 
 ---
 
-### 4. "Não temos orcamento para testes"
+### 4. "Não temos orçamento para testes"
 
-**Parcialmente válido, mas não é desculpa.** Um teste de checklist custa zero (além do tempo). Um walk-through custa uma reunião. Mesmo com orcamento limitado, há sempre um nível de teste possível.
+**Parcialmente válido, mas não é desculpa.** Um teste de checklist custa zero (além do tempo). Um walk-through custa uma reunião. Mesmo com orçamento limitado, há sempre um nível de teste possível.
 
 ---
 
@@ -480,11 +480,11 @@ Uma empresa de média dimensão (200 colaboradores, 1 datacenter, 1 warmsite) nu
 | **Progressão** | Comecar simples, aumentar complexidade com maturidade |
 | **Manutenção** | Revisão trimestral de contactos; atualização após mudancas |
 | **Auditoria** | Terceiro independente verifica conformidade e eficácia |
-| **Histórico** | Registar todas as revisoes, testes e alterações |
+| **Histórico** | Registar todas as revisões, testes e alterações |
 
 ### Frases-chave para recordar
 
-- *"Um DRP não testado e apenas papel com boas intencoes."*
+- *"Um DRP não testado e apenas papel com boas intenções."*
 - *"O objetivo dos testes e melhorar a resposta — nunca encontrar culpados."*
 - *"Se o teste não revelou problemas, o teste não foi rigoroso o suficiente."*
 - *"Testar o DRP e barato. Não testar e que sai caro."*

@@ -83,7 +83,7 @@ RTO + WRT <= MTD
 
 O MTD e a **linha vermelha**: o tempo máximo que a organização pode tolerar sem operações normais antes de sofrer danos inaceitáveis (financeiros, reputacionais, legais, operacionais).
 
-- Se o MTD for ultrapassado, as consequências tornam-se críticas ou irreversiveis.
+- Se o MTD for ultrapassado, as consequências tornam-se críticas ou irreversíveis.
 - E o limite superior: RTO + WRT devem caber dentro do MTD.
 
 ```
@@ -101,10 +101,10 @@ O MTD e a **linha vermelha**: o tempo máximo que a organização pode tolerar s
 
 > **Qual e o mínimo para continuar a operar?**
 
-O MOR define os **recursos, processos e capacidades minimas** necessárias para manter as operações críticas durante um incidente, mesmo que de forma degradada.
+O MOR define os **recursos, processos e capacidades mínimas** necessárias para manter as operações críticas durante um incidente, mesmo que de forma degradada.
 
 Inclui tipicamente:
-- **Sistemas/aplicações** minimas necessárias
+- **Sistemas/aplicações** mínimas necessárias
 - **Pessoal** essencial (quem e quantos)
 - **Infraestrutura** mínima (rede, energia, espaço)
 - **Comunicacoes** essenciais
@@ -131,7 +131,7 @@ MTBF = 8760 / 4 = 2190 horas (~91 dias)
 
 - MTBF alto = sistema mais fiável.
 - Útil para planeamento de capacidade e substituição de equipamento.
-- Aplica-se sobretudo a componentes **reparaveis**.
+- Aplica-se sobretudo a componentes **reparáveis**.
 
 ---
 
@@ -201,7 +201,7 @@ Disponibilidade = 2190 / (2190 + 2) = 99.91%
 | Alta | 1-8 horas | E-commerce, serviços financeiros |
 | Media | 8-24 horas | Email corporativo, sistemas internos |
 | Baixa | 24-72 horas | Sistemas de arquivo, relatórios |
-| Minima | > 72 horas | Documentação interna não crítica |
+| Mínima | > 72 horas | Documentação interna não crítica |
 
 ---
 
@@ -216,7 +216,7 @@ Disponibilidade = 2190 / (2190 + 2) = 99.91%
 | **RPO** | 15 minutos | A empresa aceita perder no máximo 15 minutos de transações |
 | **RTO** | 1 hora | O sistema tem de voltar em até 1 hora |
 | **WRT** | 2 horas | Após restauro, são precisas 2 horas para verificar encomendas, pagamentos e sincronizações |
-| **MTD** | 4 horas | Acima de 4 horas, o impacto comercial e reputacional torna-se inaceitavel |
+| **MTD** | 4 horas | Acima de 4 horas, o impacto comercial e reputacional torna-se inaceitável |
 
 **MOR - Operação mínima:**
 - Checkout básico funcional
@@ -238,7 +238,7 @@ Disponibilidade = 2190 / (2190 + 2) = 99.91%
 
 | Métrica | Valor | Justificação |
 |---------|-------|-------------|
-| **RPO** | Quase zero | Perda de dados clínicos e inaceitavel - vidas estão em jogo |
+| **RPO** | Quase zero | Perda de dados clínicos e inaceitável - vidas estão em jogo |
 | **RTO** | 15 minutos | O sistema tem de voltar em minutos |
 | **WRT** | 30 minutos | Verificação de integridade dos registos clínicos |
 | **MTD** | 1 hora | Além de 1 hora, há risco direto para a segurança dos pacientes |
@@ -252,7 +252,7 @@ Disponibilidade = 2190 / (2190 + 2) = 99.91%
 **Validação:** `RTO (15min) + WRT (30min) = 45min <= MTD (1h)` ✓
 
 **Conclusão:** Ha serviços em que:
-- A perda de dados e **quase inaceitavel**
+- A perda de dados e **quase inaceitável**
 - O tempo de recuperação tem de ser **muito curto**
 - O **modo degradado** (MOR) tem de estar preparado a partida
 - Os custos de infraestrutura redundante justificam-se plenamente
@@ -278,7 +278,7 @@ Disponibilidade = 2190 / (2190 + 2) = 99.91%
 
 **Validação:** `RTO (2h) + WRT (4h) = 6h <= MTD (8h)` ✓
 
-**Comparação:** A criticidade existe mas não é tao agressiva como num hospital. Ha margem para processos manuais temporarios.
+**Comparação:** A criticidade existe mas não é tao agressiva como num hospital. Ha margem para processos manuais temporários.
 
 ---
 
@@ -304,12 +304,12 @@ Disponibilidade = 2190 / (2190 + 2) = 99.91%
 ### Confusão 4: MOR não é operação normal
 
 > MOR significa operar no **mínimo aceitável**, não no modo habitual.
-> E o "modo de sobrevivencia" da organização.
+> E o "modo de sobrevivência" da organização.
 > Pode incluir processos manuais, equipa reduzida e funcionalidades limitadas.
 
 ### Confusão 5: MTBF e MTTR não são o coração da BIA
 
-> MTBF e MTTR são **métricas de fiabilidade** uteis, mas o coração da BIA está em:
+> MTBF e MTTR são **métricas de fiabilidade** úteis, mas o coração da BIA está em:
 > **RPO, RTO, WRT, MTD e criticidade**.
 > MTBF e MTTR ajudam a planear, mas não definem diretamente o impacto no negócio.
 
@@ -331,7 +331,7 @@ Disponibilidade = 2190 / (2190 + 2) = 99.91%
 
 - *"RPO mede perda aceitável de dados; RTO mede tempo-alvo de recuperação."*
 - *"O sistema voltar não significa que o trabalho esteja recuperado; por isso existe o WRT."*
-- *"O MTD e a linha vermelha: se a ultrapassarmos, o impacto torna-se inaceitavel."*
+- *"O MTD e a linha vermelha: se a ultrapassarmos, o impacto torna-se inaceitável."*
 - *"O MOR define o mínimo com que ainda conseguimos funcionar."*
 - *"RTO + WRT tem de caber dentro do MTD, senao o plano tem um problema."*
 

@@ -128,7 +128,7 @@ O treino deve cobrir:
 | Público | O que treinar | Resultado esperado |
 |---------|--------------|-------------------|
 | **Utilizadores finais** | Reconhecer phishing, reportar anomalias, não ignorar sinais | Reportam rapidamente em vez de ignorar |
-| **Helpdesk** | Criterios de escalonamento, padrões de incidente, urgência vs rotina | Escalam quando necessário em vez de tratar como problema técnico normal |
+| **Helpdesk** | Critérios de escalonamento, padrões de incidente, urgência vs rotina | Escalam quando necessário em vez de tratar como problema técnico normal |
 | **Administradores** | Correlação de eventos, leitura de logs, indicadores de comprometimento | Identificam incidentes em curso através de sinais técnicos |
 | **Gestão** | Impacto de decisões tardias, papel do gestor na cadeia de deteção | Apoiam a cultura de reporte e não penalizam quem reporta |
 
@@ -158,7 +158,7 @@ Os indicadores possíveis são sinais que **podem indicar um incidente, mas tamb
 
 **Como interpretar:**
 
-*Um indicador possível e como um sintoma médico generico: uma dor de cabeça pode ser stress ou pode ser algo mais grave. Não se ignora, mas também não se parte logo para a cirurgia. Investiga-se.*
+*Um indicador possível e como um sintoma médico genérico: uma dor de cabeça pode ser stress ou pode ser algo mais grave. Não se ignora, mas também não se parte logo para a cirurgia. Investiga-se.*
 
 **Para refletir:**
 
@@ -170,7 +170,7 @@ Os indicadores possíveis são sinais que **podem indicar um incidente, mas tamb
 
 ### Indicadores prováveis (forte suspeita)
 
-Os indicadores prováveis são sinais que geram **forte suspeita** de que um incidente está em curso. Ainda necessitam de validação, mas já justificam uma investigação prioritaria e possivelmente ações preventivas de contenção.
+Os indicadores prováveis são sinais que geram **forte suspeita** de que um incidente está em curso. Ainda necessitam de validação, mas já justificam uma investigação prioritária e possivelmente ações preventivas de contenção.
 
 | Indicador | Porque e provável | O que fazer |
 |-----------|------------------|-------------|
@@ -310,7 +310,7 @@ Mesmo que o incidente tenha sido contido, os danos já provocados são de tal ma
   ● Impacto e limitado e controlavel │    insuficiente
   ● Recuperação e possível com       │  ● Impacto cresce sem controlo
     recursos normais                 │  ● Recuperação requer recursos
-  ● Resposta segue o IRP             │    extraordinarios
+  ● Resposta segue o IRP             │    extraordinários
                                      │  ● IRP já não e suficiente
                                      │  ● Ativa-se o DRP
   ═══════════════════════════════════════════════════════════════════
@@ -326,7 +326,7 @@ Não existe um limiar universal que separe incidente de desastre. **Cada organiz
 - **Criticidade dos sistemas** - a falha de um sistema de email não tem o mesmo impacto que a falha de um sistema de urgência
 - **Tolerância ao risco** - quanto tempo, quanto dinheiro, quanta reputação a organização aceita perder
 - **Capacidade de resiliência** - uma organização com datacenter redundante tolera mais do que uma com servidor único
-- **Obrigacoes legais e regulatorias** - algumas situações são automaticamente desastres por imposição legal
+- **Obrigacoes legais e regulatórias** - algumas situações são automaticamente desastres por imposição legal
 
 > O mesmo tipo de incidente pode ser contido e limitado numa organização e ser um desastre noutra. A fronteira não é técnica - e organizacional.
 
@@ -340,7 +340,7 @@ Não existe um limiar universal que separe incidente de desastre. **Cada organiz
 |----------|-----------|----------|
 | **Contenção** | Equipa de IR consegue conter | Contenção falha ou e insuficiente |
 | **Alcance do impacto** | Limitado a sistemas ou processos específicos | Afeta a organização de forma transversal |
-| **Recuperação** | Possível com recursos e procedimentos normais | Requer recursos extraordinarios (financeiros, humanos, tecnológicos) |
+| **Recuperação** | Possível com recursos e procedimentos normais | Requer recursos extraordinários (financeiros, humanos, tecnológicos) |
 | **Tempo de recuperação** | Dentro do MTD definido | Excede o MTD - possível perda irreversível |
 | **Plano ativado** | IRP | DRP (e possivelmente BCP) |
 | **Decisão** | Equipa de IR e gestão de TI | Direção da organização |
@@ -369,7 +369,7 @@ A transição entre IRP, DRP e BCP e uma **progressão natural** baseada na capa
   │                          ● Recuperação de                           │
   │   O incidente está         infraestrutura       Precisa de:        │
   │   sob controlo.          ● Recursos              ● Processos       │
-  │                            extraordinarios        alternativos     │
+  │                            extraordinários        alternativos     │
   │                          ● Plano de              ● Locais           │
   │                            recuperação             alternativos    │
   │                            específico            ● Operação         │
@@ -495,7 +495,7 @@ A transição entre IRP, DRP e BCP e uma **progressão natural** baseada na capa
 
 **Como interpretar:**
 
-*O operador foi o primeiro sensor porque conhece o processo. Nenhum sistema automático de TI teria detetado que "0 graus num forno a 850" e anómalo - para o SIEM, e apenas um valor numerico. O conhecimento do contexto operacional e insubstituivel. Este exemplo mostra porque e que a deteção humana e essencial em ambientes industriais.*
+*O operador foi o primeiro sensor porque conhece o processo. Nenhum sistema automático de TI teria detetado que "0 graus num forno a 850" e anómalo - para o SIEM, e apenas um valor numerico. O conhecimento do contexto operacional e insubstituível. Este exemplo mostra porque e que a deteção humana e essencial em ambientes industriais.*
 
 **Para refletir:**
 
@@ -515,8 +515,8 @@ A transição entre IRP, DRP e BCP e uma **progressão natural** baseada na capa
 | **Indicador** | Definitivo (desde o início) | Alteração de logs e um dos indicadores mais graves - alguém tentou encobrir atividade |
 | **Análise** | Equipa de IR forense | Reconstrução parcial dos logs a partir de backups e sistemas secundarios |
 | **Descoberta** | Transferencias não autorizadas | Nos 3 dias sem logs, foram executadas transferências para contas no estrangeiro |
-| **Classificação** | Incidente crítico - possível desastre | Perda financeira direta, comprometimento de integridade, obrigações regulatorias |
-| **Avaliação de desastre** | Criterios de desastre avaliados | Montante das transferências excede o limiar de perda tolerável definido pelo banco |
+| **Classificação** | Incidente crítico - possível desastre | Perda financeira direta, comprometimento de integridade, obrigações regulatórias |
+| **Avaliação de desastre** | Critérios de desastre avaliados | Montante das transferências excede o limiar de perda tolerável definido pelo banco |
 
 **Como interpretar:**
 
@@ -614,7 +614,7 @@ Para cada momento, classifica o indicador (possível/provável/definitivo) e dec
 
     | Hora | Indicador | Classificação | Ação |
     |------|-----------|:------------:|------|
-    | 09:00 | Antivirus bloqueou ficheiro malicioso | **Possível** | Registar. Verificar se os 3 postos receberam o ficheiro pela mesma via. Pode ser campanha generica. |
+    | 09:00 | Antivirus bloqueou ficheiro malicioso | **Possível** | Registar. Verificar se os 3 postos receberam o ficheiro pela mesma via. Pode ser campanha genérica. |
     | 09:15 | Email de phishing reportado | **Provável** | Correlacionar com o alerta anterior. Se o email contem o mesmo ficheiro ou link similar, trata-se de campanha direcionada. Escalar para equipa de IR. |
     | 09:30 | Tentativas de login falhadas em conta admin | **Provável** | Correlacionar: a campanha de phishing pode ter como objetivo obter credenciais de administrador. Contactar o administrador para confirmar se foi ele. Reforcar monitorização. |
     | 09:45 | PowerShell codificado em servidor | **Definitivo** | Execução de código suspeito num servidor e indicador definitivo de comprometimento. Iniciar contenção imediata: isolar o servidor. |
@@ -632,7 +632,7 @@ Para cada cenário, determina se se trata de **incidente contido pelo IRP** ou *
 
 | # | Cenário |
 |---|---------|
-| a) | Uma clínica dentaria sofre um ataque de ransomware que cifra o servidor de agendamento. Os backups de ontem estão intactos. A clínica pode operar com agenda em papel durante 4 horas. |
+| a) | Uma clínica dentária sofre um ataque de ransomware que cifra o servidor de agendamento. Os backups de ontem estão intactos. A clínica pode operar com agenda em papel durante 4 horas. |
 | b) | Uma empresa de logística sofre um ataque que compromete o sistema GPS de toda a frota (200 veiculos). Não existe sistema alternativo e as entregas param completamente. |
 | c) | Um banco deteta que um funcionário descarregou a base de dados completa de clientes para um disco externo pessoal. O funcionário já saiu do edifício. |
 | d) | Uma universidade sofre um DDoS que torna o portal de e-learning inacessível durante 2 horas, no período de exames. Os exames são presenciais e não dependem da plataforma. |
@@ -643,8 +643,8 @@ Para cada cenário, determina se se trata de **incidente contido pelo IRP** ou *
     | # | Classificação | Justificação |
     |---|:------------:|-------------|
     | a) | **Incidente (IRP)** | A clínica tem backups e alternativa manual. A contenção e recuperação estão dentro da capacidade normal. O ransomware afetou um sistema, não a totalidade da operação. |
-    | b) | **Desastre (DRP)** | 200 veiculos parados sem alternativa significa que a operação principal da empresa está completamente interrompida. A recuperação normal não é suficiente - precisa de solução extraordinaria. |
-    | c) | **Incidente crítico, potencial desastre** | A fuga de dados e um incidente definitivo. Se o volume de dados e tal que implica obrigações legais massivas e perda de confiança dos clientes, pode escalar para desastre. Depende do alcance e das consequências regulatorias. |
+    | b) | **Desastre (DRP)** | 200 veiculos parados sem alternativa significa que a operação principal da empresa está completamente interrompida. A recuperação normal não é suficiente - precisa de solução extraordinária. |
+    | c) | **Incidente crítico, potencial desastre** | A fuga de dados e um incidente definitivo. Se o volume de dados e tal que implica obrigações legais massivas e perda de confiança dos clientes, pode escalar para desastre. Depende do alcance e das consequências regulatórias. |
     | d) | **Incidente (IRP)** | 2 horas de indisponibilidade do portal, sem impacto nos exames (que são presenciais). O impacto e limitado e a contenção e possível. |
     | e) | **Desastre (DRP)** | Produção totalmente parada sem modo manual e um cenário em que o IRP não pode resolver sozinho. Requer recuperação de infraestrutura industrial, possivelmente com fornecedores especializados. |
 
@@ -673,7 +673,7 @@ Preenche a tabela com pelo menos 6 fontes de deteção adequadas a está organiz
     | **Firewall / router** | Tecnológica | Tráfego de rede anómalo, ligações suspeitas | Media |
     | **Autoridade tributaria ou parceiros** | Externa | Alertas de fraude fiscal ou uso indevido de credenciais | Baixa (rara, mas crítica) |
 
-    **Nota:** Numa PME desta dimensão, não é realista ter um SIEM dedicado. As fontes de deteção devem ser proporcionais a dimensão e orcamento da organização. O treino dos funcionários e especialmente importante porque são poucos e cada um tem grande responsabilidade.
+    **Nota:** Numa PME desta dimensão, não é realista ter um SIEM dedicado. As fontes de deteção devem ser proporcionais a dimensão e orçamento da organização. O treino dos funcionários e especialmente importante porque são poucos e cada um tem grande responsabilidade.
 
 ---
 
@@ -813,7 +813,7 @@ Tratar todo o incidente como desastre gera pânico desnecessário e esgota recur
 
 Uma falha de 2 horas pode ser rotina para uma empresa de consultoria e um desastre para uma plataforma de trading.
 
-### Confusão 6: A deteção multicanal não significa redundância desnecessaria
+### Confusão 6: A deteção multicanal não significa redundância desnecessária
 
 > Ter múltiplos canais de deteção não é desperdicio. E resiliência. Se um canal falha (o SIEM tem um falso negativo), outro canal pode detetar o incidente (o utilizador reporta algo estranho).
 
@@ -843,7 +843,7 @@ Insistir no IRP quando já se está claramente em território de desastre agrava
 | **Deteção humana** | Observacoes de utilizadores, helpdesk, administradores, gestores |
 | **Deteção multicanal** | O mesmo incidente detetado por múltiplas fontes em simultâneo |
 | **Indicador possível** | Sinal fraco que pode ser incidente ou problema técnico |
-| **Indicador provável** | Forte suspeita de incidente, requer investigação prioritaria |
+| **Indicador provável** | Forte suspeita de incidente, requer investigação prioritária |
 | **Indicador definitivo** | Quase confirmação de incidente, justifica resposta completa |
 | **Incidente automático** | Situação pré-definida como incidente (perda de CIA, violação de lei/política) |
 | **Escala de evidência** | Progressão de certeza: possível, provável, definitivo, confirmado |

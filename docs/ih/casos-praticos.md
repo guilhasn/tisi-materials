@@ -46,7 +46,7 @@ A investigação posterior revela que a intrusão inicial ocorreu **três dias a
 
 | Tipo | Valor | Contexto |
 |------|-------|----------|
-| **CVE** | CVE-2024-21762 (fictício) | Vulnerabilidade no servidor VPN explorada para acesso inicial |
+| **CVE** | CVE-2024-21762 | Out-of-bounds write em FortiOS/FortiProxy SSL-VPN (CVSS 9.8) — pré-autenticação, exploração ativa desde fev/2024 |
 | **IP** | 185.220.xx.xx (rede Tor) | Endereço de origem da intrusão inicial |
 | **Hash** | SHA256 do ransomware | Variante do grupo LockBit 3.0 |
 | **Ficheiro** | `readme_restore.txt` | Nota de resgate em cada diretório encriptado |

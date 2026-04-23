@@ -4,7 +4,7 @@
 
 - Os exercícios estão organizados por nível de dificuldade.
 - Tenta resolver cada exercício **antes** de consultar a solução.
-- As soluções estão no final de cada exercício, dentro de blocos colapsaveis.
+- As soluções estão no final de cada exercício, dentro de blocos colapsáveis.
 
 ---
 
@@ -55,7 +55,7 @@ Indica se cada afirmação e verdadeira (V) ou falsa (F) e justifica as falsas:
     1. **FALSO** - O RPO mede a quantidade máxima de dados que se aceita perder, não o tempo de recuperação. Isso e o RTO.
     2. **VERDADEIRO** - O RTO e o objetivo de recuperação e deve estar contido dentro do MTD (limite máximo).
     3. **FALSO** - O sistema pode estar operacional, mas os dados podem precisar de verificação e sincronização. Para isso existe o WRT.
-    4. **FALSO** - O MOR define o **mínimo aceitável**, não o nível normal. E o "modo de sobrevivencia".
+    4. **FALSO** - O MOR define o **mínimo aceitável**, não o nível normal. E o "modo de sobrevivência".
     5. **VERDADEIRO** - MTBF alto indica mais tempo entre falhas, logo maior fiabilidade.
     6. **VERDADEIRO** - Esta e a regra fundamental: RTO + WRT <= MTD.
     7. **FALSO** - RPO de zero significa que **nenhum dado pode ser perdido**, o que exige replicação em tempo real (sincrona), não a ausência de backups. Backups continuam a ser necessários para outros cenários (corrupção de dados, por exemplo).
@@ -81,7 +81,7 @@ Uma empresa de contabilidade definiu as seguintes métricas para o seu sistema d
 
     `RTO (5h) + WRT (4h) = 9h > MTD (8h)`
 
-    A soma do RTO e WRT excede o MTD, o que significa que o plano não é viavel. A empresa não consegue cumprir o limite máximo de paragem.
+    A soma do RTO e WRT excede o MTD, o que significa que o plano não é viável. A empresa não consegue cumprir o limite máximo de paragem.
 
     **Possiveis soluções:**
 
@@ -96,7 +96,7 @@ Uma empresa de contabilidade definiu as seguintes métricas para o seu sistema d
 
 ### Exercício 2.2 - Definir métricas para um cenário
 
-**Cenário:** Es o responsável de TI de uma clínica veterinaria com 3 médicos e 2 assistentes. A clínica usa um sistema informático para:
+**Cenário:** Es o responsável de TI de uma clínica veterinária com 3 médicos e 2 assistentes. A clínica usa um sistema informático para:
 
 - Registos clínicos dos animais
 - Agendamento de consultas
@@ -251,7 +251,7 @@ Uma proposta de investimento permite reduzir o RTO para 1 hora, com um custo de 
 1. Calcula a perda anual estimada com as métricas atuais.
 2. Calcula a perda anual estimada com as novas métricas.
 3. O investimento justifica-se? Mostra os cálculos.
-4. A partir de que faturação horaria e que o investimento se justifica?
+4. A partir de que faturação horária e que o investimento se justifica?
 
 ??? success "Solução 3.2"
 
@@ -333,7 +333,7 @@ A empresa fatura 2 milhoes EUR por ano.
 
     **3. Prioridade:** POS > ERP faturação > ERP stock > Loja online
 
-    **4. Dependencias:**
+    **4. Dependências:**
 
     - POS depende do ERP para stock e preços
     - Loja online depende do ERP para stock disponível
@@ -353,13 +353,13 @@ A empresa fatura 2 milhoes EUR por ano.
 
 ### Exercício 4.1 - O caso do RPO impossível
 
-Uma startup quer RPO de zero para todos os seus sistemas, mas tem um orcamento de TI de 500 EUR/mês.
+Uma startup quer RPO de zero para todos os seus sistemas, mas tem um orçamento de TI de 500 EUR/mês.
 
 **Tarefas:**
 
 1. Explica porque e que este objetivo e irrealista.
 2. Que infraestrutura seria necessária para RPO de zero?
-3. Propoe métricas realistas para uma startup com este orcamento.
+3. Propoe métricas realistas para uma startup com este orçamento.
 4. Como comunicarias está limitação ao CEO da startup?
 
 ??? tip "Orientações para solução 4.1"
@@ -387,7 +387,7 @@ Uma startup quer RPO de zero para todos os seus sistemas, mas tem um orcamento d
 
     **4. Comunicação ao CEO:**
 
-    - "RPO zero e o nosso objetivo ideal, mas tem um custo. Com o orcamento atual, podemos garantir perda máxima de X horas de dados. Para reduzir para zero, o investimento mensal seria de aproximadamente Y euros. Recomendo comecarmos com Z e ir melhorando progressivamente conforme a empresa cresce."
+    - "RPO zero e o nosso objetivo ideal, mas tem um custo. Com o orçamento atual, podemos garantir perda máxima de X horas de dados. Para reduzir para zero, o investimento mensal seria de aproximadamente Y euros. Recomendo comecarmos com Z e ir melhorando progressivamente conforme a empresa cresce."
     - Usar a análise custo-benefício: quanto custa a perda de dados vs. quanto custa a prevenção.
 
 ---

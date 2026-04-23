@@ -3,7 +3,7 @@
 ## Índice
 
 1. [Visão geral das estratégias](#1-visao-geral-das-estrategias)
-2. [Recuperação de instalacoes](#2-recuperacao-de-instalacoes)
+2. [Recuperação de instalações](#2-recuperacao-de-instalacoes)
 3. [Recuperação de hardware](#3-recuperacao-de-hardware)
 4. [Recuperação de software](#4-recuperacao-de-software)
 5. [Recuperação de pessoal](#5-recuperacao-de-pessoal)
@@ -17,7 +17,7 @@
 
 ## 1. Visão geral das estratégias
 
-Quando os controlos preventivos falham e o desastre acontece, a organização precisa de **estratégias de recuperação** previamente definidas. Estas estratégias cobrem cinco dimensoes fundamentais:
+Quando os controlos preventivos falham e o desastre acontece, a organização precisa de **estratégias de recuperação** previamente definidas. Estas estratégias cobrem cinco dimensões fundamentais:
 
 ```
   ╔═══════════════════════════════════════════════════════════════╗
@@ -38,17 +38,17 @@ Quando os controlos preventivos falham e o desastre acontece, a organização pr
   ║   │              │  │ recuperar?   │                         ║
   ║   └──────────────┘  └──────────────┘                         ║
   ║                                                               ║
-  ║   Fator decisivo na selecao: ─────────────────► CUSTO        ║
+  ║   Fator decisivo na seleção: ─────────────────► CUSTO        ║
   ╚═══════════════════════════════════════════════════════════════╝
 ```
 
-> O fator decisivo na selecao entre estratégias de recuperação e quase sempre o **custo**. A organização deve equilibrar o investimento em preparação com o risco e o impacto potencial de um desastre.
+> O fator decisivo na seleção entre estratégias de recuperação e quase sempre o **custo**. A organização deve equilibrar o investimento em preparação com o risco e o impacto potencial de um desastre.
 
 ---
 
-## 2. Recuperação de instalacoes
+## 2. Recuperação de instalações
 
-Quando o site primário fica inutilizavel, a organização precisa de um **local alternativo** para continuar operações. Existem várias opções, cada uma com diferentes níveis de prontidao, custo e tempo de ativação.
+Quando o site primário fica inutilizável, a organização precisa de um **local alternativo** para continuar operações. Existem várias opções, cada uma com diferentes níveis de prontidao, custo e tempo de ativação.
 
 ### Tipos de sites alternativos
 
@@ -80,13 +80,13 @@ Quando o site primário fica inutilizavel, a organização precisa de um **local
 | **Hot Site** | Menos de 24 horas | Equipamento e comunicações totalmente configurados; só precisa dos dados mais recentes | Alto |
 | **Rolling Hot Site** | Geralmente 24 horas | Semelhante ao hot site mas foca-se apenas em operações de datacenter | Alto |
 | **Warm Site** | Dentro de 1 semana | Entre hot e cold site: parcialmente configurado, sem dados ativos; requer alguma atividade de ativação | Medio |
-| **Cold Site** | Até 30 dias | Contem apenas infraestrutura básica (eletricidade, climatizacao) sem equipamento ou comunicações ativas | Baixo |
+| **Cold Site** | Até 30 dias | Contem apenas infraestrutura básica (eletricidade, climatização) sem equipamento ou comunicações ativas | Baixo |
 
 ### Descrição de cada tipo
 
 #### Mirrored Site
 
-O **mirrored site** e a opcao mais completa e mais cara. Funciona como uma copia exata do datacenter primário, com **replicação de dados em tempo real**. Se o site primário falhar, o mirrored site pode assumir quase instantaneamente.
+O **mirrored site** e a opção mais completa e mais cara. Funciona como uma copia exata do datacenter primário, com **replicação de dados em tempo real**. Se o site primário falhar, o mirrored site pode assumir quase instantaneamente.
 
 | Vantagem | Desvantagem |
 |----------|-------------|
@@ -94,7 +94,7 @@ O **mirrored site** e a opcao mais completa e mais cara. Funciona como uma copia
 | Sem perda de dados (RPO próximo de zero) | Manutenção de dois ambientes identicos |
 | Transparente para os utilizadores | Complexidade de sincronização |
 
-**Quando usar:** Organizacoes onde qualquer downtime e inaceitavel (bolsas de valores, bancos centrais, infraestruturas críticas nacionais).
+**Quando usar:** Organizacoes onde qualquer downtime e inaceitável (bolsas de valores, bancos centrais, infraestruturas críticas nacionais).
 
 ---
 
@@ -128,7 +128,7 @@ O **warm site** e um compromisso entre custo e prontidao. O espaço está dispon
 
 #### Cold Site
 
-O **cold site** e a opcao mais económica. Contem apenas infraestrutura básica — eletricidade, climatizacao e espaço — mas **nenhum equipamento tecnológico**.
+O **cold site** e a opção mais económica. Contem apenas infraestrutura básica — eletricidade, climatização e espaço — mas **nenhum equipamento tecnológico**.
 
 | Vantagem | Desvantagem |
 |----------|-------------|
@@ -136,30 +136,30 @@ O **cold site** e a opcao mais económica. Contem apenas infraestrutura básica 
 | Manutenção mínima | Tudo precisa de ser instalado de raiz |
 | Disponível como espaço | Grande perda de dados potencial |
 
-**Quando usar:** Organizacoes com alta tolerância a downtime e orcamento limitado, ou como complemento de outro tipo de site.
+**Quando usar:** Organizacoes com alta tolerância a downtime e orçamento limitado, ou como complemento de outro tipo de site.
 
 ---
 
 ### Outras opções
 
-| Opcao | Descrição | Adequada para |
+| Opção | Descrição | Adequada para |
 |-------|-----------|---------------|
-| **Acordos reciprocos** | Duas organizações concordam em partilhar instalacoes em caso de desastre | PMEs do mesmo setor com infraestrutura semelhante |
-| **Outsourcing** | Contratacao de serviços de recuperação a um fornecedor especializado | Organizacoes sem capacidade própria |
+| **Acordos reciprocos** | Duas organizações concordam em partilhar instalações em caso de desastre | PMEs do mesmo setor com infraestrutura semelhante |
+| **Outsourcing** | Contratação de serviços de recuperação a um fornecedor especializado | Organizacoes sem capacidade própria |
 | **Rolling hot site** | Datacenter movel (contentores equipados) | Situacoes de emergência temporária ou organizações distribuidas |
-| **Edificio pré-fabricado** | Estrutura temporária rapidamente montavel | Desastres naturais que destroem instalacoes |
+| **Edifício pré-fabricado** | Estrutura temporária rapidamente montável | Desastres naturais que destroem instalações |
 | **Cloud (IaaS/DRaaS)** | Infraestrutura de recuperação em cloud pública ou privada | Qualquer organização; crescente popularidade |
 
 ### Regras de distância
 
-As instalacoes alternativas devem respeitar distancias minimas para evitar que o mesmo desastre afete ambos os sites:
+As instalações alternativas devem respeitar distâncias mínimas para evitar que o mesmo desastre afete ambos os sites:
 
 | Criticidade | Distância mínima recomendada |
 |-------------|------------------------------|
 | Ambientes de baixa/média criticidade | Pelo menos **15-25 km** |
-| Operacoes críticas | **50-200 km** |
+| Operações críticas | **50-200 km** |
 
-> Se o hotsite estiver no mesmo parque empresarial que o datacenter principal, uma inundacao regional pode afetar ambos. A distância não é um luxo — e uma medida de segurança.
+> Se o hotsite estiver no mesmo parque empresarial que o datacenter principal, uma inundação regional pode afetar ambos. A distância não é um luxo — e uma medida de segurança.
 
 ---
 
@@ -171,7 +171,7 @@ A recuperação de hardware depende de **documentação atualizada de gestão de
 
 | Elemento | Detalhe necessário | Porque |
 |----------|-------------------|--------|
-| **Servidores** | Modelo, configuração, localização, função | Para encomendar ou ativar substituicoes |
+| **Servidores** | Modelo, configuração, localização, função | Para encomendar ou ativar substituições |
 | **Equipamento de rede** | Switches, routers, firewalls, configurações | Para recriar a topologia de rede |
 | **Armazenamento** | Tipo, capacidade, configuração RAID, replicação | Para restaurar dados corretamente |
 | **Estacoes de trabalho** | Número, localização, configuração | Para retomar trabalho dos utilizadores |
@@ -206,11 +206,11 @@ Os **Service Level Agreements (SLAs)** com fornecedores desempenham um papel ess
 
 ### Métricas relevantes
 
-Dois indicadores são particularmente uteis para planear a recuperação de hardware:
+Dois indicadores são particularmente úteis para planear a recuperação de hardware:
 
 | Métrica | Significado | Utilidade no DRP |
 |---------|-------------|-----------------|
-| **MTBF** (Mean Time Between Failures) | Tempo médio entre avarias | Prever quando um dispositivo pode falhar; planear substituicoes preventivas |
+| **MTBF** (Mean Time Between Failures) | Tempo médio entre avarias | Prever quando um dispositivo pode falhar; planear substituições preventivas |
 | **MTTR** (Mean Time To Repair) | Tempo médio de reparação | Estimar quanto tempo a recuperação de hardware vai demorar |
 
 ---
@@ -226,8 +226,8 @@ A recuperação de software envolve garantir que **todos os sistemas operativos 
 | **Sistemas operativos** | Versoes, patches aplicados, configurações específicas | Incompatibilidades; vulnerabilidades não corrigidas |
 | **Informação de licenciamento** | Chaves de licença, contratos, contactos de fornecedores | Impossibilidade de reinstalar software licenciado |
 | **Configuracoes** | Ficheiros de configuração, parâmetros de sistema, políticas | Sistemas instalados mas mal configurados |
-| **Aplicacoes** | Versoes, dependências, procedimentos de instalação | Aplicacoes críticas não recuperadas ou incompativeis |
-| **Software descontinuado** | Alternativas identificadas, planos de migração | Software crítico indisponível para reinstalacao |
+| **Aplicacoes** | Versoes, dependências, procedimentos de instalação | Aplicacoes críticas não recuperadas ou incompatíveis |
+| **Software descontinuado** | Alternativas identificadas, planos de migração | Software crítico indisponível para reinstalação |
 
 ### Plano para software descontinuado
 
@@ -266,9 +266,9 @@ A recuperação não depende apenas de tecnologia. As **pessoas** são o recurso
 | Principio | Descrição | Exemplo |
 |-----------|-----------|---------|
 | **Identificar pessoal essencial** | Nem todos os colaboradores são necessários na fase de recuperação | Equipa de IT e operações tem prioridade sobre equipa de marketing |
-| **Eliminar pontos unicos de falha** | Nenhuma função crítica deve depender de uma única pessoa | Se o DBA principal está de ferias, alguém deve saber restaurar a base de dados |
+| **Eliminar pontos únicos de falha** | Nenhuma função crítica deve depender de uma única pessoa | Se o DBA principal está de ferias, alguém deve saber restaurar a base de dados |
 | **Treinar substitutos** | Os backups humanos devem estar **formados e preparados** | Simulacoes regulares com equipas alternativas |
-| **Planear a logística** | Se o site alternativo fica longe, como chegam la as pessoas? | Transporte, alojamento, alimentacao |
+| **Planear a logística** | Se o site alternativo fica longe, como chegam la as pessoas? | Transporte, alojamento, alimentação |
 | **Não esquecer a folha de pagamento** | Mesmo durante um desastre, as pessoas precisam de ser pagas | Sistema de payroll deve ter continuidade garantida |
 
 ### Desafios de pessoal em situação de desastre
@@ -279,11 +279,11 @@ A recuperação não depende apenas de tecnologia. As **pessoas** são o recurso
   ╠═══════════════════════════════════════════════════════════╣
   ║                                                           ║
   ║  ● Colaboradores podem ser pessoalmente afetados          ║
-  ║    pelo desastre (casa, familia)                          ║
+  ║    pelo desastre (casa, família)                          ║
   ║                                                           ║
   ║  ● Stress e fadiga afetam a capacidade de decisão         ║
   ║                                                           ║
-  ║  ● Deslocacao para site alternativo pode ser inviavel     ║
+  ║  ● Deslocação para site alternativo pode ser inviavel     ║
   ║    (distância, transporte, situação familiar)              ║
   ║                                                           ║
   ║  ● Pessoal-chave pode estar indisponível                  ║
@@ -293,7 +293,7 @@ A recuperação não depende apenas de tecnologia. As **pessoas** são o recurso
   ║    (recuperação pode durar dias ou semanas)                 ║
   ║                                                           ║
   ║  ● Questoes legais de trabalho                             ║
-  ║    (horas extraordinarias, segurança, seguros)              ║
+  ║    (horas extraordinárias, segurança, seguros)              ║
   ╚═══════════════════════════════════════════════════════════╝
 ```
 
@@ -301,7 +301,7 @@ A recuperação não depende apenas de tecnologia. As **pessoas** são o recurso
 
 - Se o único administrador de base de dados da empresa está de ferias no estrangeiro quando ocorre o desastre, o que acontece?
 - Como se garante que as pessoas não se esgotam durante uma recuperação que dura duas semanas?
-- O plano de pessoal deve incluir apoio psicologico? Em que situações?
+- O plano de pessoal deve incluir apoio psicológico? Em que situações?
 
 ---
 
@@ -374,7 +374,7 @@ A regra de ouro para backups no contexto de DRP:
   ╚═══════════════════════════════════════════════╝
 ```
 
-> Se os backups estão no mesmo datacenter que os dados primarios, uma inundacao destrói ambos. A copia off-site e o que distingue uma organização que recupera de uma que não recupera.
+> Se os backups estão no mesmo datacenter que os dados primários, uma inundação destrói ambos. A copia off-site e o que distingue uma organização que recupera de uma que não recupera.
 
 ---
 
@@ -384,11 +384,11 @@ A regra de ouro para backups no contexto de DRP:
 
 **Cenário:** Uma PME de consultoria com 50 colaboradores e faturação de 2 milhoes/ano precisa de escolher uma estratégia de site alternativo. O datacenter está no escritório principal. A BIA indica MTD de 48 horas para o sistema de gestão de projetos e 72 horas para o email.
 
-| Opcao | Custo anual | Tempo de ativação | Adequação |
+| Opção | Custo anual | Tempo de ativação | Adequação |
 |-------|-------------|-------------------|-----------|
-| Mirrored site | 200.000 EUR | Minutos | Excessivo para o orcamento e necessidades |
+| Mirrored site | 200.000 EUR | Minutos | Excessivo para o orçamento e necessidades |
 | Hot site | 80.000 EUR | Horas | Acima do necessário (MTD e 48h) |
-| Warm site | 25.000 EUR | 2-3 dias | Adequado ao MTD e ao orcamento |
+| Warm site | 25.000 EUR | 2-3 dias | Adequado ao MTD e ao orçamento |
 | Cold site | 8.000 EUR | 2-4 semanas | Demasiado lento para o MTD |
 | Cloud (DRaaS) | 15.000 EUR | Horas a 1 dia | Excelente relação custo/tempo |
 
@@ -411,7 +411,7 @@ A regra de ouro para backups no contexto de DRP:
   │             do full    do full   incremental             │
   │                                 independente?            │
   │                                                          │
-  │  Opcao: usar backup completo de domingo ANTERIOR         │
+  │  Opção: usar backup completo de domingo ANTERIOR         │
   │  (há 2 semanas) + incrementais disponíveis               │
   │  RPO real: ~2 semanas (vs RPO planeado: 24h)             │
   └─────────────────────────────────────────────────────────┘
@@ -437,14 +437,14 @@ Para cada organização, indique o tipo de site alternativo mais adequado e just
 
 1. Banco central nacional (operações de mercado financeiro)
 2. Escritório de advocacia com 10 advogados
-3. Fábrica de mobiliario com 200 operarios
+3. Fábrica de mobiliário com 200 operários
 4. Hospital de referência regional
 
 ??? success "Solução 1.1"
 
     1. **Banco central** → **Mirrored site** — Nenhum downtime e aceitável. As operações de mercado financeiro não podem parar. RPO próximo de zero.
     2. **Escritório de advocacia** → **Cloud (DRaaS)** ou **Cold site** — MTD elevado (dias). Documentos podem estar em cloud. Custo e o fator determinante para uma empresa pequena.
-    3. **Fábrica de mobiliario** → **Warm site** ou acordo reciproco — A produção física não é facilmente replicavel. O foco seria nos sistemas administrativos e de gestão.
+    3. **Fábrica de mobiliário** → **Warm site** ou acordo reciproco — A produção física não é facilmente replicável. O foco seria nos sistemas administrativos e de gestão.
     4. **Hospital de referência** → **Hot site** — Sistemas clínicos não podem ficar indisponíveis por mais de horas. Vidas dependem do sistema.
 
 ---
@@ -475,20 +475,20 @@ Complete a tabela com as informações em falta:
 
 Uma empresa de e-commerce tem os seguintes dados da BIA:
 
-- Faturação diaria média: 150.000 EUR
+- Faturação diária média: 150.000 EUR
 - MTD do sistema de vendas: 4 horas
 - RPO: 1 hora
 - Custo estimado por hora de downtime: 25.000 EUR
 
 Considere as seguintes opções:
 
-| Opcao | Custo anual | Tempo de ativação | RPO garantido |
+| Opção | Custo anual | Tempo de ativação | RPO garantido |
 |-------|-------------|-------------------|---------------|
 | Hot site próprio | 120.000 EUR | 2 horas | 1 hora |
 | DRaaS (cloud) | 48.000 EUR | 1 hora | 15 minutos |
 | Warm site | 30.000 EUR | 3 dias | 24 horas |
 
-Qual opcao recomendaria? Justifique com base nos dados.
+Qual opção recomendaria? Justifique com base nos dados.
 
 ??? success "Solução 2.1"
 
@@ -518,17 +518,17 @@ Qual opcao recomendaria? Justifique com base nos dados.
 
 ### 2. "Os backups estão a ser feitos, logo estamos protegidos"
 
-**Errado.** Backups que nunca foram testados podem estar corrompidos, incompletos ou incompativeis com o hardware de recuperação. A única forma de saber se um backup funciona e **testa-lo regularmente**.
+**Errado.** Backups que nunca foram testados podem estar corrompidos, incompletos ou incompatíveis com o hardware de recuperação. A única forma de saber se um backup funciona e **testa-lo regularmente**.
 
 ---
 
 ### 3. "A cloud resolve tudo"
 
-**Parcialmente errado.** A cloud e uma excelente opcao para muitas organizações, mas não é uma solução magica. E preciso considerar:
+**Parcialmente errado.** A cloud e uma excelente opção para muitas organizações, mas não é uma solução magica. E preciso considerar:
 
 - Conectividade de rede durante o desastre
 - Custos de transferência de dados
-- Dependencia do fornecedor de cloud
+- Dependência do fornecedor de cloud
 - Conformidade regulatória (onde estão os dados?)
 - Tempo real de restauro (não apenas tempo teórico)
 
@@ -536,13 +536,13 @@ Qual opcao recomendaria? Justifique com base nos dados.
 
 ### 4. "O site alternativo está a 5 km, e suficiente"
 
-**Arriscado.** Se o desastre e regional (inundacao, terramoto, tempestade), ambos os sites podem ser afetados. A distância mínima recomendada e 15-25 km para situações de baixa criticidade e 50-200 km para operações críticas.
+**Arriscado.** Se o desastre e regional (inundação, terramoto, tempestade), ambos os sites podem ser afetados. A distância mínima recomendada e 15-25 km para situações de baixa criticidade e 50-200 km para operações críticas.
 
 ---
 
 ### 5. "Só precisamos de recuperar a tecnologia"
 
-**Errado.** A recuperação envolve cinco dimensoes: instalacoes, hardware, software, **pessoal** e dados. Negligenciar qualquer uma delas compromete toda a recuperação.
+**Errado.** A recuperação envolve cinco dimensões: instalações, hardware, software, **pessoal** e dados. Negligenciar qualquer uma delas compromete toda a recuperação.
 
 ---
 

@@ -101,7 +101,7 @@ A resposta a um incidente raramente envolve apenas a equipa de segurança. E pre
                  └──────────────┘               └──────────────┘
 ```
 
-Sem coordenação, cada equipa pode tomar decisões contraditorias. Por exemplo: a equipa de redes bloqueia um IP enquanto a equipa de segurança ainda está a monitorizar o atacante por esse mesmo canal.
+Sem coordenação, cada equipa pode tomar decisões contraditórias. Por exemplo: a equipa de redes bloqueia um IP enquanto a equipa de segurança ainda está a monitorizar o atacante por esse mesmo canal.
 
 ---
 
@@ -117,7 +117,7 @@ Para que a equipa possa verificar, decidir e coordenar eficazmente, precisa de *
 | **Matriz de escalonamento** | Tabela de contactos, níveis de gravidade e canais de comunicação | Saber quem contactar, quando e como |
 | **Lista de contactos** | Contactos de emergência internos e externos (fornecedores, reguladores, autoridades) | Acesso rápido a pessoas-chave |
 | **Template de comunicação** | Modelos pré-escritos para comunicação interna, externa, a reguladores | Comunicar sem improvisar sob pressão |
-| **Criterios de decisão** | Regras pré-definidas para decidir escalonamento, isolamento, comunicação | Evitar hesitação e subjetividade |
+| **Critérios de decisão** | Regras pré-definidas para decidir escalonamento, isolamento, comunicação | Evitar hesitação e subjetividade |
 | **Fluxo de escalonamento** | Diagrama que mostra quando e como escalar, até que nível | Garantir que a cadeia de decisão e clara |
 
 > Documentação orientadora não é burocracia. E o equivalente a um mapa durante uma emergência: quem tem mapa chega mais rápido e com menos erros.
@@ -143,7 +143,7 @@ O plano deve ser desenhado para uso sob pressão. Isso implica:
 | **Papeis definidos** | Cada pessoa sabe onde encontrar as suas responsabilidades |
 | **Passos claros e numerados** | Seguir uma sequência sem ter de interpretar texto corrido |
 | **Contactos visíveis** | Não perder tempo a procurar números de telefone |
-| **Criterios de escalonamento destacados** | Saber quando e obrigatório escalar |
+| **Critérios de escalonamento destacados** | Saber quando e obrigatório escalar |
 | **Ações iniciais em destaque** | Os primeiros 15 minutos são os mais críticos |
 
 O conceito de **"binder"** (dossier organizado) aplica-se aqui: o plano deve existir num formato consultável - seja em papel, wiki interna, SharePoint, ou playbooks impressos e distribuidos. O importante e que esteja **organizado, acessível e atualizado**.
@@ -197,7 +197,7 @@ Um playbook bem estruturado segue uma lógica de consulta rápida. Abaixo está 
   │                                                               │
   │  VERIFICACAO (15-60 minutos)                                  │
   │  ───────────────────────────                                  │
-  │  5. Confirmar que e ransomware (nota de resgate? extensoes?)  │
+  │  5. Confirmar que e ransomware (nota de resgate? extensões?)  │
   │  6. Identificar variante se possível                          │
   │  7. Verificar alcance: que sistemas estão afetados?           │
   │  8. Verificar se backups estão intactos                       │
@@ -261,7 +261,7 @@ O equilíbrio correto envolve:
 
 ---
 
-### Redundancia de acesso
+### Redundância de acesso
 
 O plano deve estar disponível **mesmo quando os sistemas principais falham**. Isto requer pensar em redundância:
 
@@ -379,11 +379,11 @@ A maturidade de testes de um plano IRP pode ser representada como uma progressã
 
 ### Exemplo 2 - Hospital: malware no servidor de exames
 
-**Cenário:** O sistema de armazenamento de exames médicos (PACS) de um hospital começa a mostrar sinais de infeção por malware: processos anómalos, lentidao extrema e ficheiros com extensoes desconhecidas.
+**Cenário:** O sistema de armazenamento de exames médicos (PACS) de um hospital começa a mostrar sinais de infeção por malware: processos anómalos, lentidao extrema e ficheiros com extensões desconhecidas.
 
 | Função IR | Ação | Detalhe |
 |-----------|------|---------|
-| **Verificar** | Confirmar infeção e identificar tipo | Análise de processos, verificação de extensoes de ficheiros, consulta de IoCs (Indicators of Compromise) |
+| **Verificar** | Confirmar infeção e identificar tipo | Análise de processos, verificação de extensões de ficheiros, consulta de IoCs (Indicators of Compromise) |
 | **Decidir** | Resposta equilibrada com o contexto clínico | Isolar o servidor da rede MAS garantir acesso alternativo a exames críticos; não desligar para preservar evidências; avaliar se há propagação |
 | **Coordenar** | Multiplas equipas com urgência diferente | Segurança (análise e contenção), sistemas (isolamento e alternativas), direção clínica (impacto no atendimento), jurídico (dados de saúde afetados), comunicação (informar profissionais de saúde) |
 
@@ -411,7 +411,7 @@ A maturidade de testes de um plano IRP pode ser representada como uma progressã
 
 **Como interpretar:**
 
-*Numa universidade, a comunidade de utilizadores e grande e diversa (docentes, funcionários, alunos), o que torna a comunicação particularmente desafiante. O helpdesk e a primeira linha: se não tiver instruções claras, vai dar informações contraditorias. A coordenação entre helpdesk, segurança e comunicação institucional e essencial para responder de forma coerente.*
+*Numa universidade, a comunidade de utilizadores e grande e diversa (docentes, funcionários, alunos), o que torna a comunicação particularmente desafiante. O helpdesk e a primeira linha: se não tiver instruções claras, vai dar informações contraditórias. A coordenação entre helpdesk, segurança e comunicação institucional e essencial para responder de forma coerente.*
 
 **Para refletir:**
 
@@ -429,7 +429,7 @@ A maturidade de testes de um plano IRP pode ser representada como uma progressã
 |-----------|------|---------|
 | **Verificar** | Distinguir ataque de problema de capacidade | Analisar padrões de tráfego (e tráfego real ou ataque DDoS?); verificar métricas de infraestrutura (CPU, memória, rede); consultar fornecedor cloud |
 | **Decidir** | Resposta adaptada a causa | Se e DDoS: ativar mitigação, escalar para fornecedor cloud. Se e sobrecarga legítima: escalar infraestrutura (auto-scaling), priorizar funcionalidades críticas (checkout vs navegação) |
-| **Coordenar** | Operacoes, cloud, negócio, comunicação | Operacoes (monitorização e ação técnica), fornecedor cloud (suporte e escalonamento), negócio (impacto financeiro, decisão sobre campanha), comunicação (informar clientes nas redes sociais) |
+| **Coordenar** | Operações, cloud, negócio, comunicação | Operações (monitorização e ação técnica), fornecedor cloud (suporte e escalonamento), negócio (impacto financeiro, decisão sobre campanha), comunicação (informar clientes nas redes sociais) |
 
 **Como interpretar:**
 
@@ -481,7 +481,7 @@ Classifica as seguintes afirmações como Verdadeiras (V) ou Falsas (F):
 
 Associa cada instrumento a sua definição correta.
 
-**Instrumentos:** Playbook | Runbook | Checklist | Matriz de escalonamento | Template de comunicação | Criterios de decisão
+**Instrumentos:** Playbook | Runbook | Checklist | Matriz de escalonamento | Template de comunicação | Critérios de decisão
 
 | # | Definição |
 |---|-----------|
@@ -500,7 +500,7 @@ Associa cada instrumento a sua definição correta.
     | b) | Lista de verificação rápida | **Checklist** |
     | c) | Procedimento detalhado por tipo de incidente | **Playbook** |
     | d) | Tabela de contactos e níveis | **Matriz de escalonamento** |
-    | e) | Regras pré-definidas para decisões | **Criterios de decisão** |
+    | e) | Regras pré-definidas para decisões | **Critérios de decisão** |
     | f) | Procedimento técnico específico | **Runbook** |
 
 ---
@@ -539,10 +539,10 @@ Analisa a seguinte descrição de um plano de resposta a incidentes e identifica
 
     | # | Problema | Porque e um problema |
     |---|---------|----------------------|
-    | 1 | **Armazenamento numa pasta pessoal** | Se o responsável estiver indisponível, ninguém acede ao plano. Dependencia de uma única pessoa. |
+    | 1 | **Armazenamento numa pasta pessoal** | Se o responsável estiver indisponível, ninguém acede ao plano. Dependência de uma única pessoa. |
     | 2 | **Formato de texto corrido sem índice** | Em crise, ninguém vai ler 80 páginas. O plano deve ser consultável rapidamente, com secções, índice e playbooks separados. |
     | 3 | **Contactos desatualizados (6 meses)** | Contactar pessoas que já não trabalham na empresa durante um incidente gera perda de tempo crítica. |
-    | 4 | **Nunca testado** | Um plano que nunca foi testado e apenas uma teoria. Pode conter erros, omissoes ou procedimentos impraticáveis que só se descobrem durante um incidente real. |
+    | 4 | **Nunca testado** | Um plano que nunca foi testado e apenas uma teoria. Pode conter erros, omissões ou procedimentos impraticáveis que só se descobrem durante um incidente real. |
     | 5 | **Password conhecida por uma única pessoa** | Se essa pessoa estiver de ferias, doente ou indisponível, o plano fica inacessível quando e mais necessário. |
     | 6 | **Sem redundância de armazenamento** | Ficheiro único, num único local. Se o sistema falhar ou for comprometido, o plano perde-se. |
     | 7 | **80 páginas sem separação por tipo de incidente** | Não segue a lógica de playbooks por cenário. Obriga a procurar informação relevante num documento monolítico. |
@@ -596,7 +596,7 @@ Identifica: quem notifica quem, em que ordem, por que canal, e que decisão cada
     │  Confirma que e generalizado (outros relatos)
     │  ──► Alerta Administrador de Sistemas (telefone + mensagem)
     │  ──► Regista ticket
-    │  Decisão: ativar procedimentos manuais temporarios
+    │  Decisão: ativar procedimentos manuais temporários
     │
     ▼
     ADMINISTRADOR DE SISTEMAS (7h10)
@@ -618,7 +618,7 @@ Identifica: quem notifica quem, em que ordem, por que canal, e que decisão cada
     │  Avalia impacto no atendimento de pacientes
     │  ──► Comunica a chefes de serviço (mensagem interna)
     │  ──► Se necessário: ativa plano de contingência clínico
-    │  Decisão: manter consultas? desviar urgencias?
+    │  Decisão: manter consultas? desviar urgências?
     │
     ▼
     GESTAO DE TOPO (7h30 - se escalonado)
@@ -630,7 +630,7 @@ Identifica: quem notifica quem, em que ordem, por que canal, e que decisão cada
 
     **Conclusão:**
 
-    *A cadeia de notificação num hospital e particularmente exigente porque envolve dois eixos em paralelo: o eixo técnico (helpdesk, sistemas, segurança) e o eixo clínico (direção clínica, chefes de serviço). Ambos devem ser notificados quase em simultâneo porque o impacto clínico não pode esperar pela resolução técnica - são necessários procedimentos manuais temporarios enquanto o sistema e restaurado.*
+    *A cadeia de notificação num hospital e particularmente exigente porque envolve dois eixos em paralelo: o eixo técnico (helpdesk, sistemas, segurança) e o eixo clínico (direção clínica, chefes de serviço). Ambos devem ser notificados quase em simultâneo porque o impacto clínico não pode esperar pela resolução técnica - são necessários procedimentos manuais temporários enquanto o sistema e restaurado.*
 
 ---
 
@@ -649,7 +649,7 @@ Compara a resposta das duas empresas:
     |--------|---------------------|---------------------|
     | **Verificação** | Analista de segurança verifica métricas e distingue tráfego DDoS de tráfego legítimo em minutos, usando critérios pré-definidos. | A equipa de TI discute se e ataque ou sobrecarga. Ninguem tem critérios claros. Perde-se 30+ minutos em debate. |
     | **Decisão** | Coordenador aplica o playbook: ativa mitigação DDoS do fornecedor cloud, prioriza checkout sobre navegação, comunica estimativa ao negócio. | O CEO e chamado e pergunta "o que fazemos?". A equipa de TI sugere desligar funcionalidades, o CEO recusa por medo de perder vendas. Impasse. |
-    | **Coordenação** | Operacoes executa as ações técnicas, fornecedor cloud ativa proteção, comunicação pública mensagem nas redes sociais, negócio avalia impacto financeiro. Tudo em paralelo. | Todos fazem tudo é ninguém faz nada completamente. O fornecedor cloud e contactado tarde. Os clientes reclamam nas redes sem resposta. |
+    | **Coordenação** | Operações executa as ações técnicas, fornecedor cloud ativa proteção, comunicação pública mensagem nas redes sociais, negócio avalia impacto financeiro. Tudo em paralelo. | Todos fazem tudo é ninguém faz nada completamente. O fornecedor cloud e contactado tarde. Os clientes reclamam nas redes sem resposta. |
     | **Tempo de resposta** | Contenção em 15-30 minutos. Serviço degradado mas funcional. | Contenção em 2-4 horas. Serviço completamente indisponível por períodos. |
     | **Impacto financeiro** | Perda limitada a período de degradação. Reputação preservada pela comunicação proativa. | Perda significativa de vendas. Danos reputacionais pelas queixas sem resposta. |
 
@@ -711,7 +711,7 @@ Playbooks curtos, secções claras, contactos visíveis e ações numeradas são
 | **Checklist** | Lista de verificação rápida para garantir que nada é esquecido |
 | **Matriz de escalonamento** | Tabela de contactos, níveis de gravidade e canais |
 | **Formato consultável** | Plano organizado para consulta rápida, não para leitura sequencial |
-| **Redundancia de acesso** | Plano disponível em múltiplos formatos e localizações |
+| **Redundância de acesso** | Plano disponível em múltiplos formatos e localizações |
 | **Níveis de teste** | Progressão de checklist a full-interruption, com realismo crescente |
 | **Processo militar** | Resposta estruturada com papeis, cadeia de decisão e disciplina de comunicação |
 
@@ -721,7 +721,7 @@ Playbooks curtos, secções claras, contactos visíveis e ações numeradas são
 - *"Em crise, ninguém quer estudar o plano. O plano tem de ser consultável em segundos."*
 - *"Um plano escondido durante uma crise e tao útil como não ter plano."*
 - *"Processo militar não é rigidez: e estrutura, papeis claros e cadeia de decisão definida."*
-- *"Organizar por tipo de incidente permite ir direto ao playbook relevante em vez de procurar num documento generico."*
+- *"Organizar por tipo de incidente permite ir direto ao playbook relevante em vez de procurar num documento genérico."*
 - *"Proteger o plano sem o tornar inacessível e o equilíbrio mais difícil do armazenamento."*
 - *"Um plano testado uma vez não fica válido para sempre: pessoas mudam, sistemas mudam, ameaças evoluem."*
 - *"O coordenador coordena, não executa. Quando começa a fazer tarefas técnicas, perde a visão de conjunto."*
