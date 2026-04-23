@@ -125,6 +125,9 @@ As **políticas** são o fundamento da preparação. Sem políticas aprovadas pe
 
 O **CSIRT** (Computer Security Incident Response Team) é o núcleo operacional da resposta a incidentes. A sua composição, papéis e autoridade determinam a eficácia de toda a resposta.
 
+!!! tip "Capítulo dedicado"
+    Esta secção apresenta apenas os fundamentos da composição do CSIRT no contexto da Preparação. Para o **processo completo de criação** (missão, constituency, autoridade, modelos organizacionais, cooperação externa, base legal), ver o capítulo dedicado [Setting Up CSIRT](csirt.md).
+
 ### Composição típica de um CSIRT
 
 ```
