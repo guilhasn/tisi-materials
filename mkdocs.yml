@@ -77,6 +77,9 @@ extra_css:
 extra_javascript:
   - javascripts/bia-calculadora.js
 
+hooks:
+  - hooks/external_links.py
+
 markdown_extensions:
   - tables
   - admonition
