@@ -124,12 +124,12 @@ Tabela de referência rápida — as técnicas mais observadas por vector, para 
 
 | Ferramenta | Propósito | Link |
 |------------|-----------|------|
-| **ATT&CK Navigator** | Matriz interactiva, *layering* de detecções vs cobertura | `mitre-attack.github.io/attack-navigator` |
-| **ATT&CK Workbench** | Gestão de dados ATT&CK locais, customização | `github.com/center-for-threat-informed-defense/attack-workbench-frontend` |
-| **CALDERA** | Emulação adversária automatizada baseada em ATT&CK | `github.com/mitre/caldera` |
-| **Atomic Red Team** | Testes atómicos, um por técnica | `github.com/redcanaryco/atomic-red-team` |
-| **Sigma rules** | Regras de detecção agnósticas mapeadas a ATT&CK | `github.com/SigmaHQ/sigma` |
-| **DeTT&CT** | Avaliar cobertura de *detection strategies* e logging vs ATT&CK (historicamente focado em data sources — a estrutura muda com v18) | `github.com/rabobank-cdc/DeTTECT` |
+| **ATT&CK Navigator** | Matriz interactiva, *layering* de detecções vs cobertura | [mitre-attack.github.io/attack-navigator](https://mitre-attack.github.io/attack-navigator/){ target="_blank" rel="noopener" } |
+| **ATT&CK Workbench** | Gestão de dados ATT&CK locais, customização | [github.com/center-for-threat-informed-defense/attack-workbench-frontend](https://github.com/center-for-threat-informed-defense/attack-workbench-frontend){ target="_blank" rel="noopener" } |
+| **CALDERA** | Emulação adversária automatizada baseada em ATT&CK | [github.com/mitre/caldera](https://github.com/mitre/caldera){ target="_blank" rel="noopener" } |
+| **Atomic Red Team** | Testes atómicos, um por técnica | [github.com/redcanaryco/atomic-red-team](https://github.com/redcanaryco/atomic-red-team){ target="_blank" rel="noopener" } |
+| **Sigma rules** | Regras de detecção agnósticas mapeadas a ATT&CK | [github.com/SigmaHQ/sigma](https://github.com/SigmaHQ/sigma){ target="_blank" rel="noopener" } |
+| **DeTT&CT** | Avaliar cobertura de *detection strategies* e logging vs ATT&CK (historicamente focado em data sources — a estrutura muda com v18) | [github.com/rabobank-cdc/DeTTECT](https://github.com/rabobank-cdc/DeTTECT){ target="_blank" rel="noopener" } |
 
 ## 5. Relação com outros modelos
 
