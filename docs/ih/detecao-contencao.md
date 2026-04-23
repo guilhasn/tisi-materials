@@ -209,8 +209,59 @@ A preservação de evidências é uma das ações mais críticas e frequentement
 | **Logs de sistema** | Event logs, syslog, logs de aplicações | Média |
 | **Logs de aplicação** | Registos de bases de dados, servidores web, e-mail | Média |
 
-!!! info "Ordem de volatilidade"
-    A recolha deve seguir a **ordem de volatilidade**: começar pelo mais volátil (memória RAM) e terminar pelo menos volátil (discos). Dados voláteis perdem-se quando o sistema é desligado.
+!!! info "Ordem de volatilidade — RFC 3227"
+    A recolha deve seguir a ordem formalizada pela **RFC 3227 — *Guidelines for Evidence Collection and Archiving***: (1) registos e conteúdo da cache, (2) tabela de rotas, cache ARP, tabela de processos, kernel statistics, memória RAM, (3) sistemas de ficheiros temporários, (4) disco, (5) logs remotos, (6) configuração física e topologia de rede, (7) meios de arquivo. Dados voláteis perdem-se quando o sistema é desligado.
+
+### Stack forense de referência — ferramentas
+
+Catálogo de ferramentas que uma equipa de IR moderna deve conhecer e ter disponível. Todas são *open source* ou têm versão *community*. Referência durante o exercício 3.4 desta UC.
+
+#### Aquisição (memória e disco)
+
+| Fase | Ferramenta | Propósito |
+|------|------------|-----------|
+| Memória — live | **WinPMEM** / **LiME** (Linux) | Dump RAM em formato raw ou AFF4 |
+| Memória — live | **DumpIt** (Comae) | Dump simples RAM Windows |
+| Disco — dead-box | **FTK Imager** (AccessData) | Imagem forense E01/RAW, com write-blocker lógico |
+| Disco — dead-box | **dcfldd** / **dc3dd** | Sucessor do `dd`, com hashing integrado |
+| Disco — live triage | **KAPE** (Kroll Artifact Parser and Extractor) | Colecta rápida de artefactos chave sem imagem completa |
+| Disco — live triage | **Velociraptor** | Colecta remota em escala, hunting + DFIR |
+| Cloud | **AWS Incident Manager**, **Azure Disk Copy**, **GCP Cloud Forensics** | Snapshots forenses em IaaS |
+
+!!! warning "Write-blockers físicos"
+    Para meios removíveis e discos retirados de máquinas comprometidas, usar **write-blockers físicos** (Tableau, CRU Forensic UltraDock, WiebeTech USB WriteBlocker). O write-blocker lógico do FTK Imager é complemento, não substituto.
+
+#### Análise forense
+
+| Domínio | Ferramenta | Propósito |
+|---------|------------|-----------|
+| Memória | **Volatility 3** | Plugins canónicos: `pslist`, `psscan`, `netscan`, `malfind`, `cmdline`, `dumpfiles`, `handles`, `svcscan` |
+| Memória | **Rekall** (legado, mantido parcialmente) | Alternativa histórica ao Volatility |
+| Timeline forense | **Plaso / log2timeline** | Timeline consolidada de artefactos (MFT, USN, Prefetch, EVT, SRUM) |
+| Timeline forense | **Timesketch** | Interface web para análise de timelines geradas pelo Plaso |
+| Disco e artefactos Windows | **Autopsy** (GUI) / **The Sleuth Kit (TSK)** (CLI) | Análise de file systems, carving, artefactos Windows |
+| Disco e artefactos Windows | **Magnet AXIOM** (comercial), **X-Ways Forensics** (comercial) | Referência comercial; forte em *carving* e artefactos mobile |
+| Artefactos Windows — triage | **RegRipper**, **MFTECmd**, **PECmd**, **AmcacheParser**, **EvtxECmd** (suite Eric Zimmerman) | Parsers individuais para registry, MFT, prefetch, amcache, EVTX |
+| Network forensics | **Wireshark**, **tshark**, **Zeek** (ex-Bro) | Análise de PCAPs, metadados de rede, detecção por protocolo |
+| Network forensics | **NetworkMiner** | Extracção de ficheiros e credenciais de PCAPs |
+| Malware triage | **PE-sieve**, **PEStudio** | Análise de binários Windows suspeitos |
+| Malware sandbox | **CAPEv2** (self-hosted), **Any.run**, **Joe Sandbox**, **VirusTotal Intelligence** | Detonação em ambiente isolado; análise dinâmica |
+| YARA rules | **YARA**, **Loki**, **THOR Lite** | Detecção baseada em padrões em ficheiros/memória |
+
+#### Plataformas de gestão de incidentes
+
+| Ferramenta | Propósito |
+|------------|-----------|
+| **TheHive** + **Cortex** | Case management + automation de analyzers |
+| **MISP** | Threat intelligence sharing (STIX/TAXII compatível) |
+| **IRIS** (DFIR-IRIS) | Case management alternativo, open source |
+| **OpenCTI** | Plataforma CTI com relacionamentos ATT&CK nativos |
+
+#### Orientação legal — Portugal
+
+- **Lei do Cibercrime (Lei 109/2009)**, art. 15.º e seguintes — pesquisa de dados informáticos, apreensão.
+- **CNCS/CERT.PT** — ponto de contacto nacional para cooperação.
+- **Perito judicial** inscrito em lista de peritos do tribunal se o caso vier a seguir via judicial.
 
 ### Formulário de registo padrão
 
@@ -635,6 +686,18 @@ Uma empresa de comércio online descobre que um atacante acedeu à base de dados
   ║                                                                   ║
   ╚═══════════════════════════════════════════════════════════════════╝
 ```
+
+---
+
+## 📎 Documentos operacionais relacionados
+
+Esta fase opera sobre playbooks específicos ativados pela triagem. Catálogo completo em [Preparação — Documentos operacionais](preparacao.md#documentos-e-templates-operacionais).
+
+- [📄 Procedimento de Classificação e Severidade](../gestao_incidentes/procedimento-classificacao-severidade.docx) — matriz P1-P5 e critérios de triagem invocados na secção 2 deste capítulo.
+- [📄 Playbook — Ransomware](../gestao_incidentes/playbook-ransomware.docx) — contenção, preservação, decisão de pagamento.
+- [📄 Playbook — Phishing / Comprometimento de Credenciais](../gestao_incidentes/playbook-phishing.docx) — reset, revoke, investigação de impacto.
+- [📄 Playbook — Violação de Dados Pessoais](../gestao_incidentes/playbook-violacao-dados-pessoais.docx) — qualificação, avaliação de risco, notificação CNPD (72h).
+- [📄 Notificação NIS2 — 24 horas](../gestao_incidentes/notificacao-24h-nis2.docx) — a acionar logo na fase de classificação se P1/P2.
 
 ---
 

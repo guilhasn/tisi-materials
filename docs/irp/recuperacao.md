@@ -47,7 +47,7 @@ A avaliação deve responder a perguntas essenciais:
 
 ### O que procurar (a lente CIA)
 
-O dano causado por um incidente não se resume a "sistema em baixo". Deve ser analisado através das três dimensoes da segurança da informação:
+O dano causado por um incidente não se resume a "sistema em baixo". Deve ser analisado através das três dimensões da segurança da informação:
 
 | Dimensão | Perguntas-chave | Exemplos de dano |
 |----------|----------------|------------------|
@@ -78,7 +78,7 @@ A avaliação de danos não se baseia numa única fonte. Requer cruzar informaç
 | **Logs de deteção de intrusão (IDS/IPS)** | Que tráfego anómalo foi detetado, que regras foram acionadas | Não capturam tudo; dependem das regras configuradas |
 | **Documentação de configuração** | Qual era o estado esperado dos sistemas (para comparar com o estado atual) | Pode estar desatualizada se não houver gestão de configuração rigorosa |
 | **Documentação do incidente** | Cronologia, decisões tomadas, ações executadas durante a resposta | Depende da qualidade do registo feito em tempo real |
-| **Análise detalhada de sistemas e dados** | Estado real dos ficheiros, processos, contas, serviços | Consome tempo; pode não ser viavel para todos os sistemas |
+| **Análise detalhada de sistemas e dados** | Estado real dos ficheiros, processos, contas, serviços | Consome tempo; pode não ser viável para todos os sistemas |
 | **Logs de EDR/XDR** | Atividade nos endpoints, processos executados, ligações de rede | Cobertura limitada ao que estava instalado e configurado |
 | **Entrevistas com utilizadores** | Contexto humano, observações não registadas em logs | Subjetivas, dependem da memória e da disponibilidade |
 
@@ -116,7 +116,7 @@ A avaliação inicial guia a recuperação; as avaliações subsequentes refinam
 
 ### O que é a perícia informática
 
-A **perícia informática** (computer forensics) e o processo de **recolher, analisar e preservar provas digitais** de forma cuidadosa, para que possam ser utilizadas de forma fiável e, quando necessário, formal (por exemplo, em processos disciplinares, judiciais ou regulatorios).
+A **perícia informática** (computer forensics) e o processo de **recolher, analisar e preservar provas digitais** de forma cuidadosa, para que possam ser utilizadas de forma fiável e, quando necessário, formal (por exemplo, em processos disciplinares, judiciais ou regulatórios).
 
 Não se trata apenas de "ver os logs". Envolve:
 
@@ -153,7 +153,7 @@ A perícia informática **não é obrigatória em todos os incidentes**. Ganha i
 
 | Situação | Necessidade forense | Justificação |
 |----------|:-------------------:|-------------|
-| Phishing generico com reset rápido de password | Baixa | Incidente contido rapidamente, sem indicios de acesso efetivo a dados sensíveis |
+| Phishing genérico com reset rápido de password | Baixa | Incidente contido rapidamente, sem indicios de acesso efetivo a dados sensíveis |
 | Suspeita de crime informático | **Alta** | Pode ser necessário reportar as autoridades e apresentar provas |
 | Obrigação regulatória (RGPD, NIS2) | **Alta** | O regulador pode exigir evidência de como o incidente ocorreu e que dados foram afetados |
 | Possibilidade de litígio | **Alta** | A organização pode precisar de provas para se defender ou para acionar terceiros |
@@ -193,6 +193,37 @@ Nem todas as equipas estão preparadas para conduzir perícia informática. Uma 
 
 ---
 
+### Ferramentas forenses — stack de referência
+
+Uma equipa de IR/DFIR moderna deve conhecer e ter disponível o seguinte conjunto. Catálogo resumido — detalhe completo em [ih/detecao-contencao.md](../ih/detecao-contencao.md).
+
+| Fase | Ferramentas | Contexto de uso |
+|------|-------------|-----------------|
+| **Aquisição de memória** | WinPMEM, LiME, DumpIt | Dump RAM antes de desligar (volatilidade máxima) |
+| **Aquisição de disco** | FTK Imager, dcfldd/dc3dd, **write-blockers físicos** (Tableau, CRU) | Imagem bit-stream E01/RAW para cópia de trabalho |
+| **Triage rápida** | KAPE, Velociraptor | Quando não há tempo para imagem completa — extrai artefactos-chave |
+| **Análise de memória** | Volatility 3 (`pslist`, `netscan`, `malfind`, `dumpfiles`) | Processos ocultos, conexões, injeção de código |
+| **Timeline forense** | Plaso / log2timeline + Timesketch | Reconstruir cronologia a partir de MFT, USN, Prefetch, EVTX, SRUM |
+| **Artefactos Windows** | Autopsy (GUI), Eric Zimmerman suite (MFTECmd, PECmd, EvtxECmd, RegRipper) | Parsers específicos para artefactos Windows |
+| **Network forensics** | Wireshark, tshark, Zeek, NetworkMiner | Análise de PCAPs, extracção de ficheiros, decoder por protocolo |
+| **Malware triage** | PE-sieve, PEStudio, CAPEv2, YARA | Análise estática e dinâmica |
+| **Case management** | TheHive + Cortex, DFIR-IRIS, MISP | Registo estruturado de evidências, partilha CTI |
+
+!!! info "Integração com ATT&CK"
+    Cada artefacto recolhido deve ser mapeado à técnica ATT&CK correspondente (ver [mapa ATT&CK](../comum/attack-mapping.md)). Ex.: dump LSASS → **T1003.001**; Prefetch com `psexec.exe` → **T1021.002**.
+
+!!! warning "RFC 3227 — ordem de volatilidade"
+    Toda a recolha deve seguir a **RFC 3227 — *Guidelines for Evidence Collection and Archiving***. Começar pelos dados mais voláteis (registos CPU, cache, RAM, tabela de processos, conexões de rede) e terminar pelos menos voláteis (disco, meios de arquivo). Inverter esta ordem destrói evidência.
+
+### Orientação legal — Portugal
+
+- **Lei do Cibercrime** (Lei 109/2009) — arts. 12.º-19.º regulam pesquisa, apreensão e intercepção de dados informáticos.
+- **CNCS/CERT.PT** — ponto nacional de contacto para cooperação.
+- **Perito judicial** — se o caso seguir via judicial, a apresentação da prova requer perito inscrito em lista de tribunal.
+- **Coordenação com a CNPD** — para violações de dados pessoais, prazo de **72h** sob o RGPD art. 33.º.
+
+---
+
 ### A tensão entre recuperação rápida e preservação de prova
 
 Existe uma tensão real entre duas necessidades legitimas: a **urgência operacional** de restaurar serviços e a **necessidade de preservar provas** antes de alterar os sistemas.
@@ -226,7 +257,7 @@ E importante distinguir claramente:
 |--------|-------------------|---------------------|
 | **Pergunta central** | O que foi afetado? Qual o impacto? O que restaurar? | Que provas existem? Como preserva-las? O que pode ser demonstrado? |
 | **Objetivo** | Guiar a recuperação | Garantir que as provas são fiáveis e utilizáveis |
-| **Urgência** | Alta - necessária para avancar | Variavel - depende do tipo de incidente |
+| **Urgência** | Alta - necessária para avancar | Variável - depende do tipo de incidente |
 | **Quem faz** | Equipa de resposta a incidentes | Especialistas em forense digital (internos ou externos) |
 | **Risco de não fazer** | Recuperação cega, sem saber o alcance | Perda de provas, incapacidade de demonstrar o que aconteceu |
 
@@ -318,7 +349,7 @@ A revisão pós-ação e o momento formal em que a organização olha para o inc
 |----------|----------|
 | O que **correu bem** na resposta? | Identificar práticas a manter e reforcar |
 | O que **correu mal** ou foi difícil? | Identificar falhas, bloqueios e ineficiencias |
-| O que **faltou** (ferramentas, informação, competencias, procedimentos)? | Identificar lacunas a preencher |
+| O que **faltou** (ferramentas, informação, competências, procedimentos)? | Identificar lacunas a preencher |
 | O que **mudar** no plano, nas equipas, nos controlos, na comunicação? | Definir ações concretas de melhoria |
 | O que **aprendemos** sobre a ameaça, os atacantes, os nossos sistemas? | Incorporar conhecimento na postura de segurança |
 
@@ -457,7 +488,7 @@ A automação e uma ferramenta poderosa, mas tem limites claros:
 
 **Como interpretar:**
 
-*Num hospital, a integridade dos dados clínicos e crítica: um resultado de exame alterado pode levar a decisões clínicas erradas. A recuperação exige não só restaurar o sistema, mas validar que os dados restaurados são fiáveis. A necessidade forense e alta pela regulamentação aplicavel a dados de saúde.*
+*Num hospital, a integridade dos dados clínicos e crítica: um resultado de exame alterado pode levar a decisões clínicas erradas. A recuperação exige não só restaurar o sistema, mas validar que os dados restaurados são fiáveis. A necessidade forense e alta pela regulamentação aplicável a dados de saúde.*
 
 **Para refletir:**
 
@@ -478,7 +509,7 @@ A automação e uma ferramenta poderosa, mas tem limites claros:
 | **Corrigir vulnerabilidades** | Corrigir a vulnerabilidade no sistema de checkout, rever o código para vulnerabilidades similares |
 | **Restaurar serviços** | Restaurar o site com a vulnerabilidade corrigida, processar encomendas pendentes, reativar meios de pagamento |
 | **Melhorar deteção** | Implementar WAF (Web Application Firewall), melhorar monitorização de acessos a base de dados de clientes |
-| **Restaurar confiança** | Notificar clientes afetados, comunicar medidas tomadas, oferecer monitorização de credenciais se aplicavel |
+| **Restaurar confiança** | Notificar clientes afetados, comunicar medidas tomadas, oferecer monitorização de credenciais se aplicável |
 | **Revisão pós-ação** | A vulnerabilidade devia ter sido identificada em testes? O WAF teria prevenido? A deteção foi rápida o suficiente? Como melhorar o processo de desenvolvimento seguro? |
 
 **Como interpretar:**
@@ -546,7 +577,7 @@ Classifica as seguintes afirmações como Verdadeiras (V) ou Falsas (F):
     | # | Resposta | Justificação |
     |---|:--------:|-------------|
     | a) | **F** | A avaliação deve começar o mais cedo possível com a melhor informação disponível. Esperar por informação completa atrasa a recuperação. |
-    | b) | **F** | A perícia informática não é necessária em todos os incidentes. Ganha importância quando há suspeita de crime, obrigações regulatorias, litígio ou necessidade de prova formal. |
+    | b) | **F** | A perícia informática não é necessária em todos os incidentes. Ganha importância quando há suspeita de crime, obrigações regulatórias, litígio ou necessidade de prova formal. |
     | c) | **V** | A cadeia de custodia e o registo documentado de quem recolheu a prova, quando, como e por onde passou. |
     | d) | **F** | Uma recuperação madura tem 7 camadas, incluindo corrigir vulnerabilidades, melhorar salvaguardas, monitorização pós-restauro e revisão pós-ação. Restaurar o backup e apenas uma das camadas. |
     | e) | **V** | A monitorização pós-restauro visa detetar mecanismos de persistência deixados pelo atacante, recorrência do incidente, e confirmar a estabilidade dos sistemas. |
@@ -598,13 +629,13 @@ Associa cada ação a camada de recuperação correspondente.
 
 Realiza a avaliação de danos respondendo:
 
-1. Que dimensoes da CIA foram potencialmente afetadas? Justifica.
+1. Que dimensões da CIA foram potencialmente afetadas? Justifica.
 2. Que fontes de evidência usarias para delimitar o alcance?
 3. Que perguntas adicionais farias para refinar a avaliação?
 
 ??? success "Solução 2.1"
 
-    **1. Dimensoes da CIA afetadas:**
+    **1. Dimensões da CIA afetadas:**
 
     | Dimensão | Afetada? | Justificação |
     |----------|:--------:|-------------|
@@ -657,7 +688,7 @@ Para cada cenário, decide se a perícia informática e necessária e justifica 
 
 #### Exercício 2.3 - Desenhar plano de recuperação
 
-**Cenário:** Uma clínica dentaria sofreu um ataque de ransomware que cifrou o servidor de agendamentos e o servidor de registos clínicos. Os backups existem mas não eram testados há 4 meses. A equipa de TI (2 pessoas) conseguiu conter o ataque isolando os servidores.
+**Cenário:** Uma clínica dentária sofreu um ataque de ransomware que cifrou o servidor de agendamentos e o servidor de registos clínicos. Os backups existem mas não eram testados há 4 meses. A equipa de TI (2 pessoas) conseguiu conter o ataque isolando os servidores.
 
 Desenha um plano de recuperação que cubra as 7 camadas. Para cada camada, indica pelo menos uma ação concreta.
 
@@ -666,7 +697,7 @@ Desenha um plano de recuperação que cubra as 7 camadas. Para cada camada, indi
     | Camada | Ação concreta |
     |--------|--------------|
     | **1. Corrigir vulnerabilidades** | Identificar como o ransomware entrou (vetor: email? RDP exposto? vulnerabilidade?). Corrigir: fechar RDP exposto, aplicar patches, corrigir configuração que permitiu a entrada. |
-    | **2. Corrigir salvaguardas** | Implementar EDR nos servidores, configurar backups automáticos com verificação diaria, implementar segmentação entre rede administrativa e rede clínica, ativar MFA no acesso remoto. |
+    | **2. Corrigir salvaguardas** | Implementar EDR nos servidores, configurar backups automáticos com verificação diária, implementar segmentação entre rede administrativa e rede clínica, ativar MFA no acesso remoto. |
     | **3. Melhorar monitorização** | Configurar alertas para cifragem massiva de ficheiros (indicador de ransomware), acessos fora de horário, tentativas de desativação do antivirus. |
     | **4. Restaurar dados** | Testar os backups (há 4 meses que não eram testados - podem estar incompletos). Restaurar com validação: verificar integridade dos registos clínicos, confirmar que as agendas estão corretas. Se os backups falharem, avaliar alternativas (reconstrução manual, contacto com pacientes). |
     | **5. Restaurar serviços e processos** | Reativar o sistema de agendamento, remarcar consultas perdidas durante a indisponibilidade, notificar pacientes afetados, processar registos clínicos que ficaram pendentes. |
@@ -719,7 +750,7 @@ Desenvolve um plano completo que inclua:
     - Os logs apagados indicam sofisticação e intenção de esconder rastos - e necessário recuperar o que for possível
     - Contratos expostos podem ter implicações comerciais e legais
 
-    **Ações forenses prioritarias:**
+    **Ações forenses prioritárias:**
     - Criar imagens forenses dos servidores web e de base de dados antes de qualquer restauro
     - Preservar todos os logs de rede, SIEM, firewall, EDR
     - Documentar cadeia de custodia
@@ -745,7 +776,7 @@ Desenvolve um plano completo que inclua:
     | Porque e que o movimento lateral não foi detetado? | Segmentação de rede e monitorização |
     | Porque e que o SIEM só detetou após 10 dias? | Regras de deteção e visibilidade |
     | Os logs podiam ter sido protegidos contra apagamento? | Proteção e retenção de logs |
-    | A equipa tinha competencias e ferramentas para está resposta? | Capacidade da equipa |
+    | A equipa tinha competências e ferramentas para está resposta? | Capacidade da equipa |
     | O plano de resposta a incidentes foi seguido? Foi útil? | Qualidade do IRP |
     | Que informação faltou durante a resposta? | Lacunas de visibilidade |
     | Que comunicação foi feita e foi adequada? | Processo de comunicação |
@@ -774,7 +805,7 @@ Para cada situação, indica se a resposta deve ser **automatizada**, **humana**
     | c) | **Hibrida** | A automação deve bloquear a conta após X tentativas (prevenir comprometimento). A equipa humana deve investigar: e ataque externo? Problema de configuração? A conta está comprometida? |
     | d) | **Humana** | Requer avaliação contextual: que serviços dependemos desse fornecedor? Que dados partilhamos? Qual o risco real? Que ações tomar? E uma decisão estratégica e de coordenação. |
     | e) | **Automatizada** | A quarentena do email deve ser automática para os 200 destinatários. A análise humana vem depois (confirmar que é malicioso, verificar se alguém abriu antes da quarentena). |
-    | f) | **Humana** | E uma decisão legal que requer avaliação do impacto, dos dados afetados, das obrigações aplicaveis e das consequências. Não pode ser automatizada. |
+    | f) | **Humana** | E uma decisão legal que requer avaliação do impacto, dos dados afetados, das obrigações aplicáveis e das consequências. Não pode ser automatizada. |
 
 ---
 
@@ -864,7 +895,7 @@ O atacante pode ter deixado mecanismos de persistência. A causa raiz pode não 
 ### Frases-chave para recordar
 
 - *"Recuperar sem avaliar e como reconstruir sem saber o que está danificado."*
-- *"A perícia informática não é obrigatória em todos os incidentes, mas quando e necessária, e insubstituivel."*
+- *"A perícia informática não é obrigatória em todos os incidentes, mas quando e necessária, e insubstituível."*
 - *"Uma prova mal recolhida e uma prova perdida."*
 - *"Restaurar o backup e uma camada da recuperação, não a recuperação completa."*
 - *"Voltar ao estado anterior sem corrigir a fraqueza e preparar o próximo incidente."*

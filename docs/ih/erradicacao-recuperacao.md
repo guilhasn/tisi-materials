@@ -557,4 +557,16 @@ Um colaborador recebeu um email de phishing, clicou no link e introduziu as suas
 
 ---
 
+## 📎 Documentos operacionais relacionados
+
+A fase de Follow-up consolida-se em documentação escrita e comunicação formal. Catálogo completo em [Preparação — Documentos operacionais](preparacao.md#documentos-e-templates-operacionais).
+
+- [📄 Relatório Pós-Incidente (PIR)](../gestao_incidentes/relatorio-pos-incidente-pir.docx) — template estruturado com cronologia, técnicas ATT&CK, root cause analysis, ações corretivas e lições aprendidas.
+- [📄 Plano de Comunicação de Crise](../gestao_incidentes/plano-comunicacao-crise.docx) — matriz audiências × canais × porta-vozes; mensagens-tipo; war room.
+- [📄 Notificação NIS2 — fim de impacto (24h)](../gestao_incidentes/notificacao-24h-nis2.docx) — após resolução do incidente significativo.
+- [📄 Relatório final NIS2 (30 dias)](../gestao_incidentes/notificacao-30d-nis2.docx) — 30 dias úteis após fim de impacto.
+- [📊 Registo de incidentes](../gestao_incidentes/registo-incidentes-nis2.xlsx) — consolidação para análise de tendências e auditoria.
+
+---
+
 Próximos passos: Explore os [Casos Práticos](casos-praticos.md) para aplicar estas fases em cenários completos de resposta a incidentes.

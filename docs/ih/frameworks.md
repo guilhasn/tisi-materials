@@ -693,4 +693,14 @@ Para cada cenário, recomende a **combinação de frameworks** mais adequada e j
 
 ---
 
+## 📎 Documentos operacionais relacionados
+
+A concretização destes frameworks em [Nome da organização] materializa-se em documentos específicos. Catálogo completo em [Preparação — Documentos operacionais](preparacao.md#documentos-e-templates-operacionais).
+
+- [📄 Política de Gestão de Incidentes](../gestao_incidentes/politica-gestao-incidentes.docx) — alinhada com ISO 27035, NIST SP 800-61r2 e DL 125/2025 (NIS2 PT).
+- [📄 Plano de Resposta a Incidentes (NIS2)](../gestao_incidentes/plano-resposta-incidentes-nis2.docx) — implementação concreta do ciclo NIST/SANS adaptada ao contexto legal português.
+- [📄 Procedimento de Escalonamento e Matriz RACI](../gestao_incidentes/procedimento-escalonamento-raci.docx) — concretiza a governação descrita no ISACA.
+
+---
+
 **Próximos passos:** Explore a [Preparação](preparacao.md) para perceber como montar uma equipa CSIRT, definir políticas e equipar a organização antes do primeiro incidente.

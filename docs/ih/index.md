@@ -13,6 +13,7 @@
 9. [Exercícios](#9-exercicios)
 10. [Armadilhas e confusões a evitar](#10-armadilhas-e-confusoes-a-evitar)
 11. [Resumo rápido](#11-resumo-rapido)
+12. [📎 Templates e documentos operacionais (download)](#12-templates-e-documentos-operacionais)
 
 ---
 
@@ -547,6 +548,50 @@ d) Requisitos legais/regulatórios
 | **Incident Response** | Ações durante o incidente |
 | **Modelo de 7 passos** | Preparação → Deteção → Contenção → Investigação → Erradicação → Recuperação → Follow-up |
 | **Regra de ouro** | Preservar evidências ANTES de qualquer ação de resposta |
+
+---
+
+## 12. Templates e documentos operacionais
+
+!!! tip "Download directo dos templates"
+    Todos os documentos seguintes estão em formato `.docx` editável, com placeholder `[Nome da organização]`. Os alunos podem descarregar, adaptar e usar nas suas organizações. Catálogo completo também em [Preparação — Documentos operacionais](preparacao.md#documentos-e-templates-operacionais).
+
+### Políticas e procedimentos
+
+| Documento | Download |
+|-----------|----------|
+| Política de Gestão de Incidentes | [:material-file-word: política](../gestao_incidentes/politica-gestao-incidentes.docx){ .md-button } |
+| Procedimento de Classificação e Severidade (P1-P5) | [:material-file-word: classificação](../gestao_incidentes/procedimento-classificacao-severidade.docx){ .md-button } |
+| Procedimento de Escalonamento e Matriz RACI | [:material-file-word: escalonamento](../gestao_incidentes/procedimento-escalonamento-raci.docx){ .md-button } |
+| Plano de Resposta a Incidentes (NIS2) | [:material-file-word: plano IR](../gestao_incidentes/plano-resposta-incidentes-nis2.docx){ .md-button } |
+
+### Playbooks por tipo de incidente
+
+| Documento | Download |
+|-----------|----------|
+| Playbook — Ransomware (CISA / MITRE ATT&CK) | [:material-file-word: ransomware](../gestao_incidentes/playbook-ransomware.docx){ .md-button } |
+| Playbook — Phishing / Comprometimento de Credenciais | [:material-file-word: phishing](../gestao_incidentes/playbook-phishing.docx){ .md-button } |
+| Playbook — Violação de Dados Pessoais (RGPD 33.º/34.º) | [:material-file-word: RGPD](../gestao_incidentes/playbook-violacao-dados-pessoais.docx){ .md-button } |
+
+### Comunicação e documentação pós-incidente
+
+| Documento | Download |
+|-----------|----------|
+| Plano de Comunicação de Crise | [:material-file-word: comunicação](../gestao_incidentes/plano-comunicacao-crise.docx){ .md-button } |
+| Relatório Pós-Incidente (PIR) | [:material-file-word: PIR](../gestao_incidentes/relatorio-pos-incidente-pir.docx){ .md-button } |
+
+### Notificações regulatórias NIS2 (DL 125/2025)
+
+| Documento | Prazo | Download |
+|-----------|-------|----------|
+| Notificação inicial CNCS | 24h após conhecimento | [:material-file-word: 24h](../gestao_incidentes/notificacao-24h-nis2.docx){ .md-button } |
+| Notificação intermédia CNCS | 72h | [:material-file-word: 72h](../gestao_incidentes/notificacao-72h-nis2.docx){ .md-button } |
+| Relatório final CNCS | 30 dias úteis após fim de impacto | [:material-file-word: 30d](../gestao_incidentes/notificacao-30d-nis2.docx){ .md-button } |
+| Notificação a destinatários / utilizadores | Conforme art. 48.º | [:material-file-word: destinatários](../gestao_incidentes/notificacao-incidente-destinatarios-nis2.docx){ .md-button } |
+| Registo interno de incidentes | Contínuo (art. 33.º n.º 5 RGPD) | [:material-file-excel: registo](../gestao_incidentes/registo-incidentes-nis2.xlsx){ .md-button } |
+
+!!! warning "Aviso pedagógico"
+    Estes templates são pontos de partida para aprendizagem, **não substitutos de análise jurídica qualificada**. Antes de usar em contexto real, validar com DPO, Jurídico e eventualmente consultor regulatório setorial.
 
 ---
 

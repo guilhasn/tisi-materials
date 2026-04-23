@@ -402,8 +402,120 @@ Os cinco casos práticos ilustram aspetos fundamentais do BCP:
 
 ---
 
+## Caso real — Colonial Pipeline (maio 2021)
+
+!!! abstract "Por que estudar um caso real"
+    Os casos anteriores são fictícios. Este é o **caso canónico de acoplamento IT/OT** — ransomware apenas em IT provoca paragem de OT por decisão de negócio, com impacto em 45% do consumo de combustível da costa leste dos EUA. Testa a matriz de decisão de declaração de desastre e a segmentação arquitectural.
+
+### Contexto e cronologia
+
+| Data | Evento |
+|------|--------|
+| ~29 abril 2021 | **Primeira autenticação** na VPN comprometida (credencial reutilizada) |
+| 7 maio, ~05h00 ET | **Deteção**: operador encontra nota de resgate; equipa de IT alerta o CEO |
+| 7 maio, manhã | Colonial **desliga proactivamente o pipeline OT** (decisão de negócio, não de contenção técnica) |
+| 7-12 maio | **Interrupção** de 5.500 milhas de pipeline; 45% do combustível da costa leste afectado |
+| 8 maio | Pagamento de **~75 BTC (~USD 4.4M)** a 8 maio |
+| 9 maio | **Declaração de Emergência Regional** (DOT/FMCSA) relaxando horas de condução |
+| 12 maio | Reinício progressivo de operações |
+| 7 junho | **FBI recupera 63.7 BTC** (~63 maio) por acesso à chave privada |
+
+**Actor:** **DarkSide**, grupo **RaaS** com afiliação russa presumida (exclui alvos na CEI — indicador típico). O grupo dissolveu a infraestrutura pública dias após o incidente (pressão reputacional).
+
+### O ponto pedagógico central — a decisão crítica de BCP
+
+**Os sistemas OT (SCADA/DCS do pipeline) NÃO foram cifrados.** A cifra atingiu apenas sistemas IT — billing, ERP, facturação. A decisão de parar o OT foi **organizacional, não técnica**:
+
+```
+  ┌──────────────────────────────────────────────────────────────┐
+  │     IT (cifrado)              OT (NÃO cifrado)               │
+  │        │                           │                         │
+  │        ▼                           ▼                         │
+  │   Billing parado          Pipeline operacional               │
+  │   ERP parado              SCADA a funcionar                  │
+  │        │                           │                         │
+  │        └───────────────────┬───────┘                         │
+  │                            ▼                                 │
+  │            Pergunta: continuamos a bombear sem facturar?     │
+  │                            ▼                                 │
+  │            Decisão: NÃO. Pára-se o pipeline.                 │
+  │                                                              │
+  │   Motivação: sem billing, sem modelo contratual.             │
+  │   Sem contrato, responsabilidade legal e financeira          │
+  │   indeterminada. "Vamos bombear gás de graça?"               │
+  └──────────────────────────────────────────────────────────────┘
+```
+
+**Esta é a lição central do caso.** O BCP falhou no desenho porque existia **acoplamento crítico entre IT e OT**: o billing em IT era condição contratual para a operação em OT. Num plano maduro, esta dependência teria sido identificada na BIA e mitigada por procedimentos manuais de facturação (ex.: metering com reconciliação posterior).
+
+### TTPs observadas
+
+Detalhes granulares não publicados em texto integral (Mandiant conduziu IR mas não publicou relatório técnico completo). Confirmados:
+
+| Táctica | Técnica | Detalhe |
+|---------|---------|---------|
+| Initial Access | **T1078** — Valid Accounts | Credencial VPN legacy reutilizada, sem MFA |
+| Initial Access | **T1133** — External Remote Services | VPN Citrix exposta à internet |
+| Impact | **T1486** — Data Encrypted for Impact | Ransomware DarkSide sobre sistemas IT |
+| (Exfiltration) | **T1567.002** (presumida) | Double extortion pattern típica DarkSide |
+
+Ver o [mapa de referência ATT&CK](../comum/attack-mapping.md) para contexto mais amplo.
+
+### Impacto cascata
+
+- **Pânico de combustível** em AL, GA, NC, SC, VA, TN — consumidores armazenam em contentores inadequados (bidões plástico, sacos); registadas explosões.
+- Preço médio nacional da gasolina sobe ~6 cêntimos/galão, ultrapassa **USD 3.00/gal** pela primeira vez desde 2014.
+- **Airlines** ajustam rotas para evitar stopovers na costa leste com necessidade de reabastecimento.
+- Pressão política bipartidária; audiências no Congresso (Joseph Blount testifica a 8 jun).
+
+### Resposta regulatória
+
+A Colonial acelerou a resposta regulatória dos EUA a infraestruturas críticas:
+
+| Directiva | Data | Conteúdo |
+|-----------|------|----------|
+| **TSA Pipeline-2021-01** | 28 mai 2021 | Reporte obrigatório à CISA em 12h para incidentes significativos |
+| **TSA Pipeline-2021-02** | Jul 2021 | Requisitos prescritivos: segmentação, MFA, patching, IR plan |
+| Revisões 2022, 2023 | | Reforço de requisitos, incluindo *penetration testing* |
+
+Precedeu a **National Cybersecurity Strategy** (Mar 2023) da administração Biden.
+
+### Lições para BCP — as não-óbvias
+
+1. **Segmentação IT/OT não é só técnica** — é organizacional. A BIA deve identificar **acoplamentos funcionais** (billing IT → OT). Se OT só funciona se IT funcionar, não há segmentação.
+2. **Higiene de IAM básica** — conta VPN legacy, sem MFA, com credencial exposta. Em 2021, isto é falha de processo, não de tecnologia.
+3. **Backups testados a escala real** — Blount admitiu no Congresso que o pagamento foi parcialmente justificado por incerteza sobre tempo de restauro.
+4. **Declaração de desastre tardia** — linha cinzenta entre "incidente grave" e "crise corporativa". Matriz de decisão tem de ser pré-estabelecida.
+5. **Coordenação com autoridades** — contactos pré-estabelecidos com CISA, FBI, DOE, DOT, TSA. Não se começa a ler contactos durante a crise.
+6. **Comunicação política e mediática** — Blount testemunhou sob juramento. A comunicação não é só técnica; é regulatória e reputacional.
+
+### Dimensões éticas em debate
+
+- **Pagar USD 4.4M** — prós: restauro rápido, seguro cobria parte. Contras: financia operações criminosas; incentivo para futuros ataques.
+- **Recuperação dos 63.7 BTC** — o FBI demonstrou capacidade de *seguir o dinheiro* em cripto. Muda o cálculo custo-benefício futuro?
+- **Comunicação pública** — Blount demorou a comunicar publicamente. Comparar com a abordagem Klaba (OVH): transparência imediata vs. controlo de narrativa.
+
+### Questões para discussão (mestrado)
+
+1. Foi tecnicamente justificável parar a rede OT sem evidência de comprometimento OT, ou reflecte falha de desenho do BCP (acoplamento billing-operação)?
+2. Qual o papel dos **seguros cyber** na decisão de pagar USD 4.4M — incentivo perverso ou racionalidade económica defensável?
+3. Como desenharia uma **matriz de decisão de declaração de desastre** para evitar o atraso observado, distinguindo "incidente grave IT" de "crise corporativa"?
+4. A recuperação de 63.7 BTC pelo FBI cria precedente. Mudaria a sua política de "no ransom payment" conhecendo este *outcome*?
+5. Avalie se as TSA Security Directives (2021-2023) seguem modelo **prescritivo** adequado, ou se modelo **baseado em risco** (à la NIS2) seria mais eficaz para pipelines.
+
+### Referências verificáveis
+
+- Testemunho de **Joseph Blount** perante o Senate Homeland Security Committee (8 jun 2021). <https://www.hsgac.senate.gov/hearings/threats-to-critical-infrastructure-examining-the-colonial-pipeline-cyber-attack/>
+- **CISA/FBI Joint Advisory AA21-131A** — DarkSide Ransomware. <https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-131a>
+- **DOJ** — recuperação de 63.7 BTC (7 jun 2021). <https://www.justice.gov/opa/pr/department-justice-seizes-23-million-cryptocurrency-paid-ransomware-extortionists-darkside>
+- **GAO-22-105468** — Pipeline Cybersecurity. <https://www.gao.gov/products/gao-22-105468>
+- **TSA Security Directives Pipeline**. <https://www.tsa.gov/news/press/releases/2021/07/20/dhs-announces-new-cybersecurity-requirements-critical-pipeline-owners>
+
+---
+
 ## 📋 Templates
 
-Consulte os templates disponíveis para apoio à elaboração do plano de continuidade de negócio:
+Consulte o [menu Templates](../modelos/index.md) para todos os modelos operacionais, com contexto de uso, personalização e cadência de revisão. Relevante para BCP:
 
-[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }
+[:material-file-document-outline: BCP Vila Feliz](../modelos/BCP_Municipio_Vila_Feliz_TISI.docx){ .md-button .md-button--primary }
+[:material-view-list: Hub de Templates](../modelos/index.md){ .md-button }

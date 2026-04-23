@@ -121,10 +121,10 @@ O técnico de serviço tenta reiniciar o servidor e depara-se com uma mensagem d
 |----------|---------|
 | **Fonte de deteção** | Humana (técnico de radiologia) + Tecnológica (servidor não responde) |
 | **Primeiro indicador** | Definitivo — mensagem de ransomware visível |
-| **Hora crítica** | Sabado as 06h30 — equipa de TI reduzida, urgencias em funcionamento |
+| **Hora crítica** | Sabado as 06h30 — equipa de TI reduzida, urgências em funcionamento |
 | **Escalamento** | Técnico → Responsável de turno TI → CISO (contacto de emergência) |
 
-**Agravante:** E sábado de manhã. A equipa de TI habitual não está disponível. As urgencias estão a funcionar com doentes que podem precisar de exames de imagiologia.
+**Agravante:** E sábado de manhã. A equipa de TI habitual não está disponível. As urgências estão a funcionar com doentes que podem precisar de exames de imagiologia.
 
 ### Fase 2 - Classificação
 
@@ -183,7 +183,7 @@ O técnico de serviço tenta reiniciar o servidor e depara-se com uma mensagem d
 
 **Avaliação de danos:**
 
-- Servidor PACS cifrado — dados inacessiveis
+- Servidor PACS cifrado — dados inacessíveis
 - Backup mais recente: sexta-feira as 23h00 (7,5 horas antes)
 - Exames realizados entre 23h00 de sexta e 06h30 de sábado: 12 exames de urgência
 - Sem evidência de exfiltração de dados (mas não se pode excluir)
@@ -211,7 +211,7 @@ O técnico de serviço tenta reiniciar o servidor e depara-se com uma mensagem d
 |---------|-----------|
 | O que funcionou? | Segmentação de rede impediu propagação; backup recente permitiu restauro rápido |
 | O que falhou? | RDP exposto a Internet sem MFA; ausência de monitorização 24/7 |
-| O que mudar? | Eliminar RDP exposto; implementar EDR; backup imutavel; equipa de resposta ao fim-de-semana |
+| O que mudar? | Eliminar RDP exposto; implementar EDR; backup imutável; equipa de resposta ao fim-de-semana |
 | Tempo de resposta | Deteção: imediata, Contenção: 1h, Restauro: 11,5h, Normal: 27,5h |
 
 ---
@@ -261,7 +261,7 @@ A equipa de auditoria interna escala imediatamente para a área de segurança.
 |------|--------|--------|
 | CISO e Diretor de TI | Imediatamente | Coordenação técnica |
 | Administração do banco | Imediatamente | Impacto financeiro e decisões estratégicas |
-| Compliance Officer | Dentro de 30 min | Obrigacoes regulatorias |
+| Compliance Officer | Dentro de 30 min | Obrigacoes regulatórias |
 | Banco de Portugal | Conforme regulação | Reporte obrigatório de incidente significativo |
 | SWIFT (rede) | Dentro de 2h | Protocolo de segurança da rede SWIFT |
 | Polícia Judiciária | Dentro de 24h | Crime financeiro |
@@ -300,7 +300,7 @@ A equipa de auditoria interna escala imediatamente para a área de segurança.
 4. **Reforcar autenticação:** Implementar tokens físicos (hardware) para acesso ao SWIFT
 5. **Melhorar deteção:** Baixar limiares de alerta; implementar deteção de padrões (múltiplas transferências pequenas)
 6. **Rever política de email:** Sandboxing de anexos, bloqueio de macros Word por defeito
-7. **Reporte regulatório:** Reporte detalhado ao Banco de Portugal conforme prazos regulatorios
+7. **Reporte regulatório:** Reporte detalhado ao Banco de Portugal conforme prazos regulatórios
 
 ### Lições aprendidas
 
@@ -593,7 +593,7 @@ O phishing revela falta de MFA. O ransomware revela RDP exposto. A fraude revela
 ---
 
 !!! info "Exercícios por módulo"
-    Para exercícios focados em competencias específicas, consulte as secções de exercícios de cada módulo:
+    Para exercícios focados em competências específicas, consulte as secções de exercícios de cada módulo:
 
     - [Planeamento — Exercícios](planeamento.md#6-exercicios)
     - [Deteção — Exercícios](detecao.md#5-exercicios)
@@ -604,8 +604,96 @@ O phishing revela falta de MFA. O ransomware revela RDP exposto. A fraude revela
 
 ---
 
+## Caso real — NotPetya / Maersk (27 junho 2017)
+
+!!! abstract "Por que estudar um caso real"
+    Os 5 casos anteriores são fictícios, construídos para ilustrar decisões tipo. Este é o **caso canónico de IR moderno** — supply chain, pseudo-ransomware, AD obliterado, recuperação heroica. Todos os temas da UC convergem aqui.
+
+### Contexto e atribuição
+
+Em **27 de junho de 2017**, véspera do Dia da Constituição ucraniano, o grupo **Sandworm** (GRU/Unidade 74455) lança o NotPetya disfarçado de ransomware. Em fevereiro de 2018, EUA, Reino Unido, UE e outros atribuem formalmente o ataque à Rússia. O dano colateral atinge multinacionais em todo o mundo — **Maersk, Merck, FedEx/TNT, Mondelez, Reckitt** —, com perdas estimadas globais superiores a **USD 10 mil milhões**.
+
+### Vector: supply chain via M.E.Doc
+
+O vector não é um CVE — é comprometimento da **cadeia de fornecimento** do software ucraniano **M.E.Doc** (declaração fiscal, Linkos Group). Os atacantes injectam um backdoor no mecanismo de *update* e distribuem-no a milhares de empresas a operar na Ucrânia, incluindo sucursais de multinacionais.
+
+!!! warning "Lição de supply chain"
+    Não houve CVE público contra o M.E.Doc. Foi **comprometimento da infraestrutura do fornecedor**. Programas modernos de *Third-Party Risk Management* têm de incluir controlos sobre fornecedores com **push rights** para dentro da rede — não apenas avaliação de segurança do produto.
+
+### TTPs mapeados ao MITRE ATT&CK
+
+Ver [mapa de referência ATT&CK](../comum/attack-mapping.md) para contexto. Técnicas observadas:
+
+| Táctica | Técnica | Manifestação |
+|---------|---------|--------------|
+| Initial Access | **T1195.002** — Compromise Software Supply Chain | Update malicioso do M.E.Doc |
+| Execution | **T1059.003** / **T1569.002** | `rundll32.exe perfc.dat` |
+| Credential Access | **T1003.001** — LSASS Memory | Módulo Mimikatz-like embutido no dropper |
+| Lateral Movement | **T1021.002** — SMB/Admin Shares | PsExec + WMIC sobre credenciais extraídas |
+| Lateral Movement | **T1210** — Exploitation of Remote Services | EternalBlue (CVE-2017-0144) e EternalRomance (CVE-2017-0145) |
+| Impact | **T1486** — Data Encrypted for Impact | Cifra de MFT com chave não-recuperável |
+| Impact | **T1561.002** — Disk Structure Wipe | MBR sobrescrito |
+| Impact | **T1490** — Inhibit System Recovery | `wevtutil cl`, `fsutil usn deletejournal`, `bcdedit /set bootstatuspolicy ignoreallfailures` |
+
+**Nota crítica:** o *Installation ID* mostrado à vítima era **aleatório**, não derivado da chave. Era impossível reconstruir a chave mesmo pagando — tratava-se de um **wiper** disfarçado de ransomware. O objectivo estratégico era destruição, não lucro.
+
+### Impacto na Maersk
+
+A Maersk tinha um único host infectado em Odessa. A propagação global via SMB + credenciais dumpadas foi **completa em cerca de 7 minutos**.
+
+| Métrica | Valor |
+|---------|-------|
+| Laptops destruídos | ~49 000 |
+| Servidores destruídos | ~4 000 |
+| Aplicações destruídas | ~2 500 |
+| Terminais portuários offline | 76 (APM Terminals global) |
+| Duração da disrupção | ~10 dias |
+| Perda declarada (Q2 2017) | **USD 250M–300M** |
+
+### O DC em Gana — recuperação por sorte
+
+Toda a infraestrutura Active Directory foi cifrada. A Maersk não conseguia reconstruir o AD a partir de nenhum backup online (todos cifrados). **Um único Domain Controller em Tema, Gana, estava offline** na altura do ataque devido a um **apagão local**. Foi a única cópia do estado do AD que sobreviveu.
+
+Um engenheiro teve de voar **Lagos → Londres** com o disco em mãos (após problemas de passaporte no escalão via Joanesburgo). Esta cópia salvou o AD global da Maersk.
+
+!!! danger "A dependência da sorte é falha de plano"
+    Sem o apagão em Gana, a Maersk teria perdido permanentemente o AD global e ficado incapaz de recuperar. Um AD Tier-0 recovery plan não pode depender de eventos aleatórios. O standard actual é: **NTDS.dit offline, cópias imutáveis, cross-region, procedimento testado anualmente**.
+
+### Lições aprendidas — aplicáveis a qualquer organização
+
+1. **Backups imutáveis / air-gapped** — cópias online são cifradas junto com a produção. Standard actual: WORM/object lock (S3 Object Lock, Azure Immutable Blob, Veeam hardened repositories).
+2. **AD Tier-0 recovery plan** — *forest recovery* testado, NTDS.dit offline, DCs isolados geograficamente, LAPS para contas locais.
+3. **Patching crítico < 30 dias** — MS17-010 estava disponível desde **março de 2017**. Três meses depois ainda havia máquinas vulneráveis em produção.
+4. **Eliminar SMBv1** — é o protocolo dos exploits EternalBlue/Romance. Está desactivado por default desde Windows 10 1709.
+5. **Segmentação de rede** — SMB não deve ser acessível entre subnets não-relacionadas. Microsegmentação + host firewalling.
+6. **Privileged Access Workstations (PAW)** — credenciais de domain admin nunca entram em endpoints utilizadores.
+7. **Supply chain risk** — inventariar fornecedores com capacidade de *push* para dentro da rede; exigir atestações SOC 2 / ISO 27001 / SBOM.
+
+### Dimensão legal — seguros cyber e *war exclusion*
+
+Este caso alterou a indústria de seguros cyber. Tanto **Merck v. ACE American Insurance** como **Mondelez v. Zurich** acabaram em tribunal por a seguradora invocar cláusula de *acts of war* — Sandworm é actor estatal russo. Ambos os casos foram **ganhos pelas seguradas** em 2022-2023 (apelação), mas o precedente levou ao aparecimento de **Lloyd's war exclusion clause** (2023) explícita para ataques cyber atribuídos a Estados.
+
+### Questões para discussão (mestrado)
+
+1. Se a Maersk tivesse *immutable backups* antes de 2017, teria recuperado em quantos dias? Quantifique o *trade-off* entre custo de storage imutável e custo de 10 dias de disrupção global.
+2. Como desenharia um AD forest recovery plan **que não dependa de sorte**? Que teste anual validaria o plano?
+3. O M.E.Doc não tinha CVE. Que controlos SBOM/SLSA aplicaria hoje ao software de fornecedores críticos?
+4. Avalie a decisão do Lloyd's (2023) de excluir ataques cyber atribuídos a Estados. Aceitável para o segurado ou transferência indevida de risco?
+5. A atribuição formal (NCSC, 2018) é condição suficiente para resposta (sanções, contra-ataque)? Onde fica a fronteira legal?
+
+### Referências verificáveis
+
+- Greenberg, A. (2018). *The Untold Story of NotPetya, the Most Devastating Cyberattack in History*. **Wired**. <https://www.wired.com/story/notpetya-cyberattack-ukraine-russia-code-crashed-the-world/>
+- CISA TA17-181A — *Petya Ransomware*. <https://www.cisa.gov/news-events/alerts/2017/07/01/petya-ransomware>
+- NCSC UK (2018) — atribuição formal. <https://www.ncsc.gov.uk/news/russian-military-almost-certainly-responsible-destructive-2017-cyber-attack>
+- Ashton, G. (2020). *Maersk, me & notPetya*. <https://gvnshtn.com/maersk-me-notpetya/>
+- Microsoft Security Bulletin **MS17-010**.
+
+---
+
 ## 📋 Templates
 
-Consulte os templates disponíveis para apoio ao planeamento de resposta a incidentes:
+Consulte o [menu Templates](../modelos/index.md) para todos os modelos operacionais, com contexto de uso, personalização e cadência de revisão. Relevante para IRP:
 
-[:material-file-document-outline: Aceder aos Templates](https://github.com/guilhasn/tisi-materials/tree/main/TEMPLATES){ .md-button .md-button--primary target="_blank" }
+[:material-file-document-outline: IRP Vila Feliz](../modelos/IRP_Vila_Feliz.docx){ .md-button .md-button--primary }
+[:material-view-list: Hub de Templates](../modelos/index.md){ .md-button }

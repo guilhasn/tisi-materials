@@ -673,4 +673,54 @@ Elabore um plano de preparação que cubra:
 
 ---
 
+## 📎 Documentos e templates operacionais
+
+Toda esta fase de **Preparação** só produz valor se resultar em artefactos concretos que possam ser usados durante o incidente. Os templates que se seguem foram preparados em formato `.docx` editável, com placeholder `[Nome da organização]` — os alunos devem substituir pelo nome da sua organização para os adaptar e usar internamente.
+
+### Políticas e procedimentos
+
+| Documento | Propósito | Ficheiro |
+|-----------|-----------|----------|
+| **Política de Gestão de Incidentes** | Estabelece mandato, âmbito, princípios e responsabilidades. Base para auditoria ISO 27001 A.5.24-A.5.28 e NIS2. | [📄 politica-gestao-incidentes.docx](../gestao_incidentes/politica-gestao-incidentes.docx) |
+| **Classificação e Severidade de Incidentes** | Matriz P1-P5, categorias, critérios de triagem, SLAs por severidade. | [📄 procedimento-classificacao-severidade.docx](../gestao_incidentes/procedimento-classificacao-severidade.docx) |
+| **Escalonamento e Matriz RACI do CSIRT** | Cadeia de comando, matriz RACI, contactos internos e externos (CNCS, CNPD, PJ). | [📄 procedimento-escalonamento-raci.docx](../gestao_incidentes/procedimento-escalonamento-raci.docx) |
+| **Plano de Resposta a Incidentes (NIS2)** | Plano base alinhado com DL 125/2025 (NIS2 PT). | [📄 plano-resposta-incidentes-nis2.docx](../gestao_incidentes/plano-resposta-incidentes-nis2.docx) |
+
+### Playbooks por tipo de incidente
+
+| Playbook | Cobertura | Ficheiro |
+|----------|-----------|----------|
+| **Ransomware** | Contenção, preservação, decisão de pagamento, recuperação, notificações. Alinhado com CISA StopRansomware e MITRE ATT&CK. | [📄 playbook-ransomware.docx](../gestao_incidentes/playbook-ransomware.docx) |
+| **Phishing / Comprometimento de Credenciais** | Contenção (reset, revoke sessions/tokens), investigação, erradicação, prevenção. | [📄 playbook-phishing.docx](../gestao_incidentes/playbook-phishing.docx) |
+| **Violação de Dados Pessoais** | Qualificação, avaliação de risco (EDPB WP250), notificação CNPD (art. 33.º), comunicação aos titulares (art. 34.º). | [📄 playbook-violacao-dados-pessoais.docx](../gestao_incidentes/playbook-violacao-dados-pessoais.docx) |
+
+### Comunicação e documentação
+
+| Documento | Propósito | Ficheiro |
+|-----------|-----------|----------|
+| **Plano de Comunicação de Crise** | Matriz audiências × canais × porta-vozes; mensagens-tipo; war room. | [📄 plano-comunicacao-crise.docx](../gestao_incidentes/plano-comunicacao-crise.docx) |
+| **Relatório Pós-Incidente (PIR)** | Template estruturado: cronologia, ATT&CK, root cause, lições aprendidas, ações corretivas. | [📄 relatorio-pos-incidente-pir.docx](../gestao_incidentes/relatorio-pos-incidente-pir.docx) |
+
+### Notificações regulatórias NIS2
+
+| Documento | Prazo | Ficheiro |
+|-----------|-------|----------|
+| **Notificação inicial CNCS (24h)** | 24h após conhecimento — DL 125/2025 art. 42.º | [📄 notificacao-24h-nis2.docx](../gestao_incidentes/notificacao-24h-nis2.docx) |
+| **Notificação intermédia CNCS (72h)** | 72h após conhecimento — art. 42.º n.º 3 | [📄 notificacao-72h-nis2.docx](../gestao_incidentes/notificacao-72h-nis2.docx) |
+| **Relatório final CNCS (30 dias)** | 30 dias úteis após fim de impacto — art. 44.º | [📄 notificacao-30d-nis2.docx](../gestao_incidentes/notificacao-30d-nis2.docx) |
+| **Notificação a destinatários/utilizadores** | Conforme art. 48.º | [📄 notificacao-incidente-destinatarios-nis2.docx](../gestao_incidentes/notificacao-incidente-destinatarios-nis2.docx) |
+| **Registo de incidentes** | Registo interno obrigatório (art. 33.º n.º 5 RGPD + NIS2) | [📊 registo-incidentes-nis2.xlsx](../gestao_incidentes/registo-incidentes-nis2.xlsx) |
+
+!!! tip "Como usar estes templates"
+    1. Descarregar o ficheiro `.docx` ou `.xlsx` relevante.
+    2. Substituir todos os placeholders `[Nome da organização]`, `[Autor]`, `[email]`, etc. pelos valores reais.
+    3. Adaptar conteúdo específico ao contexto (setor, dimensão, jurisdição).
+    4. Submeter a aprovação formal (Direção) antes da publicação interna.
+    5. Rever anualmente ou após incidente significativo.
+
+!!! warning "Aviso"
+    Estes templates são **pontos de partida pedagógicos**, não substitutos de análise jurídica qualificada. Para implementação em organização real, validar com DPO, Jurídico e, quando aplicável, consultor regulatório setorial.
+
+---
+
 **Próximos passos:** Explore [Deteção, Contenção e Investigação](detecao-contencao.md) para perceber como identificar incidentes reais, conter a ameaça e investigar a causa raiz.
