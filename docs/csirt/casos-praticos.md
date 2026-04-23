@@ -173,10 +173,19 @@ O CISO de uma empresa industrial quer clarificar os níveis de autoridade do CSI
 
 A criação e operação de um CSIRT materializa-se nos seguintes templates. Catálogo completo em [📋 Templates](../modelos/index.md).
 
-- [📄 Política de Gestão de Incidentes](../gestao_incidentes/politica-gestao-incidentes.docx) — mandato e papéis do CSIRT.
-- [📄 Procedimento de Escalonamento e Matriz RACI](../gestao_incidentes/procedimento-escalonamento-raci.docx) — cadeia de comando e contactos.
+**Templates canónicos do módulo CSIRT (Grupo E):**
+
+- [📄 CSIRT Charter / Plano de Estabelecimento](../gestao_incidentes/csirt-charter.docx) — documento interno que formaliza os 4 fundamentos.
+- [📄 RFC 2350 — Service Description](../gestao_incidentes/csirt-rfc2350.docx) — face pública do CSIRT (requerido por FIRST/TF-CSIRT).
+- [📄 Terms of Reference](../gestao_incidentes/csirt-terms-of-reference.docx) — para associações multi-team.
+- [📄 Service Catalog FIRST v2.1](../gestao_incidentes/csirt-service-catalog-first.docx) — 5 áreas × 44 serviços com maturidade.
+
+**Templates operacionais complementares (módulo Incident Handling):**
+
+- [📄 Política de Gestão de Incidentes](../gestao_incidentes/politica-gestao-incidentes.docx) — mandato e papéis.
+- [📄 Procedimento de Escalonamento e Matriz RACI](../gestao_incidentes/procedimento-escalonamento-raci.docx) — cadeia de comando.
 - [📄 Procedimento de Classificação e Severidade](../gestao_incidentes/procedimento-classificacao-severidade.docx) — matriz P1-P5 usada pela L1.
-- [📄 Plano de Resposta a Incidentes (NIS2)](../gestao_incidentes/plano-resposta-incidentes-nis2.docx) — plano base para CSIRTs em entidades NIS2.
+- [📄 Plano de Resposta a Incidentes (NIS2)](../gestao_incidentes/plano-resposta-incidentes-nis2.docx) — plano base NIS2.
 - [📄 Plano de Comunicação de Crise](../gestao_incidentes/plano-comunicacao-crise.docx) — operação externa do CSIRT.
 
 ---

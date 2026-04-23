@@ -281,6 +281,97 @@ Templates formais para cumprir as obrigações de reporte ao **CNCS** previstas 
 
 ---
 
+### Grupo E — Estabelecimento de CSIRT
+
+Templates que materializam os **4 fundamentos** do módulo [CSIRT](../csirt/index.md): missão, constituinte, autoridade, relações. Aplicáveis tanto à criação formal de um novo CSIRT como à consolidação documental de um existente.
+
+#### E.1 CSIRT Charter / Plano de Estabelecimento
+
+**O que é:** Documento **interno** de alto nível que formaliza a existência do CSIRT. Estrutura-se segundo os 4 fundamentos do capítulo (Missão, Constituinte, Posição+Autoridade, Relações), acrescentando modelo organizacional, carteira de serviços, recursos (pessoas, tecnologia, orçamento) e governação (KPIs, revisões, auditoria).
+
+**Quando usar:**
+- Como deliverable final do processo de criação de um CSIRT;
+- Em auditorias de conformidade (ISO 27001 A.5.24, NIS2 art. 27.º);
+- Quando a organização quer explicitar mandato e autoridade do CSIRT.
+
+**O que personalizar:**
+- Missão (3-4 frases), perímetro da constituinte, matriz de autoridade por tipo de ação;
+- Modelo organizacional (Security Team / Distributed / Centralized / Combined / Coordinating);
+- Orçamento e equipa previstos;
+- KPIs ajustados à maturidade da organização.
+
+**Quem aprova:** CEO / Administração + CISO + DPO + Jurídico + Coordenador CSIRT.
+**Revisão:** Anual + após mudança organizacional significativa.
+
+[📄 csirt-charter.docx](../gestao_incidentes/csirt-charter.docx){ .md-button }
+
+#### E.2 RFC 2350 — Service Description
+
+**O que é:** Documento **público** no formato padronizado IETF RFC 2350, que descreve o CSIRT a terceiros (constituentes, outros CSIRTs, potenciais parceiros). **Requerido para admissão na FIRST e na TF-CSIRT**.
+
+**Estrutura (fixa pelo standard):** Document Information · Contact Information · Charter · Policies · Services · Incident Reporting Forms · Disclaimers.
+
+**Quando usar:**
+- Ao candidatar-se a FIRST membership ou TF-CSIRT Trusted Introducer;
+- Para publicar a identidade pública do CSIRT no site institucional;
+- Como face externa que complementa o Charter interno.
+
+**O que personalizar:**
+- Contactos completos (email, PGP key, telefone 24/7);
+- Constituinte em detalhe (gamas IP, domínios, ASN);
+- Politicas de cooperação e TLP;
+- Serviços oferecidos ao constituente.
+
+**Quem aprova:** CISO + Coordenador CSIRT.
+**Revisão:** Sempre que alteração material (contactos, chaves PGP, constituinte, serviços).
+
+[📄 csirt-rfc2350.docx](../gestao_incidentes/csirt-rfc2350.docx){ .md-button }
+
+#### E.3 Terms of Reference (ToR) — Associação CSIRT
+
+**O que é:** Instrumento constitutivo de uma **associação multi-team** de CSIRTs (fórum, task force, coligação setorial ou regional). Para cooperação bilateral usar NDA/MOU em vez deste documento.
+
+**Quando usar:**
+- Constituir uma associação setorial (ex.: CSIRTs municipais, CSIRTs de saúde);
+- Formalizar uma task force temporária com objetivos específicos;
+- Consolidar cooperação multi-team pré-existente.
+
+**O que personalizar:**
+- Contexto, visão e missão da associação;
+- Critérios de admissão de membros;
+- Estrutura (Steering Committee, Working Groups, Secretariado);
+- Plano de atividades anual;
+- Regras de partilha de informação (TLP).
+
+**Quem aprova:** Steering Committee + membros fundadores.
+**Revisão:** Anual + após alteração regulatória material.
+
+[📄 csirt-terms-of-reference.docx](../gestao_incidentes/csirt-terms-of-reference.docx){ .md-button }
+
+#### E.4 CSIRT Service Catalog — FIRST v2.1
+
+**O que é:** Catálogo detalhado da carteira de serviços, alinhado com o [FIRST CSIRT Services Framework v2.1](https://www.first.org/standards/frameworks/csirts/csirt_services_framework_v2.1). Cobre as **5 áreas** (Event Management, Incident Management, Vulnerability Management, Situational Awareness, Knowledge Transfer) e **44 serviços**.
+
+**Quando usar:**
+- Complemento ao Charter para detalhe granular da carteira;
+- Autoavaliação de maturidade (Basic / Intermediate / Advanced) por serviço;
+- Roadmap de evolução plurianual do CSIRT.
+
+**O que personalizar:**
+- Para cada serviço no scope: maturidade, responsável, outputs, SLA;
+- Serviços fora do scope ficam "N/A";
+- Ações prioritárias de evolução no próximo ciclo.
+
+**Quem aprova:** CISO + Coordenador CSIRT + Direção.
+**Revisão:** Anual para reavaliar maturidade e definir roadmap.
+
+[📄 csirt-service-catalog-first.docx](../gestao_incidentes/csirt-service-catalog-first.docx){ .md-button }
+
+!!! tip "Relação entre os 4 templates"
+    **Charter (E.1)** é o documento-mãe interno. **RFC 2350 (E.2)** é a sua face pública. **ToR (E.3)** aplica-se apenas se houver associação multi-team. **Service Catalog (E.4)** aprofunda a secção de serviços do Charter. Recomenda-se preencher pela ordem E.1 → E.4 → E.2 → E.3.
+
+---
+
 ## 📦 Recursos adicionais
 
 ### ITIL — Modelos complementares

@@ -219,4 +219,20 @@ Quatro instrumentos jurídicos suportam a cooperação, por ordem crescente de f
 
 ---
 
+## 📎 Templates para os 4 fundamentos
+
+Os 4 fundamentos tratados neste capítulo materializam-se em documentos concretos. Catálogo detalhado em [📋 Templates — Grupo E](../modelos/index.md#grupo-e-estabelecimento-de-csirt).
+
+| Fundamento | Template aplicável |
+|------------|---------------------|
+| Missão + Constituinte + Autoridade + Modelo | [📄 CSIRT Charter](../gestao_incidentes/csirt-charter.docx) — documento interno completo |
+| Face pública dos 4 fundamentos | [📄 RFC 2350 — Service Description](../gestao_incidentes/csirt-rfc2350.docx) — requerido por FIRST / TF-CSIRT |
+| Cooperação entre CSIRTs (associação) | [📄 Terms of Reference](../gestao_incidentes/csirt-terms-of-reference.docx) — apenas para multi-team |
+| Detalhe da carteira de serviços | [📄 Service Catalog FIRST v2.1](../gestao_incidentes/csirt-service-catalog-first.docx) — autoavaliação de maturidade |
+
+!!! tip "Ordem de preenchimento sugerida"
+    **Charter → Service Catalog → RFC 2350 → ToR**. O Charter estabelece a base; o Service Catalog detalha a secção de serviços; o RFC 2350 destila a informação pública; o ToR só é preenchido se houver contexto de associação.
+
+---
+
 **Próximos passos:** [Recursos, Processos e Operações](recursos-operacoes.md)

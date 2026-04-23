@@ -159,7 +159,7 @@ Por **área de análise**:
 | **Network Monitoring** | **Nagios**, **Zabbix**, PRTG |
 | **Malware Analysis** | **Cuckoo Sandbox**, **REMnux**, CAPEv2, Any.run, YARA |
 
-Stack forense detalhada em [Deteção, Contenção e Investigação](../ih/detecao-contencao.md#stack-forense-de-referencia).
+Stack forense detalhada em [Deteção, Contenção e Investigação](../ih/detecao-contencao.md#stack-forense-de-referencia-ferramentas).
 
 ### 4.3.3 Partilha de Threat Intelligence
 
