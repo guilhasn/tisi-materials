@@ -143,17 +143,6 @@ Documento `.docx` com **espaços em branco** para os grupos preencherem durante 
 
 ---
 
-## Critérios de avaliação
-
-A prática laboratorial não é avaliada isoladamente — integra-se no **PRI (entregável final, 23 jun 2026)**. Os critérios aplicáveis a esta secção do PRI são:
-
-| Critério | Peso | O que se valoriza |
-|----------|:----:|-------------------|
-| **Coerência interna** | 40% | As 12 decisões são consistentes entre si; sem contradições estruturais |
-| **Fundamentação** | 30% | Cada decisão tem justificação explícita ancorada nos materiais (RFC 2350, SEI Handbook, FIRST v2.1, DL 125/2025) |
-| **Adaptação ao contexto** | 20% | A solução é específica à organização escolhida — não é genérica |
-| **Pontos de tensão registados** | 10% | O grupo identifica e regista alternativas onde a decisão foi difícil |
-
 !!! warning "Anti-padrão a evitar"
     Missão genérica do tipo *"garantir a segurança da informação da organização"*. Não diz nada — qualquer equipa de IT diria isto. **Ser específico é mais defensável que ser elegante.**
 
