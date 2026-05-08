@@ -63,9 +63,15 @@ Uma *mission statement* é uma declaração de 3-4 frases que responde a **"Porq
 
     > *One Point of Trusted Contact — Facilitate Security Threats Resolution — Increase National Competency in IT Security.*
 
+    **CERT.pt (do RFC 2350 oficial):**
+
+    > *Contribuir para o esforço nacional de cibersegurança, em particular no tratamento e coordenação da resposta a incidentes, na produção de alertas e recomendações, no apoio ao desenvolvimento de capacidades de resposta a incidentes em entidades nacionais e na cooperação com as suas congéneres.*
+
     **Exemplo fictício de CERT empresarial:**
 
     > *O CERT fornece informação e assistência ao pessoal da empresa para reduzir o risco de incidentes de cibersegurança e responder a tais incidentes quando ocorrem.*
+
+    Note como o CERT.pt cumpre os 4 critérios: **não-ambíguo** (define explicitamente as 4 atividades), **estabelece framework** (tratamento + alertas + capacitação + cooperação), **complementa missão do CNCS**, e tem **compromisso formal de gestão** (publicado no RFC 2350 oficial, aprovado pelo Conselho Diretivo).
 
 ### 3.2.2 Como definir a constituinte
 
@@ -154,6 +160,9 @@ A forma como a equipa está **estruturada internamente** determina o nível de m
 - Facilita cooperação entre outros CSIRTs (nacional, setorial, internacional);
 - Exemplos: CERT/CC, FIRST, CNCS (parcialmente).
 
+!!! info "Modelos predominantes em Portugal"
+    Em Portugal predominam o **Combined** (bancos e grandes empresas multi-sítio) e o **Internal Centralized** (IES e organizações de dimensão média). PME tendem a operar como **Security Team informal** — o que é precisamente o cenário que o **DL 125/2025 (NIS2)** quer eliminar a partir de 03-04-2026 nos setores abrangidos.
+
 ---
 
 ## 3.4 Autoridade e Cooperação
@@ -191,6 +200,11 @@ Para além de **onde** está posicionado, é crítico clarificar **quanta autori
 !!! danger "O problema do CSIRT sem autoridade"
     Um CSIRT *No authority* é frequentemente **apenas cosmético** — serve auditorias mas falha em P1. A autoridade tem de ser **pré-aprovada por escrito** pela Direção, não negociada durante a crise.
 
+!!! info "No-Authority por design — o caso CERT.pt"
+    Há um cenário em que **No Authority não é falha — é desenho**. CSIRTs nacionais como o **CERT.pt** operam como *No Authority* deliberadamente: **não podem** intervir nos sistemas das organizações reportantes. Apenas **aconselham e coordenam**. A autoridade fica nos CSIRTs setoriais e enterprise. Esta separação é estrutural — protege a autonomia das organizações e evita que o CSIRT nacional se torne o "operador de último recurso" de tudo.
+
+    A maioria dos CSIRTs em Portugal opera com **Shared Authority**. *Full Authority* em organizações grandes implica risco político — a equipa pode tomar decisões que afetam negócio (ex.: desligar serviço crítico) sem aprovação executiva. Exige confiança histórica que demora **anos** a construir.
+
 ### 3.4.2 Modelos de cooperação entre CSIRTs
 
 Nenhum CSIRT opera isolado. A cooperação com outros CSIRTs é **coração** do modelo.
@@ -216,6 +230,33 @@ Quatro instrumentos jurídicos suportam a cooperação, por ordem crescente de f
 
 !!! info "Rede Nacional de CSIRTs (Portugal)"
     O CNCS coordena a Rede Nacional de CSIRTs — uma associação que cobre CSIRTs setoriais, académicos e empresariais. A adesão envolve requisitos mínimos de maturidade e compromissos de partilha de informação. Ver [redecsirt.pt](https://www.redecsirt.pt/).
+
+### 3.4.4 Trusted Introducer — sistema europeu de reconhecimento
+
+A **TF-CSIRT** (Task Force CSIRT, gerida pelo GÉANT) opera o **Trusted Introducer (TI)** — sistema europeu de reconhecimento de CSIRTs, com 3 níveis:
+
+| Nível | O que significa | Custo | Acesso |
+|-------|------------------|-------|--------|
+| **TI Listed** | Listada na directoria pública | Sem custo | *Meetings* abertos do TF-CSIRT |
+| **TI Accredited** | Comprometida com melhores práticas e políticas TI | Anual | *Trusted information* da comunidade |
+| **TI Certified** | Certificada via **auditoria SIM3 independente** | Anual + auditoria | **Reconhecimento mais alto na Europa** |
+
+**Em Portugal:** o **CERT.pt é TI Certified** (nível mais alto). Vários CSIRTs setoriais portugueses são **TI Accredited**. Para um CSIRT *enterprise* português, **TI Listed** é o primeiro passo de internacionalização.
+
+> *"O Trusted Introducer é a 'Wikipedia oficial' dos CSIRTs europeus. Se um CSIRT não está lá, ou é muito novo ou opera em vácuo. Se está como Certified, é maturidade comprovada."*
+
+### 3.4.5 SIM3 — modelo de avaliação de maturidade
+
+O **SIM3** (Security Incident Management Maturity Model), criado pela [Open CSIRT Foundation](https://opencsirt.org) (Don Stikvoort, 2008), é o standard usado pela auditoria do TI Certified.
+
+| Característica | Descrição |
+|----------------|-----------|
+| **Estrutura** | 44 parâmetros em 4 áreas — **Organização**, **Recursos Humanos**, **Ferramentas**, **Processos** |
+| **Níveis** | 0 (não disponível) → 1 (implícito) → 2 (descrito) → 3 (formalizado e aprovado) → 4 (auditado) |
+| **Versão atual** | SIM3 v2 *interim* (Jan 2023). Versão final v2 esperada em 2026 (com novo parâmetro O-6) |
+| **Uso típico** | Auto-avaliação anual; auditoria externa para TI Certified |
+
+> *"Quando alguém perguntar 'O nosso CSIRT é maduro?', a resposta cientificamente honesta é 'Vamos avaliar em SIM3'. Não é opinião — é medição."*
 
 ---
 

@@ -30,6 +30,19 @@ Um **CSIRT (Computer Security Incident Response Team)** é uma equipa organizada
 
 > O Morris Worm não foi apenas um incidente técnico — foi o **momento fundador** da disciplina de Incident Response moderna. A resposta caótica mostrou que a Internet precisava de **pontos de contacto formais** e coordenados.
 
+### Detalhes que enriquecem a narrativa
+
+- **Robert Tappan Morris** era estudante de doutoramento em Cornell, **filho do chefe de cientistas da NSA**. Não pretendia destruir — queria *contar* quantas máquinas estavam ligadas à Internet. O bug fatal: o worm tinha probabilidade de **1/7 de re-infetar** uma máquina já infetada → multiplicação descontrolada de processos → DoS efetivo.
+- Os **3 dias caóticos** mostraram a falha sistémica: administradores de Berkeley, MIT e Purdue trabalharam em paralelo a fazer engenharia reversa, **comunicando por telefone** porque o e-mail estava... no worm. Esta é a "lição aprendida" que justifica a existência de um CERT: precisamos de um ponto de contacto central, não de 50 administradores a duplicar trabalho.
+- Morris foi a **primeira pessoa condenada** ao abrigo do **Computer Fraud and Abuse Act (CFAA, 1986)** — lei aprovada **2 anos antes** do worm. Hoje é professor titular no MIT (CSAIL).
+- Os primeiros a investigar o código publicaram o paper canónico **"With Microscope and Tweezers"** (Eichin & Rochlis, 1989) — pioneiros do que hoje chamamos *malware analysis*. **A engenharia reversa de malware nasceu do mesmo incidente que originou o CERT/CC** — duas disciplinas gémeas.
+
+### Porque é que 1988 foi o ponto de viragem
+
+A Internet em 1988 tinha **~60 000 sistemas, todos cooperativos** — universidades, laboratórios, agências federais. **Não havia firewall** de mercado. **Não havia conceito de "ataque externo"** porque toda a gente confiava em toda a gente. O worm partiu essa ilusão.
+
+> *"A confiança original era a regra. Hoje, a desconfiança é a regra. O CSIRT existe para gerir essa desconfiança de forma estruturada."*
+
 ---
 
 ## 1.2 Definição, Siglas e Terminologia
@@ -62,7 +75,20 @@ Um **CSIRT (Computer Security Incident Response Team)** é uma equipa organizada
 | Abrangência | CSIRTs específicos autorizados | Abrange **todos os tipos** de equipas |
 
 !!! warning "CERT ≠ CSIRT na formalidade"
-    Para evitar problemas legais, se a equipa **não está autorizada** pela SEI a usar a marca CERT, deve chamar-se **CSIRT** (ou variante genérica). O termo CERT é marca registada desde 1997.
+    Para evitar problemas legais, se a equipa **não está autorizada** pela SEI a usar a marca CERT, deve chamar-se **CSIRT** (ou variante genérica). O termo CERT é marca registada desde 1997. **Na prática europeia**: usa-se CSIRT por defeito (RFC 2350, TF-CSIRT, FIRST). Se vires uma equipa europeia que usa "CERT" no nome, é altamente provável que tenha autorização formal (ex.: **CERT.pt** tem licença do SEI) ou que o nome predate as restrições.
+
+#### PSIRT vs CSIRT — a distinção crítica
+
+Um **PSIRT** (Product Security Incident Response Team) **não responde a incidentes da empresa-mãe** — responde a **vulnerabilidades nos produtos da empresa que afetam clientes externos**. É o canal pelo qual investigadores reportam *bugs* ao fabricante e pelo qual o fabricante publica *advisories* (CVEs).
+
+| Empresa | PSIRT (foco em produtos) | CSIRT enterprise (foco interno) |
+|---------|--------------------------|----------------------------------|
+| **Microsoft** | Microsoft Security Response Center (MSRC) | Equipa interna separada |
+| **Cisco** | Cisco PSIRT | Equipa interna separada |
+| **Apple** | Apple Product Security | Equipa interna separada |
+| **Outsystems** (PT) | Outsystems PSIRT | Equipa interna separada |
+
+> Quando ouvires "CERT-XPTO" e estiveres a investigar uma empresa, pergunta sempre *(a) é um CSIRT enterprise interno? (b) é um vendor PSIRT? (c) é um CSIRT nacional/setorial?*. A resposta muda a expectativa de serviço.
 
 ---
 
@@ -108,6 +134,17 @@ As atividades organizam-se em **três grupos de serviços**, formalizados no [FI
 
 !!! tip "Referência canónica"
     O [FIRST CSIRT Services Framework v2.1](https://www.first.org/standards/frameworks/csirts/csirt_services_framework_v2.1) define 44 serviços em 5 áreas. É a referência profissional para desenhar a carteira de serviços de um CSIRT. Complementar com a [RFC 2350](https://www.rfc-editor.org/rfc/rfc2350), que formaliza o que os constituintes devem esperar de um CSIRT.
+
+!!! warning "Duas taxonomias coexistem — saber qual estás a usar"
+    A divisão em **3 áreas (Reativos / Proativos / Qualidade de Segurança)** apresentada acima é a taxonomia **clássica da Carnegie Mellon SEI** (1998-2003) — didaticamente útil. Mas o **standard mais recente — FIRST v2.1 (2019)** — reorganizou em **5 áreas**:
+
+    1. **Information Security Event Management** (gestão de eventos — corresponde sobretudo ao SOC)
+    2. **Information Security Incident Management** (gestão de incidentes — CSIRT propriamente dito)
+    3. **Vulnerability Management** (gestão de vulnerabilidades)
+    4. **Situational Awareness** (consciência situacional)
+    5. **Knowledge Transfer** (transferência de conhecimento)
+
+    A separação **Event vs Incident** reflete precisamente a distinção SOC vs CSIRT. Quando construíres um CSIRT real, **usa o FIRST v2.1**; quando explicares conceptualmente, a taxonomia clássica continua útil.
 
 ---
 

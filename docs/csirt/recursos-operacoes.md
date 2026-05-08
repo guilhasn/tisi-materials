@@ -34,12 +34,25 @@ Modelo tipico de SOC/CSIRT moderno, com responsabilidades crescentes:
   └────────────────────────────────────────────────────────────────┘
 ```
 
-| Nível | Papel | Responsabilidades principais |
-|-------|-------|-------------------------------|
-| **L1** | **Security Analyst** — linha da frente | Triagem inicial, aplicação de *runbooks*, escalonamento. 24/7. |
-| **L2** | **Senior Security Analyst** | Investigação técnica aprofundada, aplicação de *playbooks*, decisão sobre contenção e erradicação. |
-| **L3** | **Security Manager / Threat Hunter** | *Threat hunting*, ferramentas avançadas, desenho de detecções, forense digital, auditoria. |
-| **L4** | **CISO** | Define política, supervisiona todas as operações, reporta à administração, gere *compliance*. |
+| Nível | Papel | Responsabilidades principais | % típica do efectivo | Salário PT (2026) |
+|-------|-------|-------------------------------|:--------------------:|:------------------:|
+| **L1** | **Security Analyst** — linha da frente | Triagem inicial, aplicação de *runbooks*, escalonamento. 24/7. **80%+ do trabalho são falsos positivos.** | 60-70% | 25-35 k€/ano |
+| **L2** | **Senior Security Analyst** | Investigação técnica aprofundada, aplicação de *playbooks*, decisão sobre contenção e erradicação. **Mestrado em cibersegurança é a porta de entrada típica.** | 20-30% | 35-55 k€/ano |
+| **L3** | **Security Manager / Threat Hunter** | *Threat hunting*, ferramentas avançadas, desenho de detecções, forense digital, auditoria. | 10% | 55-90 k€/ano |
+| **L4** | **CISO** | Define política, supervisiona todas as operações, reporta à administração, gere *compliance*. | (1 por organização) | 80+ k€/ano |
+
+!!! tip "Sizing realista de equipa por dimensão"
+    Como dimensionar para a organização real:
+
+    | Dimensão | Mínimo viável | Recomendado |
+    |----------|---------------|-------------|
+    | **<100 colaboradores** | 0 (subcontratar a MSSP) | Subcontratado |
+    | **100-500** | 1 part-time + MSSP | 2-3 |
+    | **500-2 000** | 3-5 (L1+L2) | 5-8 (L1+L2+coordenador) |
+    | **2 000-10 000** | 5-8 | 10-20 (L1+L2+L3+gestão) |
+    | **>10 000** | 10+ | 20-50 (estrutura completa) |
+
+    Para referência: o **CERT.pt tem ~30-40 pessoas** para servir o ciberespaço nacional inteiro (com apoio dos CSIRTs setoriais).
 
 ### 4.1.2 Outros papéis essenciais
 
@@ -72,10 +85,31 @@ Em CSIRTs médios/grandes, para além da hierarquia L1-L4, existem papéis espec
 
 Se a organização não consegue contratar *skills* prontas, tem de formar. Recursos comuns:
 
-- **SEI CERT Division** — cursos oficiais em Incident Response;
-- **SANS** — certificações **GIAC** (GCIH, GCFA, GNFA) amplamente reconhecidas;
-- **ENISA** — training material público para CSIRTs europeus (grátis);
-- **FIRST** — eventos anuais, *hands-on training*.
+| Origem | Certificação / Curso | Notas |
+|--------|----------------------|-------|
+| **SANS / GIAC** | **GCIH** (Certified Incident Handler) | "Padrão ouro" para L2. Exame ~8.5k USD. Reconhecida globalmente. |
+| **SANS / GIAC** | **GCFA / GNFA** (Forensic / Network Forensic Analyst) | Para forense digital. |
+| **(ISC)²** | **CISSP** | Para gestão (L3/L4). Não é técnica. |
+| **SEI CERT Division** | Cursos oficiais em Incident Response | Calendário aberto na CMU. |
+| **CNCS — Academia Nacional de Cibersegurança (PT)** | Vários cursos | **Mais acessíveis financeiramente.** |
+| **FIRST** | *Trainings* abertos em Lisboa periodicamente | Gratuitos para membros. |
+| **ENISA** | *Training material* gratuito para CSIRTs europeus | Mais leve, foco em fundamentos. |
+
+### 4.1.5 Custos típicos de um CSIRT em Portugal (ordens de grandeza)
+
+Para responder à pergunta inevitável *"Quanto custa montar um CSIRT?"*:
+
+| Perfil de CSIRT | Equipa | Stack | Custo anual |
+|-----------------|--------|-------|-------------|
+| **Mínimo viável** | 3 pessoas | Open source (Wazuh, TheHive, MISP) | **120-200 k€/ano** |
+| **Médio** | 8 pessoas | Comercial parcial (Splunk + comerciais) | **500-800 k€/ano** |
+| **Enterprise grande** | 20 pessoas | Stack completa + 24×7 | **1.5-3 M€/ano** |
+
+!!! info "ROI — porque é que o CSIRT se paga"
+    O custo de **um único incidente grave** em Portugal — por exemplo o ataque à **Vodafone Portugal (8-fev-2022)** que pôs ~7h de serviço caído — está estimado entre **5-15 M€** em prejuízo direto + impacto reputacional.
+    **ROI do CSIRT: 5-10× ao primeiro incidente evitado ou mitigado.**
+
+    Adicionalmente, **seguradoras de cibersegurança dão desconto de 20-40%** a empresas com CSIRT formalizado e maturidade validada (SIM3 ou auditoria externa).
 
 ---
 
@@ -165,10 +199,22 @@ Stack forense detalhada em [Deteção, Contenção e Investigação](../ih/detec
 
 | Ferramenta / Padrão | Propósito |
 |---------------------|-----------|
-| **MISP** | Plataforma aberta de partilha de IOCs e TTPs |
+| **MISP** | Plataforma aberta de partilha de IOCs e TTPs. Projecto belga, *de facto* standard europeu. **CERT.pt opera instância MISP nacional** acessível à RNCSIRT. |
 | **OpenCTI** | Plataforma CTI com integração ATT&CK nativa |
 | **STIX 2.1** | *Structured Threat Information Expression* — formato de dados |
 | **TAXII** | *Trusted Automated Exchange of Intelligence Information* — protocolo de transporte |
+
+!!! tip "Stack moderna típica de um CSIRT português (2026)"
+    Para alunos que ouvem "que ferramenta open-source devo aprender primeiro?", a priorização recomendada para um perfil L2:
+
+    1. **Wireshark** — análise de tráfego. Indispensável.
+    2. **TheHive + Cortex** — gestão de casos. Standard europeu.
+    3. **MISP** — *threat intelligence sharing*. Padrão da Europa.
+    4. **ELK / Wazuh** — SIEM open source. Substituível por Splunk/Sentinel mas o conceito é o mesmo.
+    5. **Volatility** — análise de memória. Forense.
+    6. **Autopsy / Sleuth Kit** — análise de disco. Forense.
+
+    Todas têm comunidades activas e documentação.
 
 ### 4.3.4 Exemplo prático: integração GLPI + TheHive + Cortex + MISP
 

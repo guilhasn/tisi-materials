@@ -2,9 +2,24 @@
 
 > **Capítulo 03 da UC TISI.** Este módulo cobre a criação e operacionalização de uma equipa CSIRT (Computer Security Incident Response Team), alinhado com **FIRST CSIRT Services Framework v2.1**, **SEI CSIRT Handbook**, **NIST SP 800-61r2** e **ENISA Good Practice Guide for Incident Management**.
 
+## 3 ideias-chave deste módulo
+
+Independentemente do que cobrirmos, três ideias têm de ficar consolidadas no fim do módulo:
+
+!!! abstract "1️⃣ CSIRT ≠ SOC, mas trabalham em par"
+    O **SOC** monitoriza, deteta e tria; o **CSIRT** coordena a resposta a incidentes confirmados. São **complementares**, não alternativos. Onde existe maturidade, há ambos.
+
+!!! abstract "2️⃣ Um CSIRT define-se pela comunidade que serve (constituency), não pelas ferramentas"
+    Sem comunidade definida, **não há CSIRT** — há equipa de IT a apagar fogos. As ferramentas (SIEM, EDR, TheHive, MISP) são instrumentais; a constituency é constitutiva.
+
+!!! abstract "3️⃣ A confiança é o ativo mais valioso de um CSIRT"
+    Sem confiança não há partilha; sem partilha, cada CSIRT trabalha sozinho contra atacantes que partilham. Por isso existem [TF-CSIRT](https://tf-csirt.org), [FIRST](https://www.first.org) e a [Rede Nacional de CSIRTs](https://www.redecsirt.pt). Construir confiança demora **anos**; destrói-se em **dias**.
+
+Tudo o resto (modelos, autoridade, ferramentas, frameworks) suporta ou decorre destas três ideias.
+
 ## Objetivo do módulo
 
-Compreender o que é um CSIRT, que tipos existem, **como se cria** (os 4 fundamentos), e **como se operacionaliza** (pessoas, processos, tecnologia, disponibilidade 24/7). O módulo fecha com exemplos práticos e exercícios para aplicar o conhecimento a contextos concretos.
+Compreender o que é um CSIRT, que tipos existem, **como se cria** (os 4 fundamentos), e **como se operacionaliza** (pessoas, processos, tecnologia, disponibilidade 24/7). O módulo fecha com exemplos práticos, exercícios e uma prática laboratorial estruturada (Vila Feliz) para aplicar o conhecimento a contextos concretos.
 
 ## Estrutura do módulo
 

@@ -125,7 +125,14 @@ O CISO de uma empresa industrial quer clarificar os níveis de autoridade do CSI
 ## 3. Armadilhas e confusões a evitar
 
 !!! danger "Confusão 1: CSIRT = SOC"
-    **Errado.** Podem sobrepor-se mas não são idênticos. **SOC** é o *centro operacional* (monitorização 24/7, deteção, triagem). **CSIRT** é a *equipa de resposta* (investigação, erradicação, recuperação, *follow-up*). Em organizações pequenas a mesma equipa faz ambos; em grandes, são funções distintas com integração formal.
+    **Errado.** Pensa em camadas:
+
+    - **SOC** = camada de **monitorização**. Foco: detectar e triar. Relógio sempre ligado, 24×7. *Output:* alerta classificado.
+    - **CSIRT** = camada de **resposta**. Foco: tratar incidentes confirmados. Activado quando há incidente real. *Output:* incidente resolvido + lições aprendidas.
+
+    > Analogia: *"O SOC é a equipa de **triagem das urgências** do hospital — vê todos os casos, decide quem precisa de médico. O CSIRT é a **equipa médica** — só intervém em casos reais. Ambos são essenciais. Sem triagem, os médicos atendem casos triviais. Sem médicos, a triagem manda toda a gente para casa."*
+
+    Em organizações pequenas, a mesma equipa faz as duas funções. Conceptualmente são funções **diferentes** — em organizações maturas, são equipas distintas que se entrosam. **A própria literatura mais recente (FIRST v2.1) reorganiza precisamente para reflectir isto:** separa *Information Security Event Management* (SOC) de *Information Security Incident Management* (CSIRT).
 
 !!! danger "Confusão 2: Começar pela tecnologia"
     **Errado.** Comprar SIEM/EDR sem definir missão, constituinte, papéis e processos produz **uma fábrica de alertas ignorados**. Primeiro os 4 fundamentos e os processos; só depois a tecnologia.
@@ -145,11 +152,88 @@ O CISO de uma empresa industrial quer clarificar os níveis de autoridade do CSI
 !!! danger "Confusão 7: Formação técnica é suficiente"
     **Errado.** *Skills* não-técnicas (comunicação, escrita, calma sob pressão) são **iguais ou mais importantes**, especialmente em L3 e L4. Um CISO tem de comunicar questões técnicas complexas à Direção e a *stakeholders* não-técnicos.
 
+!!! danger "Confusão 8: «Temos seguro de cibersegurança, dispensamos CSIRT»"
+    **Erro categórico.** O seguro paga **prejuízos**; o CSIRT **previne, mitiga e recupera**.
+
+    - **Só seguro:** quando o incidente acontece, demora 2-3 dias até a seguradora enviar IR de terceiros. Nesse tempo, o atacante moveu-se lateralmente, exfiltrou dados. **A diferença entre 24h e 72h de resposta = 10× a 100× o prejuízo.**
+    - **Só CSIRT:** se o prejuízo for catastrófico (ex.: colapso operacional), a organização pode falir antes de recuperar.
+    - **Os dois:** seguro paga prejuízo, CSIRT minimiza-o. **Seguradoras dão desconto de 20-40%** a empresas com CSIRT formalizado e maduro.
+
+!!! danger "Confusão 9: «Posso ter um CSIRT só com IA / agentes automatizados»"
+    **Em 2026, ainda não.** Razões:
+
+    1. **Decisões de comunicação a *stakeholders*** (Conselho de Administração, comunicação social, autoridades) exigem julgamento ético e legal — IA recomenda, não decide.
+    2. **Confiança entre CSIRTs é pessoal.** Os pares na RNCSIRT, FIRST, TF-CSIRT partilham informação porque conhecem as pessoas. Não há canal *agent-to-agent* estabelecido.
+    3. **Casos complexos exigem abdução** — formar hipóteses sobre o que aconteceu com base em poucas evidências. IA actual é mais forte em **correlação** que em **abdução**.
+    4. **Responsabilidade legal.** Se a decisão automatizada for errada e houver prejuízo, alguém responde — terreno cinzento (cf. AI Act art. 14, supervisão humana obrigatória em sistemas de alto risco).
+
+    **O que IA faz bem hoje em CSIRT:** triagem automatizada (filtrar 70-80% dos falsos positivos), enriquecimento de IOCs, sumarização de logs, *drafts* de notificações revistos por humano.
+    **O que IA não faz (ainda):** decisões finais de contenção (desligar serviço crítico), comunicação ao Conselho de Administração, negociação com atacantes, decisões legais.
+
 ---
 
-## 4. Resumo rápido
+## 4. FAQ — Perguntas frequentes dos alunos
 
-## Síntese por capítulo
+??? question "1. Quantas pessoas precisa um CSIRT?"
+    **Depende da *constituency*.** Tabela de referência em [4.1.1 — Sizing realista de equipa](recursos-operacoes.md#411-niveis-l1-a-l4). Resumo: <100 colaboradores → 0 internos (subcontratar a MSSP); 500-2 000 → 3-5 mínimo, 5-8 recomendado; >10 000 → 20+ pessoas. **CERT.pt tem ~30-40 pessoas** para o ciberespaço nacional inteiro (com apoio dos CSIRTs setoriais).
+
+??? question "2. Quanto custa montar um CSIRT em Portugal?"
+    Ordens de grandeza ([4.1.5](recursos-operacoes.md#415-custos-tipicos-de-um-csirt-em-portugal-ordens-de-grandeza)):
+
+    - **Mínimo viável** (3 pessoas + open source): 120-200 k€/ano.
+    - **Médio** (8 pessoas + Splunk/comerciais): 500-800 k€/ano.
+    - **Enterprise grande** (20 pessoas + 24×7): 1.5-3 M€/ano.
+
+    **ROI: 5-10× ao primeiro incidente evitado.** Custo de um único incidente grave em Portugal (ex.: Vodafone 2022) está estimado em 5-15 M€.
+
+??? question "3. Qual a diferença entre «Incident Response» e «Incident Handling»?"
+    - **Incident Handling** = processo organizacional. Recepção, classificação, triagem, escalonamento, fecho. Foco: **gestão**.
+    - **Incident Response** = ações técnicas durante e após o incidente. Forense, contenção, erradicação, recuperação. Foco: **execução**.
+
+    Na prática usam-se como sinónimos. O FIRST framework usa *Incident Management* como guarda-chuva para ambos.
+
+??? question "4. Posso entrar num CSIRT logo depois do mestrado em cibersegurança?"
+    **Sim, em L2 directamente.** Especialmente se o trabalho final do mestrado for em IR ou forense. Caminho típico:
+
+    1. Estágio em SOC (durante mestrado) — 6 meses, L1.
+    2. Junior em SOC/CSIRT — 1-2 anos, L1 → L2.
+    3. L2 Analyst — 3-5 anos.
+    4. L3 Coordinator / Senior — 5+ anos.
+
+    **Em Portugal há défice de profissionais.** Salários L2 em 2026: 35-55 k€. Empresas que recrutam constantemente: **S21sec, Devoteam, Multicert, NTT DATA Portugal**, todos os bancos, **EDP, Galp Energia**, várias IES.
+
+??? question "5. E se eu trabalhar em PME / autarquia / pequena IES sem CSIRT?"
+    **Cenário realista — mais comum que CSIRT enterprise.** Opções:
+
+    1. **Subcontratar IR como serviço** (S21sec, Multicert, etc.) — paga-se por hora ou *retainer* (X horas/mês garantidas).
+    2. **Beneficiar do CERT.pt** — qualquer entidade portuguesa pode reportar incidentes ao CERT.pt e receber apoio. **Não é só para grandes.**
+    3. **Aderir à RNCSIRT** — comunidade voluntária para mútua ajuda.
+    4. **Construir capacidade interna progressivamente** — começar com um *Security Team* e evoluir.
+
+    **Com NIS2 (DL 125/2025, em vigor desde 03-04-2026), muitas PME e autarquias passam a ser obrigadas a ter capacidade de IR formalizada.**
+
+??? question "6. Que ferramenta open-source devo aprender primeiro?"
+    Priorização recomendada para um perfil L2 ([ver tabela detalhada em 4.3](recursos-operacoes.md#432-analise-e-investigacao-dfir)):
+
+    1. **Wireshark** — análise de tráfego. Indispensável.
+    2. **TheHive + Cortex** — gestão de casos. Standard europeu.
+    3. **MISP** — *threat intelligence sharing*. Padrão da Europa.
+    4. **ELK / Wazuh** — SIEM open-source.
+    5. **Volatility** — análise de memória.
+    6. **Autopsy / Sleuth Kit** — análise de disco.
+
+??? question "7. Como é um dia normal de um L2 senior português?"
+    Começa às 9h com revisão da inbox de alertas escalados pela L1 da noite (geralmente 5-10). **80% são falsos positivos** que descarta em 15 min. Dos restantes, talvez 1 vire incidente real e gasta o resto da manhã a investigar (forense de host, análise de logs, contacto com utilizador). À tarde: reunião do *threat hunting* (procurar ameaças *não* alertadas), revisão de *playbooks*, contributo para um *advisory* interno, leitura de *threat intel*. Sai às 18h.
+
+    **Não há dia em que escreve código novo.** É **70% análise, 20% comunicação, 10% melhoria de processos**.
+
+    > *"Se acham que o trabalho de IR é hackear de volta, não é. É **investigar**. Mais perto de detective do que de hacker."*
+
+---
+
+## 5. Resumo rápido
+
+### Síntese por capítulo
 
 | Capítulo | O essencial |
 |----------|-------------|
@@ -158,7 +242,7 @@ O CISO de uma empresa industrial quer clarificar os níveis de autoridade do CSI
 | **Cap 3 — Como Criar** | **4 fundamentos**: Missão, Constituinte, Posição+Autoridade (Full/Shared/No), Relações externas. **5 modelos**: Security Team → Distributed → Centralized → Combined → Coordinating. **4 bases legais**: NDA, MOU, Contract, Terms of Reference. |
 | **Cap 4 — Recursos e Ops** | **Pessoas:** L1 Analyst → L4 CISO + papéis de apoio. **Processos:** SOPs + playbooks por tipo (Malware, DDoS, Defacement, Fraud, Data Breach, Privacy) + NIST 6-phase. **Tecnologia:** GLPI/TheHive/Cortex/MISP + ferramentas por área (Volatility, Splunk, Wireshark, Zabbix, Cuckoo). **24/7:** email, tel, SMS, WHOIS, abuse, relações ativas. |
 
-## Frases-chave para recordar
+### Frases-chave para recordar
 
 - *"Sem confiança, **não há partilha**; sem partilha, não há defesa coletiva."*
 - *"A autoridade do CSIRT é **pré-aprovada**, não negociada durante a crise."*
