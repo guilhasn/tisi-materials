@@ -370,6 +370,27 @@ Templates que materializam os **4 fundamentos** do módulo [CSIRT](../csirt/inde
 !!! tip "Relação entre os 4 templates"
     **Charter (E.1)** é o documento-mãe interno. **RFC 2350 (E.2)** é a sua face pública. **ToR (E.3)** aplica-se apenas se houver associação multi-team. **Service Catalog (E.4)** aprofunda a secção de serviços do Charter. Recomenda-se preencher pela ordem E.1 → E.4 → E.2 → E.3.
 
+#### E.5 Prática Laboratorial — Guia + Solução-modelo
+
+Materiais didácticos da **aula prática (PL) do módulo CSIRT** (capítulo 03 da UC). O guia conduz os grupos por **12 decisões fundamentadas** em 90 min, alimentando o capítulo *"Definição da Equipa CSIRT"* do PRI a entregar como projeto final.
+
+**Quando usar:**
+- Em **aula prática** — cada grupo preenche o guia.
+- Em **estudo autónomo** — qualquer aluno percorre as 12 decisões para preparar o seu projeto.
+- Como **template de PRI** — a saída completa pode ser anexada ao relatório final.
+
+**O que personalizar:**
+- Substituir todos os campos `___` pela informação da organização escolhida.
+- Adaptar pontos de tensão ao contexto específico (sector, dimensão, NIS2).
+
+**Quem aprova:** N/A — material académico. No contexto do PRI, é avaliado pelo docente.
+
+[📄 Guia de Trabalho (em branco para preencher)](../gestao_incidentes/csirt-pl-guia-criacao.docx){ .md-button .md-button--primary }
+[📄 Solução-modelo — Vila Feliz](../gestao_incidentes/csirt-pl-solucao-vila-feliz.docx){ .md-button }
+
+!!! info "Página completa do exercício"
+    Ver a [Prática Laboratorial — Criação do CSIRT](../csirt/pratica-laboratorial.md) para a estrutura detalhada dos 5 blocos, critérios de avaliação e bibliografia citável.
+
 ---
 
 ## 📦 Recursos adicionais

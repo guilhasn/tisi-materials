@@ -74,6 +74,7 @@ nav:
     - Como Criar um CSIRT: csirt/como-criar.md
     - Recursos e Operações: csirt/recursos-operacoes.md
     - Casos Práticos e Exercícios: csirt/casos-praticos.md
+    - Prática Laboratorial: csirt/pratica-laboratorial.md
   - 📋 Templates: modelos/index.md
   - 📚 Recursos:
     - Mapa MITRE ATT&CK: comum/attack-mapping.md
