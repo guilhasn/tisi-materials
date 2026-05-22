@@ -395,7 +395,7 @@ Materiais didácticos da **aula prática (PL) do módulo CSIRT** (capítulo 03 d
 
 ### Grupo F — Playbooks (construção e operação)
 
-Materiais didácticos da **masterclass de construção de playbooks** ([Cap 04 — Playbooks](../playbooks/index.md)). Contemplam o **método de construção em 10 passos**, o **catálogo de tipologia de incidentes** e o **template estruturado** que materializa os 5 pontos obrigatórios do enunciado do projeto.
+Materiais didácticos da **aula prática de construção de playbooks** ([Cap 04 — Playbooks](../playbooks/index.md)). Contemplam o **método de construção em 10 passos**, o **catálogo de tipologia de incidentes** e o **template estruturado** que materializa os 5 pontos obrigatórios do enunciado do projeto.
 
 #### F.1 Cheat-sheet do Método
 
@@ -403,7 +403,7 @@ Materiais didácticos da **masterclass de construção de playbooks** ([Cap 04 �
 
 **Quando usar:**
 
-- Durante a masterclass de construção (Bloco 2B) — impressão recomendada;
+- Durante a aula prática de construção (Bloco 2B) — impressão recomendada;
 - Em casa, ao replicar o método para os outros playbooks do projeto;
 - Como **checklist mental** ao rever qualquer playbook (5 erros).
 
@@ -461,8 +461,8 @@ Materiais didácticos da **masterclass de construção de playbooks** ([Cap 04 �
 !!! tip "Ordem de preenchimento sugerida"
     **Ficha 1 (F.2) → Template (F.3) com o playbook escolhido na ficha → consultar Cheat-sheet (F.1) durante a construção**. Após 1 playbook concluído, replicar o template para os restantes 2 obrigatórios — reaproveitando RACI e estrutura.
 
-!!! info "Página completa da masterclass"
-    Ver a [Prática Laboratorial — Construção de Playbooks](../playbooks/pratica-laboratorial.md) para a estrutura completa dos 5 blocos da masterclass (Teoria → Tipologia → Build → Curveballs → Pitch), os 3 *curveballs* descritos, perguntas duras esperadas e alinhamento com o enunciado do projeto.
+!!! info "Página completa do exercício"
+    Ver a [Prática Laboratorial — Construção de Playbooks](../playbooks/pratica-laboratorial.md) para a estrutura completa dos 5 blocos (Teoria → Tipologia → Build → Curveballs → Pitch), os 3 *curveballs* descritos, perguntas duras esperadas e alinhamento com o enunciado do projeto.
 
 ---
 

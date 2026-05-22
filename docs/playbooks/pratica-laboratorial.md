@@ -1,6 +1,6 @@
 # Prática Laboratorial — Construção de Playbooks
 
-> **Masterclass de 3 horas ·** Última aula prática da UC antes do trabalho de projeto. O objetivo **não é teoria adicional** — é levar cada equipa a **construir um playbook completo** com qualidade suficiente para entrar como anexo do **relatório final do PRI** (entrega 23 de junho de 2026).
+> **Aula prática ·** Última aula prática da UC antes do trabalho de projeto. O objetivo **não é teoria adicional** — é levar cada equipa a **construir um playbook completo** com qualidade suficiente para entrar como anexo do **relatório final do PRI** (entrega 23 de junho de 2026).
 
 ## Princípio orientador
 
@@ -8,7 +8,7 @@
 
 ---
 
-## Estrutura da masterclass (3 horas)
+## Estrutura da aula prática
 
 | Bloco | Min | Conteúdo | Output |
 |-------|-----|----------|--------|
@@ -212,7 +212,7 @@ Cada equipa adiciona ao seu playbook uma secção:
 
 A prática integra-se directamente em pontos específicos do enunciado:
 
-| Output da masterclass | Sub-ponto do enunciado | Onde aparece no relatório |
+| Output da aula prática | Sub-ponto do enunciado | Onde aparece no relatório |
 |------------------------|-------------------------|----------------------------|
 | Caracterização da organização (Ficha 1, passo 1) | Caracterização inicial | Secção 1 do PRI |
 | Tabela de tipologia (Ficha 1, passo 2) | (i) Identificar tipos de incidentes | Anexo "Tipologia de Incidentes" |
