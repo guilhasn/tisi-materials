@@ -75,6 +75,13 @@ nav:
     - Recursos e Operações: csirt/recursos-operacoes.md
     - Casos Práticos e Exercícios: csirt/casos-praticos.md
     - Prática Laboratorial: csirt/pratica-laboratorial.md
+  - 📖 Playbooks:
+    - playbooks/index.md
+    - Fundamentos dos Playbooks: playbooks/fundamentos.md
+    - Use Cases de Segurança: playbooks/use-cases.md
+    - Componentes e Construção: playbooks/componentes.md
+    - Caso Prático Phishing: playbooks/caso-phishing.md
+    - Framework MaGMa: playbooks/magma.md
   - 📋 Templates: modelos/index.md
   - 📚 Recursos:
     - Mapa MITRE ATT&CK: comum/attack-mapping.md

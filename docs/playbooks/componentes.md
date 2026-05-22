@@ -1,0 +1,248 @@
+# Capítulo 3 — Componentes e Construção
+
+## 3.1 Componentes essenciais de um Playbook
+
+Um playbook maduro tem **quatro componentes** que se complementam. Nenhum substitui os outros.
+
+```
+  ╔═══════════════════════════════════════════════════════════════════╗
+  ║   ANATOMIA DE UM PLAYBOOK COMPLETO                                ║
+  ║                                                                   ║
+  ║   ┌────────────────┐    ┌────────────────┐                        ║
+  ║   │ 1. FLUXOGRAMA  │    │ 2. CHECKLIST   │                        ║
+  ║   │                │    │                │                        ║
+  ║   │ Decisões com   │    │ Lista          │                        ║
+  ║   │ múltiplos      │    │ sequencial     │                        ║
+  ║   │ caminhos       │    │ de passos      │                        ║
+  ║   │                │    │                │                        ║
+  ║   │ "O quê?"       │    │ "Como?"        │                        ║
+  ║   └────────┬───────┘    └────────┬───────┘                        ║
+  ║            │                     │                                ║
+  ║            └──────────┬──────────┘                                ║
+  ║                       │                                           ║
+  ║                       ▼                                           ║
+  ║   ┌────────────────┐    ┌────────────────┐                        ║
+  ║   │ 3. RACI        │    │ 4. AMBIENTE    │                        ║
+  ║   │                │    │                │                        ║
+  ║   │ Quem decide,   │    │ Ferramentas,   │                        ║
+  ║   │ quem executa,  │    │ contactos,     │                        ║
+  ║   │ quem é         │    │ topologia      │                        ║
+  ║   │ informado      │    │ específicos    │                        ║
+  ║   │                │    │                │                        ║
+  ║   │ "Quem?"        │    │ "Onde?"        │                        ║
+  ║   └────────────────┘    └────────────────┘                        ║
+  ╚═══════════════════════════════════════════════════════════════════╝
+```
+
+### 1. Fluxogramas (*Flowcharts*)
+
+Ideais para **decisões que levam a múltiplos caminhos**.
+
+**Exemplo:** *"O ficheiro é malicioso?"*
+
+- **Sim** → isolar endpoint, recolher evidência, escalar P2.
+- **Não** → monitorizar 24h, fechar ticket.
+
+O fluxograma **governa o quadro geral da resposta**. Funciona melhor que prosa quando há **bifurcações de decisão**.
+
+### 2. Checklists
+
+Ideais para **listas monolíticas de passos sequenciais**, onde **não há decisão**, só execução.
+
+**Exemplo (passo "Isolar endpoint"):**
+
+- [ ] Localizar o endpoint na consola EDR pelo hostname/IP;
+- [ ] Aplicar *Network Containment*;
+- [ ] Verificar que o endpoint perdeu conectividade externa;
+- [ ] Documentar timestamp de isolamento no ticket;
+- [ ] Notificar process owner do sistema afetado.
+
+### A combinação — a melhor abordagem
+
+**Fluxograma para decisões + Checklist para execução.** Cada bloco do fluxograma tem uma **checklist associada** que detalha como executar esse passo.
+
+### 3. Matriz RACI
+
+Define **quem é responsável, quem decide, quem é consultado e quem é informado** em cada passo. **Saber antecipadamente quem faz o quê elimina ambiguidade em momentos de crise.**
+
+| Letra | Significado | O que faz |
+|:-----:|-------------|-----------|
+| **R** | **R**esponsible — Responsável | Executa a tarefa |
+| **A** | **A**ccountable — *Accountable* | Aprova e responde pelo resultado (1 pessoa apenas) |
+| **C** | **C**onsulted — Consultado | Fornece *input* antes da decisão |
+| **I** | **I**nformed — Informado | É notificado do resultado |
+
+!!! warning "Apenas UMA pessoa pode ser A"
+    Cada actividade tem **um único Accountable**. Se há "duas pessoas accountable", na prática **ninguém é accountable** — porque ambas podem culpar a outra. Múltiplos R, C, I são saudáveis; múltiplos A são quebrados.
+
+### 4. Influências Ambientais (*Environmental Influences*)
+
+Os passos devem ser **específicos do ambiente da organização** — não genéricos. Um novo analista deve conseguir seguir o playbook e **adquirir competência operacional**.
+
+| Genérico (mau) | Específico (bom) |
+|----------------|------------------|
+| *"Verificar logs do SIEM"* | *"Abrir o Splunk em [URL interno]; correr a query `index=auth source=ad sourcetype=windows`"* |
+| *"Isolar o endpoint"* | *"Na consola CrowdStrike Falcon, aceder a Hosts > Host Setup and Management > Network Contain; localizar pelo hostname [pattern]"* |
+| *"Contactar a equipa de IT"* | *"Telefonar para o turno IT 24/7: +351 xxx xxx xxx; canal Teams: #soc-ir"* |
+
+O playbook deve ser **atualizado continuamente** para acompanhar mudanças na infraestrutura.
+
+!!! abstract "Regra de ouro"
+    **Fluxograma para decisões** + **Checklist para execução** + **RACI para responsabilidades** + **Ambiente para concretizar** = **Playbook completo**.
+
+---
+
+## 3.2 Matriz RACI e Ambiente Operacional — em detalhe
+
+### Exemplo de matriz RACI para um playbook de Phishing
+
+| Actividade | SOC L1 | SOC L2 | SOC Manager | IT Infra | DPO | Comunicação |
+|------------|:------:|:------:|:-----------:|:--------:|:---:|:-----------:|
+| Triagem inicial do alerta | **R** | C | A | — | — | — |
+| Verificar headers (SPF/DKIM/DMARC) | R | **R** | A | — | — | — |
+| Bloquear remetente no gateway | C | **R** | A | I | — | — |
+| Reset credenciais comprometidas | — | C | A | **R** | I | — |
+| Avaliar impacto RGPD (dados pessoais expostos) | — | C | I | — | **R/A** | — |
+| Comunicação interna aos afetados | — | — | C | — | C | **R/A** |
+| Notificação à CNPD (se aplicável, 72h) | — | I | C | — | **R/A** | I |
+| Atualização do playbook (lições aprendidas) | C | **R** | A | C | C | I |
+
+### Lista de informação ambiental obrigatória
+
+Cada playbook deve incluir, **directamente no documento**:
+
+- ✅ **Ferramentas reais** da organização (SIEM, EDR, firewall, IAM) com URLs / consolas;
+- ✅ **Contactos directos** dos papéis RACI (nome, telefone, email, canal de mensagens);
+- ✅ **Topologia de rede específica** (zonas, segmentos críticos, choke points);
+- ✅ **Sistemas tier 0** identificados (AD, PKI, backups, cofres de segredos);
+- ✅ **Janelas de mudança** (quando o playbook pode/não pode interferir com produção);
+- ✅ **Atualização contínua** com mudanças na infraestrutura.
+
+### Caso prático
+
+> *Um novo analista, no primeiro dia, consegue isolar um endpoint comprometido seguindo o playbook — porque o RACI indica quem contactar para autorização e o ambiente descreve exactamente que ferramenta usar.*
+
+Se o novo analista **não consegue** isolar o endpoint seguindo só o playbook, então:
+
+- ou o playbook está mal escrito (vago, genérico);
+- ou faltam informações ambientais (URLs, contactos);
+- ou o RACI não está claro sobre quem pode autorizar.
+
+**Estes três pontos são auditáveis** — `tabletop` exercise revela todos.
+
+### Do genérico ao activo
+
+```
+  ┌─────────────────────────────────────────────────────────────────┐
+  │                                                                 │
+  │   Playbook                                                      │
+  │   genérico            Adaptação local         Validação         │
+  │   (teórico,    ───►   (RACI + ferramentas    ───►   (testes e    │
+  │    abstracto)         da organização)               revisão)    │
+  │                                                                 │
+  │                                                  │              │
+  │                                                  ▼              │
+  │                                            Playbook ATIVO       │
+  │                                            (operacional 24/7)   │
+  └─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 3.3 Processo de Construção — 10 passos
+
+Construir um playbook do zero segue um processo bem definido. **Saltar passos produz playbooks que falham no primeiro incidente real.**
+
+```
+  ┌─────────────────────────────────────────────────────────────────┐
+  │                                                                 │
+  │   1. Identificar triggers e estado final                        │
+  │            │                                                    │
+  │            ▼                                                    │
+  │   2. Listar todas as acções possíveis                           │
+  │            │                                                    │
+  │            ▼                                                    │
+  │   3. Categorizar acções (obrigatórias vs opcionais)             │
+  │            │                                                    │
+  │            ▼                                                    │
+  │   4. Agrupar por fase IR (NIST 6 fases)                         │
+  │            │                                                    │
+  │            ▼                                                    │
+  │   5. Identificar prerequisitos de cada acção                    │
+  │            │                                                    │
+  │            ▼                                                    │
+  │   6. Construir playbook só com acções obrigatórias              │
+  │            │                                                    │
+  │            ▼                                                    │
+  │   7. Adicionar acções opcionais onde apropriado                 │
+  │            │                                                    │
+  │            ▼                                                    │
+  │   8. Inserir notas de conformidade e contactos                  │
+  │            │                                                    │
+  │            ▼                                                    │
+  │   9. Validar com testes (tabletop, purple team)                 │
+  │            │                                                    │
+  │            ▼                                                    │
+  │  10. Publicar + treinar equipa + revisão periódica              │
+  │                                                                 │
+  └─────────────────────────────────────────────────────────────────┘
+```
+
+### Detalhe dos 10 passos
+
+| # | Passo | O que produzir |
+|---|-------|----------------|
+| 1 | **Identificar triggers** | Alertas SIEM, *thresholds*, reportes de utilizadores que despoletam o playbook |
+| 1b | **Definir estado final** | "Sistema limpo + credenciais alteradas + relatório feito + lições aprendidas"  |
+| 2 | **Listar acções possíveis** | *Brainstorming* exaustivo — incluir o que sabes e o que **deverias** saber |
+| 3 | **Categorizar** | **Obrigatórias** (sempre executadas) vs **opcionais** (dependentes do contexto) |
+| 4 | **Agrupar por fase IR** | NIST: Preparação · Deteção · Análise · Contenção · Erradicação · Recuperação · Pós-incidente |
+| 5 | **Identificar prerequisitos** | "Para fazer X é preciso Y" (ex.: para isolar endpoint, EDR tem de estar instalado) |
+| 6 | **Construir só com obrigatórias** | MVP do playbook — funciona em qualquer caso do tipo |
+| 7 | **Adicionar opcionais** | Ramos do fluxograma para sub-casos específicos |
+| 8 | **Notas de conformidade + contactos** | Prazos legais, contactos RACI, *audit trail* |
+| 9 | **Validar com testes** | *Tabletop* (talk-through) + *purple team* (com red team adversário) |
+| 10 | **Publicar + treinar + rever** | Onboarding obrigatório para novos analistas; revisão semestral mínima |
+
+---
+
+## 3.4 Testes e validação
+
+> **Um playbook não testado é apenas teoria.** A primeira vez que se executa não pode ser num incidente real.
+
+### Tipos de teste
+
+| Teste | Esforço | Frequência | Output |
+|-------|---------|------------|--------|
+| **Walkthrough / Talk-through** | Baixo (1-2h) | Mensal | Equipa lê e discute cada passo |
+| **Tabletop exercise** | Médio (4h) | Trimestral | Cenário fictício; equipa age conforme playbook |
+| **Functional drill** | Alto (dia) | Semestral | Exercício parcial em ambiente *staging* |
+| ***Purple team*** | Muito alto (semana) | Anual | Red team executa ataque real; blue team responde via playbook |
+
+### O que validar em cada teste
+
+- [ ] Os **triggers** activam o playbook correctamente?
+- [ ] Os **contactos RACI** estão actualizados e respondem em tempo útil?
+- [ ] As **ferramentas** referidas no playbook ainda existem e funcionam?
+- [ ] O playbook produz o **estado final** definido?
+- [ ] O tempo total de execução está dentro do **SLA** previsto?
+- [ ] Há **falsos positivos** ou **ramos esquecidos** descobertos durante o teste?
+
+### Documentar descobertas
+
+Cada teste **deve produzir uma acta** com:
+
+- Cenário usado;
+- Participantes (RACI confirmado ou em falha);
+- Pontos onde o playbook falhou ou foi ambíguo;
+- Acções correctivas + prazos;
+- Versão do playbook actualizada (com *changelog*).
+
+!!! tip "Cadência mínima recomendada para SOC maduro"
+    - **Walkthrough** mensal para playbooks críticos (P1/P2);
+    - **Tabletop** trimestral cobrindo os 5 cenários mais prováveis (phishing, ransomware, conta comprometida, DDoS, fuga de dados);
+    - ***Purple team*** anual com cenário desafiador.
+
+---
+
+**Próximos passos:** [Capítulo 4 — Caso Prático: Phishing](caso-phishing.md)
