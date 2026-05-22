@@ -1,7 +1,5 @@
 # Prática Laboratorial — Construção de Playbooks
 
-> **Aula prática ·** Última aula prática da UC antes do trabalho de projeto. O objetivo **não é teoria adicional** — é levar cada equipa a **construir um playbook completo** com qualidade suficiente para entrar como anexo do **relatório final do PRI** (entrega 23 de junho de 2026).
-
 ## Princípio orientador
 
 > *"Imperfeito mas completo > Perfeito a meio."* O que distingue um trabalho bom de um excelente **não é a quantidade de playbooks** — é o **nível de detalhe operacional**: comandos reais, critérios mensuráveis, RACI completo, cenários de exceção.
