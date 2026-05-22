@@ -247,9 +247,6 @@ Ver catálogo completo em [📋 Templates — Grupo F (Playbooks)](../modelos/in
 - [📄 Cheat-sheet do Método](../gestao_incidentes/playbook-cheatsheet-metodo.docx) — 10 passos + 5 erros + ATT&CK
 - [📄 Ficha 1 — Tipologia de Incidentes](../gestao_incidentes/playbook-pl-ficha1-tipologia.docx) — Bloco 2A
 - [📄 Template Playbook TISI](../gestao_incidentes/playbook-template-tisi.docx) — 11 secções para Bloco 2B
-- [📄 Playbook Phishing (pronto)](../gestao_incidentes/playbook-phishing.docx) — modelo concretizado
-- [📄 Playbook Ransomware (pronto)](../gestao_incidentes/playbook-ransomware.docx) — modelo concretizado
-- [📄 Playbook Violação Dados Pessoais (pronto)](../gestao_incidentes/playbook-violacao-dados-pessoais.docx) — RGPD
 
 ---
 
