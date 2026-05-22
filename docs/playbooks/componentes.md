@@ -190,19 +190,37 @@ Construir um playbook do zero segue um processo bem definido. **Saltar passos pr
 
 ### Detalhe dos 10 passos
 
-| # | Passo | O que produzir |
-|---|-------|----------------|
-| 1 | **Identificar triggers** | Alertas SIEM, *thresholds*, reportes de utilizadores que despoletam o playbook |
-| 1b | **Definir estado final** | "Sistema limpo + credenciais alteradas + relatório feito + lições aprendidas"  |
-| 2 | **Listar acções possíveis** | *Brainstorming* exaustivo — incluir o que sabes e o que **deverias** saber |
-| 3 | **Categorizar** | **Obrigatórias** (sempre executadas) vs **opcionais** (dependentes do contexto) |
-| 4 | **Agrupar por fase IR** | NIST: Preparação · Deteção · Análise · Contenção · Erradicação · Recuperação · Pós-incidente |
-| 5 | **Identificar prerequisitos** | "Para fazer X é preciso Y" (ex.: para isolar endpoint, EDR tem de estar instalado) |
-| 6 | **Construir só com obrigatórias** | MVP do playbook — funciona em qualquer caso do tipo |
-| 7 | **Adicionar opcionais** | Ramos do fluxograma para sub-casos específicos |
-| 8 | **Notas de conformidade + contactos** | Prazos legais, contactos RACI, *audit trail* |
-| 9 | **Validar com testes** | *Tabletop* (talk-through) + *purple team* (com red team adversário) |
-| 10 | **Publicar + treinar + rever** | Onboarding obrigatório para novos analistas; revisão semestral mínima |
+| # | Passo | O que produzir concretamente |
+|:-:|-------|------------------------------|
+| **1** | **Identificar trigger e estado final** | Que alerta/evento dispara este playbook (SIEM, report, EDR)? Que estado final indica *"incidente resolvido"* (sistema limpo, dados restaurados, comunicação fechada)? |
+| **2** | **Enquadrar MaGMa** (Business / Threat / Implementation) | **Business:** que processo/ativo protege? **Threat:** que TTPs MITRE? Que atores? **Implementation:** que logs, regras, ferramentas suportam? |
+| **3** | **Listar TODAS as acções possíveis** | *Brainstorm* sem filtro — incluir acções de detecção, contenção, erradicação, recuperação, comunicação |
+| **4** | **Categorizar obrigatórias vs opcionais** | **Obrigatórias** = têm de acontecer SEMPRE para este tipo de incidente · **Opcionais** = dependem de cenário, severidade, contexto |
+| **5** | **Agrupar por fase NIST** | 1. Preparação · 2. Identificação · 3. Contenção · 4. Erradicação · 5. Recuperação · 6. Lições aprendidas. **Cada acção encaixa em UMA fase.** Se não encaixa, provavelmente não pertence a este playbook |
+| **6** | **Identificar prerequisitos** | Que acessos/ferramentas/autorizações cada acção precisa? Se uma acção requer aprovação, indicar **quem** aprova |
+| **7** | **Atribuir RACI** | Para cada acção: R (executa), A (aprova), C (consultado), I (informado). **Regra absoluta: 1 acção = exactamente 1 A.** R pode ser igual a A. Múltiplos R/C/I é OK |
+| **8** | **Construir fluxograma + checklist** | Fluxograma = decisões e bifurcações · Checklist = execução sequencial. Cada decisão do fluxograma tem **critério explícito** (não *"se necessário"* — sim *"se N > 10"*) |
+| **9** | **Adicionar runbook** (comandos reais) | Queries SIEM, comandos EDR, acções em ferramentas reais. **Sem isto, é só decoração** — analista sénior tem de poder copiar-colar |
+| **10** | **Testar e versionar** | Tabletop trimestral · Actualizar após cada incidente real · Owner formal · **Critério de fecho** claramente definido (senão fica aberto indefinidamente) |
+
+---
+
+## 3.3.1 Os 5 erros que matam um playbook em produção
+
+> **Causa nº 1 de playbooks que não funcionam em produção:** acumulação destes 5 erros. Cada um, isolado, parece menor — combinados, tornam o playbook **decorativo**.
+
+!!! danger "5 erros a evitar — checklist mental antes de publicar qualquer playbook"
+
+    | # | Erro | Sintoma | Correcção |
+    |:-:|------|---------|-----------|
+    | 1 | **Vago** | *"Isolar sistemas se necessário"* → analista **não sabe quando** agir | Substituir por **critério mensurável**: *"se N > 10 utilizadores afetados"* ou *"se EDR confirma execução de payload"* |
+    | 2 | **RACI ambíguo** | Várias pessoas com **A** na mesma acção → ninguém decide, toda a gente acha que é outra pessoa | **Regra absoluta:** 1 acção = 1 A. Sem exceção. |
+    | 3 | **Sem runbook** | Documento bonito sem comandos concretos → analista júnior **bloqueia em produção** | Incluir queries SIEM, comandos EDR, screenshots de ferramentas. Sem runbook, **é decoração** |
+    | 4 | **Sem critério de fecho** | *"Resolver incidente."* → fica **aberto eternamente** | Definir condições explícitas: *"X sem reincidência por Y dias"*, *"aprovação formal de fecho pelo IR Manager"* |
+    | 5 | **Não testado** | Playbook só existe em PDF → primeira execução é **no incidente real** | **Tabletop trimestral mínimo**. Actualizar após cada incidente. **Playbook não testado = teoria.** |
+
+!!! tip "Onde aplicar esta checklist"
+    Use estes 5 erros como **checklist de auto-revisão** sempre que terminar um playbook. Se algum se aplica, **o playbook não está pronto para produção** — independentemente da quantidade de páginas que tenha.
 
 ---
 

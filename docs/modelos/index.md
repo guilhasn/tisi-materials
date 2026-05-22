@@ -393,6 +393,79 @@ Materiais didácticos da **aula prática (PL) do módulo CSIRT** (capítulo 03 d
 
 ---
 
+### Grupo F — Playbooks (construção e operação)
+
+Materiais didácticos da **masterclass de construção de playbooks** ([Cap 04 — Playbooks](../playbooks/index.md)). Contemplam o **método de construção em 10 passos**, o **catálogo de tipologia de incidentes** e o **template estruturado** que materializa os 5 pontos obrigatórios do enunciado do projeto.
+
+#### F.1 Cheat-sheet do Método
+
+**O que é:** documento de bolso (1 página) com o **método em 10 passos** + **5 erros a evitar** + **mapeamento MITRE ATT&CK** para os 3 playbooks obrigatórios (Phishing, Ransomware, Acesso Não Autorizado).
+
+**Quando usar:**
+
+- Durante a masterclass de construção (Bloco 2B) — impressão recomendada;
+- Em casa, ao replicar o método para os outros playbooks do projeto;
+- Como **checklist mental** ao rever qualquer playbook (5 erros).
+
+[📄 playbook-cheatsheet-metodo.docx](../gestao_incidentes/playbook-cheatsheet-metodo.docx){ .md-button .md-button--primary }
+
+#### F.2 Ficha 1 — Tipologia de Incidentes
+
+**O que é:** ficha de exercício em equipa (15 min) para **identificar 10-12 tipos de incidente** relevantes para a organização do projeto e escolher **3 playbooks prioritários**. Resolve directamente o sub-ponto (i) do enunciado.
+
+**Quando usar:**
+
+- Em aula (Bloco 2A) — preenchimento em equipa;
+- Como **anexo do relatório final** do PRI (entrada literal no projeto);
+- Sempre que precise rever a estratégia de playbooks da organização.
+
+**O que personalizar:**
+
+- Caracterização da organização (sector, dimensão, âmbito do PRI);
+- 12 tipos de incidente com frequência/impacto/decisão;
+- 3 prioritários com critério de priorização.
+
+[📄 playbook-pl-ficha1-tipologia.docx](../gestao_incidentes/playbook-pl-ficha1-tipologia.docx){ .md-button }
+
+#### F.3 Template Playbook TISI
+
+**O que é:** template em 11 secções, alinhado com **os 5 pontos obrigatórios** do enunciado do projeto + boas práticas (camadas MaGMa, MITRE ATT&CK, runbook técnico, BCP/DRP triggers, critério de fecho, lições aprendidas).
+
+**Estrutura das 11 secções:**
+
+| Secção | Conteúdo |
+|--------|----------|
+| 0 | Identificação do playbook (metadados) |
+| 1 | Enquadramento MaGMa (Business / Threat / Implementation) |
+| 2 | Como é normalmente detectado (triggers, fontes, prerequisitos) |
+| 3 | Nível de gravidade normal (matriz de severidade) |
+| 4 | Detalhes do caso (descrição executiva, IoCs, cenários típicos) |
+| 5 | Funções e responsabilidades — Matriz RACI + contactos |
+| 6 | Tarefas de resposta padrão (6 fases NIST) |
+| 7 | Runbook técnico (queries SIEM, comandos EDR) |
+| 8 | Matriz de comunicação e escalonamento |
+| 9 | Critérios de activação BCP/DRP |
+| 10 | Critério de fecho do incidente |
+| 11 | Template de lições aprendidas |
+
+**Quando usar:**
+
+- Em aula (Bloco 2B) — cada equipa preenche **1 playbook completo**;
+- Em casa — replicar para os **2 playbooks adicionais** (mínimo 3 obrigatórios no projeto: Phishing, Ransomware, Acesso Não Autorizado);
+- Em organização real — como base para playbook produtivo (com validação de DPO e Jurídico).
+
+**Quem aprova:** CISO / IR Manager. **Revisão:** após cada incidente real + trimestral.
+
+[📄 playbook-template-tisi.docx](../gestao_incidentes/playbook-template-tisi.docx){ .md-button }
+
+!!! tip "Ordem de preenchimento sugerida"
+    **Ficha 1 (F.2) → Template (F.3) com o playbook escolhido na ficha → consultar Cheat-sheet (F.1) durante a construção**. Após 1 playbook concluído, replicar o template para os restantes 2 obrigatórios — reaproveitando RACI e estrutura.
+
+!!! info "Página completa da masterclass"
+    Ver a [Prática Laboratorial — Construção de Playbooks](../playbooks/pratica-laboratorial.md) para a estrutura completa dos 5 blocos da masterclass (Teoria → Tipologia → Build → Curveballs → Pitch), os 3 *curveballs* descritos, perguntas duras esperadas e alinhamento com o enunciado do projeto.
+
+---
+
 ## 📦 Recursos adicionais
 
 ### ITIL — Modelos complementares

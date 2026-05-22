@@ -82,6 +82,7 @@ nav:
     - Componentes e Construção: playbooks/componentes.md
     - Caso Prático Phishing: playbooks/caso-phishing.md
     - Framework MaGMa: playbooks/magma.md
+    - Prática Laboratorial: playbooks/pratica-laboratorial.md
   - 📋 Templates: modelos/index.md
   - 📚 Recursos:
     - Mapa MITRE ATT&CK: comum/attack-mapping.md

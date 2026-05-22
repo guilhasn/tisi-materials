@@ -315,10 +315,8 @@ A resposta a incidentes em sistemas complexos é difícil. **Playbooks e Use Cas
 
 Playbooks e Use Cases devem ser testados regularmente com exercícios (***tabletop***, ***purple team***). **Um playbook não testado é apenas teoria.** Documentar descobertas e ajustar após cada teste.
 
-!!! quote "Frase de Benjamin Franklin (atribuída)"
-    *"If you fail to plan, you are planning to fail."*
-
-    *(Se falhas em planear, estás a planear falhar.)*
+!!! abstract "Ideia final do módulo"
+    **Um playbook é um documento vivo.** Nasce, é testado, evolui com cada incidente real, e é desactivado quando deixa de fazer sentido. O valor de um SOC não está no número de playbooks em PDF — está na **maturidade do processo** de construção, manutenção e teste.
 
 ---
 
