@@ -319,24 +319,6 @@ Para servir de guia ao trabalho dos restantes casos, segue-se uma resolução de
 
 ---
 
-## 10. Sequência pedagógica recomendada
-
-Para usar esta página numa aula, a sequência recomendada é:
-
-| Etapa | O que fazer | Duração sugerida |
-|:-----:|-------------|:----------------:|
-| **1** | Apresentar a cadeia operacional + conceitos essenciais (fora do Excel) | 20 min |
-| **2** | Demonstração guiada com o Caso 1 (exemplo resolvido acima) | 30 min |
-| **3** | Trabalho de grupo nos casos 1, 2 ou 3 (atribuído ou escolhido) | 60 min |
-| **4** | Preenchimento da MaGMa UCF Tool e interpretação de *Results* | 30 min |
-| **5** | Apresentação curta dos grupos + debate crítico | 30-40 min |
-| **6** | Síntese final: gaps, métricas e melhoria contínua | 10 min |
-
-!!! tip "Regra de ouro para o docente"
-    **Não começar pelo Excel.** Começar pelo **cenário** (texto). Pedir aos alunos que identifiquem: que **ameaça** é esta? Que **logs** preciso? Que **comportamento** quero detectar? É **alerta** ou **incidente**? Que **playbook**? Que **falsos positivos**? Só depois abrir o Excel e mapear L1/L2/L3.
-
----
-
 ## Questões críticas para discussão final
 
 Use estas perguntas para fechar a aula com debate:
