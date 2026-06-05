@@ -199,6 +199,11 @@ A **ferramenta MaGMa** (Excel + macros, gratuita, publicada pelo ABN AMRO) é um
 !!! tip "Disponibilidade"
     A ferramenta MaGMa está publicada gratuitamente em [Open MaGMa (FI-ISAC NL)](https://www.betaalvereniging.nl/en/safety/magma/). Continua a ser **a referência open source** para gestão de Use Cases em SOCs europeus.
 
+!!! abstract "👉 Hands-on com a MaGMa UCF Tool"
+    Esta secção apresenta **o conceito** da ferramenta. Para o **uso prático em aula** — passo a passo do Excel, explicação dos 9 separadores, das 4 métricas, dos erros comuns a evitar, e **3 casos práticos com exemplo resolvido** — ver a página dedicada:
+
+    [📊 Hands-on com a MaGMa UCF Tool](magma-tool.md){ .md-button .md-button--primary }
+
 ---
 
 ## 5.3 Gestão do Ciclo de Vida dos Use Cases

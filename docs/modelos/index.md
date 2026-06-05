@@ -458,11 +458,40 @@ Materiais didácticos da **aula prática de construção de playbooks** ([Cap 04
 
 [📄 playbook-template-tisi.docx](../gestao_incidentes/playbook-template-tisi.docx){ .md-button }
 
-!!! tip "Ordem de preenchimento sugerida"
-    **Ficha 1 (F.2) → Template (F.3) com o playbook escolhido na ficha → consultar Cheat-sheet (F.1) durante a construção**. Após 1 playbook concluído, replicar o template para os restantes 2 obrigatórios — reaproveitando RACI e estrutura.
+#### F.4 Ficha 2 — Security Use Cases e MaGMa UCF Tool
 
-!!! info "Página completa do exercício"
-    Ver a [Prática Laboratorial — Construção de Playbooks](../playbooks/pratica-laboratorial.md) para a estrutura completa dos 5 blocos (Teoria → Tipologia → Build → Curveballs → Pitch), os 3 *curveballs* descritos, perguntas duras esperadas e alinhamento com o enunciado do projeto.
+**O que é:** ficha de trabalho em grupo (~2h30 a 3h) para os alunos **construírem e avaliarem Security Use Cases** usando a lógica da [MaGMa Framework](../playbooks/magma.md) e a [MaGMa UCF Tool](../playbooks/magma-tool.md) (Excel). Estrutura: objetivos de aprendizagem, conceitos essenciais, MaGMa em 3 camadas, métricas, fluxo de 9 passos, template de resposta por grupo, **3 casos práticos** (M365 comprometido, ransomware em servidor de ficheiros, exfiltração por insider), critérios de avaliação sugeridos.
+
+**Quando usar:**
+
+- Em sala — cada grupo escolhe (ou recebe) **1 dos 3 casos**;
+- Em casa — para preparar a apresentação e defesa das decisões;
+- Como **anexo do relatório do PRI** — capítulo "Security Use Cases".
+
+**Quem aprova:** N/A — material académico.
+
+[📄 playbook-pl-ficha2-magma-use-cases.docx](../gestao_incidentes/playbook-pl-ficha2-magma-use-cases.docx){ .md-button .md-button--primary }
+
+#### F.5 MaGMa UCF Tool (Excel)
+
+**O que é:** ferramenta Excel original publicada pelo **FI-ISAC NL** (ABN AMRO Bank), v1.0 de 2017. Continua a ser **a referência open source** para gestão de Use Cases em SOCs europeus. Contém **9 separadores** (Introduction, Model, Usage, Results, L1 UC, L2 UC, L3 UC, Drivers, References) com mais de **500 use cases L3** pré-mapeados a MITRE ATT&CK.
+
+**Quando usar:**
+
+- Em aula (Bloco "Hands-on") — após compreender o framework MaGMa;
+- Como **avaliação de maturidade** de detecção da organização;
+- Para identificar **gaps** entre detecções existentes e ameaças relevantes.
+
+**Como usar passo-a-passo:** ver a página [Hands-on com a MaGMa UCF Tool](../playbooks/magma-tool.md).
+
+[:material-microsoft-excel: magma-ucf-tool.xlsx](../gestao_incidentes/magma-ucf-tool.xlsx){ .md-button .md-button--primary }
+
+!!! tip "Ordem de preenchimento sugerida"
+    **Ficha 1 (F.2) → Template (F.3) com o playbook escolhido na ficha → consultar Cheat-sheet (F.1) durante a construção**. Após 1 playbook concluído, replicar o template para os restantes 2 obrigatórios — reaproveitando RACI e estrutura. Para **Use Cases**, usar **Ficha 2 (F.4) + MaGMa Tool (F.5)**.
+
+!!! info "Páginas completas dos exercícios"
+    - [Prática Laboratorial — Construção de Playbooks](../playbooks/pratica-laboratorial.md) — 5 blocos (Teoria → Tipologia → Build → Curveballs → Pitch)
+    - [Hands-on com a MaGMa UCF Tool](../playbooks/magma-tool.md) — passo a passo do Excel + 3 casos práticos + exemplo resolvido
 
 ---
 
