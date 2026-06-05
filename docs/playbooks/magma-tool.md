@@ -221,6 +221,19 @@ Cada grupo escolhe (ou recebe) um dos seguintes casos. **Não há respostas úni
 | **Pistas MaGMa** | **L2 provável:** `AO-EXF` Data exfiltration **ou** Policy violations (depende da interpretação). **L3 possível:** Detect Exfiltration Over Web Service / Alternative Protocol, ou detecção de data staging / compression |
 | **Decisão crítica** | O grupo deve distinguir **comportamento suspeito**, **violação de política** e **incidente de segurança**. Considerar privacidade, proporcionalidade e necessidade de envolver **RH/Jurídico** |
 
+### Caso 4 — CEO Fraud / Business Email Compromise
+
+**Contexto:** A funcionária de tesouraria do **Município de Vila Feliz** recebe um email aparentemente do **Presidente da Câmara** a solicitar uma transferência urgente de **€27 500** para um "fornecedor estratégico de cibersegurança". O email vem de um domínio que parece o real (`cmvilafeliz-pt.com`) mas é um *typosquat* — o domínio oficial é `cm-vilafeliz.pt`. Cria urgência (*"até ao fim do dia"*), apela a confidencialidade (*"não envolver mais ninguém até concluído"*) e à autoridade do cargo. **A funcionária estranha o pedido e reporta ao IT antes de transferir.**
+
+| Elemento | Informação fornecida |
+|----------|----------------------|
+| **Sinais observados** | Display name = "Presidente CMVilaFeliz" mas address externo; SPF=fail, DKIM=fail, DMARC=fail; domínio `cmvilafeliz-pt.com` registado há **4 dias**; IP de origem fora de PT; linguagem com urgência atípica; primeira comunicação directa entre Presidente e esta funcionária por email para pagamentos; **anexo PDF** com instruções IBAN |
+| **Ativos afetados** | Caixa de correio da funcionária da tesouraria; processo financeiro do município; potencialmente conta bancária institucional (se transferência efectuada) |
+| **Logs disponíveis** | Microsoft Defender for Office 365; cabeçalhos completos do email; M365 audit logs; sistema ERP municipal (registo de pedidos de pagamento); registo de comunicações entre executivo e tesouraria |
+| **Lacunas conhecidas** | Sem regra específica de detecção BEC no SIEM; análise de *lookalike domains* é manual; sem integração entre alertas de email e ERP; sem formação anti-BEC dedicada à tesouraria/financeiro; política DMARC do município ainda em `p=none` (apenas monitorização) |
+| **Pistas MaGMa** | **L2 não existe limpamente** no catálogo standard. Opção pragmática: enquadrar em `AO-ACC` *Account breached* (apesar de não haver conta interna comprometida). Opção rigorosa: **propor novo L2** `AO-IMP` *Impersonation / Business Email Compromise*. **L3 a propor:** Detect Executive Impersonation Patterns (display name spoofing + external domain + typosquat + financial request) |
+| **Decisão crítica** | O grupo deve decidir: (1) é alerta isolado ou **abre incidente formal**? (2) **adopta L2 existente** ou **propõe novo L2/L3** (e justifica)? (3) que **workflow obrigatório** instituir para validar pedidos de transferência iniciados por email — *"out-of-band confirmation"* via telefone? (4) este episódio justifica revisão da política DMARC do município? |
+
 ---
 
 ## 8. Exemplos resolvidos
@@ -385,6 +398,108 @@ A ameaça tem dois vectores. **Recomenda-se preencher um L3 primário e um L3 co
 
 !!! tip "Mensagem pedagógica deste exemplo"
     O Caso 2 ilustra a **diferença entre Effectiveness e Weight** de forma ainda mais dramática que o Caso 1: **Eff 75% → Weight 20.25%**. A regra é boa, mas **um terço dos servidores não tem EDR**. Esta é a lição operacional fundamental: **regras brilhantes em sistemas mal cobertos valem muito pouco**. **Em ransomware, a Coverage é frequentemente o gap principal — e o mais caro de fechar (licenças EDR por servidor)**.
+
+---
+
+### Caso 4 — CEO Fraud / Business Email Compromise
+
+#### Passo 1 — Ler o cenário (fora do Excel)
+
+**Ameaça:** *Business Email Compromise (BEC)* na variante **CEO Fraud** — atacante usa **domínio externo *typosquat*** (`cmvilafeliz-pt.com`) com **display name spoofado** (*"Presidente CMVilaFeliz"*) para enviar pedido fraudulento de transferência a funcionária da tesouraria. Vector dominante: **engenharia social + abuso de autoridade aparente**, não compromisso técnico de conta interna.
+
+> **Particularidade crítica:** ao contrário do Caso 1 (conta comprometida) ou Caso 2 (malware), no CEO Fraud **não há intrusão técnica nos sistemas internos**. O ataque acontece **inteiramente no humano e no email externo**. Isto desafia a taxonomia MaGMa standard — que está pensada para detecções de intrusão técnica.
+
+#### Passo 2 — Definir o risco de negócio (Business Layer)
+
+> *Proteger o **património financeiro municipal** e a **confiança pública** no Município de Vila Feliz. Cumprir o **Código dos Contratos Públicos** (validação de fornecedores). Reduzir exposição a fraude financeira em contexto de **transformação digital da administração local**. Eventual obrigação NIS2 (DL 125/2025) se a CMVF for entidade essencial/importante.*
+
+#### Passo 3 — Identificar ameaça + MITRE ATT&CK (Threat Layer)
+
+| Aspecto | Valor |
+|---------|-------|
+| Tipo de ameaça | *Business Email Compromise* (BEC) — variante CEO Fraud (impersonação externa de executivo) |
+| Actor provável | *Professional Criminals* (grupos organizados de fraude financeira; ROI alto, sem necessidade de skills técnicos avançados) |
+| MITRE ATT&CK | **T1566.002** Phishing: Spearphishing Link · **T1656** Impersonation · **T1583.001** Acquire Infrastructure: Domains (typosquat) · **T1534** Internal Spearphishing (se evoluir para compromisso de conta) |
+| Vector financeiro (FBI IC3) | Wire transfer fraud — em 2023, BEC reportou **USD 2.9 mil milhões** de perdas globais segundo IC3 |
+
+#### Passo 4 — Escolher L1 e L2 no Excel
+
+**A taxonomia standard MaGMa não tem L2 dedicado a BEC.** O grupo enfrenta uma **decisão estruturante**:
+
+| Opção | L1 | L2 | Vantagem | Desvantagem |
+|-------|----|----|----------|-------------|
+| **A — Pragmática** | `AO` Actions on Objectives | `AO-ACC` Account breached *(adaptado)* | Usa categoria existente; rápido | Não é compromisso de conta; força encaixe |
+| **B — Rigorosa** | `AO` Actions on Objectives | **`AO-IMP`** *Impersonation / Business Email Compromise* *(propor novo)* | Reflete a ameaça real; reutilizável | Requer documentar e justificar; modifica taxonomia |
+| **C — Híbrida** | `DEL` Delivery | `DEL-MAL` Email-based malware delivery *(adaptado para social engineering)* | Foca no vector de entrega | Mistura malware com social engineering puro |
+
+**Recomendação para esta resolução:** Opção **B** — propor `AO-IMP`. Pedagogicamente é a mais rica: ensina o aluno a **estender o framework com rigor** em vez de forçar encaixes inadequados. Documentar a justificação no campo *Comments*.
+
+| Separador | Valor escolhido |
+|-----------|-----------------|
+| **L1 UC** | `AO` Actions on Objectives |
+| **L2 UC** | **`AO-IMP`** *Impersonation / Business Email Compromise* (proposto) |
+
+#### Passo 5 — Escolher L3 técnico
+
+**Não existe L3 standard para esta detecção.** O grupo deve **propor um novo L3** seguindo o padrão `L2ID-NN`:
+
+| Separador | Valor |
+|-----------|-------|
+| **L3 UC (proposto)** | **`AO-IMP-01`** *Detect Executive Impersonation Patterns* (display name spoofing + external sender + domain age < 30 days + financial keywords) |
+| **L3 complementar (proposto)** | `AO-IMP-02` *Detect Lookalike Domain Communication* (typosquat detection contra domínios institucionais) |
+
+#### Passo 6 — Implementation Layer (colunas N-Q do L3 primário)
+
+| Coluna | Valor |
+|--------|-------|
+| N — Log source type | *Application log* (Defender for Office 365, M365 audit logs, email gateway com cabeçalhos completos) + *Threat Intel feed* (registos WHOIS / domain age / *lookalike domains*) |
+| O — Detection Technology | *Email Security Gateway* (Defender for O365 / Proofpoint / Mimecast) + *SIEM* (correlação display name vs sender domain) + *Threat Intel platform* (MISP / OpenCTI para *lookalike feeds*) |
+| P — Scope | *All users* — com **prioridade máxima a funções financeiras** (tesouraria, contabilidade, compras) e a **destinatários de comunicações executivas** (assistentes de direcção, secretariado) |
+| Q — Comments | *Detectar combinação de: (a) display name correspondente a executivo interno mas sender com domínio externo; (b) domínio do remetente com idade < 30 dias OU score de similaridade > 0.8 com domínio institucional; (c) presença de keywords financeiras (transfer, wire, urgent, IBAN, payment); (d) primeira comunicação directa entre executivo e destinatário; (e) headers SPF/DKIM/DMARC fail. **Não basta um indicador isolado — exigir ≥ 3 para alerta de alta confiança.** Cruzar com sistema ERP para ver se há pedido de pagamento legítimo em curso.* |
+
+#### Passo 7 — Métricas (colunas I-K do L3)
+
+> Cenário: o Defender for O365 sinaliza alguns destes emails como *suspicious* mas não bloqueia; não há regra SIEM específica para BEC; o município não tem feed de *lookalike domain monitoring*; tesouraria não passou ainda por formação dedicada anti-BEC.
+
+| Métrica | Valor | Justificação |
+|---------|:-----:|--------------|
+| **Effectiveness** | **60%** | Os indicadores **existem e são detectáveis** (header analysis, domain age, display name vs sender) mas BEC é fortemente **dependente de contexto comportamental** (relação histórica entre remetente e destinatário) que é difícil de capturar com regras tradicionais. Sem UEBA / NLP, parte das variantes sofisticadas passa. |
+| **Implementation** | **40%** | Defender for O365 detecta alguns padrões em modo *aviso*; **não existe regra SIEM dedicada**; **DMARC em `p=none`** (monitorização apenas, sem rejeição); sem integração com ERP/threat intel para *lookalike domains*. |
+| **Coverage** | **70%** | Quase todos os emails passam pelo gateway (cobertura técnica boa), mas funções críticas (tesouraria, compras) **não estão marcadas com prioridade** nas regras; não há detecção dedicada a comunicação com fornecedores (BEC vendor variant). |
+
+#### Passo 8 — Interpretar Results
+
+| Métrica | Fórmula | Resultado |
+|---------|---------|:---------:|
+| **Weight** | `60% × 40% × 70%` | **16.8%** |
+| **Potential** | `60% − 16.8%` | **43.2%** |
+
+**Leitura:** o Weight de **16.8% é o mais baixo dos 3 exemplos resolvidos** — não por a detecção ser tecnicamente inferior, mas porque a **Implementation está dramaticamente subdesenvolvida** (40%) e a **Coverage não prioriza** as funções financeiras críticas. Esta é a **realidade da maioria das organizações** face ao BEC: as ferramentas existem, mas raramente são configuradas com seriedade.
+
+> 💡 **Reflexão crítica:** segundo o FBI IC3, **BEC é o tipo de fraude que mais dinheiro custa às empresas em valor absoluto** — mais que ransomware. Apesar disso, é tipicamente o use case **menos implementado** nos SOCs. A MaGMa Tool revela este *gap* sem ambiguidade.
+
+#### Passo 9 — Plano de melhorias
+
+| Prioridade | Acção | Impacto esperado em |
+|:----------:|-------|----------------------|
+| 1 | **Migrar DMARC para `p=quarantine` → `p=reject`** com monitorização ([dmarc.org](https://dmarc.org)) | Implementation + Effectiveness (reduz spoofing directo do domínio próprio) |
+| 2 | Implementar **lookalike domain monitoring** (typosquat detection) via threat intel feed | Effectiveness |
+| 3 | Criar **regra SIEM dedicada**: emails externos com display name = nome de executivo interno + keywords financeiras → alerta P2 imediato | Implementation + Effectiveness |
+| 4 | **Integração SIEM ↔ ERP municipal**: alertas para pedidos de pagamento iniciados via email não correspondidos a workflow normal | Implementation + Effectiveness |
+| 5 | **Workflow obrigatório de validação out-of-band** para transferências > €X — confirmação por telefone para um número conhecido (nunca o que está no email) | Out-of-tool — controlo organizacional crítico |
+| 6 | **Formação direccionada anti-BEC** para tesouraria/financeiro com simulações realistas (validar com DPO conforme LTFP) | Coverage humana |
+| 7 | Operacionalizar o **playbook BEC** (adaptar do [Playbook Phishing](../gestao_incidentes/playbook-phishing.docx)) com cenários *vendor email compromise* | Out-of-tool — playbook |
+| 8 | Marcar **funções críticas** (tesouraria, compras, RH, secretariado executivo) com **prioridade elevada** nas regras de detecção | Coverage efectiva |
+
+!!! danger "Decisão estruturante deste caso"
+    O Caso 4 obriga a uma decisão que **não aparece nos Casos 1 e 2**: **o framework MaGMa standard não cobre BEC limpamente**. O grupo tem de escolher entre **forçar encaixe** (rápido, impreciso) ou **estender o framework** (rigoroso, mais lento). **A decisão certa é a segunda**, mas exige documentar a proposta no Excel e justificar nos *Comments*. **Este é exactamente o tipo de decisão que diferencia um SOC maduro de um SOC operacional cego.**
+
+!!! tip "Mensagem pedagógica deste exemplo"
+    Três lições do Caso 4:
+
+    1. **A taxonomia não é dogma.** Quando o framework não cobre, **estende-o com rigor** — não force encaixes. **`AO-IMP` é uma proposta legítima**, justificada e reutilizável.
+    2. **BEC é o gap mais caro em valor absoluto** (FBI IC3) **e o menos implementado**. Eff 60% × Impl 40% × Cov 70% = 16.8% — esta proporção é típica e revela onde está o investimento prioritário.
+    3. **Detecção técnica não chega.** O Plano de Melhorias do Caso 4 inclui **controlos organizacionais** (workflow out-of-band, formação) — porque BEC explora processo, não tecnologia. A MaGMa Tool revela o gap; **o playbook + a política operacional fecham-no**.
 
 ---
 
