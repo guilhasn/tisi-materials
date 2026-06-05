@@ -277,9 +277,10 @@ Para servir de guia ao trabalho dos restantes casos, segue-se uma resolução de
 
 ### Passo 8 — Interpretar Results
 
-$$\text{Weight} = 70\% \times 60\% \times 80\% = \mathbf{33.6\%}$$
-
-$$\text{Potential} = 70\% - 33.6\% = \mathbf{36.4\%}$$
+| Métrica | Fórmula | Resultado |
+|---------|---------|:---------:|
+| **Weight** | `70% × 60% × 80%` | **33.6%** |
+| **Potential** | `70% − 33.6%` | **36.4%** |
 
 **Leitura:** a detecção é **razoável em teoria** (Eff 70%) mas a **capacidade real é fraca** (Weight 33.6%) porque a **implementação está incompleta** e a **cobertura não é total**. **O potencial de melhoria é elevado** — investir em afinação (implementação) traz o maior retorno.
 
