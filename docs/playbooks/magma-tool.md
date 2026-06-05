@@ -343,7 +343,6 @@ Use estas perguntas para fechar a aula com debate:
 [:material-file-word: Cheat-sheet do Método](../gestao_incidentes/playbook-cheatsheet-metodo.docx){ .md-button }
 
 - **MaGMa UCF Tool** — ferramenta Excel original (FI-ISAC NL, v1.0). 9 separadores, 500+ L3 use cases mapeados.
-- **Ficha 2** — ficha de trabalho com objetivos de aprendizagem, conceitos essenciais, template de resposta por grupo, 3 casos práticos, critérios de avaliação.
 - **Cheat-sheet do Método** — referência rápida de bolso com o método de 10 passos + 5 erros a evitar + mapeamentos MITRE ATT&CK.
 
 ---
