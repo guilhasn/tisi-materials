@@ -223,19 +223,21 @@ Cada grupo escolhe (ou recebe) um dos seguintes casos. **Não há respostas úni
 
 ---
 
-## 8. Exemplo resolvido — Caso 1 passo a passo
+## 8. Exemplos resolvidos
 
-Para servir de guia ao trabalho dos restantes casos, segue-se uma resolução demonstrativa do Caso 1.
+Para servir de guia ao trabalho dos restantes casos, seguem-se **duas resoluções demonstrativas** — Caso 1 (conta M365 comprometida) e Caso 2 (ransomware em servidor de ficheiros).
 
-### Passo 1 — Ler o cenário (fora do Excel)
+### Caso 1 — Conta institucional Microsoft 365 comprometida
+
+#### Passo 1 — Ler o cenário (fora do Excel)
 
 **Ameaça:** conta institucional comprometida via phishing → login não autorizado → tentativa de configurar persistência (regra de forwarding).
 
-### Passo 2 — Definir o risco de negócio (Business Layer)
+#### Passo 2 — Definir o risco de negócio (Business Layer)
 
 > *Proteger a confidencialidade dos dados académicos e a continuidade do serviço de email/colaboração. Cumprir o RGPD relativamente a dados de estudantes.*
 
-### Passo 3 — Identificar ameaça + MITRE ATT&CK (Threat Layer)
+#### Passo 3 — Identificar ameaça + MITRE ATT&CK (Threat Layer)
 
 | Aspecto | Valor |
 |---------|-------|
@@ -243,20 +245,20 @@ Para servir de guia ao trabalho dos restantes casos, segue-se uma resolução de
 | Actor provável | *Professional Criminals* (lucro via venda de acesso) ou *Multiple Actors* (variado) |
 | MITRE ATT&CK | **T1078** Valid Accounts · **T1566.002** Phishing Link · **T1098.002** Account Manipulation (forwarding rule) |
 
-### Passo 4 — Escolher L1 e L2 no Excel
+#### Passo 4 — Escolher L1 e L2 no Excel
 
 | Separador | Valor escolhido |
 |-----------|-----------------|
 | **L1 UC** | `AO` Actions on Objectives |
 | **L2 UC** | `AO-ACC` Account breached |
 
-### Passo 5 — Escolher L3 técnico
+#### Passo 5 — Escolher L3 técnico
 
 | Separador | Valor |
 |-----------|-------|
 | **L3 UC** | `AO-ACC-01` Detect Unauthorized Usage of Valid Accounts |
 
-### Passo 6 — Implementation Layer (colunas N-Q do L3)
+#### Passo 6 — Implementation Layer (colunas N-Q do L3)
 
 | Coluna | Valor |
 |--------|-------|
@@ -265,7 +267,7 @@ Para servir de guia ao trabalho dos restantes casos, segue-se uma resolução de
 | P — Scope | *All users* (com peso adicional a Administrators e VIPs) |
 | Q — Comments | *Detectar login fora do padrão (geo, ASN, device), falhas sucessivas, alteração MFA, criação de regras de forwarding suspeitas. Correlacionar com risk score do Entra ID Identity Protection.* |
 
-### Passo 7 — Métricas (colunas I-K do L3)
+#### Passo 7 — Métricas (colunas I-K do L3)
 
 > Cenário: temos logs do Entra ID e alertas básicos do Defender, mas falta integrar MFA no SIEM, não há UEBA e cobertura ainda não é total.
 
@@ -275,7 +277,7 @@ Para servir de guia ao trabalho dos restantes casos, segue-se uma resolução de
 | **Implementation** | **60%** | Regras existem no Defender mas pouco afinadas; eventos de MFA não totalmente correlacionados no SIEM. |
 | **Coverage** | **80%** | Quase todos os utilizadores cobertos; alguns serviços legados/identidades partilhadas fora do âmbito. |
 
-### Passo 8 — Interpretar Results
+#### Passo 8 — Interpretar Results
 
 | Métrica | Fórmula | Resultado |
 |---------|---------|:---------:|
@@ -284,7 +286,7 @@ Para servir de guia ao trabalho dos restantes casos, segue-se uma resolução de
 
 **Leitura:** a detecção é **razoável em teoria** (Eff 70%) mas a **capacidade real é fraca** (Weight 33.6%) porque a **implementação está incompleta** e a **cobertura não é total**. **O potencial de melhoria é elevado** — investir em afinação (implementação) traz o maior retorno.
 
-### Passo 9 — Plano de melhorias
+#### Passo 9 — Plano de melhorias
 
 | Prioridade | Acção | Impacto esperado em |
 |:----------:|-------|----------------------|
@@ -297,6 +299,92 @@ Para servir de guia ao trabalho dos restantes casos, segue-se uma resolução de
 
 !!! tip "Mensagem pedagógica deste exemplo"
     Com `Eff 70% / Impl 60% / Cov 80%`, o **Weight é 33.6%** — menos de metade da Effectiveness. Esta é a **mensagem central da MaGMa Tool**: uma detecção **boa em teoria mas mal operacionalizada vale pouco em produção**. **Investir em Implementation costuma ter o maior ROI**.
+
+---
+
+### Caso 2 — Ransomware em servidor de ficheiros
+
+#### Passo 1 — Ler o cenário (fora do Excel)
+
+**Ameaça:** ransomware num endpoint propaga-se ao servidor de ficheiros partilhado. Sinais característicos: alteração massiva de ficheiros + extensões anómalas + PowerShell suspeito no endpoint + **tentativa de eliminação de *shadow copies*** (inibição de recuperação) + aumento abrupto de I/O no servidor.
+
+> **Conceito-chave:** a ameaça tem **dois vectores observáveis simultaneamente** — a **execução maliciosa no endpoint** (PowerShell, ferramentas de eliminação) e o **impacto no servidor** (cifragem massiva). Cobertura ideal exige **detecção em ambos**.
+
+#### Passo 2 — Definir o risco de negócio (Business Layer)
+
+> *Garantir a continuidade dos serviços públicos da organização (acesso a documentos partilhados entre várias unidades). Proteger a integridade e disponibilidade da informação documental. Cumprir o **DL 125/2025 (NIS2)** caso a organização seja entidade essencial/importante. Evitar paragem operacional e perda de dados não recuperáveis.*
+
+#### Passo 3 — Identificar ameaça + MITRE ATT&CK (Threat Layer)
+
+| Aspecto | Valor |
+|---------|-------|
+| Tipo de ameaça | Ransomware (cifragem massiva + inibição de recuperação) |
+| Actor provável | *Professional Criminals* / grupo de ransomware com objectivo financeiro (RaaS típico) |
+| MITRE ATT&CK | **T1486** Data Encrypted for Impact · **T1490** Inhibit System Recovery (shadow copy deletion) · **T1059.001** Command and Scripting Interpreter: PowerShell · **T1562.001** Impair Defenses |
+
+#### Passo 4 — Escolher L1 e L2 no Excel
+
+| Separador | Valor escolhido |
+|-----------|-----------------|
+| **L1 UC** | `AO` Actions on Objectives |
+| **L2 UC** | `AO-FIL` File corruption, encryption and unauthorized access |
+
+#### Passo 5 — Escolher L3 técnico
+
+A ameaça tem dois vectores. **Recomenda-se preencher um L3 primário e um L3 complementar**:
+
+| Tipo | Separador | Valor |
+|------|-----------|-------|
+| **L3 primário** | L3 UC | `AO-FIL-01` Detect mass file encryption / anomalous file modifications |
+| **L3 complementar** (sugerido) | L3 UC | `AO-FIL-02` Detect Inhibit System Recovery (`vssadmin delete shadows`, `wmic shadowcopy delete`, `bcdedit`) |
+
+> **Nota:** se um L3 específico para *shadow copy deletion* não existir, **propor um novo L3** seguindo o padrão `L2ID-NN` (ex.: `AO-FIL-08`). Documentar nos comentários a relação com T1490 / T1059.001.
+
+#### Passo 6 — Implementation Layer (colunas N-Q do L3 primário)
+
+| Coluna | Valor |
+|--------|-------|
+| N — Log source type | *OS logging* (Windows Event Logs 4663 file access, 4688 process creation) + *Application log* (logs do servidor de ficheiros, EDR alerts) |
+| O — Detection Technology | *EDR* (CrowdStrike, Defender, SentinelOne) + *SIEM* (correlação massiva I/O) + *Backup integrity monitoring* |
+| P — Scope | *Servers* (com peso máximo em servidores de ficheiros partilhados) + *All workstations* (origem habitual do compromisso) |
+| Q — Comments | *Detectar (a) alteração de extensão em massa por processo único; (b) volume de escritas a `*.locked`/`*.encrypted`/extensões aleatórias; (c) execução de `vssadmin`, `wmic shadowcopy`, `bcdedit /set bootstatuspolicy`; (d) processos pai-filho anómalos `winword.exe → powershell.exe → cmd.exe`; (e) tráfego a domínios .onion ou pools de criptomoeda. Correlacionar EDR + logs de servidor de ficheiros + integridade de backups.* |
+
+#### Passo 7 — Métricas (colunas I-K do L3)
+
+> Cenário: o EDR existe em endpoints e detecta PowerShell suspeito + `vssadmin delete`. **Mas:** nem todos os servidores têm EDR; *file integrity monitoring* não está totalmente activado; não existe regra SIEM consolidada para cifragem massiva.
+
+| Métrica | Valor | Justificação |
+|---------|:-----:|--------------|
+| **Effectiveness** | **75%** | EDR detecta bem o lado do endpoint (PowerShell, shadow copy deletion). Cifragem massiva no servidor é detectável pelo I/O anómalo, mas sem regra SIEM dedicada o sinal pode chegar tarde. |
+| **Implementation** | **45%** | Regras existem no EDR, mas *file integrity monitoring* no servidor de ficheiros está parcial; não há regra SIEM consolidada que correlacione EDR endpoint + I/O massivo no servidor; alertas de backup não estão integrados. |
+| **Coverage** | **60%** | Nem todos os servidores têm EDR instalado; backups locais nem sempre são monitorizados; servidores de ficheiros legados podem ficar fora do scope. |
+
+#### Passo 8 — Interpretar Results
+
+| Métrica | Fórmula | Resultado |
+|---------|---------|:---------:|
+| **Weight** | `75% × 45% × 60%` | **20.25%** |
+| **Potential** | `75% − 20.25%` | **54.75%** |
+
+**Leitura:** apesar de a **detecção ser tecnicamente boa** (Eff 75%, EDR e ATT&CK bem mapeados), a **capacidade real é muito fraca** (Weight ~20%) — porque metade dos servidores não tem EDR (Coverage 60%) e não existe regra SIEM consolidada (Implementation 45%). **O Potential (~55%) é o mais alto dos exemplos** — significa que há margem enorme de melhoria se a organização agir nos gaps de Implementation e Coverage.
+
+#### Passo 9 — Plano de melhorias
+
+| Prioridade | Acção | Impacto esperado em |
+|:----------:|-------|----------------------|
+| 1 | **Implementar EDR em 100% dos servidores** (especialmente file servers, backup servers) | **Coverage** (de 60% para >90%) |
+| 2 | Activar **file integrity monitoring** completo no servidor de ficheiros + alertas em alteração massiva | Implementation |
+| 3 | Criar **regra SIEM** que correlacione EDR endpoint + I/O anómalo + alteração de extensões | Implementation + Effectiveness |
+| 4 | Detecção específica para `vssadmin delete shadows`, `wmic shadowcopy delete`, `bcdedit /set bootstatuspolicy ignoreallfailures` | Effectiveness |
+| 5 | **Integridade de backups** — alertas a qualquer tentativa de eliminação/cifragem de repositório de backup | Effectiveness (anti-T1490) |
+| 6 | Operacionalizar o **[Playbook de Ransomware](../gestao_incidentes/playbook-ransomware.docx)** com tabletop trimestral | Out-of-tool, mas crítico para resposta |
+| 7 | Pre-decidir **decisão crítica do PRI**: isolar endpoint imediatamente (preservar shadow copies + logs voláteis em RAM antes) | Out-of-tool — playbook |
+
+!!! danger "Decisão crítica explicitada no cenário"
+    O Caso 2 obriga a decidir entre **isolar imediatamente** (rápido, mas pode destruir evidência) ou **preservar evidência antes** (dump de memória, snapshots) — esta decisão **não pertence à MaGMa Tool**, pertence ao **playbook de Ransomware** activado *após* o use case detectar o incidente. **A MaGMa Tool detecta; o playbook responde.**
+
+!!! tip "Mensagem pedagógica deste exemplo"
+    O Caso 2 ilustra a **diferença entre Effectiveness e Weight** de forma ainda mais dramática que o Caso 1: **Eff 75% → Weight 20.25%**. A regra é boa, mas **um terço dos servidores não tem EDR**. Esta é a lição operacional fundamental: **regras brilhantes em sistemas mal cobertos valem muito pouco**. **Em ransomware, a Coverage é frequentemente o gap principal — e o mais caro de fechar (licenças EDR por servidor)**.
 
 ---
 
